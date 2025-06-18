@@ -212,7 +212,11 @@ export default function Quote() {
                           <Textarea
                             rows={4}
                             placeholder="Please describe your cleaning needs, space size, frequency, and any specific requirements..."
-                            {...field}
+                            value={field.value || ""}
+                            onChange={field.onChange}
+                            onBlur={field.onBlur}
+                            name={field.name}
+                            ref={field.ref}
                           />
                         </FormControl>
                         <FormMessage />

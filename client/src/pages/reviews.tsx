@@ -211,7 +211,7 @@ export default function Reviews() {
                           <FormLabel>Rating</FormLabel>
                           <FormControl>
                             <div className="flex space-x-1">
-                              {renderRatingStars(field.value, field.onChange)}
+                              {renderRatingStars(field.value || 5, field.onChange)}
                             </div>
                           </FormControl>
                           <FormMessage />

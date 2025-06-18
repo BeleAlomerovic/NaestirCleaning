@@ -38,6 +38,7 @@ export class MemStorage implements IStorage {
       ...insertBooking,
       id,
       createdAt: new Date(),
+      specialInstructions: insertBooking.specialInstructions || null,
     };
     this.bookings.set(id, booking);
     return booking;
@@ -72,6 +73,7 @@ export class MemStorage implements IStorage {
       ...insertQuote,
       id,
       createdAt: new Date(),
+      description: insertQuote.description || null,
     };
     this.quotes.set(id, quote);
     return quote;
@@ -89,6 +91,7 @@ export class MemStorage implements IStorage {
       ...insertReview,
       id,
       createdAt: new Date(),
+      rating: insertReview.rating || 5,
     };
     this.reviews.set(id, review);
     return review;

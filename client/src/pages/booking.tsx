@@ -255,7 +255,11 @@ export default function Booking() {
                           <Textarea
                             rows={4}
                             placeholder="Any specific requirements or areas of focus for your cleaning service..."
-                            {...field}
+                            value={field.value || ""}
+                            onChange={field.onChange}
+                            onBlur={field.onBlur}
+                            name={field.name}
+                            ref={field.ref}
                           />
                         </FormControl>
                         <FormMessage />

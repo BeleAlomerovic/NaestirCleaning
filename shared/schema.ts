@@ -40,7 +40,7 @@ export const reviews = pgTable("reviews", {
   id: serial("id").primaryKey(),
   customerName: text("customer_name").notNull(),
   service: text("service").notNull(),
-  rating: serial("rating").notNull(),
+  rating: serial("rating").notNull().default(5),
   comment: text("comment").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
