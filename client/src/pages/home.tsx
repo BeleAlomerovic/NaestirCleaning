@@ -10,11 +10,11 @@ export default function Home() {
     <PageTransition>
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-naestir-primary to-blue-600 text-white py-20">
+        <section className="relative bg-gradient-to-br from-naestir-primary to-naestir-accent text-white py-20">
           <div className="absolute inset-0 bg-black bg-opacity-40"></div>
           <div
             style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')",
+              backgroundImage: "url('https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -25,8 +25,8 @@ export default function Home() {
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
               Reliable, thorough, and professional cleaning solutions for your home, office, and vehicle needs.
             </p>
-            <Link href="/booking">
-              <Button className="bg-naestir-accent hover:bg-green-600 text-white px-8 py-4 text-lg font-semibold shadow-lg">
+            <Link href="/quote">
+              <Button className="bg-naestir-accent hover:bg-cyan-500 text-white px-8 py-4 text-lg font-semibold shadow-lg">
                 Get Your Free Quote
               </Button>
             </Link>
@@ -64,11 +64,11 @@ export default function Home() {
               ))}
 
               {/* Get an Offer Card */}
-              <Card className="bg-gradient-to-br from-naestir-accent to-green-600 text-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200">
+              <Card className="bg-gradient-to-br from-naestir-accent to-naestir-primary text-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200">
                 <CardContent className="p-6 flex flex-col justify-center h-full">
                   <h3 className="text-xl font-semibold mb-3">Need a Custom Quote?</h3>
                   <p className="mb-4 opacity-90">Get a personalized estimate for your specific cleaning requirements.</p>
-                  <Link href="/booking">
+                  <Link href="/quote">
                     <Button className="bg-white text-naestir-accent hover:bg-gray-100 px-6 py-3 font-medium">
                       Get Free Estimate
                     </Button>
@@ -124,17 +124,24 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-naestir-primary to-blue-600 text-white">
+        <section className="py-20 bg-gradient-to-r from-naestir-primary to-naestir-accent text-white">
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Experience the Næstir Difference?</h2>
             <p className="text-xl mb-8 opacity-90">
               Get your personalized cleaning quote today and join hundreds of satisfied customers.
             </p>
-            <Link href="/booking">
-              <Button className="bg-white text-naestir-primary hover:bg-gray-100 px-8 py-4 text-lg font-semibold shadow-lg">
-                Schedule Your Service
-              </Button>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/quote">
+                <Button className="bg-white text-naestir-primary hover:bg-gray-100 px-8 py-4 text-lg font-semibold shadow-lg">
+                  Get Free Quote
+                </Button>
+              </Link>
+              <Link href="/booking">
+                <Button className="bg-naestir-dark hover:bg-opacity-80 px-8 py-4 text-lg font-semibold shadow-lg">
+                  Book Appointment
+                </Button>
+              </Link>
+            </div>
           </div>
         </section>
       </div>

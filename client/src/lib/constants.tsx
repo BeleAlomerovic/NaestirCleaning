@@ -3,31 +3,43 @@ export const services = [
     id: "apartment",
     name: "Apartment Cleaning",
     description: "Complete residential cleaning services including kitchens, bathrooms, bedrooms, and living areas.",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
+    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+    icon: "🏠"
   },
   {
     id: "blocks",
     name: "Blocks Cleaning",
     description: "Comprehensive cleaning services for apartment blocks, common areas, and residential complexes.",
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+    icon: "🏢"
   },
   {
     id: "corporate",
     name: "Corporate Cleaning",
     description: "Professional office and commercial space cleaning with flexible scheduling and maintenance.",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+    icon: "🏢"
   },
   {
     id: "carwash",
     name: "Car Wash",
     description: "Premium vehicle cleaning services including exterior wash, interior detailing, and protective treatments.",
-    image: "https://images.unsplash.com/photo-1544967882-9b7ecc0b8f19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
+    image: "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+    icon: "🚗"
+  },
+  {
+    id: "carpet",
+    name: "Carpet Cleaning",
+    description: "Deep carpet cleaning using advanced steam cleaning and stain removal techniques.",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+    icon: "🧽"
   },
   {
     id: "garbage",
     name: "Garbage Can Cleaning",
     description: "Hygienic cleaning and sanitization of waste containers to eliminate odors and bacteria.",
-    image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400"
+    image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+    icon: "🗑️"
   }
 ];
 

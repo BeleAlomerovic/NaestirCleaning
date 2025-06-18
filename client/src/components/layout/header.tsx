@@ -9,6 +9,7 @@ export function Header() {
 
   const navigation = [
     { name: "Home", href: "/" },
+    { name: "Get Quote", href: "/quote" },
     { name: "Book Appointment", href: "/booking" },
     { name: "Reviews", href: "/reviews" },
     { name: "About Us", href: "/about" }

@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertBookingSchema, insertContactMessageSchema } from "@shared/schema";
+import { insertBookingSchema, insertContactMessageSchema, insertQuoteSchema, insertReviewSchema } from "@shared/schema";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -50,6 +50,54 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json(messages);
     } catch (error) {
       res.status(500).json({ message: "Failed to retrieve messages" });
+    }
+  });
+
+  // Quote routes
+  app.post("/api/quotes", async (req, res) => {
+    try {
+      const validatedData = insertQuoteSchema.parse(req.body);
+      const quote = await storage.createQuote(validatedData);
+      res.json(quote);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        res.status(400).json({ message: "Invalid quote data", errors: error.errors });
+      } else {
+        res.status(500).json({ message: "Failed to create quote" });
+      }
+    }
+  });
+
+  app.get("/api/quotes", async (req, res) => {
+    try {
+      const quotes = await storage.getQuotes();
+      res.json(quotes);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to retrieve quotes" });
+    }
+  });
+
+  // Review routes
+  app.post("/api/reviews", async (req, res) => {
+    try {
+      const validatedData = insertReviewSchema.parse(req.body);
+      const review = await storage.createReview(validatedData);
+      res.json(review);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        res.status(400).json({ message: "Invalid review data", errors: error.errors });
+      } else {
+        res.status(500).json({ message: "Failed to create review" });
+      }
+    }
+  });
+
+  app.get("/api/reviews", async (req, res) => {
+    try {
+      const reviews = await storage.getReviews();
+      res.json(reviews);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to retrieve reviews" });
     }
   });
 

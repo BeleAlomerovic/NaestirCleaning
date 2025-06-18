@@ -116,7 +116,7 @@ export default function About() {
           </div>
 
           {/* Contact Information */}
-          <Card className="bg-gradient-to-br from-naestir-primary to-blue-600 rounded-2xl text-white">
+          <Card className="bg-gradient-to-br from-naestir-primary to-naestir-accent rounded-2xl text-white">
             <CardContent className="p-8 md:p-12">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div>
@@ -142,12 +142,19 @@ export default function About() {
                 </div>
                 <div className="text-center lg:text-right">
                   <h3 className="text-xl font-semibold mb-4">Ready to Get Started?</h3>
-                  <p className="mb-6 opacity-90">Book your cleaning service today and experience the Næstir difference.</p>
-                  <Link href="/booking">
-                    <Button className="bg-white text-naestir-primary hover:bg-gray-100 px-8 py-4 text-lg font-semibold shadow-lg">
-                      Schedule Service
-                    </Button>
-                  </Link>
+                  <p className="mb-6 opacity-90">Get your free quote or schedule your cleaning service today.</p>
+                  <div className="flex flex-col sm:flex-row gap-3 justify-end">
+                    <Link href="/quote">
+                      <Button className="bg-white text-naestir-primary hover:bg-gray-100 px-6 py-3 text-lg font-semibold shadow-lg">
+                        Get Quote
+                      </Button>
+                    </Link>
+                    <Link href="/booking">
+                      <Button className="bg-naestir-dark hover:bg-opacity-80 px-6 py-3 text-lg font-semibold shadow-lg">
+                        Book Service
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </CardContent>

@@ -1,11 +1,31 @@
-import { Star } from "lucide-react";
+import { useState } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Star, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Link } from "wouter";
 import { PageTransition } from "@/components/page-transition";
-import { reviewsData } from "@/lib/constants";
+import { reviewsData, services } from "@/lib/constants";
+import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
+import { insertReviewSchema } from "@shared/schema";
+
+const reviewFormSchema = insertReviewSchema;
+type ReviewFormData = z.infer<typeof reviewFormSchema>;
 
 export default function Reviews() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const { toast } = useToast();
+  const queryClient = useQueryClient();
+
   const stats = {
     totalReviews: "250+",
     averageRating: "4.9",
@@ -13,11 +33,60 @@ export default function Reviews() {
     satisfaction: "98%",
   };
 
+  const form = useForm<ReviewFormData>({
+    resolver: zodResolver(reviewFormSchema),
+    defaultValues: {
+      customerName: "",
+      service: "",
+      rating: 5,
+      comment: "",
+    },
+  });
+
+  const createReview = useMutation({
+    mutationFn: async (data: ReviewFormData) => {
+      const response = await apiRequest("POST", "/api/reviews", data);
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Review Submitted!",
+        description: "Thank you for your feedback. Your review has been published.",
+      });
+      form.reset();
+      setIsDialogOpen(false);
+      queryClient.invalidateQueries({ queryKey: ["/api/reviews"] });
+    },
+    onError: (error) => {
+      toast({
+        title: "Review Submission Failed",
+        description: error.message || "There was an error submitting your review. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const onSubmit = async (data: ReviewFormData) => {
+    await createReview.mutateAsync(data);
+  };
+
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
         key={i}
         className={`w-5 h-5 ${i < rating ? "text-yellow-400 fill-current" : "text-gray-300"}`}
+      />
+    ));
+  };
+
+  const renderRatingStars = (rating: number, onRatingChange: (rating: number) => void) => {
+    return Array.from({ length: 5 }, (_, i) => (
+      <Star
+        key={i}
+        className={`w-6 h-6 cursor-pointer transition-colors ${
+          i < rating ? "text-yellow-400 fill-current" : "text-gray-300 hover:text-yellow-300"
+        }`}
+        onClick={() => onRatingChange(i + 1)}
       />
     ));
   };
@@ -77,15 +146,126 @@ export default function Reviews() {
             ))}
           </div>
 
-          {/* CTA Section */}
+          {/* Add Review Section */}
           <div className="text-center mt-16">
+            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+              <DialogTrigger asChild>
+                <Button className="bg-naestir-accent hover:bg-cyan-500 text-white px-6 py-3 text-lg font-semibold shadow-lg mb-8">
+                  <Plus className="w-5 h-5 mr-2" />
+                  Leave a Review
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[600px]">
+                <DialogHeader>
+                  <DialogTitle>Leave a Review</DialogTitle>
+                  <DialogDescription>
+                    Share your experience with Næstir cleaning services.
+                  </DialogDescription>
+                </DialogHeader>
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <FormField
+                      control={form.control}
+                      name="customerName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Your Name</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Enter your full name" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="service"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Service Used</FormLabel>
+                          <Select onValueChange={field.onChange} value={field.value}>
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select the service you used" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {services.map((service) => (
+                                <SelectItem key={service.id} value={service.name}>
+                                  {service.name}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="rating"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Rating</FormLabel>
+                          <FormControl>
+                            <div className="flex space-x-1">
+                              {renderRatingStars(field.value, field.onChange)}
+                            </div>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="comment"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Your Review</FormLabel>
+                          <FormControl>
+                            <Textarea
+                              rows={4}
+                              placeholder="Tell us about your experience with our cleaning service..."
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <Button
+                      type="submit"
+                      disabled={createReview.isPending}
+                      className="w-full bg-naestir-primary hover:bg-cyan-600 text-white py-3 font-semibold"
+                    >
+                      {createReview.isPending ? "Submitting Review..." : "Submit Review"}
+                    </Button>
+                  </form>
+                </Form>
+              </DialogContent>
+            </Dialog>
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center mt-8">
             <h3 className="text-2xl font-bold text-naestir-dark mb-4">Ready to Join Our Happy Customers?</h3>
             <p className="text-lg text-naestir-secondary mb-8">Experience the Næstir difference for yourself.</p>
-            <Link href="/booking">
-              <Button className="bg-naestir-primary hover:bg-blue-600 text-white px-8 py-4 text-lg font-semibold shadow-lg">
-                Book Your Service
-              </Button>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/quote">
+                <Button className="bg-naestir-accent hover:bg-cyan-500 text-white px-8 py-4 text-lg font-semibold shadow-lg">
+                  Get Free Quote
+                </Button>
+              </Link>
+              <Link href="/booking">
+                <Button className="bg-naestir-primary hover:bg-cyan-600 text-white px-8 py-4 text-lg font-semibold shadow-lg">
+                  Book Your Service
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
