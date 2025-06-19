@@ -272,7 +272,7 @@ export default function Booking() {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-naestir-primary hover:bg-cyan-600 text-white py-4 text-lg font-semibold shadow-lg"
+                      className="w-full bg-naestir-primary hover:bg-purple-600 text-white py-4 text-lg font-semibold shadow-lg"
                     >
                       {isSubmitting ? "Booking Appointment..." : "Book Appointment"}
                     </Button>

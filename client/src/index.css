@@ -24,12 +24,12 @@
   --ring: hsl(20, 14.3%, 4.1%);
   --radius: 0.5rem;
   
-  /* Custom colors for Næstir - Light Blue Theme */
-  --naestir-primary: hsl(195, 85%, 55%);
-  --naestir-secondary: hsl(200, 30%, 45%);
-  --naestir-accent: hsl(190, 70%, 50%);
-  --naestir-neutral: hsl(200, 50%, 98%);
-  --naestir-dark: hsl(200, 25%, 20%);
+  /* Custom colors for Næstir - Light Purple Theme */
+  --naestir-primary: hsl(270, 50%, 65%);
+  --naestir-secondary: hsl(260, 25%, 45%);
+  --naestir-accent: hsl(280, 60%, 70%);
+  --naestir-neutral: hsl(270, 40%, 98%);
+  --naestir-dark: hsl(260, 30%, 25%);
 }
 
 .dark {

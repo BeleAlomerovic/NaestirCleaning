@@ -150,7 +150,7 @@ export default function Reviews() {
           <div className="text-center mt-16">
             <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
               <DialogTrigger asChild>
-                <Button className="bg-naestir-accent hover:bg-cyan-500 text-white px-6 py-3 text-lg font-semibold shadow-lg mb-8">
+                <Button className="bg-naestir-accent hover:bg-purple-500 text-white px-6 py-3 text-lg font-semibold shadow-lg mb-8">
                   <Plus className="w-5 h-5 mr-2" />
                   Leave a Review
                 </Button>
@@ -240,7 +240,7 @@ export default function Reviews() {
                     <Button
                       type="submit"
                       disabled={createReview.isPending}
-                      className="w-full bg-naestir-primary hover:bg-cyan-600 text-white py-3 font-semibold"
+                      className="w-full bg-naestir-primary hover:bg-purple-600 text-white py-3 font-semibold"
                     >
                       {createReview.isPending ? "Submitting Review..." : "Submit Review"}
                     </Button>
@@ -256,12 +256,12 @@ export default function Reviews() {
             <p className="text-lg text-naestir-secondary mb-8">Experience the Næstir difference for yourself.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/quote">
-                <Button className="bg-naestir-accent hover:bg-cyan-500 text-white px-8 py-4 text-lg font-semibold shadow-lg">
+                <Button className="bg-naestir-accent hover:bg-purple-500 text-white px-8 py-4 text-lg font-semibold shadow-lg">
                   Get Free Quote
                 </Button>
               </Link>
               <Link href="/booking">
-                <Button className="bg-naestir-primary hover:bg-cyan-600 text-white px-8 py-4 text-lg font-semibold shadow-lg">
+                <Button className="bg-naestir-primary hover:bg-purple-600 text-white px-8 py-4 text-lg font-semibold shadow-lg">
                   Book Your Service
                 </Button>
               </Link>

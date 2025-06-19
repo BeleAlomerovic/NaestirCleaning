@@ -66,8 +66,8 @@ export default function About() {
               </div>
 
               <div className="text-center">
-                <div className="bg-blue-500 bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Lightbulb className="w-8 h-8 text-blue-500" />
+                <div className="bg-naestir-accent bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Lightbulb className="w-8 h-8 text-naestir-accent" />
                 </div>
                 <h3 className="text-xl font-semibold text-naestir-dark mb-3">Our Values</h3>
                 <p className="text-naestir-secondary">
@@ -98,16 +98,16 @@ export default function About() {
               </div>
 
               <div className="text-center">
-                <div className="bg-blue-500 bg-opacity-10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-6 h-6 text-blue-500" />
+                <div className="bg-naestir-accent bg-opacity-10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <Heart className="w-6 h-6 text-naestir-accent" />
                 </div>
                 <h3 className="font-semibold text-naestir-dark mb-2">Eco-Friendly Products</h3>
                 <p className="text-sm text-naestir-secondary">Safe, non-toxic cleaning solutions for your family and pets</p>
               </div>
 
               <div className="text-center">
-                <div className="bg-purple-500 bg-opacity-10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Shield className="w-6 h-6 text-purple-500" />
+                <div className="bg-naestir-primary bg-opacity-10 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <Shield className="w-6 h-6 text-naestir-primary" />
                 </div>
                 <h3 className="font-semibold text-naestir-dark mb-2">Insured & Bonded</h3>
                 <p className="text-sm text-naestir-secondary">Complete protection and peace of mind with every service</p>

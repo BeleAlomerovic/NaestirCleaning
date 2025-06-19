@@ -10,8 +10,7 @@ export default function Home() {
     <PageTransition>
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-naestir-primary to-naestir-accent text-white py-20">
-          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <section className="relative h-96 md:h-[500px]">
           <div
             style={{
               backgroundImage: "url('https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')",
@@ -20,13 +19,10 @@ export default function Home() {
             }}
             className="absolute inset-0"
           ></div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Professional Cleaning Services</h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Reliable, thorough, and professional cleaning solutions for your home, office, and vehicle needs.
-            </p>
+          <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+          <div className="relative flex items-end justify-center h-full pb-12">
             <Link href="/quote">
-              <Button className="bg-naestir-accent hover:bg-cyan-500 text-white px-8 py-4 text-lg font-semibold shadow-lg">
+              <Button className="bg-naestir-primary hover:bg-purple-600 text-white px-12 py-6 text-xl font-semibold shadow-lg rounded-full">
                 Get Your Free Quote
               </Button>
             </Link>
@@ -45,36 +41,23 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service) => (
-                <Card key={service.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200">
-                  <img
-                    src={service.image}
-                    alt={service.name}
-                    className="w-full h-48 object-cover"
-                  />
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold text-naestir-dark mb-3">{service.name}</h3>
-                    <p className="text-naestir-secondary mb-4">{service.description}</p>
-                    <Link href="/booking">
-                      <Button variant="link" className="text-naestir-primary hover:text-blue-600 font-medium p-0">
-                        Book Now →
+                <Link key={service.id} href={`/services/${service.id}`}>
+                  <Card className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-200 cursor-pointer hover:scale-105">
+                    <img
+                      src={service.image}
+                      alt={service.name}
+                      className="w-full h-48 object-cover"
+                    />
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-semibold text-naestir-dark mb-3">{service.name}</h3>
+                      <p className="text-naestir-secondary mb-4">{service.description}</p>
+                      <Button variant="link" className="text-naestir-primary hover:text-purple-600 font-medium p-0">
+                        Learn More →
                       </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </Link>
               ))}
-
-              {/* Get an Offer Card */}
-              <Card className="bg-gradient-to-br from-naestir-accent to-naestir-primary text-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200">
-                <CardContent className="p-6 flex flex-col justify-center h-full">
-                  <h3 className="text-xl font-semibold mb-3">Need a Custom Quote?</h3>
-                  <p className="mb-4 opacity-90">Get a personalized estimate for your specific cleaning requirements.</p>
-                  <Link href="/quote">
-                    <Button className="bg-white text-naestir-accent hover:bg-gray-100 px-6 py-3 font-medium">
-                      Get Free Estimate
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </section>
@@ -111,8 +94,8 @@ export default function Home() {
               </div>
 
               <div className="text-center">
-                <div className="bg-blue-500 bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-8 h-8 text-blue-500" />
+                <div className="bg-naestir-accent bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Heart className="w-8 h-8 text-naestir-accent" />
                 </div>
                 <h3 className="text-xl font-semibold text-naestir-dark mb-3">Eco-Friendly</h3>
                 <p className="text-naestir-secondary">
