@@ -158,13 +158,13 @@ export default function Home() {
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-r from-naestir-primary to-naestir-accent text-white">
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Experience the Næstir Difference?</h2>
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6">Ready to Experience the Næstir Difference?</h2>
             <p className="text-xl mb-8 opacity-90">
-              Get your personalized cleaning quote today and join hundreds of satisfied customers.
+              Get your personalized cleaning quote today and join thousands of satisfied customers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/quote">
-                <Button className="bg-white text-naestir-primary hover:bg-gray-100 px-8 py-4 text-lg font-semibold shadow-lg">
+                <Button className="bg-white text-naestir-primary hover:bg-gray-100 px-8 py-4 text-lg font-semibold shadow-lg pulse-animation">
                   Get Free Quote
                 </Button>
               </Link>
