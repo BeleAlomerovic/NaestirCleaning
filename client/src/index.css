@@ -200,7 +200,7 @@
 }
 
 .service-card {
-  transition: all 0.3s ease;
+  transition: none;
 }
 
 .hero-gradient {
@@ -295,6 +295,28 @@
 .thumbtack-logo {
   animation: logoSpotlight 6s ease-in-out infinite;
   animation-delay: 4s;
+}
+
+/* Gallery Animations */
+.gallery-item {
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Before/After Image Transitions */
+.gallery-item img {
+  transition: all 0.5s ease;
+}
+
+.gallery-item:hover .before-image {
+  transform: translateX(-100%);
+}
+
+.gallery-item:hover .after-image {
+  transform: translateX(0);
 }
 
 /* Custom utilities for Næstir */

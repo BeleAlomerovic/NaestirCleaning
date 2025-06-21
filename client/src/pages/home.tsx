@@ -247,6 +247,128 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Gallery Preview Section */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="font-playfair text-4xl md:text-5xl font-bold text-naestir-dark mb-4">
+                See the Difference
+              </h2>
+              <p className="text-xl text-naestir-secondary max-w-3xl mx-auto mb-8">
+                Real results from real homes. Our before and after gallery showcases the transformative power of professional cleaning.
+              </p>
+              <div className="inline-block bg-naestir-primary text-white px-6 py-2 rounded-full text-lg font-semibold">
+                Results-Oriented Cleaning
+              </div>
+            </div>
+
+            {/* Before & After Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Gallery Item 1 */}
+              <div className="gallery-item group cursor-pointer">
+                <div className="relative overflow-hidden rounded-2xl shadow-xl">
+                  <img
+                    src="/assets/AdobeStock_523168323_1750505622955.jpeg"
+                    alt="Before cleaning"
+                    className="w-full h-64 object-cover transition-opacity duration-500 group-hover:opacity-0"
+                  />
+                  <img
+                    src="/assets/AdobeStock_554450129_1750505626910.jpeg"
+                    alt="After cleaning"
+                    className="absolute inset-0 w-full h-64 object-cover opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:transform group-hover:translate-x-0 transform translate-x-full"
+                  />
+                  
+                  {/* Labels */}
+                  <div className="absolute top-4 left-4 bg-black bg-opacity-60 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    Before
+                  </div>
+                  <div className="absolute top-4 right-4 bg-naestir-primary text-white px-3 py-1 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    After
+                  </div>
+
+                  {/* Caption Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/50 to-transparent p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                    <h3 className="text-white font-semibold text-lg mb-1">Stained Carpet → Spotless Finish</h3>
+                    <p className="text-white/80 text-sm">Deep cleaned in 30 minutes</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Gallery Item 2 */}
+              <div className="gallery-item group cursor-pointer">
+                <div className="relative overflow-hidden rounded-2xl shadow-xl">
+                  <img
+                    src="/assets/AdobeStock_560781364_1750505629812.jpeg"
+                    alt="Before cleaning"
+                    className="w-full h-64 object-cover transition-opacity duration-500 group-hover:opacity-0"
+                  />
+                  <img
+                    src="/assets/AdobeStock_689599448_1750505634322.jpeg"
+                    alt="After cleaning"
+                    className="absolute inset-0 w-full h-64 object-cover opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:transform group-hover:translate-y-0 transform translate-y-full"
+                  />
+                  
+                  {/* Labels */}
+                  <div className="absolute top-4 left-4 bg-black bg-opacity-60 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    Before
+                  </div>
+                  <div className="absolute top-4 right-4 bg-naestir-primary text-white px-3 py-1 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    After
+                  </div>
+
+                  {/* Caption Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/50 to-transparent p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                    <h3 className="text-white font-semibold text-lg mb-1">Dirty Kitchen → Sparkling Clean</h3>
+                    <p className="text-white/80 text-sm">Professional deep clean transformation</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Gallery Item 3 */}
+              <div className="gallery-item group cursor-pointer">
+                <div className="relative overflow-hidden rounded-2xl shadow-xl">
+                  <img
+                    src="/assets/AdobeStock_334592268_1750505728985.jpeg"
+                    alt="Before cleaning"
+                    className="w-full h-64 object-cover transition-opacity duration-500 group-hover:opacity-0"
+                  />
+                  <img
+                    src="/assets/AdobeStock_554450129_1750505626910.jpeg"
+                    alt="After cleaning"
+                    className="absolute inset-0 w-full h-64 object-cover opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:transform group-hover:scale-105"
+                  />
+                  
+                  {/* Labels */}
+                  <div className="absolute top-4 left-4 bg-black bg-opacity-60 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    Before
+                  </div>
+                  <div className="absolute top-4 right-4 bg-naestir-primary text-white px-3 py-1 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    After
+                  </div>
+
+                  {/* Caption Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/50 to-transparent p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                    <h3 className="text-white font-semibold text-lg mb-1">Cluttered Room → Organized Space</h3>
+                    <p className="text-white/80 text-sm">Complete home organization service</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="text-center mt-16">
+              <p className="text-lg text-naestir-secondary mb-6">
+                Ready to see these results in your own home?
+              </p>
+              <Link href="/quote">
+                <Button className="bg-naestir-primary hover:bg-purple-600 text-white px-8 py-4 text-lg font-semibold shadow-lg pulse-animation">
+                  Get Your Free Quote Today
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Why Choose Us Section */}
         <section className="py-20 bg-naestir-neutral">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
