@@ -545,71 +545,58 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Why Choose Us Section */}
-        <section className="py-20 bg-naestir-neutral">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="font-playfair text-4xl md:text-5xl font-bold text-naestir-dark mb-4">Why Choose Næstir?</h2>
-              <p className="text-xl text-naestir-secondary max-w-3xl mx-auto">
-                We combine years of experience with modern techniques to deliver exceptional cleaning results every time.
-              </p>
-            </div>
+        {/* Floating Action Bar */}
+        <div 
+          className={`fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ${
+            showFloatingBar ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
+          } ${isScrolled ? 'scale-95' : 'scale-100'}`}
+        >
+          <div 
+            className="floating-action-bar flex items-center space-x-1 p-2 rounded-full"
+            style={{
+              backdropFilter: 'blur(10px)',
+              background: 'rgba(230, 230, 250, 0.4)',
+              borderRadius: '24px',
+              boxShadow: '0 4px 24px rgba(128, 0, 128, 0.15)'
+            }}
+          >
+            {/* Call Button */}
+            <button 
+              className="floating-action-btn group relative"
+              onClick={() => window.location.href = 'tel:+1234567890'}
+            >
+              <Phone className="w-5 h-5 text-white" />
+              <div className="tooltip">Speak to Us</div>
+            </button>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center fade-in-up">
-                <div className="bg-naestir-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-naestir-primary" />
-                </div>
-                <h3 className="text-xl font-semibold text-naestir-dark mb-3">Expert Team</h3>
-                <p className="text-naestir-secondary">
-                  Our trained and insured professionals bring expertise and attention to detail to every job.
-                </p>
-              </div>
+            {/* Book Button */}
+            <Link href="/quote">
+              <button className="floating-action-btn group relative">
+                <Calendar className="w-5 h-5 text-white" />
+                <div className="tooltip">Book Instantly</div>
+              </button>
+            </Link>
 
-              <div className="text-center fade-in-up" style={{animationDelay: '0.2s'}}>
-                <div className="bg-naestir-accent bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-8 h-8 text-naestir-accent" />
-                </div>
-                <h3 className="text-xl font-semibold text-naestir-dark mb-3">Eco-Friendly</h3>
-                <p className="text-naestir-secondary">
-                  Using environmentally safe products and sustainable cleaning practices for a healthier environment.
-                </p>
-              </div>
+            {/* Reviews Button */}
+            <Link href="/reviews">
+              <button className="floating-action-btn group relative">
+                <MessageSquare className="w-5 h-5 text-white" />
+                <div className="tooltip">Read Reviews</div>
+              </button>
+            </Link>
 
-              <div className="text-center fade-in-up" style={{animationDelay: '0.4s'}}>
-                <div className="bg-naestir-secondary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Award className="w-8 h-8 text-naestir-secondary" />
-                </div>
-                <h3 className="text-xl font-semibold text-naestir-dark mb-3">Satisfaction Guaranteed</h3>
-                <p className="text-naestir-secondary">
-                  We stand behind our work with a 100% satisfaction guarantee on all our cleaning services.
-                </p>
-              </div>
-            </div>
+            {/* Service Area Button */}
+            <button 
+              className="floating-action-btn group relative"
+              onClick={() => {
+                window.open('https://maps.google.com', '_blank');
+              }}
+            >
+              <MapPin className="w-5 h-5 text-white" />
+              <div className="tooltip">Service Area</div>
+            </button>
           </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-naestir-primary to-naestir-accent text-white">
-          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6">Ready to Experience the Næstir Difference?</h2>
-            <p className="text-xl mb-8 opacity-90">
-              Get your personalized cleaning quote today and join thousands of satisfied customers.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/quote">
-                <Button className="bg-white text-naestir-primary hover:bg-gray-100 px-8 py-4 text-lg font-semibold shadow-lg pulse-animation">
-                  Get Free Quote
-                </Button>
-              </Link>
-              <Link href="/booking">
-                <Button className="bg-naestir-dark hover:bg-opacity-80 px-8 py-4 text-lg font-semibold shadow-lg">
-                  Book Appointment
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
+        </div>
       </div>
     </PageTransition>
   );
