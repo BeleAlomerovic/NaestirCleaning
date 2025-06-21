@@ -1,34 +1,11 @@
-import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Users, Heart, Award, Phone, Calendar, MessageSquare, MapPin } from "lucide-react";
+import { Users, Heart, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageTransition } from "@/components/page-transition";
 import { services } from "@/lib/constants";
 
 export default function Home() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [showFloatingBar, setShowFloatingBar] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      // Show/hide based on scroll direction
-      if (currentScrollY > lastScrollY) {
-        setShowFloatingBar(false); // Scrolling down
-      } else {
-        setShowFloatingBar(true); // Scrolling up
-      }
-      
-      setIsScrolled(currentScrollY > 100);
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
   return (
     <PageTransition>
       <div className="min-h-screen">
@@ -531,72 +508,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* CTA */}
-            <div className="text-center mt-20">
-              <p className="text-xl text-naestir-secondary mb-8 font-light">
-                Ready to see these results in your own space?
-              </p>
-              <Link href="/quote">
-                <Button className="bg-naestir-primary hover:bg-purple-600 text-white px-12 py-6 text-xl font-semibold shadow-2xl pulse-animation rounded-full">
-                  Get Your Free Quote Today
-                </Button>
-              </Link>
-            </div>
           </div>
         </section>
-
-        {/* Floating Action Bar */}
-        <div 
-          className={`fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ${
-            showFloatingBar ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
-          } ${isScrolled ? 'scale-95' : 'scale-100'}`}
-        >
-          <div 
-            className="floating-action-bar flex items-center space-x-1 p-2 rounded-full"
-            style={{
-              backdropFilter: 'blur(10px)',
-              background: 'rgba(230, 230, 250, 0.4)',
-              borderRadius: '24px',
-              boxShadow: '0 4px 24px rgba(128, 0, 128, 0.15)'
-            }}
-          >
-            {/* Call Button */}
-            <button 
-              className="floating-action-btn group relative"
-              onClick={() => window.location.href = 'tel:+1234567890'}
-            >
-              <Phone className="w-5 h-5 text-white" />
-              <div className="tooltip">Speak to Us</div>
-            </button>
-
-            {/* Book Button */}
-            <Link href="/quote">
-              <button className="floating-action-btn group relative">
-                <Calendar className="w-5 h-5 text-white" />
-                <div className="tooltip">Book Instantly</div>
-              </button>
-            </Link>
-
-            {/* Reviews Button */}
-            <Link href="/reviews">
-              <button className="floating-action-btn group relative">
-                <MessageSquare className="w-5 h-5 text-white" />
-                <div className="tooltip">Read Reviews</div>
-              </button>
-            </Link>
-
-            {/* Service Area Button */}
-            <button 
-              className="floating-action-btn group relative"
-              onClick={() => {
-                window.open('https://maps.google.com', '_blank');
-              }}
-            >
-              <MapPin className="w-5 h-5 text-white" />
-              <div className="tooltip">Service Area</div>
-            </button>
-          </div>
-        </div>
       </div>
     </PageTransition>
   );
