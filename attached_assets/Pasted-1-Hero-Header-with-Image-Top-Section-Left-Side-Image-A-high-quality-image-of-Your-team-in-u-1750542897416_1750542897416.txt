@@ -1,0 +1,65 @@
+1. Hero Header with Image (Top Section)
+📷 Left Side: Image
+
+A high-quality image of:
+Your team in uniform
+Clean, bright interior (kitchen, living room)
+Person with clipboard doing inspection
+Style: Rounded corners, subtle drop shadow, responsive (fills 40% of screen on desktop, hides on mobile)
+
+✍️ Right Side: Text
+
+Headline: “Request Your Free Quote”
+Subheadline: “Our team will contact you within 24 hours with a custom estimate.”
+🟣 CTA button scrolls to form: Start Your Request
+2. The Form Section — Visual Card Design
+📷 Background Image (Faint, fixed or faded)
+
+Light, blurred photo of someone vacuuming or mopping
+Set to low opacity or behind a white card (opacity: 0.05)
+Keeps focus on form while adding visual interest
+📄 Form Design
+
+Centered white box with rounded edges & soft shadows
+Decorative icon at top (broom, sparkle, checklist)
+Field layout (clean, with padding):
+
+Field	Image/Icon idea
+Service Type	Icon for each service (e.g. car, house)
+Date Picker	Calendar icon
+Notes	Small notepad icon
+✅ Add small preview icons or illustrations beside select fields for added polish
+
+3. Trust Builder Image (Below Form or Side)
+📷 Strip of 2–3 customer images or testimonials
+
+Can show a happy client, cleaner at work, or a "before/after" effect
+Overlay quote text:
+“They made our office shine again! – Rebecca A.”
+Use a carousel or static image with subtle border
+
+4. Thank You Screen (After Form Submission)
+📷 Illustration or Photo:
+
+Envelope being delivered
+Team waving or smiling
+Clean home interior with sun lighting
+Text:
+✅ “Thanks! We’ll be in touch within 24 hours.”
+Link: Return to Home or Explore Services
+
+🎨 VISUAL STYLE
+
+Element	Style
+Images	Rounded, soft shadows, muted overlays if needed
+Colors	Lavender/white base, dark purple text/buttons
+Layout	Max-width container, vertical spacing, mobile-friendly
+Typography	Use pairing: modern sans-serif (Lato or Inter), maybe a soft serif for headings
+🔧 Recommended Image Placement Summary:
+
+Section	Type of Image
+Hero/Header	Full-height photo of team or cleaning scene
+Form Section	Light background image (blurred or subtle)
+Sidebar or Divider	Small service icons/illustrations
+Bottom	Testimonial photo or client review with image
+Confirmation	Illustration of success (sparkle, envelope, etc.)
