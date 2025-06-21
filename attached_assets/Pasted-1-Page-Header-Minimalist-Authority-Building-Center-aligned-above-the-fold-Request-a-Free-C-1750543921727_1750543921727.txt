@@ -1,0 +1,73 @@
+1. Page Header (Minimalist + Authority-Building)
+Center-aligned, above the fold:
+
+[ Request a Free Cleaning Quote ]
+
+We’ll review your request and get back to you within 24 hours.
+Style:
+
+Large, bold heading (font-weight: 600+)
+Subtitle in muted gray or dark purple (#6C6C6C)
+Horizontal line or divider below (soft lavender tone)
+Optional: Small trust icons under text (like checkmarks)
+✅ 2. The Form (Main Section)
+A single centered card-style form, beautifully spaced.
+
+Form container design:
+
+max-width: 600px;
+padding: 2rem;
+border-radius: 12px;
+background: white;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+✍️ Fields:
+
+Field	Input Type
+Full Name	Text
+Email Address	Email
+Phone Number	Tel
+Service Type	Dropdown (clean, simple)
+Cleaning Frequency	Dropdown
+Property Size	Dropdown
+Address or Zip Code	Text
+Preferred Date	Date picker
+Special Instructions	Multiline textarea
+Consent Checkbox	“I agree to be contacted…”
+Style details:
+
+Rounded input borders (border-radius: 6px)
+Labels in small caps or muted gray
+Input focus animation (border glow in light purple)
+Smooth 0.3s transitions on hover/focus
+✅ 3. Submit Button
+Centered, bold, full-width button:
+
+[ Submit Quote Request ]
+Style:
+
+Background: Dark Purple (#4B0082)
+Text: White, bold, 16–18px
+Rounded corners (border-radius: 8px)
+Hover: lighten slightly, with a soft scale effect
+✅ 4. Confirmation State (After Form Submission)
+Replace form content with:
+
+✅ Thank you! We’ve received your request.
+
+A team member will contact you within 24 hours.
+Optional: Include a small secondary button: [Back to Home]
+
+🎨 Design System
+Element	Style
+Background	Soft gradient (linear-gradient(to bottom, #F8F6FB, #FFFFFF))
+Fonts	Sans-serif like Inter, Lato, or Poppins
+Text Colors	Primary: #2C2C2C, Secondary: #6C6C6C
+Accent Color	Purple family: #4B0082, hover: #6A0DAD
+Field Spacing	24px vertical, wide padding (especially on desktop)
+Responsiveness	Stack all fields on mobile with 90% width
+UX	Autofocus on first field, keyboard-friendly, no visual clutter
+✅ Bonus Touches (For Professional Polish)
+Progressive Disclosure: Hide less-used fields (e.g. special notes) behind a toggle: “Add optional notes”
+Accessibility: ARIA labels, large tap areas, focus rings
+Loading Indicator: Small spinner or subtle pulse effect while submitting
+Validation: Real-time field validation, with soft red borders + guidance
