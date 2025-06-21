@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,7 +12,7 @@ import { insertQuoteSchema, type InsertQuote } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 import { z } from "zod";
 import { PageTransition } from "@/components/page-transition";
-import { Sparkles, CheckCircle, Calendar, Home, Car, Building, Clipboard, Star, ArrowRight } from "lucide-react";
+import { Sparkles, CheckCircle } from "lucide-react";
 
 const formSchema = insertQuoteSchema.extend({
   serviceType: z.string().min(1, "Service type is required"),
@@ -27,11 +27,6 @@ export default function Quote() {
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const formRef = useRef<HTMLDivElement>(null);
-
-  const scrollToForm = () => {
-    formRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -93,37 +88,27 @@ export default function Quote() {
     return (
       <PageTransition>
         <div 
-          className="min-h-screen py-20 relative"
+          className="min-h-screen py-20"
           style={{
             background: 'linear-gradient(135deg, #F7F4FA 0%, #FFFFFF 100%)'
           }}
         >
-          {/* Background illustration */}
-          <div 
-            className="absolute inset-0 opacity-5"
-            style={{
-              backgroundImage: 'url(https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}
-          />
-          
-          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div 
               className="bg-white p-12 text-center"
               style={{
                 borderRadius: '20px',
-                boxShadow: '0 8px 32px rgba(75, 0, 130, 0.12)'
+                boxShadow: '0 4px 20px rgba(75, 0, 130, 0.1)'
               }}
             >
-              <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <CheckCircle className="w-12 h-12 text-green-600" />
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle className="w-10 h-10 text-green-600" />
               </div>
-              <h2 className="font-playfair text-4xl font-bold text-[#4B0082] mb-4">
-                Thanks! We'll be in touch within 24 hours.
+              <h2 className="text-3xl font-bold text-[#4B0082] mb-4">
+                Thank you, {form.getValues("name")}!
               </h2>
               <p className="text-lg text-[#2C2C2C] mb-8 leading-relaxed">
-                Thank you, {form.getValues("name")}! Your request has been received and one of our team members will contact you with a custom estimate.
+                Your request has been received. One of our team members will review your details and get back to you within 24 hours.
               </p>
               <div 
                 className="p-6 mb-8"
@@ -138,24 +123,15 @@ export default function Quote() {
                   📧 Email us at: <span className="text-[#4B0082] font-semibold">support@naestir.com</span>
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  onClick={() => window.location.href = '/'}
-                  variant="outline"
-                  className="border-[#4B0082] text-[#4B0082] hover:bg-[#4B0082] hover:text-white px-6 py-3 rounded-full font-semibold transition-all duration-300"
-                >
-                  Return to Home
-                </Button>
-                <Button 
-                  onClick={() => {
-                    setIsSubmitted(false);
-                    form.reset();
-                  }}
-                  className="bg-[#4B0082] hover:bg-[#6A0DAD] text-white px-6 py-3 rounded-full font-semibold transition-all duration-300"
-                >
-                  Submit Another Quote
-                </Button>
-              </div>
+              <Button 
+                onClick={() => {
+                  setIsSubmitted(false);
+                  form.reset();
+                }}
+                className="bg-[#4B0082] hover:bg-[#6A0DAD] text-white px-8 py-3 rounded-full font-semibold transition-all duration-300"
+              >
+                Submit Another Quote
+              </Button>
             </div>
           </div>
         </div>
@@ -165,86 +141,40 @@ export default function Quote() {
 
   return (
     <PageTransition>
-      <div className="min-h-screen">
-        {/* Hero Header Section */}
-        <section className="py-16 lg:py-24" style={{ background: 'linear-gradient(135deg, #F7F4FA 0%, #FFFFFF 100%)' }}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              
-              {/* Left Side: Image */}
-              <div className="hidden lg:block">
-                <div 
-                  className="relative h-96 w-full rounded-2xl overflow-hidden"
-                  style={{ boxShadow: '0 8px 32px rgba(75, 0, 130, 0.15)' }}
-                >
-                  <img
-                    src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                    alt="Professional cleaning team"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#4B0082]/10 to-transparent" />
-                </div>
-              </div>
-
-              {/* Right Side: Text */}
-              <div className="text-center lg:text-left">
-                <h1 className="font-playfair text-5xl lg:text-6xl font-bold text-[#4B0082] mb-6">
-                  Request Your Free Quote
-                </h1>
-                <p className="text-xl text-[#2C2C2C] mb-8 leading-relaxed">
-                  Our team will contact you within 24 hours with a custom estimate tailored to your cleaning needs.
-                </p>
-                <Button
-                  onClick={scrollToForm}
-                  className="bg-[#4B0082] hover:bg-[#6A0DAD] text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl group"
-                >
-                  Start Your Request
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Form Section with Background */}
-        <section 
-          className="py-20 relative"
-          style={{
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #F7F4FA 100%)'
-          }}
-        >
-          {/* Subtle background image */}
+      <div 
+        className="min-h-screen py-20"
+        style={{
+          background: 'linear-gradient(135deg, #F7F4FA 0%, #FFFFFF 100%)'
+        }}
+      >
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Clean Intro Header */}
           <div 
-            className="absolute inset-0 opacity-5"
+            className="text-center mb-12 p-8"
             style={{
-              backgroundImage: 'url(https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundAttachment: 'fixed'
+              background: '#F3F0FA',
+              borderRadius: '20px'
             }}
-          />
+          >
+            <div className="flex items-center justify-center mb-4">
+              <Sparkles className="w-8 h-8 text-[#4B0082] mr-3" />
+              <h1 className="font-playfair text-4xl font-bold text-[#4B0082]">
+                Request Your Free Quote
+              </h1>
+            </div>
+            <p className="text-xl text-[#2C2C2C] font-medium">
+              Fill out the form below and our team will get back to you within 24 hours.
+            </p>
+          </div>
 
-          <div ref={formRef} className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            {/* Form Card */}
-            <div 
-              className="bg-white p-8 lg:p-12"
-              style={{
-                borderRadius: '24px',
-                boxShadow: '0 8px 40px rgba(75, 0, 130, 0.12)'
-              }}
-            >
-              {/* Decorative icon at top */}
-              <div className="text-center mb-8">
-                <div className="w-16 h-16 bg-[#F3F0FA] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clipboard className="w-8 h-8 text-[#4B0082]" />
-                </div>
-                <h2 className="font-playfair text-3xl font-bold text-[#4B0082] mb-2">
-                  Tell Us About Your Project
-                </h2>
-                <p className="text-[#2C2C2C]">
-                  We'll create a custom cleaning plan just for you
-                </p>
-              </div>
+          {/* Main Form Card */}
+          <div 
+            className="bg-white p-8"
+            style={{
+              borderRadius: '20px',
+              boxShadow: '0 4px 20px rgba(75, 0, 130, 0.1)'
+            }}
+          >
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               {/* Full Name */}
               <div>
@@ -306,8 +236,7 @@ export default function Quote() {
               {/* Service Type and Frequency */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <Label htmlFor="serviceType" className="text-[#4B0082] font-semibold mb-3 flex items-center">
-                    <Home className="w-4 h-4 mr-2" />
+                  <Label htmlFor="serviceType" className="text-[#4B0082] font-semibold mb-2 block">
                     Service Type *
                   </Label>
                   <Select
@@ -318,12 +247,12 @@ export default function Quote() {
                       <SelectValue placeholder="Select service type" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="apartment">🏠 Apartment</SelectItem>
-                      <SelectItem value="office">🏢 Office</SelectItem>
-                      <SelectItem value="car">🚗 Car</SelectItem>
-                      <SelectItem value="carpet">🧽 Carpet</SelectItem>
-                      <SelectItem value="garbage">🗑️ Garbage</SelectItem>
-                      <SelectItem value="building">🏗️ Building</SelectItem>
+                      <SelectItem value="apartment">Apartment</SelectItem>
+                      <SelectItem value="office">Office</SelectItem>
+                      <SelectItem value="car">Car</SelectItem>
+                      <SelectItem value="carpet">Carpet</SelectItem>
+                      <SelectItem value="garbage">Garbage</SelectItem>
+                      <SelectItem value="building">Building</SelectItem>
                     </SelectContent>
                   </Select>
                   {form.formState.errors.serviceType && (
@@ -398,8 +327,7 @@ export default function Quote() {
 
               {/* Preferred Date */}
               <div>
-                <Label htmlFor="preferredDate" className="text-[#4B0082] font-semibold mb-3 flex items-center">
-                  <Calendar className="w-4 h-4 mr-2" />
+                <Label htmlFor="preferredDate" className="text-[#4B0082] font-semibold mb-2 block">
                   Preferred Date (Optional)
                 </Label>
                 <Input
@@ -412,14 +340,13 @@ export default function Quote() {
 
               {/* Special Requests */}
               <div>
-                <Label htmlFor="specialRequests" className="text-[#4B0082] font-semibold mb-3 flex items-center">
-                  <Sparkles className="w-4 h-4 mr-2" />
+                <Label htmlFor="specialRequests" className="text-[#4B0082] font-semibold mb-2 block">
                   Special Requests / Notes
                 </Label>
                 <Textarea
                   id="specialRequests"
                   {...form.register("specialRequests")}
-                  placeholder="Tell us about any specific areas of focus, special requirements, or questions you have..."
+                  placeholder="Any specific requirements or questions?"
                   rows={4}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4B0082] focus:border-transparent transition-all duration-300"
                 />
@@ -447,54 +374,8 @@ export default function Quote() {
                 {createQuoteMutation.isPending ? "Submitting..." : "🟣 Submit Quote Request"}
               </Button>
             </form>
-            </div>
           </div>
-
-          {/* Trust Builder Section */}
-          <div className="max-w-4xl mx-auto mt-16 px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Testimonial Cards */}
-              <div 
-                className="bg-white p-6 rounded-2xl text-center"
-                style={{ boxShadow: '0 4px 20px rgba(75, 0, 130, 0.08)' }}
-              >
-                <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Star className="w-6 h-6 text-yellow-600 fill-current" />
-                </div>
-                <p className="text-[#2C2C2C] mb-3 italic">
-                  "They made our office shine again! Professional and thorough."
-                </p>
-                <p className="text-[#4B0082] font-semibold">– Rebecca A.</p>
-              </div>
-
-              <div 
-                className="bg-white p-6 rounded-2xl text-center"
-                style={{ boxShadow: '0 4px 20px rgba(75, 0, 130, 0.08)' }}
-              >
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="w-6 h-6 text-green-600" />
-                </div>
-                <p className="text-[#2C2C2C] mb-3 italic">
-                  "Quick response and amazing results. Highly recommend!"
-                </p>
-                <p className="text-[#4B0082] font-semibold">– Marcus T.</p>
-              </div>
-
-              <div 
-                className="bg-white p-6 rounded-2xl text-center"
-                style={{ boxShadow: '0 4px 20px rgba(75, 0, 130, 0.08)' }}
-              >
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Sparkles className="w-6 h-6 text-blue-600" />
-                </div>
-                <p className="text-[#2C2C2C] mb-3 italic">
-                  "Transformed our apartment completely. Worth every penny!"
-                </p>
-                <p className="text-[#4B0082] font-semibold">– Sarah L.</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        </div>
       </div>
     </PageTransition>
   );
