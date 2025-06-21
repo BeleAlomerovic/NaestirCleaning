@@ -326,6 +326,55 @@
   transition: transform 0.3s ease;
 }
 
+/* Floating Action Bar */
+.floating-action-bar {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.floating-action-btn {
+  @apply w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.8), rgba(168, 85, 247, 0.8));
+  backdrop-filter: blur(10px);
+}
+
+.floating-action-btn:hover {
+  transform: scale(1.1);
+  animation: pulse-once 0.6s ease-out;
+  background: linear-gradient(135deg, rgba(147, 51, 234, 1), rgba(168, 85, 247, 1));
+}
+
+.floating-action-btn:active {
+  transform: scale(0.95);
+}
+
+/* Tooltips */
+.tooltip {
+  @apply absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-3 py-2 rounded-lg opacity-0 pointer-events-none transition-all duration-300;
+  white-space: nowrap;
+}
+
+.floating-action-btn:hover .tooltip {
+  @apply opacity-100 -translate-y-1;
+}
+
+.tooltip::after {
+  content: '';
+  @apply absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-900;
+}
+
+/* Pulse animation */
+@keyframes pulse-once {
+  0% {
+    box-shadow: 0 0 0 0 rgba(147, 51, 234, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(147, 51, 234, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(147, 51, 234, 0);
+  }
+}
+
 /* Custom utilities for Næstir */
 .text-naestir-primary {
   color: var(--naestir-primary);

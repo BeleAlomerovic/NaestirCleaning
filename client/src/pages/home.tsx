@@ -1,11 +1,34 @@
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Users, Heart, Award } from "lucide-react";
+import { Users, Heart, Award, Phone, Calendar, MessageSquare, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageTransition } from "@/components/page-transition";
 import { services } from "@/lib/constants";
 
 export default function Home() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [showFloatingBar, setShowFloatingBar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Show/hide based on scroll direction
+      if (currentScrollY > lastScrollY) {
+        setShowFloatingBar(false); // Scrolling down
+      } else {
+        setShowFloatingBar(true); // Scrolling up
+      }
+      
+      setIsScrolled(currentScrollY > 100);
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
   return (
     <PageTransition>
       <div className="min-h-screen">
