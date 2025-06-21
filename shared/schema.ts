@@ -26,13 +26,15 @@ export const contactMessages = pgTable("contact_messages", {
 
 export const quotes = pgTable("quotes", {
   id: serial("id").primaryKey(),
-  service: text("service").notNull(),
-  firstName: text("first_name").notNull(),
-  lastName: text("last_name").notNull(),
+  name: text("name").notNull(),
   email: text("email").notNull(),
   phone: text("phone").notNull(),
+  serviceType: text("service_type").notNull(),
+  frequency: text("frequency").notNull(),
+  propertySize: text("property_size").notNull(),
   address: text("address").notNull(),
-  description: text("description"),
+  preferredDate: text("preferred_date"),
+  specialRequests: text("special_requests"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 

@@ -14,12 +14,7 @@ import { z } from "zod";
 import { PageTransition } from "@/components/page-transition";
 import { Sparkles, CheckCircle } from "lucide-react";
 
-const formSchema = insertQuoteSchema.extend({
-  serviceType: z.string().min(1, "Service type is required"),
-  frequency: z.string().min(1, "Frequency is required"),
-  propertySize: z.string().min(1, "Property size is required"),
-  preferredDate: z.string().optional(),
-});
+const formSchema = insertQuoteSchema;
 
 type FormData = z.infer<typeof formSchema>;
 
