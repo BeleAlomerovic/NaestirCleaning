@@ -10,22 +10,71 @@ export default function Home() {
     <PageTransition>
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative h-96 md:h-[500px]">
-          <div
-            style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
+        <section className="relative h-screen min-h-[600px] overflow-hidden">
+          {/* Video Background */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source
+              src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27eecc69fabf25f2b06d0006da036a4a0b35f60&profile_id=139&oauth2_token_id=57447761"
+              type="video/mp4"
+            />
+            {/* Fallback image if video doesn't load */}
+            <img
+              src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080"
+              alt="Professional cleaning services"
+              className="w-full h-full object-cover"
+            />
+          </video>
+          
+          {/* Gradient Overlay */}
+          <div 
             className="absolute inset-0"
+            style={{
+              background: "linear-gradient(to right, rgba(230, 230, 250, 0.9), rgba(255, 255, 255, 0.7))"
+            }}
           ></div>
-          <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-          <div className="relative flex items-end justify-center h-full pb-12">
-            <Link href="/quote">
-              <Button className="bg-naestir-primary hover:bg-purple-600 text-white px-12 py-6 text-xl font-semibold shadow-lg rounded-full">
-                Get Your Free Quote
-              </Button>
-            </Link>
+          
+          {/* Content */}
+          <div className="relative flex items-center justify-center h-full px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-4xl">
+              {/* Headline */}
+              <h1 className="hero-headline text-5xl md:text-6xl lg:text-7xl text-naestir-dark mb-4">
+                A Cleaner Home,<br />
+                A Brighter You.
+              </h1>
+              
+              {/* Subheadline */}
+              <p className="text-xl md:text-2xl text-naestir-secondary mb-8 font-medium">
+                (We clean. You breathe.)
+              </p>
+              
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+                <Link href="/quote">
+                  <Button className="pulse-animation bg-naestir-primary hover:bg-purple-600 text-white px-8 py-4 text-lg font-semibold shadow-lg rounded-full border-2 border-naestir-primary">
+                    🟣 Get Your Free Quote
+                  </Button>
+                </Link>
+                <Link href="/#services">
+                  <Button 
+                    variant="outline" 
+                    className="bg-transparent border-2 border-naestir-dark text-naestir-dark hover:bg-naestir-dark hover:text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300"
+                  >
+                    ⚪️ See Our Services
+                  </Button>
+                </Link>
+              </div>
+              
+              {/* Microcopy */}
+              <p className="text-sm text-naestir-secondary">
+                Trusted by 2,000+ happy clients • Eco-friendly • Insured & Vetted Staff
+              </p>
+            </div>
           </div>
         </section>
 
