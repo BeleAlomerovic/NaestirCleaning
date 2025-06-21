@@ -304,12 +304,10 @@ export default function Home() {
                       Pet hair, mud, and years of wear completely restored with our specialized automotive detailing process and eco-safe products.
                     </p>
                   </div>
-                  <div className="inline-flex items-center space-x-4 text-sm bg-purple-50 px-6 py-3 rounded-full">
-                    <span className="font-medium">2 hours</span>
-                    <span className="w-1 h-1 bg-naestir-accent rounded-full"></span>
-                    <span className="font-medium">Eco-Friendly</span>
-                    <span className="w-1 h-1 bg-naestir-accent rounded-full"></span>
-                    <span className="font-medium text-yellow-600">Rated 5⭐</span>
+                  <div className="brand-signature opacity-0 group-hover:opacity-100 transition-all duration-1000 delay-700">
+                    <div className="font-playfair text-2xl text-naestir-primary italic tracking-wider">
+                      <span className="text-3xl">N</span>æstir
+                    </div>
                   </div>
                 </div>
               </div>
@@ -357,12 +355,10 @@ export default function Home() {
                       Years of soap scum and mildew completely eliminated using our professional-grade steam cleaning and tile restoration system.
                     </p>
                   </div>
-                  <div className="inline-flex items-center space-x-4 text-sm bg-purple-50 px-6 py-3 rounded-full">
-                    <span className="font-medium">90 minutes</span>
-                    <span className="w-1 h-1 bg-naestir-accent rounded-full"></span>
-                    <span className="font-medium">Anti-Bacterial</span>
-                    <span className="w-1 h-1 bg-naestir-accent rounded-full"></span>
-                    <span className="font-medium text-yellow-600">Rated 5⭐</span>
+                  <div className="brand-signature opacity-0 group-hover:opacity-100 transition-all duration-1000 delay-700">
+                    <div className="font-playfair text-2xl text-naestir-primary italic tracking-wider">
+                      <span className="text-3xl">N</span>æstir
+                    </div>
                   </div>
                 </div>
               </div>
@@ -406,12 +402,10 @@ export default function Home() {
                       Dangerous black mold safely removed and surfaces restored to pristine condition using specialized anti-microbial treatments.
                     </p>
                   </div>
-                  <div className="inline-flex items-center space-x-4 text-sm bg-purple-50 px-6 py-3 rounded-full">
-                    <span className="font-medium">3 hours</span>
-                    <span className="w-1 h-1 bg-naestir-accent rounded-full"></span>
-                    <span className="font-medium">Health-Safe</span>
-                    <span className="w-1 h-1 bg-naestir-accent rounded-full"></span>
-                    <span className="font-medium text-yellow-600">Rated 5⭐</span>
+                  <div className="brand-signature opacity-0 group-hover:opacity-100 transition-all duration-1000 delay-700">
+                    <div className="font-playfair text-2xl text-naestir-primary italic tracking-wider">
+                      <span className="text-3xl">N</span>æstir
+                    </div>
                   </div>
                 </div>
               </div>
@@ -455,12 +449,10 @@ export default function Home() {
                       Grease buildup and food stains completely eliminated with our specialized degreasing agents and detailed scrubbing process.
                     </p>
                   </div>
-                  <div className="inline-flex items-center space-x-4 text-sm bg-purple-50 px-6 py-3 rounded-full">
-                    <span className="font-medium">75 minutes</span>
-                    <span className="w-1 h-1 bg-naestir-accent rounded-full"></span>
-                    <span className="font-medium">Food-Safe</span>
-                    <span className="w-1 h-1 bg-naestir-accent rounded-full"></span>
-                    <span className="font-medium text-yellow-600">Rated 5⭐</span>
+                  <div className="brand-signature opacity-0 group-hover:opacity-100 transition-all duration-1000 delay-700">
+                    <div className="font-playfair text-2xl text-naestir-primary italic tracking-wider">
+                      <span className="text-3xl">N</span>æstir
+                    </div>
                   </div>
                 </div>
               </div>
@@ -507,12 +499,10 @@ export default function Home() {
                       Pet stains and ground-in dirt fully extracted using our triple-step steam method and fabric-safe cleaning solutions.
                     </p>
                   </div>
-                  <div className="inline-flex items-center space-x-4 text-sm bg-purple-50 px-6 py-3 rounded-full">
-                    <span className="font-medium">45 minutes</span>
-                    <span className="w-1 h-1 bg-naestir-accent rounded-full"></span>
-                    <span className="font-medium">Pet-Safe</span>
-                    <span className="w-1 h-1 bg-naestir-accent rounded-full"></span>
-                    <span className="font-medium text-yellow-600">Rated 5⭐</span>
+                  <div className="brand-signature opacity-0 group-hover:opacity-100 transition-all duration-1000 delay-700">
+                    <div className="font-playfair text-2xl text-naestir-primary italic tracking-wider">
+                      <span className="text-3xl">N</span>æstir
+                    </div>
                   </div>
                 </div>
               </div>

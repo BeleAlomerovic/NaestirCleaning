@@ -316,6 +316,16 @@
   box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
 }
 
+/* Brand signature styling */
+.brand-signature {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.brand-signature:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
 /* Custom utilities for Næstir */
 .text-naestir-primary {
   color: var(--naestir-primary);
