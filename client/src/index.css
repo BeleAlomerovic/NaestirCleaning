@@ -207,6 +207,96 @@
   background: linear-gradient(to right, rgba(230, 230, 250, 0.9), rgba(255, 255, 255, 0.7));
 }
 
+/* Floating Stars Animation */
+.floating-stars {
+  position: relative;
+  display: inline-block;
+  width: 300px;
+  height: 60px;
+}
+
+.star-emoji {
+  position: absolute;
+  font-size: 2rem;
+  animation: floatStar 3s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+.star-emoji:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.star-emoji:nth-child(2) {
+  left: 25%;
+  animation-delay: 0.6s;
+}
+
+.star-emoji:nth-child(3) {
+  left: 45%;
+  animation-delay: 1.2s;
+}
+
+.star-emoji:nth-child(4) {
+  left: 65%;
+  animation-delay: 1.8s;
+}
+
+.star-emoji:nth-child(5) {
+  left: 85%;
+  animation-delay: 2.4s;
+}
+
+@keyframes floatStar {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+/* Logo Animations */
+.logo-container {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo-container:hover {
+  transform: scale(1.1);
+}
+
+/* Auto-highlight animation for logos */
+@keyframes logoSpotlight {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+    box-shadow: none;
+  }
+  50% {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+    box-shadow: 0 0 20px rgba(178, 132, 226, 0.4);
+  }
+}
+
+.yelp-logo {
+  animation: logoSpotlight 6s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.google-logo {
+  animation: logoSpotlight 6s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.thumbtack-logo {
+  animation: logoSpotlight 6s ease-in-out infinite;
+  animation-delay: 4s;
+}
+
 /* Custom utilities for Næstir */
 .text-naestir-primary {
   color: var(--naestir-primary);

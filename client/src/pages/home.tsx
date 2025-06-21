@@ -73,21 +73,10 @@ export default function Home() {
             <div className="overflow-x-auto pb-6">
               <div className="flex space-x-6 min-w-max px-4">
                 {services.map((service, index) => {
-                  const getHoverClass = () => {
-                    switch (service.id) {
-                      case 'apartment': return 'sparkle-hover';
-                      case 'corporate': return 'glow-hover';
-                      case 'carwash': return 'ripple-hover';
-                      case 'carpet': return 'price-reveal';
-                      case 'garbage': return 'bounce-hover';
-                      default: return 'hover:scale-105';
-                    }
-                  };
-
                   return (
                     <Link key={service.id} href={`/services/${service.id}`}>
                       <Card 
-                        className={`service-card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer w-80 flex-shrink-0 fade-in-up ${getHoverClass()}`}
+                        className="service-card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer w-80 flex-shrink-0 fade-in-up sparkle-hover"
                         style={{
                           animationDelay: `${index * 0.2}s`
                         }}
@@ -98,9 +87,6 @@ export default function Home() {
                             alt={service.name}
                             className="w-full h-48 object-cover transition-all duration-300"
                           />
-                          <div className="absolute top-4 left-4 bg-white bg-opacity-90 rounded-full p-2">
-                            <span className="text-2xl">{service.icon}</span>
-                          </div>
                         </div>
                         <CardContent className="p-6">
                           <h3 className="text-xl font-semibold text-naestir-dark mb-3">{service.name}</h3>
@@ -174,6 +160,86 @@ export default function Home() {
                         Get Your Quote
                       </Button>
                     </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Social Proof Section */}
+        <section className="py-20 bg-purple-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="font-playfair text-4xl md:text-5xl font-bold text-naestir-dark mb-8">
+                What Our Customers Say
+              </h2>
+              
+              {/* Floating Star Animation */}
+              <div className="relative mb-12">
+                <div className="floating-stars">
+                  <span className="star-emoji">⭐</span>
+                  <span className="star-emoji">⭐</span>
+                  <span className="star-emoji">⭐</span>
+                  <span className="star-emoji">⭐</span>
+                  <span className="star-emoji">⭐</span>
+                </div>
+              </div>
+
+              {/* Customer Reviews */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div className="fade-in-up bg-white p-8 rounded-2xl shadow-lg">
+                  <div className="text-6xl mb-4">💬</div>
+                  <blockquote className="text-lg text-naestir-dark mb-4 italic">
+                    "Showed up on time, cleaned like magic, and even left a thank-you note."
+                  </blockquote>
+                  <div className="flex justify-center mb-2">
+                    <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                  </div>
+                  <div className="text-naestir-secondary font-medium">
+                    — Amanda R., Brooklyn
+                  </div>
+                </div>
+
+                <div className="fade-in-up bg-white p-8 rounded-2xl shadow-lg" style={{animationDelay: '0.2s'}}>
+                  <div className="text-6xl mb-4">💬</div>
+                  <blockquote className="text-lg text-naestir-dark mb-4 italic">
+                    "Professional service, eco-friendly products, and spotless results every time."
+                  </blockquote>
+                  <div className="flex justify-center mb-2">
+                    <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                  </div>
+                  <div className="text-naestir-secondary font-medium">
+                    — Michael K., Manhattan
+                  </div>
+                </div>
+
+                <div className="fade-in-up bg-white p-8 rounded-2xl shadow-lg" style={{animationDelay: '0.4s'}}>
+                  <div className="text-6xl mb-4">💬</div>
+                  <blockquote className="text-lg text-naestir-dark mb-4 italic">
+                    "Best cleaning service in the city. They treat your home like their own."
+                  </blockquote>
+                  <div className="flex justify-center mb-2">
+                    <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                  </div>
+                  <div className="text-naestir-secondary font-medium">
+                    — Sarah L., Queens
+                  </div>
+                </div>
+              </div>
+
+              {/* As Seen On Section */}
+              <div className="text-center">
+                <p className="text-naestir-secondary text-lg mb-8">As seen on:</p>
+                <div className="flex justify-center items-center space-x-12">
+                  <div className="logo-container yelp-logo">
+                    <span className="text-2xl font-bold text-gray-400 hover:text-red-500 transition-all duration-300">Yelp</span>
+                  </div>
+                  <div className="logo-container google-logo">
+                    <span className="text-2xl font-bold text-gray-400 hover:text-blue-500 transition-all duration-300">Google</span>
+                  </div>
+                  <div className="logo-container thumbtack-logo">
+                    <span className="text-2xl font-bold text-gray-400 hover:text-green-500 transition-all duration-300">Thumbtack</span>
                   </div>
                 </div>
               </div>
