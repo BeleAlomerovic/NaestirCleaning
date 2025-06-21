@@ -12,7 +12,7 @@ import { insertQuoteSchema, type InsertQuote } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
 import { z } from "zod";
 import { PageTransition } from "@/components/page-transition";
-import { Sparkles, CheckCircle, ArrowDown, Calendar, FileText, Home, Car, Building2, Trash2, Palette, Shield, ClipboardCheck } from "lucide-react";
+import { Sparkles, CheckCircle, ArrowDown, Calendar, FileText, Home, Car, Building2, Trash2, Palette, Shield, ClipboardCheck, Zap } from "lucide-react";
 import teamImage from "@assets/WhatsApp Image 2025-06-21 at 10.21.51_1750501340014.jpeg";
 import apartmentImage from "@assets/AdobeStock_334592268_1750505728985.jpeg";
 import officeImage from "@assets/AdobeStock_523168323_1750505622955.jpeg";
@@ -207,19 +207,63 @@ export default function Quote() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
-            {/* Left Side - Image */}
+            {/* Left Side - Vacuum Logo */}
             <div className="hidden lg:block">
               <div className="relative">
-                <img 
-                  src={teamImage} 
-                  alt="Professional cleaning team" 
-                  className="w-full h-96 object-cover rounded-2xl shadow-2xl"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#4B0082]/20 to-transparent rounded-2xl"></div>
+                <div 
+                  className="w-full h-96 rounded-2xl shadow-2xl flex items-center justify-center"
+                  style={{
+                    background: 'linear-gradient(135deg, #F3F0FA 0%, #E6E6FA 50%, #D8BFD8 100%)'
+                  }}
+                >
+                  {/* Cool Vacuum Logo Design */}
+                  <div className="relative">
+                    {/* Main vacuum body */}
+                    <div 
+                      className="w-32 h-20 rounded-2xl flex items-center justify-center relative"
+                      style={{
+                        background: 'linear-gradient(135deg, #4B0082 0%, #6A0DAD 100%)',
+                        boxShadow: '0 8px 32px rgba(75, 0, 130, 0.3)'
+                      }}
+                    >
+                      {/* Power indicator */}
+                      <div className="absolute top-2 right-2 w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                      
+                      {/* Vacuum handle */}
+                      <div 
+                        className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-4 h-12 rounded-t-lg"
+                        style={{ background: 'linear-gradient(180deg, #6A0DAD 0%, #4B0082 100%)' }}
+                      ></div>
+                      
+                      {/* Center power symbol */}
+                      <Zap className="w-8 h-8 text-white" />
+                    </div>
+                    
+                    {/* Vacuum hose */}
+                    <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
+                      <div 
+                        className="w-2 h-16 rounded-b-full"
+                        style={{ background: 'linear-gradient(180deg, #4B0082 0%, #2C2C2C 100%)' }}
+                      ></div>
+                      {/* Nozzle */}
+                      <div 
+                        className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-6 h-4 rounded-b-lg"
+                        style={{ background: '#2C2C2C' }}
+                      ></div>
+                    </div>
+                    
+                    {/* Sparkle effects */}
+                    <Sparkles className="absolute -top-4 -left-4 w-6 h-6 text-[#4B0082] animate-pulse" />
+                    <Sparkles className="absolute -bottom-4 -right-4 w-4 h-4 text-[#6A0DAD] animate-pulse" style={{ animationDelay: '0.5s' }} />
+                    <Sparkles className="absolute top-8 -right-6 w-5 h-5 text-[#4B0082] animate-pulse" style={{ animationDelay: '1s' }} />
+                  </div>
+                </div>
+                
+                {/* Trust badge overlay */}
                 <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm rounded-lg p-4">
                   <div className="flex items-center space-x-2">
                     <Shield className="w-5 h-5 text-[#4B0082]" />
-                    <span className="text-sm font-semibold text-[#2C2C2C]">Insured & Bonded Team</span>
+                    <span className="text-sm font-semibold text-[#2C2C2C]">Professional Equipment</span>
                   </div>
                 </div>
               </div>
