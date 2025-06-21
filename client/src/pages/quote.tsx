@@ -18,6 +18,7 @@ const formSchema = insertQuoteSchema.extend({
   serviceType: z.string().min(1, "Service type is required"),
   frequency: z.string().min(1, "Frequency is required"),
   propertySize: z.string().min(1, "Property size is required"),
+  preferredDate: z.string().optional(),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -293,20 +294,12 @@ export default function Quote() {
                   <Label htmlFor="propertySize" className="text-[#4B0082] font-semibold mb-2 block">
                     Property Size *
                   </Label>
-                  <Select
-                    value={form.watch("propertySize")}
-                    onValueChange={(value) => form.setValue("propertySize", value)}
-                  >
-                    <SelectTrigger className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4B0082] focus:border-transparent transition-all duration-300">
-                      <SelectValue placeholder="Select size" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="studio">Studio</SelectItem>
-                      <SelectItem value="1br">1BR</SelectItem>
-                      <SelectItem value="2br">2BR</SelectItem>
-                      <SelectItem value="3br+">3BR+</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <Input
+                    id="propertySize"
+                    {...form.register("propertySize")}
+                    placeholder="e.g., Studio, 2BR, 1500 sq ft, Small office"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4B0082] focus:border-transparent transition-all duration-300"
+                  />
                   {form.formState.errors.propertySize && (
                     <p className="text-red-500 text-sm mt-1">
                       {form.formState.errors.propertySize.message}
@@ -335,7 +328,7 @@ export default function Quote() {
               {/* Preferred Date */}
               <div>
                 <Label htmlFor="preferredDate" className="text-[#4B0082] font-semibold mb-2 block">
-                  Preferred Date
+                  Preferred Date (Optional)
                 </Label>
                 <Input
                   id="preferredDate"
