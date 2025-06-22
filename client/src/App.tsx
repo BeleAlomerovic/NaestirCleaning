@@ -11,6 +11,7 @@ import Booking from "@/pages/booking";
 import Reviews from "@/pages/reviews";
 import About from "@/pages/about";
 import ServiceDetail from "@/pages/service-detail";
+import ApartmentCleaning from "@/pages/apartment-cleaning";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -21,6 +22,7 @@ function Router() {
       <Route path="/booking" component={Booking} />
       <Route path="/reviews" component={Reviews} />
       <Route path="/about" component={About} />
+      <Route path="/services/apartment-cleaning" component={ApartmentCleaning} />
       <Route path="/services/:serviceId" component={ServiceDetail} />
       <Route component={NotFound} />
     </Switch>
