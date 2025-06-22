@@ -1,17 +1,25 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X, Sparkles, ChevronDown, Home, Building, Car, Scissors, Shirt } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Header() {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isServiceDropdownOpen, setIsServiceDropdownOpen] = useState(false);
 
   const navigation = [
     { name: "Home", href: "/" },
-    { name: "Service", href: "/services" },
     { name: "About Us", href: "/about" },
     { name: "Contact", href: "/contact" }
+  ];
+
+  const services = [
+    { name: "Apartment Cleaning", href: "/services/apartment", icon: Home },
+    { name: "Office Cleaning", href: "/services/office", icon: Building },
+    { name: "Car Cleaning", href: "/services/car", icon: Car },
+    { name: "Carpet Cleaning", href: "/services/carpet", icon: Scissors },
+    { name: "Upholstery Cleaning", href: "/services/upholstery", icon: Shirt }
   ];
 
   const isActive = (href: string) => {
@@ -74,6 +82,73 @@ export function Header() {
               </Link>
             ))}
             
+            {/* Services Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setIsServiceDropdownOpen(true)}
+              onMouseLeave={() => setIsServiceDropdownOpen(false)}
+            >
+              <button
+                className={`service-trigger nav-link px-2 py-1 font-medium text-[16px] transition-all duration-300 cursor-pointer relative flex items-center space-x-1 ${
+                  location.startsWith('/services')
+                    ? "text-[#D4AF37] nav-active-gold"
+                    : "text-[#D4AF37] hover:text-[#FFD700]"
+                }`}
+                style={{ 
+                  fontFamily: 'Space Grotesk, system-ui, sans-serif',
+                  fontWeight: '500',
+                  letterSpacing: '0.5px'
+                }}
+              >
+                <span>Service</span>
+                <ChevronDown 
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    isServiceDropdownOpen ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+
+              {/* Dropdown Menu */}
+              {isServiceDropdownOpen && (
+                <div className="service-dropdown absolute top-full left-0 mt-2 w-64 z-50">
+                  <div 
+                    className="bg-white rounded-lg shadow-xl border border-gray-100 py-4 px-2"
+                    style={{
+                      background: '#FAF7FF',
+                      boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                      border: '1px solid rgba(230, 230, 250, 0.8)'
+                    }}
+                  >
+                    {services.map((service, index) => {
+                      const IconComponent = service.icon;
+                      return (
+                        <Link key={service.name} href={service.href}>
+                          <div
+                            className="service-item flex items-center space-x-3 px-4 py-3 mx-1 rounded-lg transition-all duration-200 cursor-pointer"
+                            style={{
+                              animationDelay: `${index * 50}ms`
+                            }}
+                          >
+                            <IconComponent className="w-5 h-5 text-[#D4AF37] flex-shrink-0" />
+                            <span 
+                              className="text-[#D4AF37] font-medium text-[16px] flex-grow"
+                              style={{ 
+                                fontFamily: 'Space Grotesk, system-ui, sans-serif',
+                                fontWeight: '500'
+                              }}
+                            >
+                              {service.name}
+                            </span>
+                            <ChevronDown className="w-4 h-4 text-[#D4AF37] rotate-[-90deg] opacity-60" />
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+            
             {/* Get Quote Button */}
             <Link href="/quote">
               <Button
@@ -130,6 +205,31 @@ export function Header() {
                   </div>
                 </Link>
               ))}
+              
+              {/* Mobile Services Section */}
+              <div className="mobile-nav-item">
+                <div className="text-[#D4AF37] font-semibold text-[18px] px-4 py-2 border-b border-[#D4AF37]/20">
+                  Services
+                </div>
+                <div className="pl-4 space-y-2 mt-2">
+                  {services.map((service, index) => {
+                    const IconComponent = service.icon;
+                    return (
+                      <Link key={service.name} href={service.href}>
+                        <div
+                          className="flex items-center space-x-3 px-4 py-2 text-[#D4AF37] hover:text-[#FFD700] transition-colors duration-200 rounded-lg hover:bg-white/20"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          <IconComponent className="w-4 h-4" />
+                          <span style={{ fontFamily: 'Space Grotesk, system-ui, sans-serif' }}>
+                            {service.name}
+                          </span>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
               
               {/* Mobile Get Quote Button */}
               <Link href="/quote">

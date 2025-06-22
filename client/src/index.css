@@ -480,6 +480,102 @@
   }
 }
 
+/* Service dropdown animations */
+.service-trigger::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #D4AF37, #FFD700);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-trigger:hover::after {
+  width: 100%;
+}
+
+.nav-active-gold::after {
+  width: 100%;
+  background: linear-gradient(90deg, #D4AF37, #FFD700);
+}
+
+.service-dropdown {
+  animation: dropdownFadeIn 0.2s ease-out;
+  transform-origin: top center;
+}
+
+@keyframes dropdownFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.service-item {
+  animation: serviceItemFadeIn 0.3s ease-out forwards;
+  opacity: 0;
+  transform: translateX(-8px);
+}
+
+@keyframes serviceItemFadeIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.service-item:hover {
+  background-color: #FFF9E6;
+  transform: translateX(4px);
+}
+
+.service-item:hover .text-[#D4AF37] {
+  color: #B8860B;
+  font-weight: 600;
+}
+
+/* Animated border glow for dropdown */
+.service-dropdown::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(181, 126, 220, 0.3), 
+    transparent, 
+    rgba(181, 126, 220, 0.3), 
+    transparent
+  );
+  background-size: 200% 100%;
+  border-radius: 8px;
+  opacity: 0;
+  animation: borderGlow 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes borderGlow {
+  0% {
+    opacity: 0;
+    background-position: -200% 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    background-position: 200% 0;
+  }
+}
+
 /* Custom utilities for Næstir */
 .text-naestir-primary {
   color: var(--naestir-primary);
