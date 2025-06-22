@@ -281,6 +281,103 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+
+              {/* Gallery Item 4 - Kitchen Sink */}
+              <div className="gallery-card group">
+                {/* Image Frame */}
+                <div className="relative bg-white p-4 rounded-3xl shadow-2xl group-hover:shadow-3xl transition-shadow duration-500">
+                  <div className="relative overflow-hidden rounded-2xl">
+                    <img
+                      src="/assets/AdobeStock_560781364_1750506688928.jpg"
+                      alt="Dirty kitchen sink before cleaning"
+                      className="w-full h-80 object-cover transition-all duration-700 group-hover:opacity-0"
+                    />
+                    <img
+                      src="/assets/AdobeStock_560781364 copy_1750506691420.jpg"
+                      alt="Spotless kitchen sink after cleaning"
+                      className="absolute inset-0 w-full h-80 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
+                    />
+                    
+                    {/* Circular Wipe Effect */}
+                    <div className="absolute inset-0 bg-gradient-radial from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform scale-0 group-hover:scale-150"></div>
+                    
+                    {/* Before/After Labels */}
+                    <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
+                      Before
+                    </div>
+                    <div className="absolute top-4 right-4 bg-naestir-primary text-white px-4 py-2 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300">
+                      After
+                    </div>
+                  </div>
+                </div>
+
+                {/* Caption Block */}
+                <div className="mt-6 text-center bg-gradient-to-b from-gray-50 to-white p-8 rounded-2xl shadow-lg">
+                  <div className="border-b border-gray-200 pb-4 mb-4">
+                    <h3 className="font-playfair text-2xl font-bold text-naestir-dark mb-2">
+                      Kitchen Deep Clean
+                    </h3>
+                    <p className="text-naestir-secondary leading-relaxed">
+                      Grease buildup and food stains completely eliminated with our specialized degreasing agents and detailed scrubbing process.
+                    </p>
+                  </div>
+                  <div className="brand-signature opacity-0 group-hover:opacity-100 transition-all duration-1000 delay-700">
+                    <div className="font-playfair text-2xl text-naestir-primary italic tracking-wider">
+                      <span className="text-3xl">N</span>æstir
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Gallery Item 5 - Upholstery */}
+              <div className="gallery-card group">
+                {/* Image Frame */}
+                <div className="relative bg-white p-4 rounded-3xl shadow-2xl group-hover:shadow-3xl transition-shadow duration-500">
+                  <div className="relative overflow-hidden rounded-2xl">
+                    <img
+                      src="/assets/AdobeStock_689599448_1750506694689.jpg"
+                      alt="Stained upholstery before cleaning"
+                      className="w-full h-80 object-cover transition-all duration-700 group-hover:opacity-0"
+                    />
+                    <img
+                      src="/assets/AdobeStock_689599448 copy_1750506697803.jpg"
+                      alt="Pristine upholstery after cleaning"
+                      className="absolute inset-0 w-full h-80 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100 transform translate-x-full group-hover:translate-x-0"
+                    />
+                    
+                    {/* Steam Effect */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                      <div className="absolute bottom-1/4 left-1/3 w-8 h-8 bg-white/30 rounded-full blur-md animate-pulse"></div>
+                      <div className="absolute bottom-1/3 right-1/4 w-6 h-6 bg-white/20 rounded-full blur-md animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                    </div>
+                    
+                    {/* Before/After Labels */}
+                    <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
+                      Before
+                    </div>
+                    <div className="absolute top-4 right-4 bg-naestir-primary text-white px-4 py-2 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300">
+                      After
+                    </div>
+                  </div>
+                </div>
+
+                {/* Caption Block */}
+                <div className="mt-6 text-center bg-gradient-to-b from-gray-50 to-white p-8 rounded-2xl shadow-lg">
+                  <div className="border-b border-gray-200 pb-4 mb-4">
+                    <h3 className="font-playfair text-2xl font-bold text-naestir-dark mb-2">
+                      Upholstery Revival
+                    </h3>
+                    <p className="text-naestir-secondary leading-relaxed">
+                      Food spills and deep stains carefully lifted with our gentle steam cleaning and fabric protection treatment process.
+                    </p>
+                  </div>
+                  <div className="brand-signature opacity-0 group-hover:opacity-100 transition-all duration-1000 delay-700">
+                    <div className="font-playfair text-2xl text-naestir-primary italic tracking-wider">
+                      <span className="text-3xl">N</span>æstir
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* CTA Section */}
