@@ -11,51 +11,70 @@ export default function Home() {
     <PageTransition>
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative h-screen min-h-[700px] flex items-center justify-center">
-          {/* Background Video/Animation */}
-          <div className="absolute inset-0">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-cover"
-              poster="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080"
-            >
-              <source src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27eecc69a27dbc4ff2b87d38afc35f1c5a3e8c7&profile_id=139&oauth2_token_id=57447761" type="video/mp4" />
-            </video>
-          </div>
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+          {/* Elegant Background Gradient */}
+          <div 
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(135deg, #F3F0FA 0%, #FFFFFF 100%)'
+            }}
+          ></div>
           
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 hero-gradient"></div>
-          
-          {/* Hero Content */}
-          <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-            <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl font-bold text-naestir-dark mb-4 leading-tight">
-              A Cleaner Home,<br />
-              <span className="text-naestir-primary">A Brighter You.</span>
-            </h1>
-            <p className="font-playfair text-xl md:text-2xl text-naestir-secondary mb-12 italic">
-              (We clean. You breathe.)
-            </p>
+          <div className="relative max-w-4xl mx-auto px-8 sm:px-12 lg:px-16 text-center">
             
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
+            {/* Main Headline */}
+            <h1 className="mb-8">
+              <span 
+                className="block text-5xl lg:text-7xl font-serif font-light text-[#2C2C2C] leading-tight mb-2"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
+                A Cleaner Home,
+              </span>
+              <span 
+                className="block text-5xl lg:text-7xl font-serif font-light italic text-[#6A0DAD] leading-tight"
+                style={{ fontFamily: 'Playfair Display, serif' }}
+              >
+                A Brighter You
+              </span>
+            </h1>
+
+            {/* Subheadline */}
+            <p className="text-xl lg:text-2xl text-[#6C6C6C] mb-16 font-light italic">
+              We clean. You breathe.
+            </p>
+
+            {/* Call to Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
               <Link href="/quote">
-                <Button className="pulse-animation bg-naestir-primary hover:bg-purple-600 text-white px-10 py-6 text-lg font-semibold shadow-xl rounded-full border-2 border-naestir-primary">
-                  🟣 Get Your Free Quote
+                <Button 
+                  className="bg-[#4B0082] hover:bg-[#6A0DAD] text-white px-10 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                  style={{
+                    borderRadius: '8px',
+                    minWidth: '220px',
+                    boxShadow: '0 4px 20px rgba(75, 0, 130, 0.2)'
+                  }}
+                >
+                  Get Your Free Quote
                 </Button>
               </Link>
+              
               <Link href="/#services">
-                <Button variant="outline" className="bg-transparent border-2 border-naestir-dark text-naestir-dark hover:bg-naestir-dark hover:text-white px-10 py-6 text-lg font-semibold rounded-full transition-all duration-300">
-                  ⚪️ See Our Services
+                <Button 
+                  variant="outline"
+                  className="border-2 border-[#4B0082] text-[#4B0082] hover:bg-[#4B0082] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300"
+                  style={{
+                    borderRadius: '8px',
+                    minWidth: '220px'
+                  }}
+                >
+                  See Our Services
                 </Button>
               </Link>
             </div>
-            
-            {/* Microcopy */}
-            <p className="text-naestir-secondary text-sm md:text-base">
-              Trusted by 2,000+ happy clients • Eco-friendly • Insured & Vetted Staff
+
+            {/* Trust Line */}
+            <p className="text-sm text-[#8A8A8A] font-light">
+              Trusted by 2,000+ clients · Eco-conscious · Insured & Background-Checked Staff
             </p>
           </div>
         </section>
