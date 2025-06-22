@@ -150,9 +150,7 @@
   animation: pulse 2s infinite;
 }
 
-.sparkle-hover:hover {
-  animation: sparkle 0.6s ease-in-out;
-}
+/* Removed sparkle-hover animation that caused 180deg rotation */
 
 .glow-hover:hover {
   animation: glow 2s ease-in-out infinite;
