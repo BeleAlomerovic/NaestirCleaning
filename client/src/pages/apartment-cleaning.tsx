@@ -10,12 +10,20 @@ export default function ApartmentCleaning() {
   
   const apartmentImages = [
     {
+      src: "/assets/Clean-apartment_1750613206530.jpg",
+      alt: "Clean modern apartment living room with neutral colors and open kitchen"
+    },
+    {
+      src: "/assets/The-Ultimate-Apartment-Cleaning-Checklist-1024x683_1750613219827.jpg", 
+      alt: "Spotless apartment with blue sofa, organized kitchen and large windows"
+    },
+    {
       src: "/assets/Clean-apartment_1750612374272.jpg",
-      alt: "Clean modern apartment living room with neutral colors"
+      alt: "Pristine apartment with wooden accents and modern furnishing"
     },
     {
       src: "/assets/The-Ultimate-Apartment-Cleaning-Checklist-1024x683_1750612386226.jpg",
-      alt: "Spotless apartment with blue sofa and organized kitchen"
+      alt: "Immaculate apartment featuring contemporary design and natural light"
     }
   ];
 
