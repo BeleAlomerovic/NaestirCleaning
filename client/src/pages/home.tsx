@@ -1,106 +1,61 @@
 import { Link } from "wouter";
-import { Users, Heart, Award, ArrowRight } from "lucide-react";
+import { Users, Heart, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageTransition } from "@/components/page-transition";
 import { services } from "@/lib/constants";
-import apartmentImage from "@assets/AdobeStock_334592268_1750505728985.jpeg";
-import officeImage from "@assets/AdobeStock_523168323_1750505622955.jpeg";
 
 export default function Home() {
   return (
     <PageTransition>
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          {/* Elegant Background Gradient */}
-          <div 
-            className="absolute inset-0"
-            style={{
-              background: 'linear-gradient(135deg, #F3F0FA 0%, #FFFFFF 100%)'
-            }}
-          ></div>
+        <section className="relative h-screen min-h-[700px] flex items-center justify-center">
+          {/* Background Video/Animation */}
+          <div className="absolute inset-0">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+              poster="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080"
+            >
+              <source src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27eecc69a27dbc4ff2b87d38afc35f1c5a3e8c7&profile_id=139&oauth2_token_id=57447761" type="video/mp4" />
+            </video>
+          </div>
           
-          <div className="relative max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              
-              {/* Left Side - Content */}
-              <div className="text-center lg:text-left">
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 hero-gradient"></div>
+          
+          {/* Hero Content */}
+          <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl font-bold text-naestir-dark mb-4 leading-tight">
+              A Cleaner Home,<br />
+              <span className="text-naestir-primary">A Brighter You.</span>
+            </h1>
+            <p className="font-playfair text-xl md:text-2xl text-naestir-secondary mb-12 italic">
+              (We clean. You breathe.)
+            </p>
             
-                {/* Main Headline */}
-                <h1 className="mb-8">
-                  <span 
-                    className="block text-4xl lg:text-6xl font-serif font-light text-[#2C2C2C] leading-tight mb-2"
-                    style={{ fontFamily: 'Playfair Display, serif' }}
-                  >
-                    A Cleaner Home,
-                  </span>
-                  <span 
-                    className="block text-4xl lg:text-6xl font-serif font-light italic text-[#6A0DAD] leading-tight"
-                    style={{ fontFamily: 'Playfair Display, serif' }}
-                  >
-                    A Brighter You
-                  </span>
-                </h1>
-
-                {/* Subheadline */}
-                <p className="text-xl lg:text-2xl text-[#6C6C6C] mb-12 font-light italic">
-                  We clean. You breathe.
-                </p>
-
-                {/* Call to Action Buttons */}
-                <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start items-center mb-12">
-                  <Link href="/quote">
-                    <Button 
-                      className="bg-[#4B0082] hover:bg-[#6A0DAD] text-white px-10 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
-                      style={{
-                        borderRadius: '8px',
-                        minWidth: '220px',
-                        boxShadow: '0 4px 20px rgba(75, 0, 130, 0.2)'
-                      }}
-                    >
-                      Get Your Free Quote
-                    </Button>
-                  </Link>
-                  
-                  <Link href="/#services">
-                    <Button 
-                      variant="outline"
-                      className="border-2 border-[#4B0082] text-[#4B0082] hover:bg-[#4B0082] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300"
-                      style={{
-                        borderRadius: '8px',
-                        minWidth: '220px'
-                      }}
-                    >
-                      See Our Services
-                    </Button>
-                  </Link>
-                </div>
-
-                {/* Trust Line */}
-                <p className="text-sm text-[#8A8A8A] font-light text-center lg:text-left">
-                  Trusted by 2,000+ clients · Eco-conscious · Insured & Background-Checked Staff
-                </p>
-              </div>
-
-              {/* Right Side - Corporate Image */}
-              <div className="hidden lg:block">
-                <div className="relative">
-                  <img 
-                    src={officeImage} 
-                    alt="Professional office cleaning service" 
-                    className="w-full h-96 object-cover rounded-2xl shadow-2xl"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#4B0082]/10 to-transparent rounded-2xl"></div>
-                  <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm rounded-lg p-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                      <span className="text-sm font-semibold text-[#2C2C2C]">Professional Standards</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
+              <Link href="/quote">
+                <Button className="pulse-animation bg-naestir-primary hover:bg-purple-600 text-white px-10 py-6 text-lg font-semibold shadow-xl rounded-full border-2 border-naestir-primary">
+                  🟣 Get Your Free Quote
+                </Button>
+              </Link>
+              <Link href="/#services">
+                <Button variant="outline" className="bg-transparent border-2 border-naestir-dark text-naestir-dark hover:bg-naestir-dark hover:text-white px-10 py-6 text-lg font-semibold rounded-full transition-all duration-300">
+                  ⚪️ See Our Services
+                </Button>
+              </Link>
             </div>
+            
+            {/* Microcopy */}
+            <p className="text-naestir-secondary text-sm md:text-base">
+              Trusted by 2,000+ happy clients • Eco-friendly • Insured & Vetted Staff
+            </p>
           </div>
         </section>
 
