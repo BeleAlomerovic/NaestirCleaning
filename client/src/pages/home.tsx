@@ -379,25 +379,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
-            {/* CTA Section */}
-            <div className="text-center mt-20">
-              <p className="text-xl text-naestir-secondary mb-8 max-w-2xl mx-auto">
-                Ready to see your own transformation? Let us bring that same level of care and attention to your space.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/quote">
-                  <Button className="bg-naestir-primary hover:bg-purple-600 text-white px-8 py-4 text-lg font-semibold shadow-xl">
-                    Get Your Free Quote
-                  </Button>
-                </Link>
-                <Link href="/booking">
-                  <Button variant="outline" className="border-naestir-primary text-naestir-primary hover:bg-naestir-primary hover:text-white px-8 py-4 text-lg font-semibold">
-                    Book Now
-                  </Button>
-                </Link>
-              </div>
-            </div>
           </div>
         </section>
 
