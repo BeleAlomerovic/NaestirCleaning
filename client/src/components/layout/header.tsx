@@ -112,15 +112,15 @@ export function Header() {
                     style={{
                       background: '#FAFAFA',
                       border: '1px solid #DDD4E8',
-                      borderRadius: '4px',
-                      boxShadow: '0px 6px 12px rgba(0,0,0,0.06)',
-                      minWidth: '200px'
+                      borderRadius: '8px',
+                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
+                      minWidth: '240px'
                     }}
                   >
                     {services.map((service) => (
                       <Link key={service.name} href={service.href}>
                         <div
-                          className="service-menu-item px-4 py-2 text-[15px] cursor-pointer transition-colors duration-150"
+                          className="service-menu-item px-6 py-3 text-[15px] cursor-pointer transition-all duration-200 hover:font-semibold"
                           style={{
                             color: '#333',
                             fontFamily: 'Inter, system-ui, sans-serif',
