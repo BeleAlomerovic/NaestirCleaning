@@ -106,14 +106,15 @@ export function Header() {
             >
               <Link href="/services">
                 <span
-                  className={`nav-item font-semibold text-[16px] transition-colors duration-200 cursor-pointer uppercase tracking-wide ${
+                  className={`service-nav-trigger font-medium text-[17px] transition-all duration-200 cursor-pointer relative ${
                     location.startsWith('/services')
-                      ? "text-[#333]"
-                      : "text-[#333] hover:text-[#3F2C44]"
+                      ? "text-[#4B0082] font-semibold"
+                      : "text-[#4B0082] hover:font-semibold"
                   }`}
                   style={{ 
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    fontWeight: '600'
+                    fontFamily: 'Poppins, system-ui, sans-serif',
+                    fontWeight: '500',
+                    letterSpacing: '0.3px'
                   }}
                 >
                   Service
