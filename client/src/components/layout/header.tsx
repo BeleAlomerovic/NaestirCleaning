@@ -15,11 +15,12 @@ export function Header() {
   ];
 
   const services = [
-    { name: "Apartment Cleaning", href: "/services/apartment", icon: Home },
-    { name: "Office Cleaning", href: "/services/office", icon: Building },
-    { name: "Car Cleaning", href: "/services/car", icon: Car },
-    { name: "Carpet Cleaning", href: "/services/carpet", icon: Scissors },
-    { name: "Upholstery Cleaning", href: "/services/upholstery", icon: Shirt }
+    { name: "Apartment Cleaning", href: "/services/apartment" },
+    { name: "Corporate Cleaning", href: "/services/corporate" },
+    { name: "Apartment Block Cleaning", href: "/services/apartment-block" },
+    { name: "Car Wash", href: "/services/car-wash" },
+    { name: "Carpet Cleaning", href: "/services/carpet" },
+    { name: "Garbage Can Cleaning", href: "/services/garbage-can" }
   ];
 
   const isActive = (href: string) => {
@@ -62,19 +63,18 @@ export function Header() {
           </Link>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center" style={{ gap: '32px' }}>
             {navigation.map((item) => (
               <Link key={item.name} href={item.href}>
                 <span
-                  className={`nav-link px-2 py-1 font-medium text-[16px] transition-all duration-300 cursor-pointer relative ${
+                  className={`nav-item font-semibold text-[16px] transition-colors duration-200 cursor-pointer uppercase tracking-wide ${
                     isActive(item.href)
-                      ? "text-[#4B0082] nav-active"
-                      : "text-[#4B0082] hover:text-[#6A0DAD]"
+                      ? "text-[#333]"
+                      : "text-[#333] hover:text-[#3F2C44]"
                   }`}
                   style={{ 
-                    fontFamily: 'Space Grotesk, system-ui, sans-serif',
-                    fontWeight: '500',
-                    letterSpacing: '0.5px'
+                    fontFamily: 'Inter, system-ui, sans-serif',
+                    fontWeight: '600'
                   }}
                 >
                   {item.name}
@@ -88,62 +88,50 @@ export function Header() {
               onMouseEnter={() => setIsServiceDropdownOpen(true)}
               onMouseLeave={() => setIsServiceDropdownOpen(false)}
             >
-              <button
-                className={`service-trigger nav-link px-2 py-1 font-medium text-[16px] transition-all duration-300 cursor-pointer relative flex items-center space-x-1 ${
-                  location.startsWith('/services')
-                    ? "text-[#D4AF37] nav-active-gold"
-                    : "text-[#D4AF37] hover:text-[#FFD700]"
-                }`}
-                style={{ 
-                  fontFamily: 'Space Grotesk, system-ui, sans-serif',
-                  fontWeight: '500',
-                  letterSpacing: '0.5px'
-                }}
-              >
-                <span>Service</span>
-                <ChevronDown 
-                  className={`w-4 h-4 transition-transform duration-200 ${
-                    isServiceDropdownOpen ? 'rotate-180' : ''
+              <Link href="/services">
+                <span
+                  className={`nav-item font-semibold text-[16px] transition-colors duration-200 cursor-pointer uppercase tracking-wide ${
+                    location.startsWith('/services')
+                      ? "text-[#333]"
+                      : "text-[#333] hover:text-[#3F2C44]"
                   }`}
-                />
-              </button>
+                  style={{ 
+                    fontFamily: 'Inter, system-ui, sans-serif',
+                    fontWeight: '600'
+                  }}
+                >
+                  Service
+                </span>
+              </Link>
 
               {/* Dropdown Menu */}
               {isServiceDropdownOpen && (
-                <div className="service-dropdown absolute top-full left-0 mt-2 w-64 z-50">
+                <div className="service-dropdown absolute top-full left-0 mt-1 z-50">
                   <div 
-                    className="bg-white rounded-lg shadow-xl border border-gray-100 py-4 px-2"
+                    className="bg-white border py-2"
                     style={{
-                      background: '#FAF7FF',
-                      boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-                      border: '1px solid rgba(230, 230, 250, 0.8)'
+                      background: '#FAFAFA',
+                      border: '1px solid #DDD4E8',
+                      borderRadius: '4px',
+                      boxShadow: '0px 6px 12px rgba(0,0,0,0.06)',
+                      minWidth: '200px'
                     }}
                   >
-                    {services.map((service, index) => {
-                      const IconComponent = service.icon;
-                      return (
-                        <Link key={service.name} href={service.href}>
-                          <div
-                            className="service-item flex items-center space-x-3 px-4 py-3 mx-1 rounded-lg transition-all duration-200 cursor-pointer"
-                            style={{
-                              animationDelay: `${index * 50}ms`
-                            }}
-                          >
-                            <IconComponent className="w-5 h-5 text-[#D4AF37] flex-shrink-0" />
-                            <span 
-                              className="text-[#D4AF37] font-medium text-[16px] flex-grow"
-                              style={{ 
-                                fontFamily: 'Space Grotesk, system-ui, sans-serif',
-                                fontWeight: '500'
-                              }}
-                            >
-                              {service.name}
-                            </span>
-                            <ChevronDown className="w-4 h-4 text-[#D4AF37] rotate-[-90deg] opacity-60" />
-                          </div>
-                        </Link>
-                      );
-                    })}
+                    {services.map((service) => (
+                      <Link key={service.name} href={service.href}>
+                        <div
+                          className="service-menu-item px-4 py-2 text-[15px] cursor-pointer transition-colors duration-150"
+                          style={{
+                            color: '#333',
+                            fontFamily: 'Inter, system-ui, sans-serif',
+                            fontWeight: '400',
+                            lineHeight: '1.6'
+                          }}
+                        >
+                          {service.name}
+                        </div>
+                      </Link>
+                    ))}
                   </div>
                 </div>
               )}
@@ -208,26 +196,21 @@ export function Header() {
               
               {/* Mobile Services Section */}
               <div className="mobile-nav-item">
-                <div className="text-[#D4AF37] font-semibold text-[18px] px-4 py-2 border-b border-[#D4AF37]/20">
+                <div className="text-[#333] font-semibold text-[18px] px-4 py-2 border-b border-gray-200">
                   Services
                 </div>
                 <div className="pl-4 space-y-2 mt-2">
-                  {services.map((service, index) => {
-                    const IconComponent = service.icon;
-                    return (
-                      <Link key={service.name} href={service.href}>
-                        <div
-                          className="flex items-center space-x-3 px-4 py-2 text-[#D4AF37] hover:text-[#FFD700] transition-colors duration-200 rounded-lg hover:bg-white/20"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          <IconComponent className="w-4 h-4" />
-                          <span style={{ fontFamily: 'Space Grotesk, system-ui, sans-serif' }}>
-                            {service.name}
-                          </span>
-                        </div>
-                      </Link>
-                    );
-                  })}
+                  {services.map((service) => (
+                    <Link key={service.name} href={service.href}>
+                      <div
+                        className="px-4 py-2 text-[#333] hover:text-[#3F2C44] transition-colors duration-200 rounded-lg hover:bg-white/30"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
+                      >
+                        {service.name}
+                      </div>
+                    </Link>
+                  ))}
                 </div>
               </div>
               
