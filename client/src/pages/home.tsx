@@ -12,34 +12,47 @@ export default function Home() {
     <PageTransition>
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section 
-          className="min-h-screen flex items-center py-20 lg:py-32"
-          style={{
-            background: 'linear-gradient(to bottom, #F3F0FA, #FFFFFF)'
-          }}
-        >
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
-              
-              {/* Left Side - Text Content (60% on desktop) */}
-              <div className="lg:col-span-3 text-center lg:text-left order-2 lg:order-1">
+        <section className="relative min-h-screen">
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0">
+            <img 
+              src={facilityImage}
+              alt="Professional facility cleaning"
+              className="w-full h-full object-cover"
+            />
+            {/* Gradient overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
+            {/* Additional light purple overlay for brand consistency */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#4B0082]/20 to-transparent"></div>
+          </div>
+
+          {/* Hero Content */}
+          <div className="relative z-10 flex items-center min-h-screen">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
+              <div className="max-w-3xl">
                 {/* Headline */}
-                <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">
-                  <span className="text-[#2C2C2C]">A Cleaner Home,</span>
+                <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-6 text-white">
+                  <span className="text-white">A Cleaner Home,</span>
                   <br />
-                  <span className="text-[#6A0DAD]">A Brighter You.</span>
+                  <span className="text-[#E6E6FA]">A Brighter You.</span>
                 </h1>
                 
                 {/* Subheadline */}
-                <p className="text-lg md:text-xl text-[#6C6C6C] italic mb-12 font-light max-w-lg mx-auto lg:mx-0">
+                <p className="text-xl md:text-2xl text-gray-200 italic mb-12 font-light max-w-xl">
                   We clean. You breathe.
                 </p>
                 
+                {/* Value Proposition */}
+                <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl leading-relaxed">
+                  Professional cleaning services that bring sparkle to your space and peace to your mind. 
+                  From industrial facilities to intimate homes, we deliver excellence in every detail.
+                </p>
+                
                 {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
+                <div className="flex flex-col sm:flex-row gap-4 mb-16">
                   <Link href="/quote">
                     <Button 
-                      className="w-full sm:w-auto bg-[#4B0082] hover:bg-[#6A0DAD] text-white px-8 py-4 text-lg font-bold transition-all duration-300 hover:shadow-lg hover:brightness-110"
+                      className="w-full sm:w-auto bg-[#4B0082] hover:bg-[#6A0DAD] text-white px-10 py-5 text-lg font-bold transition-all duration-300 hover:shadow-2xl hover:scale-105"
                       style={{ borderRadius: '8px' }}
                     >
                       Get Your Free Quote
@@ -48,7 +61,7 @@ export default function Home() {
                   
                   <Button 
                     variant="outline" 
-                    className="w-full sm:w-auto border-2 border-[#4B0082] text-[#4B0082] hover:bg-[#4B0082] hover:text-white bg-transparent px-8 py-4 text-lg font-bold transition-all duration-300"
+                    className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-[#4B0082] bg-transparent px-10 py-5 text-lg font-bold transition-all duration-300"
                     style={{ borderRadius: '8px' }}
                     onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
                   >
@@ -57,27 +70,28 @@ export default function Home() {
                 </div>
                 
                 {/* Trust Bar */}
-                <div className="text-[#7A7A7A] text-sm md:text-base text-center lg:text-left">
-                  Trusted by 2,000+ clients · Eco-conscious · Insured & Background-Checked
+                <div className="flex flex-wrap items-center gap-8 text-gray-300">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                    <span className="text-sm md:text-base">2,000+ Satisfied Clients</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                    <span className="text-sm md:text-base">Eco-Conscious Methods</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                    <span className="text-sm md:text-base">Insured & Licensed</span>
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
 
-              {/* Right Side - Image (40% on desktop) */}
-              <div className="lg:col-span-2 order-1 lg:order-2">
-                <div className="relative">
-                  <img 
-                    src={professionalImage} 
-                    alt="Professional cleaning service in action" 
-                    className="w-full h-96 lg:h-[500px] xl:h-[600px] object-cover rounded-2xl shadow-2xl"
-                  />
-                  <div 
-                    className="absolute inset-0 rounded-2xl"
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.1)'
-                    }}
-                  ></div>
-                </div>
-              </div>
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
             </div>
           </div>
         </section>
