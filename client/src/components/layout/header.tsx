@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Sparkles, ChevronDown, Home, Building, Car, Scissors, Shirt } from "lucide-react";
+import { Menu, X, Sparkles, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Header() {
