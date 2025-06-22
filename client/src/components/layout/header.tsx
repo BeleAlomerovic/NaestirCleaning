@@ -7,6 +7,7 @@ export function Header() {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServiceDropdownOpen, setIsServiceDropdownOpen] = useState(false);
+  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null);
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -27,6 +28,21 @@ export function Header() {
     if (href === "/" && location === "/") return true;
     if (href !== "/" && location.startsWith(href)) return true;
     return false;
+  };
+
+  const handleServiceMouseEnter = () => {
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout);
+      setDropdownTimeout(null);
+    }
+    setIsServiceDropdownOpen(true);
+  };
+
+  const handleServiceMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setIsServiceDropdownOpen(false);
+    }, 1000); // 1 second delay
+    setDropdownTimeout(timeout);
   };
 
   return (
@@ -85,8 +101,8 @@ export function Header() {
             {/* Services Dropdown */}
             <div 
               className="relative"
-              onMouseEnter={() => setIsServiceDropdownOpen(true)}
-              onMouseLeave={() => setIsServiceDropdownOpen(false)}
+              onMouseEnter={handleServiceMouseEnter}
+              onMouseLeave={handleServiceMouseLeave}
             >
               <Link href="/services">
                 <span
