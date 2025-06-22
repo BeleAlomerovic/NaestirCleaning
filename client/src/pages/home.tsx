@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageTransition } from "@/components/page-transition";
 import { services } from "@/lib/constants";
+import professionalImage from "@assets/facilities-professionals-card_1750588748071.jpg";
 
 export default function Home() {
   return (
@@ -11,48 +12,71 @@ export default function Home() {
       <div className="min-h-screen">
         {/* Hero Section */}
         <section 
-          className="h-screen flex items-center justify-center px-6 lg:px-8"
+          className="min-h-screen flex items-center py-20 lg:py-32"
           style={{
             background: 'linear-gradient(to bottom, #F3F0FA, #FFFFFF)'
           }}
         >
-          <div className="max-w-4xl mx-auto text-center">
-            {/* Headline */}
-            <h1 className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-              <span className="text-[#2C2C2C]">A Cleaner Home,</span>
-              <br />
-              <span className="text-[#6A0DAD]">A Brighter You.</span>
-            </h1>
-            
-            {/* Subheadline */}
-            <p className="text-lg md:text-xl text-[#6C6C6C] italic mb-12 font-light">
-              We clean. You breathe.
-            </p>
-            
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 px-4">
-              <Link href="/quote">
-                <Button 
-                  className="w-full sm:w-auto bg-[#4B0082] hover:bg-[#6A0DAD] text-white px-8 py-4 text-lg font-bold transition-all duration-300 hover:shadow-lg hover:brightness-110"
-                  style={{ borderRadius: '8px' }}
-                >
-                  Get Your Free Quote
-                </Button>
-              </Link>
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
               
-              <Button 
-                variant="outline" 
-                className="w-full sm:w-auto border-2 border-[#4B0082] text-[#4B0082] hover:bg-[#4B0082] hover:text-white bg-transparent px-8 py-4 text-lg font-bold transition-all duration-300"
-                style={{ borderRadius: '8px' }}
-                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                See Our Services
-              </Button>
-            </div>
-            
-            {/* Trust Bar */}
-            <div className="text-[#7A7A7A] text-sm md:text-base">
-              Trusted by 2,000+ clients · Eco-conscious · Insured & Background-Checked Staff
+              {/* Left Side - Text Content (60% on desktop) */}
+              <div className="lg:col-span-3 text-center lg:text-left order-2 lg:order-1">
+                {/* Headline */}
+                <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">
+                  <span className="text-[#2C2C2C]">A Cleaner Home,</span>
+                  <br />
+                  <span className="text-[#6A0DAD]">A Brighter You.</span>
+                </h1>
+                
+                {/* Subheadline */}
+                <p className="text-lg md:text-xl text-[#6C6C6C] italic mb-12 font-light max-w-lg mx-auto lg:mx-0">
+                  We clean. You breathe.
+                </p>
+                
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
+                  <Link href="/quote">
+                    <Button 
+                      className="w-full sm:w-auto bg-[#4B0082] hover:bg-[#6A0DAD] text-white px-8 py-4 text-lg font-bold transition-all duration-300 hover:shadow-lg hover:brightness-110"
+                      style={{ borderRadius: '8px' }}
+                    >
+                      Get Your Free Quote
+                    </Button>
+                  </Link>
+                  
+                  <Button 
+                    variant="outline" 
+                    className="w-full sm:w-auto border-2 border-[#4B0082] text-[#4B0082] hover:bg-[#4B0082] hover:text-white bg-transparent px-8 py-4 text-lg font-bold transition-all duration-300"
+                    style={{ borderRadius: '8px' }}
+                    onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                  >
+                    See Our Services
+                  </Button>
+                </div>
+                
+                {/* Trust Bar */}
+                <div className="text-[#7A7A7A] text-sm md:text-base text-center lg:text-left">
+                  Trusted by 2,000+ clients · Eco-conscious · Insured & Background-Checked
+                </div>
+              </div>
+
+              {/* Right Side - Image (40% on desktop) */}
+              <div className="lg:col-span-2 order-1 lg:order-2">
+                <div className="relative">
+                  <img 
+                    src={professionalImage} 
+                    alt="Professional cleaning service in action" 
+                    className="w-full h-96 lg:h-[500px] xl:h-[600px] object-cover rounded-2xl shadow-2xl"
+                  />
+                  <div 
+                    className="absolute inset-0 rounded-2xl"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.1)'
+                    }}
+                  ></div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
