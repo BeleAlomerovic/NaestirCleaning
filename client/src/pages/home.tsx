@@ -89,11 +89,11 @@ export default function Home() {
                           animationDelay: `${index * 0.2}s`
                         }}
                       >
-                        <div className="relative">
+                        <div className="relative overflow-hidden">
                           <img
                             src={service.image}
                             alt={service.name}
-                            className="w-full h-48 object-cover transition-all duration-300"
+                            className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
                           />
                         </div>
                         <CardContent className="p-6">
