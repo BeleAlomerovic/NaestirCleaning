@@ -42,13 +42,20 @@ export default function Home() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
               <Link href="/quote">
-                <Button className="pulse-animation bg-naestir-primary hover:bg-purple-600 text-white px-10 py-6 text-lg font-semibold shadow-xl rounded-full border-2 border-naestir-primary">
-                  🟣 Get Your Free Quote
+                <Button 
+                  className="bg-[#4B0082] hover:bg-[#6A0DAD] text-white px-10 py-4 text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                  style={{ borderRadius: '8px' }}
+                >
+                  Get Your Free Quote
                 </Button>
               </Link>
               <Link href="/#services">
-                <Button variant="outline" className="bg-transparent border-2 border-naestir-dark text-naestir-dark hover:bg-naestir-dark hover:text-white px-10 py-6 text-lg font-semibold rounded-full transition-all duration-300">
-                  ⚪️ See Our Services
+                <Button 
+                  variant="outline" 
+                  className="bg-transparent border-2 border-[#4B0082] text-[#4B0082] hover:bg-[#4B0082] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300 hover:shadow-lg"
+                  style={{ borderRadius: '8px' }}
+                >
+                  See Our Services
                 </Button>
               </Link>
             </div>
