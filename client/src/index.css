@@ -205,6 +205,25 @@
   font-weight: 500;
 }
 
+/* Apartment page image gallery */
+.cursor-zoom-in {
+  cursor: zoom-in;
+}
+
+/* Smooth image transitions */
+.apartment-gallery img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover glow effect for dots */
+.dot-indicator {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dot-indicator:hover {
+  box-shadow: 0 0 12px rgba(181, 126, 220, 0.6);
+}
+
 .hero-gradient {
   background: linear-gradient(to right, rgba(230, 230, 250, 0.9), rgba(255, 255, 255, 0.7));
 }

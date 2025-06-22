@@ -20,14 +20,14 @@ export default function ApartmentCleaning() {
   ];
 
   const serviceFeatures = [
-    "Deep clean all rooms including kitchen and bathrooms",
-    "Vacuum and mop all floors",
-    "Dust all surfaces including furniture and electronics",
-    "Clean windows, mirrors, and glass surfaces",
-    "Sanitize high-touch areas and doorknobs",
-    "Empty trash and replace liners",
-    "Clean and disinfect bathroom fixtures",
-    "Kitchen deep clean including appliances"
+    "Dusting & wiping all surfaces",
+    "Vacuuming carpets and rugs",
+    "Mopping hard floors",
+    "Bathroom deep clean & disinfection",
+    "Kitchen counters, sink, and stove scrub",
+    "Bedroom cleaning & bed making",
+    "Trash removal and bin sanitizing",
+    "Inside window wipe-down"
   ];
 
   const nextImage = () => {
@@ -78,107 +78,131 @@ export default function ApartmentCleaning() {
         </section>
 
         {/* Split-View Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <section className="py-20 bg-white min-h-screen flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[80vh]">
               
-              {/* Left Side - Service Details */}
-              <div className="space-y-8">
+              {/* Left Side - Service Details (40-45% width) */}
+              <div className="lg:col-span-5 space-y-10 pr-8">
                 <div>
-                  <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#333] mb-6">
-                    What's Included
+                  <h2 
+                    className="font-bold text-[#4B0082] mb-8"
+                    style={{ 
+                      fontFamily: 'Inter, system-ui, sans-serif',
+                      fontSize: '2.5rem',
+                      lineHeight: '1.2',
+                      letterSpacing: '0.5px'
+                    }}
+                  >
+                    What's Included in Your Apartment Cleaning
                   </h2>
-                  <p className="text-lg text-gray-600 mb-8">
-                    Our apartment cleaning service covers every corner of your home with meticulous attention to detail. 
-                    We use eco-friendly products and professional-grade equipment to ensure the highest standards.
-                  </p>
                 </div>
 
                 {/* Service Features */}
-                <div className="space-y-4">
+                <div className="space-y-6">
                   {serviceFeatures.map((feature, index) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
+                    <div key={index} className="flex items-start space-x-4">
+                      <CheckCircle className="w-6 h-6 text-[#B57EDC] mt-0.5 flex-shrink-0" />
+                      <span 
+                        className="text-gray-700 text-lg"
+                        style={{ 
+                          fontFamily: 'Inter, system-ui, sans-serif',
+                          lineHeight: '1.6',
+                          letterSpacing: '0.3px'
+                        }}
+                      >
+                        {feature}
+                      </span>
                     </div>
                   ))}
                 </div>
 
-                {/* Pricing Card */}
-                <Card className="border-2 border-[#4B0082] bg-white shadow-lg">
-                  <CardContent className="p-6">
-                    <div className="text-center">
-                      <h3 className="text-2xl font-bold text-[#333] mb-2">Starting From</h3>
-                      <div className="text-4xl font-bold text-[#4B0082] mb-2">$89</div>
-                      <p className="text-gray-600 mb-4">For studio/1-bedroom apartments</p>
-                      <p className="text-sm text-gray-500 mb-6">
-                        Pricing varies based on apartment size and cleaning frequency
-                      </p>
-                      <div className="space-y-3">
-                        <Link href="/quote">
-                          <Button className="w-full bg-[#4B0082] hover:bg-purple-600 text-white py-3 text-lg font-semibold">
-                            Get Free Quote
-                          </Button>
-                        </Link>
-                        <Link href="/booking">
-                          <Button variant="outline" className="w-full border-[#4B0082] text-[#4B0082] hover:bg-[#4B0082] hover:text-white py-3 text-lg font-semibold">
-                            Book Now
-                          </Button>
-                        </Link>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                {/* Get Quote Section */}
+                <div className="bg-gradient-to-br from-purple-50 to-lavender-100 rounded-2xl p-8 border border-[#4B0082]/10 shadow-lg">
+                  <h3 
+                    className="text-2xl font-bold text-[#4B0082] mb-4"
+                    style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
+                  >
+                    Ready to Book?
+                  </h3>
+                  <p 
+                    className="text-gray-600 mb-6"
+                    style={{ 
+                      fontFamily: 'Inter, system-ui, sans-serif',
+                      lineHeight: '1.6'
+                    }}
+                  >
+                    Get a personalized quote for your apartment cleaning service. Free estimates with no obligations.
+                  </p>
+                  <Link href="/quote">
+                    <Button className="w-full bg-[#4B0082] hover:bg-purple-600 text-white py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                      Get Your Free Quote
+                    </Button>
+                  </Link>
+                </div>
               </div>
 
-              {/* Right Side - Image Gallery */}
-              <div className="space-y-6">
-                <h3 className="font-playfair text-2xl font-bold text-[#333] text-center">
-                  See the Difference
-                </h3>
-                
+              {/* Right Side - Image Gallery (55-60% width) */}
+              <div className="lg:col-span-7">
                 {/* Image Carousel */}
-                <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden">
-                  <div className="aspect-[4/3] relative">
-                    <img
-                      src={apartmentImages[currentImageIndex].src}
-                      alt={apartmentImages[currentImageIndex].alt}
-                      className="w-full h-full object-cover"
-                    />
-                    
-                    {/* Navigation Arrows */}
-                    <button
-                      onClick={prevImage}
-                      className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-200"
-                    >
-                      <ArrowLeft className="w-5 h-5 text-[#4B0082]" />
-                    </button>
-                    <button
-                      onClick={nextImage}
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-200 rotate-180"
-                    >
-                      <ArrowLeft className="w-5 h-5 text-[#4B0082]" />
-                    </button>
-                  </div>
-                  
-                  {/* Image Indicators */}
-                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                    {apartmentImages.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentImageIndex(index)}
-                        className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                          index === currentImageIndex 
-                            ? 'bg-[#4B0082]' 
-                            : 'bg-white/60 hover:bg-white/80'
-                        }`}
+                <div 
+                  className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-[#E6E6FA]/50"
+                  style={{ 
+                    background: 'linear-gradient(135deg, #E6E6FA 0%, #F0E6FF 100%)',
+                    padding: '8px'
+                  }}
+                >
+                  <div className="relative bg-white rounded-2xl overflow-hidden">
+                    <div className="aspect-[5/4] relative cursor-zoom-in group">
+                      <img
+                        src={apartmentImages[currentImageIndex].src}
+                        alt={apartmentImages[currentImageIndex].alt}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                    ))}
+                      
+                      {/* Hover Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      
+                      {/* Navigation Arrows */}
+                      <button
+                        onClick={prevImage}
+                        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-xl hover:bg-white hover:scale-110 transition-all duration-200 opacity-80 hover:opacity-100"
+                      >
+                        <ArrowLeft className="w-6 h-6 text-[#4B0082]" />
+                      </button>
+                      <button
+                        onClick={nextImage}
+                        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-xl hover:bg-white hover:scale-110 transition-all duration-200 opacity-80 hover:opacity-100 rotate-180"
+                      >
+                        <ArrowLeft className="w-6 h-6 text-[#4B0082]" />
+                      </button>
+                    </div>
+                    
+                    {/* Swipe Dots */}
+                    <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+                      {apartmentImages.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setCurrentImageIndex(index)}
+                          className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                            index === currentImageIndex 
+                              ? 'bg-[#4B0082] shadow-lg shadow-[#4B0082]/50' 
+                              : 'bg-white/70 hover:bg-white/90 hover:shadow-lg hover:shadow-white/50'
+                          }`}
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
                 
                 {/* Image Caption */}
-                <p className="text-center text-gray-600 italic">
+                <p 
+                  className="text-center text-gray-600 mt-6 italic text-lg"
+                  style={{ 
+                    fontFamily: 'Inter, system-ui, sans-serif',
+                    lineHeight: '1.5'
+                  }}
+                >
                   {apartmentImages[currentImageIndex].alt}
                 </p>
               </div>
