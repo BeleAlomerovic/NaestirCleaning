@@ -1,12 +1,13 @@
 import { useState, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Sparkles, ChevronDown } from "lucide-react";
+import { Menu, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Header() {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServiceDropdownOpen, setIsServiceDropdownOpen] = useState(false);
+  const [dropdownTimeoutId, setDropdownTimeoutId] = useState<NodeJS.Timeout | null>(null);
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -22,6 +23,21 @@ export function Header() {
     { name: "Carpet Cleaning", href: "/services/carpet" },
     { name: "Garbage Can Cleaning", href: "/services/garbage-can" }
   ];
+
+  const handleServiceMouseEnter = () => {
+    if (dropdownTimeoutId) {
+      clearTimeout(dropdownTimeoutId);
+      setDropdownTimeoutId(null);
+    }
+    setIsServiceDropdownOpen(true);
+  };
+
+  const handleServiceMouseLeave = () => {
+    const timeoutId = setTimeout(() => {
+      setIsServiceDropdownOpen(false);
+    }, 1000);
+    setDropdownTimeoutId(timeoutId);
+  };
 
   const isActive = (href: string) => {
     if (href === "/" && location === "/") return true;
@@ -85,8 +101,8 @@ export function Header() {
             {/* Services Dropdown */}
             <div 
               className="relative"
-              onMouseEnter={() => setIsServiceDropdownOpen(true)}
-              onMouseLeave={() => setIsServiceDropdownOpen(false)}
+              onMouseEnter={handleServiceMouseEnter}
+              onMouseLeave={handleServiceMouseLeave}
             >
               <Link href="/services">
                 <span
@@ -106,7 +122,11 @@ export function Header() {
 
               {/* Dropdown Menu */}
               {isServiceDropdownOpen && (
-                <div className="service-dropdown absolute top-full left-0 mt-1 z-50">
+                <div 
+                  className="service-dropdown absolute top-full left-0 mt-1 z-50"
+                  onMouseEnter={handleServiceMouseEnter}
+                  onMouseLeave={handleServiceMouseLeave}
+                >
                   <div 
                     className="bg-white border py-2"
                     style={{
@@ -114,13 +134,13 @@ export function Header() {
                       border: '1px solid #DDD4E8',
                       borderRadius: '4px',
                       boxShadow: '0px 6px 12px rgba(0,0,0,0.06)',
-                      minWidth: '200px'
+                      minWidth: '220px'
                     }}
                   >
                     {services.map((service) => (
                       <Link key={service.name} href={service.href}>
                         <div
-                          className="service-menu-item px-4 py-2 text-[15px] cursor-pointer transition-colors duration-150"
+                          className="service-menu-item px-4 py-3 text-[15px] cursor-pointer transition-colors duration-150"
                           style={{
                             color: '#333',
                             fontFamily: 'Inter, system-ui, sans-serif',
