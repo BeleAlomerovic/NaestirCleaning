@@ -480,61 +480,23 @@
   }
 }
 
-/* Gold navigation styling */
-.nav-gold-item {
-  position: relative;
-}
-
-.nav-gold-item::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #D4AF37;
-  transition: width 0.3s ease;
-}
-
-.nav-gold-item:hover::after {
-  width: 100%;
-}
-
-.nav-gold-item:hover {
-  font-weight: 600;
-  text-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
-}
-
-.nav-active-gold::after {
-  width: 100%;
-}
-
-/* Service dropdown */
+/* Clean service dropdown */
 .service-dropdown {
-  animation: fadeIn 0.2s ease-out;
+  animation: fadeIn 0.15s ease-out;
 }
 
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(-4px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
-.service-gold-item:hover {
-  background-color: #F7F4FB;
-  font-weight: 600;
-}
-
-/* Quote button styling */
-.quote-gold-button:hover {
-  background: #BFA760 !important;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.4);
+.service-menu-item:hover {
+  background-color: #F7F7F7;
+  font-weight: 500;
 }
 
 /* Custom utilities for Næstir */

@@ -33,7 +33,8 @@ export function Header() {
     <header 
       className="sticky top-0 z-50 border-b"
       style={{
-        backgroundColor: '#F3EFFA',
+        backgroundColor: 'rgba(230, 230, 250, 0.85)',
+        backdropFilter: 'blur(12px)',
         borderBottomColor: 'rgba(120, 0, 170, 0.15)',
         borderBottomWidth: '1px'
       }}
@@ -62,17 +63,18 @@ export function Header() {
           </Link>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center" style={{ gap: '40px' }}>
+          <div className="hidden md:flex items-center" style={{ gap: '32px' }}>
             {navigation.map((item) => (
               <Link key={item.name} href={item.href}>
                 <span
-                  className={`nav-gold-item font-medium text-[17px] transition-all duration-300 cursor-pointer relative ${
-                    isActive(item.href) ? "nav-active-gold" : ""
+                  className={`nav-item font-semibold text-[16px] transition-colors duration-200 cursor-pointer uppercase tracking-wide ${
+                    isActive(item.href)
+                      ? "text-[#333]"
+                      : "text-[#333] hover:text-[#3F2C44]"
                   }`}
                   style={{ 
-                    fontFamily: 'Poppins, system-ui, sans-serif',
-                    fontWeight: '500',
-                    color: '#D4AF37'
+                    fontFamily: 'Inter, system-ui, sans-serif',
+                    fontWeight: '600'
                   }}
                 >
                   {item.name}
@@ -88,13 +90,14 @@ export function Header() {
             >
               <Link href="/services">
                 <span
-                  className={`nav-gold-item font-medium text-[17px] transition-all duration-300 cursor-pointer relative ${
-                    location.startsWith('/services') ? "nav-active-gold" : ""
+                  className={`nav-item font-semibold text-[16px] transition-colors duration-200 cursor-pointer uppercase tracking-wide ${
+                    location.startsWith('/services')
+                      ? "text-[#333]"
+                      : "text-[#333] hover:text-[#3F2C44]"
                   }`}
                   style={{ 
-                    fontFamily: 'Poppins, system-ui, sans-serif',
-                    fontWeight: '500',
-                    color: '#D4AF37'
+                    fontFamily: 'Inter, system-ui, sans-serif',
+                    fontWeight: '600'
                   }}
                 >
                   Service
@@ -103,26 +106,26 @@ export function Header() {
 
               {/* Dropdown Menu */}
               {isServiceDropdownOpen && (
-                <div className="service-dropdown absolute top-full left-0 mt-2 z-50">
+                <div className="service-dropdown absolute top-full left-0 mt-1 z-50">
                   <div 
-                    className="bg-white border py-3"
+                    className="bg-white border py-2"
                     style={{
-                      background: '#F3EFFA',
+                      background: '#FAFAFA',
                       border: '1px solid #DDD4E8',
-                      borderRadius: '6px',
-                      boxShadow: '0px 8px 16px rgba(0,0,0,0.08)',
-                      minWidth: '220px'
+                      borderRadius: '4px',
+                      boxShadow: '0px 6px 12px rgba(0,0,0,0.06)',
+                      minWidth: '200px'
                     }}
                   >
                     {services.map((service) => (
                       <Link key={service.name} href={service.href}>
                         <div
-                          className="service-gold-item px-5 py-3 text-[16px] cursor-pointer transition-all duration-200"
+                          className="service-menu-item px-4 py-2 text-[15px] cursor-pointer transition-colors duration-150"
                           style={{
-                            color: '#D4AF37',
-                            fontFamily: 'Poppins, system-ui, sans-serif',
-                            fontWeight: '500',
-                            lineHeight: '1.5'
+                            color: '#333',
+                            fontFamily: 'Inter, system-ui, sans-serif',
+                            fontWeight: '400',
+                            lineHeight: '1.6'
                           }}
                         >
                           {service.name}
@@ -137,12 +140,12 @@ export function Header() {
             {/* Get Quote Button */}
             <Link href="/quote">
               <Button
-                className="quote-gold-button px-6 py-2 rounded-full text-white font-medium text-[16px] shadow-lg transition-all duration-300"
+                className="quote-button px-6 py-2 rounded-full text-white font-medium text-[16px] shadow-lg transition-all duration-300"
                 style={{
-                  background: '#D4AF37',
-                  boxShadow: '0 4px 12px rgba(212, 175, 55, 0.3)',
-                  fontFamily: 'Poppins, system-ui, sans-serif',
-                  fontWeight: '600'
+                  background: 'linear-gradient(135deg, #B57EDC 0%, #D8BFD8 100%)',
+                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2), 0 4px 8px rgba(181, 126, 220, 0.3)',
+                  fontFamily: 'Space Grotesk, system-ui, sans-serif',
+                  fontWeight: '500'
                 }}
               >
                 Get Quote
@@ -179,10 +182,9 @@ export function Header() {
               {navigation.map((item, index) => (
                 <Link key={item.name} href={item.href}>
                   <div
-                    className="mobile-nav-item block w-full text-left px-4 py-3 font-medium text-[18px] transition-all duration-300 rounded-lg hover:bg-white/30"
+                    className="mobile-nav-item block w-full text-left px-4 py-3 text-[#4B0082] hover:text-[#6A0DAD] font-medium text-[18px] transition-all duration-300 rounded-lg hover:bg-white/30"
                     style={{ 
-                      fontFamily: 'Poppins, system-ui, sans-serif',
-                      color: '#D4AF37',
+                      fontFamily: 'Space Grotesk, system-ui, sans-serif',
                       animationDelay: `${index * 100}ms`
                     }}
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -194,19 +196,16 @@ export function Header() {
               
               {/* Mobile Services Section */}
               <div className="mobile-nav-item">
-                <div className="font-semibold text-[18px] px-4 py-2 border-b border-gold-200" style={{ color: '#D4AF37' }}>
+                <div className="text-[#333] font-semibold text-[18px] px-4 py-2 border-b border-gray-200">
                   Services
                 </div>
                 <div className="pl-4 space-y-2 mt-2">
                   {services.map((service) => (
                     <Link key={service.name} href={service.href}>
                       <div
-                        className="px-4 py-2 transition-colors duration-200 rounded-lg hover:bg-white/30"
+                        className="px-4 py-2 text-[#333] hover:text-[#3F2C44] transition-colors duration-200 rounded-lg hover:bg-white/30"
                         onClick={() => setIsMobileMenuOpen(false)}
-                        style={{ 
-                          fontFamily: 'Poppins, system-ui, sans-serif',
-                          color: '#D4AF37'
-                        }}
+                        style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
                       >
                         {service.name}
                       </div>
@@ -220,9 +219,9 @@ export function Header() {
                 <Button
                   className="w-full mt-4 px-6 py-3 rounded-full text-white font-medium text-[18px] shadow-lg"
                   style={{
-                    background: '#D4AF37',
-                    boxShadow: '0 4px 12px rgba(212, 175, 55, 0.3)',
-                    fontFamily: 'Poppins, system-ui, sans-serif'
+                    background: 'linear-gradient(135deg, #B57EDC 0%, #D8BFD8 100%)',
+                    boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2), 0 4px 8px rgba(181, 126, 220, 0.3)',
+                    fontFamily: 'Space Grotesk, system-ui, sans-serif'
                   }}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
