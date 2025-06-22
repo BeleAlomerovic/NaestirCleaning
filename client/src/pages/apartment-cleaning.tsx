@@ -4,25 +4,29 @@ import { ArrowLeft, CheckCircle, Star, Quote, Users, Shield, Clock } from "lucid
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageTransition } from "@/components/page-transition";
+import cleanApartment1 from "@assets/Clean-apartment_1750613206530.jpg";
+import apartmentChecklist1 from "@assets/The-Ultimate-Apartment-Cleaning-Checklist-1024x683_1750613219827.jpg";
+import cleanApartment2 from "@assets/Clean-apartment_1750612374272.jpg";
+import apartmentChecklist2 from "@assets/The-Ultimate-Apartment-Cleaning-Checklist-1024x683_1750612386226.jpg";
 
 export default function ApartmentCleaning() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const apartmentImages = [
     {
-      src: "/assets/Clean-apartment_1750613206530.jpg",
+      src: cleanApartment1,
       alt: "Clean modern apartment living room with neutral colors and open kitchen"
     },
     {
-      src: "/assets/The-Ultimate-Apartment-Cleaning-Checklist-1024x683_1750613219827.jpg", 
+      src: apartmentChecklist1, 
       alt: "Spotless apartment with blue sofa, organized kitchen and large windows"
     },
     {
-      src: "/assets/Clean-apartment_1750612374272.jpg",
+      src: cleanApartment2,
       alt: "Pristine apartment with wooden accents and modern furnishing"
     },
     {
-      src: "/assets/The-Ultimate-Apartment-Cleaning-Checklist-1024x683_1750612386226.jpg",
+      src: apartmentChecklist2,
       alt: "Immaculate apartment featuring contemporary design and natural light"
     }
   ];
