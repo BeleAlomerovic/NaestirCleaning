@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageTransition } from "@/components/page-transition";
 import { services } from "@/lib/constants";
+import facilityImage from "@assets/facilities-professionals-card_1750588748071.jpg";
 import professionalImage from "@assets/facilities-professionals-card_1750588748071.jpg";
 
 export default function Home() {
