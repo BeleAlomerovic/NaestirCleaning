@@ -1,0 +1,48 @@
+🔹 Overall Look & Feel
+The hero section should look like it belongs to a premium cleaning brand — clean, calm, confident. Think: Apple’s design sensibility mixed with the friendliness of a hospitality brand.
+
+Color Scheme: A soft, minimal background — either a pale lavender gradient or a very light gray with purple undertones. Avoid any high-contrast or emoji-like visuals.
+Layout: Center-aligned content with generous white space. This keeps the focus on your message without clutter.
+🔹 Typography
+Your headline is strong — but refine the style to appear more elegant and premium.
+
+Main Headline:
+Use a large, modern serif or clean bold sans-serif font:
+“A Cleaner Home, A Brighter You.”
+The first half ("A Cleaner Home") in a dark neutral color (like charcoal)
+The second half ("A Brighter You") in your brand purple — subtle, not neon
+Subtext:
+“We clean. You breathe.” in a soft italic, grayish tone for contrast and a gentle voice.
+🔹 Buttons (Call to Action)
+Replace the emoji-style buttons with sleek, professional ones.
+
+Primary Button:
+“Get Your Free Quote”
+Solid dark purple background
+White bold text
+Rounded corners, with soft shadow on hover
+Secondary Button:
+“See Our Services”
+Transparent background
+Purple border
+Same shape as the main button but with a minimalist, outlined look
+Both buttons should feel tactile but subtle — not playful.
+
+🔹 Trust Statement (Below the Buttons)
+Instead of using emoji bullets, keep it professional:
+
+Trusted by 2,000+ happy clients • Eco-friendly • Insured & Vetted Staff
+Use simple dot dividers (•), soft gray text, and smaller font size. Keep it clean and understated.
+
+🔹 Background
+Avoid bright or busy imagery. Choose one of the following:
+
+A light gradient background (lavender fading into white)
+Or a subtle background image: a clean space with extremely low opacity or blur — more as a texture than a photo.
+This makes the section feel modern and calming.
+
+🔹 Spacing & Composition
+Ample padding around each element to give a sense of airiness
+Headline → Subheadline → Buttons → Trust line — each spaced thoughtfully
+On desktop, everything should sit in the vertical center of the screen
+On mobile, stack elements cleanly with even more padding between them
