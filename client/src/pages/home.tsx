@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { PageTransition } from "@/components/page-transition";
 import { services } from "@/lib/constants";
 import apartmentImage from "@assets/AdobeStock_334592268_1750505728985.jpeg";
+import officeImage from "@assets/AdobeStock_523168323_1750505622955.jpeg";
 
 export default function Home() {
   return (
@@ -20,62 +21,86 @@ export default function Home() {
             }}
           ></div>
           
-          <div className="relative max-w-4xl mx-auto px-8 sm:px-12 lg:px-16 text-center">
-            
-            {/* Main Headline */}
-            <h1 className="mb-8">
-              <span 
-                className="block text-5xl lg:text-7xl font-serif font-light text-[#2C2C2C] leading-tight mb-2"
-                style={{ fontFamily: 'Playfair Display, serif' }}
-              >
-                A Cleaner Home,
-              </span>
-              <span 
-                className="block text-5xl lg:text-7xl font-serif font-light italic text-[#6A0DAD] leading-tight"
-                style={{ fontFamily: 'Playfair Display, serif' }}
-              >
-                A Brighter You
-              </span>
-            </h1>
-
-            {/* Subheadline */}
-            <p className="text-xl lg:text-2xl text-[#6C6C6C] mb-16 font-light italic">
-              We clean. You breathe.
-            </p>
-
-            {/* Call to Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-              <Link href="/quote">
-                <Button 
-                  className="bg-[#4B0082] hover:bg-[#6A0DAD] text-white px-10 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
-                  style={{
-                    borderRadius: '8px',
-                    minWidth: '220px',
-                    boxShadow: '0 4px 20px rgba(75, 0, 130, 0.2)'
-                  }}
-                >
-                  Get Your Free Quote
-                </Button>
-              </Link>
+          <div className="relative max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               
-              <Link href="/#services">
-                <Button 
-                  variant="outline"
-                  className="border-2 border-[#4B0082] text-[#4B0082] hover:bg-[#4B0082] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300"
-                  style={{
-                    borderRadius: '8px',
-                    minWidth: '220px'
-                  }}
-                >
-                  See Our Services
-                </Button>
-              </Link>
-            </div>
+              {/* Left Side - Content */}
+              <div className="text-center lg:text-left">
+            
+                {/* Main Headline */}
+                <h1 className="mb-8">
+                  <span 
+                    className="block text-4xl lg:text-6xl font-serif font-light text-[#2C2C2C] leading-tight mb-2"
+                    style={{ fontFamily: 'Playfair Display, serif' }}
+                  >
+                    A Cleaner Home,
+                  </span>
+                  <span 
+                    className="block text-4xl lg:text-6xl font-serif font-light italic text-[#6A0DAD] leading-tight"
+                    style={{ fontFamily: 'Playfair Display, serif' }}
+                  >
+                    A Brighter You
+                  </span>
+                </h1>
 
-            {/* Trust Line */}
-            <p className="text-sm text-[#8A8A8A] font-light">
-              Trusted by 2,000+ clients · Eco-conscious · Insured & Background-Checked Staff
-            </p>
+                {/* Subheadline */}
+                <p className="text-xl lg:text-2xl text-[#6C6C6C] mb-12 font-light italic">
+                  We clean. You breathe.
+                </p>
+
+                {/* Call to Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start items-center mb-12">
+                  <Link href="/quote">
+                    <Button 
+                      className="bg-[#4B0082] hover:bg-[#6A0DAD] text-white px-10 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                      style={{
+                        borderRadius: '8px',
+                        minWidth: '220px',
+                        boxShadow: '0 4px 20px rgba(75, 0, 130, 0.2)'
+                      }}
+                    >
+                      Get Your Free Quote
+                    </Button>
+                  </Link>
+                  
+                  <Link href="/#services">
+                    <Button 
+                      variant="outline"
+                      className="border-2 border-[#4B0082] text-[#4B0082] hover:bg-[#4B0082] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300"
+                      style={{
+                        borderRadius: '8px',
+                        minWidth: '220px'
+                      }}
+                    >
+                      See Our Services
+                    </Button>
+                  </Link>
+                </div>
+
+                {/* Trust Line */}
+                <p className="text-sm text-[#8A8A8A] font-light text-center lg:text-left">
+                  Trusted by 2,000+ clients · Eco-conscious · Insured & Background-Checked Staff
+                </p>
+              </div>
+
+              {/* Right Side - Corporate Image */}
+              <div className="hidden lg:block">
+                <div className="relative">
+                  <img 
+                    src={officeImage} 
+                    alt="Professional office cleaning service" 
+                    className="w-full h-96 object-cover rounded-2xl shadow-2xl"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#4B0082]/10 to-transparent rounded-2xl"></div>
+                  <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm rounded-lg p-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                      <span className="text-sm font-semibold text-[#2C2C2C]">Professional Standards</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
