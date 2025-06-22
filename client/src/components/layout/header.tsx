@@ -35,7 +35,7 @@ export function Header() {
   const handleServiceMouseLeave = () => {
     const timeoutId = setTimeout(() => {
       setIsServiceDropdownOpen(false);
-    }, 1000);
+    }, 500);
     setDropdownTimeoutId(timeoutId);
   };
 

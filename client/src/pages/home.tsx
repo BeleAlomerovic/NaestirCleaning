@@ -84,9 +84,10 @@ export default function Home() {
                   return (
                     <Link key={service.id} href={`/services/${service.id}`}>
                       <Card 
-                        className="service-card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer w-80 flex-shrink-0 fade-in-up sparkle-hover"
+                        className="service-card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer w-80 flex-shrink-0 fade-in-up hover:shadow-xl hover:transform hover:scale-105"
                         style={{
-                          animationDelay: `${index * 0.2}s`
+                          animationDelay: `${index * 0.2}s`,
+                          transition: 'all 0.3s ease'
                         }}
                       >
                         <div className="relative">
