@@ -10,74 +10,156 @@ export default function Home() {
   return (
     <PageTransition>
       <div className="min-h-screen">
-        {/* Hero Section */}
-        <section 
-          className="min-h-screen flex items-center py-20 lg:py-32"
-          style={{
-            background: 'linear-gradient(to bottom, #F3F0FA, #FFFFFF)'
-          }}
-        >
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+        {/* Hero Section - Cinematic Full Viewport */}
+        <section className="relative h-screen flex items-center justify-center overflow-hidden">
+          {/* Background Image with Duotone Effect */}
+          <div className="absolute inset-0">
+            <img 
+              src={professionalImage} 
+              alt="Professional cleaning service" 
+              className="w-full h-full object-cover object-center"
+            />
+            {/* Duotone Overlay - Lavender to Dark Violet */}
+            <div 
+              className="absolute inset-0"
+              style={{
+                background: 'linear-gradient(135deg, rgba(243, 240, 250, 0.8) 0%, rgba(75, 0, 130, 0.7) 100%)',
+                mixBlendMode: 'multiply'
+              }}
+            ></div>
+            {/* Additional Gradient for Text Readability */}
+            <div 
+              className="absolute inset-0"
+              style={{
+                background: 'linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, transparent 60%)'
+              }}
+            ></div>
+          </div>
+
+          {/* Floating Content */}
+          <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center lg:text-left">
+            <div className="max-w-3xl">
               
-              {/* Left Side - Text Content (60% on desktop) */}
-              <div className="lg:col-span-3 text-center lg:text-left order-2 lg:order-1">
-                {/* Headline */}
-                <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">
-                  <span className="text-[#2C2C2C]">A Cleaner Home,</span>
-                  <br />
-                  <span className="text-[#6A0DAD]">A Brighter You.</span>
+              {/* Glassmorphic Card for Headline */}
+              <div 
+                className="p-8 lg:p-12 mb-8 rounded-3xl"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.15)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)'
+                }}
+              >
+                {/* Main Headline */}
+                <h1 
+                  className="font-playfair text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-tight mb-6 text-white"
+                  style={{
+                    letterSpacing: '0.02em',
+                    textShadow: '0 2px 8px rgba(0, 0, 0, 0.3)'
+                  }}
+                >
+                  We Don't Just Clean —<br />
+                  <span className="font-semibold">We Curate Calm.</span>
                 </h1>
                 
                 {/* Subheadline */}
-                <p className="text-lg md:text-xl text-[#6C6C6C] italic mb-12 font-light max-w-lg mx-auto lg:mx-0">
-                  We clean. You breathe.
+                <p 
+                  className="text-xl md:text-2xl text-gray-100 mb-12 font-light leading-relaxed"
+                  style={{
+                    textShadow: '0 1px 4px rgba(0, 0, 0, 0.5)'
+                  }}
+                >
+                  Flawless spaces. Hassle-free service.
                 </p>
                 
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
+                {/* Premium CTA Button */}
+                <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
                   <Link href="/quote">
                     <Button 
-                      className="w-full sm:w-auto bg-[#4B0082] hover:bg-[#6A0DAD] text-white px-8 py-4 text-lg font-bold transition-all duration-300 hover:shadow-lg hover:brightness-110"
-                      style={{ borderRadius: '8px' }}
+                      className="group relative bg-[#4B0082] hover:bg-[#6A0DAD] text-white px-10 py-5 text-xl font-bold transition-all duration-500 transform hover:scale-105 hover:shadow-2xl"
+                      style={{ 
+                        borderRadius: '50px',
+                        background: 'linear-gradient(135deg, #4B0082 0%, #6A0DAD 100%)',
+                        boxShadow: '0 8px 25px rgba(75, 0, 130, 0.4)'
+                      }}
                     >
-                      Get Your Free Quote
+                      <span className="relative z-10">Request a Free Quote</span>
+                      <div 
+                        className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        style={{
+                          background: 'linear-gradient(135deg, #6A0DAD 0%, #8A2BE2 100%)',
+                          filter: 'blur(1px)'
+                        }}
+                      ></div>
                     </Button>
                   </Link>
-                  
-                  <Button 
-                    variant="outline" 
-                    className="w-full sm:w-auto border-2 border-[#4B0082] text-[#4B0082] hover:bg-[#4B0082] hover:text-white bg-transparent px-8 py-4 text-lg font-bold transition-all duration-300"
-                    style={{ borderRadius: '8px' }}
-                    onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-                  >
-                    See Our Services
-                  </Button>
-                </div>
-                
-                {/* Trust Bar */}
-                <div className="text-[#7A7A7A] text-sm md:text-base text-center lg:text-left">
-                  Trusted by 2,000+ clients · Eco-conscious · Insured & Background-Checked
-                </div>
-              </div>
-
-              {/* Right Side - Image (40% on desktop) */}
-              <div className="lg:col-span-2 order-1 lg:order-2">
-                <div className="relative">
-                  <img 
-                    src={professionalImage} 
-                    alt="Professional cleaning service in action" 
-                    className="w-full h-96 lg:h-[500px] xl:h-[600px] object-cover rounded-2xl shadow-2xl"
-                  />
-                  <div 
-                    className="absolute inset-0 rounded-2xl"
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.1)'
-                    }}
-                  ></div>
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Trust Statement - Bottom Overlay */}
+          <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-10">
+            <div 
+              className="px-8 py-4 rounded-full text-center"
+              style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)'
+              }}
+            >
+              <p 
+                className="text-white text-sm md:text-base font-light"
+                style={{
+                  textShadow: '0 1px 3px rgba(0, 0, 0, 0.5)'
+                }}
+              >
+                Trusted by over 2,000 clients · 100% satisfaction guarantee · Fully insured & vetted staff
+              </p>
+            </div>
+          </div>
+
+          {/* Subtle Floating Particles Animation */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <div 
+              className="absolute w-2 h-2 bg-white opacity-30 rounded-full animate-pulse"
+              style={{
+                top: '20%',
+                left: '15%',
+                animationDelay: '0s',
+                animationDuration: '3s'
+              }}
+            ></div>
+            <div 
+              className="absolute w-1 h-1 bg-white opacity-40 rounded-full animate-pulse"
+              style={{
+                top: '60%',
+                right: '20%',
+                animationDelay: '1s',
+                animationDuration: '4s'
+              }}
+            ></div>
+            <div 
+              className="absolute w-1.5 h-1.5 bg-white opacity-20 rounded-full animate-pulse"
+              style={{
+                bottom: '30%',
+                left: '70%',
+                animationDelay: '2s',
+                animationDuration: '5s'
+              }}
+            ></div>
+          </div>
+
+          {/* Curved Wave Transition */}
+          <div className="absolute bottom-0 left-0 w-full">
+            <svg 
+              viewBox="0 0 1200 120" 
+              preserveAspectRatio="none" 
+              className="relative block w-full h-16"
+              style={{ fill: '#FFFFFF' }}
+            >
+              <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"></path>
+            </svg>
           </div>
         </section>
 
