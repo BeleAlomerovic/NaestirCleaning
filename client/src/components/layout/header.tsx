@@ -7,7 +7,6 @@ export function Header() {
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServiceDropdownOpen, setIsServiceDropdownOpen] = useState(false);
-  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null);
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -28,21 +27,6 @@ export function Header() {
     if (href === "/" && location === "/") return true;
     if (href !== "/" && location.startsWith(href)) return true;
     return false;
-  };
-
-  const handleServiceMouseEnter = () => {
-    if (dropdownTimeout) {
-      clearTimeout(dropdownTimeout);
-      setDropdownTimeout(null);
-    }
-    setIsServiceDropdownOpen(true);
-  };
-
-  const handleServiceMouseLeave = () => {
-    const timeout = setTimeout(() => {
-      setIsServiceDropdownOpen(false);
-    }, 500); // 0.5 second delay
-    setDropdownTimeout(timeout);
   };
 
   return (
@@ -101,20 +85,19 @@ export function Header() {
             {/* Services Dropdown */}
             <div 
               className="relative"
-              onMouseEnter={handleServiceMouseEnter}
-              onMouseLeave={handleServiceMouseLeave}
+              onMouseEnter={() => setIsServiceDropdownOpen(true)}
+              onMouseLeave={() => setIsServiceDropdownOpen(false)}
             >
               <Link href="/services">
                 <span
-                  className={`service-nav-trigger font-medium text-[17px] transition-all duration-200 cursor-pointer relative ${
+                  className={`nav-item font-semibold text-[16px] transition-colors duration-200 cursor-pointer uppercase tracking-wide ${
                     location.startsWith('/services')
-                      ? "text-[#4B0082] font-semibold"
-                      : "text-[#4B0082] hover:font-semibold"
+                      ? "text-[#333]"
+                      : "text-[#333] hover:text-[#3F2C44]"
                   }`}
                   style={{ 
-                    fontFamily: 'Poppins, system-ui, sans-serif',
-                    fontWeight: '500',
-                    letterSpacing: '0.3px'
+                    fontFamily: 'Inter, system-ui, sans-serif',
+                    fontWeight: '600'
                   }}
                 >
                   Service
@@ -129,15 +112,15 @@ export function Header() {
                     style={{
                       background: '#FAFAFA',
                       border: '1px solid #DDD4E8',
-                      borderRadius: '8px',
-                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
-                      minWidth: '240px'
+                      borderRadius: '4px',
+                      boxShadow: '0px 6px 12px rgba(0,0,0,0.06)',
+                      minWidth: '200px'
                     }}
                   >
                     {services.map((service) => (
                       <Link key={service.name} href={service.href}>
                         <div
-                          className="service-menu-item px-6 py-3 text-[15px] cursor-pointer transition-all duration-200 hover:font-semibold"
+                          className="service-menu-item px-4 py-2 text-[15px] cursor-pointer transition-colors duration-150"
                           style={{
                             color: '#333',
                             fontFamily: 'Inter, system-ui, sans-serif',
