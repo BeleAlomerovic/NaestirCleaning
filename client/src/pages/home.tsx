@@ -1,9 +1,10 @@
 import { Link } from "wouter";
-import { Users, Heart, Award } from "lucide-react";
+import { Users, Heart, Award, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageTransition } from "@/components/page-transition";
 import { services } from "@/lib/constants";
+import apartmentImage from "@assets/AdobeStock_334592268_1750505728985.jpeg";
 
 export default function Home() {
   return (
