@@ -222,18 +222,7 @@ export default function ApartmentCleaning() {
           </div>
         </section>
 
-        {/* Call-to-Action Section */}
-        <section className="py-16 bg-[#4B0082]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="max-w-2xl mx-auto">
-              <Link href="/quote">
-                <Button className="bg-white text-[#4B0082] hover:bg-gray-100 px-8 py-4 text-lg font-semibold shadow-lg">
-                  Get Your Free Quote
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
+
       </div>
     </PageTransition>
   );
