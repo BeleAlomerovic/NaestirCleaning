@@ -222,74 +222,13 @@ export default function ApartmentCleaning() {
           </div>
         </section>
 
-        {/* Customer Satisfaction Section */}
-        <section className="py-16 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Card className="bg-gradient-to-br from-purple-50 to-lavender-50 border-2 border-[#4B0082]/20 shadow-xl">
-              <CardContent className="p-8 md:p-12">
-                <div className="text-center">
-                  <Quote className="w-12 h-12 text-[#4B0082] mx-auto mb-6" />
-                  <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#333] mb-6">
-                    Customer Satisfaction Guarantee
-                  </h2>
-                  <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
-                    "We stand behind every cleaning with our 100% satisfaction guarantee. 
-                    If you're not completely happy with our service, we'll return within 24 hours 
-                    to make it right – at no additional cost."
-                  </p>
-                  
-                  {/* Satisfaction Stats */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-                    <div className="text-center">
-                      <div className="flex justify-center mb-3">
-                        <Star className="w-8 h-8 text-yellow-500 fill-current" />
-                        <Star className="w-8 h-8 text-yellow-500 fill-current" />
-                        <Star className="w-8 h-8 text-yellow-500 fill-current" />
-                        <Star className="w-8 h-8 text-yellow-500 fill-current" />
-                        <Star className="w-8 h-8 text-yellow-500 fill-current" />
-                      </div>
-                      <div className="text-2xl font-bold text-[#4B0082] mb-1">4.9/5</div>
-                      <div className="text-gray-600">Average Rating</div>
-                    </div>
-                    
-                    <div className="text-center">
-                      <Users className="w-8 h-8 text-[#4B0082] mx-auto mb-3" />
-                      <div className="text-2xl font-bold text-[#4B0082] mb-1">2,000+</div>
-                      <div className="text-gray-600">Happy Customers</div>
-                    </div>
-                    
-                    <div className="text-center">
-                      <Shield className="w-8 h-8 text-[#4B0082] mx-auto mb-3" />
-                      <div className="text-2xl font-bold text-[#4B0082] mb-1">100%</div>
-                      <div className="text-gray-600">Satisfaction Rate</div>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
         {/* Call-to-Action Section */}
         <section className="py-16 bg-[#4B0082]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Clock className="w-12 h-12 text-white mx-auto mb-6" />
-            <h2 className="font-playfair text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready for a Spotless Apartment?
-            </h2>
-            <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-              Book your apartment cleaning service today and experience the Næstir difference. 
-              Same-day bookings available.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="max-w-2xl mx-auto">
               <Link href="/quote">
                 <Button className="bg-white text-[#4B0082] hover:bg-gray-100 px-8 py-4 text-lg font-semibold shadow-lg">
-                  Get Free Quote
-                </Button>
-              </Link>
-              <Link href="/booking">
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-[#4B0082] px-8 py-4 text-lg font-semibold">
-                  Book Online
+                  Get Your Free Quote
                 </Button>
               </Link>
             </div>
