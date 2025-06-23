@@ -35,14 +35,14 @@ export default function ApartmentCleaning() {
   ];
 
   const serviceFeatures = [
-    "Dusting & wiping all surfaces",
-    "Vacuuming carpets and rugs",
-    "Mopping hard floors",
-    "Bathroom deep clean & disinfection",
-    "Kitchen counters, sink, and stove scrub",
-    "Bedroom cleaning & bed making",
-    "Trash removal and bin sanitizing",
-    "Inside window wipe-down"
+    "All surfaces dusted & disinfected",
+    "Kitchen: sink, stove, and counters cleaned",
+    "Bathroom: tub, toilet, and mirrors sanitized",
+    "Floors vacuumed and mopped",
+    "Trash bins emptied and wiped",
+    "Bed-making and linen reset",
+    "Optional: Inside window cleaning",
+    "Light switches and door handles sanitized"
   ];
 
   const nextImage = () => {
@@ -170,62 +170,91 @@ export default function ApartmentCleaning() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[80vh]">
               
               {/* Left Side - Service Details (40-45% width) */}
-              <div className="lg:col-span-5 space-y-10 pr-8">
+              <div className="lg:col-span-5 space-y-12 pr-8 border-r border-gray-100">
+                {/* Professional Section Heading */}
                 <div>
                   <h2 
-                    className="font-bold text-[#4B0082] mb-8"
+                    className="font-medium text-[#2B2B2B] mb-8"
                     style={{ 
                       fontFamily: 'Inter, system-ui, sans-serif',
-                      fontSize: '2.5rem',
-                      lineHeight: '1.2',
-                      letterSpacing: '0.5px'
+                      fontSize: '1.75rem',
+                      lineHeight: '1.3',
+                      letterSpacing: '0.2px'
                     }}
                   >
-                    What's Included in Your Apartment Cleaning
+                    What's Included in Your Apartment Clean
                   </h2>
+                  
+                  {/* Minimal Feature Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-3">
+                    {serviceFeatures.map((feature, index) => (
+                      <div key={index} className="flex items-center group">
+                        <div className="w-4 h-4 mr-3 flex-shrink-0">
+                          <svg 
+                            className="w-4 h-4 text-gray-400 group-hover:text-gray-600 transition-colors" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <span 
+                          className="text-gray-700 leading-relaxed"
+                          style={{ 
+                            fontFamily: 'Inter, system-ui, sans-serif',
+                            fontSize: '0.95rem',
+                            fontWeight: '400'
+                          }}
+                        >
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                {/* Service Features */}
-                <div className="space-y-6">
-                  {serviceFeatures.map((feature, index) => (
-                    <div key={index} className="flex items-start space-x-4">
-                      <CheckCircle className="w-6 h-6 text-[#B57EDC] mt-0.5 flex-shrink-0" />
-                      <span 
-                        className="text-gray-700 text-lg"
+                {/* Sleek Call-to-Action Block */}
+                <div className="pt-8 border-t border-gray-100">
+                  <div className="space-y-4">
+                    <div>
+                      <h3 
+                        className="text-[#2B2B2B] mb-2"
                         style={{ 
                           fontFamily: 'Inter, system-ui, sans-serif',
-                          lineHeight: '1.6',
-                          letterSpacing: '0.3px'
+                          fontSize: '1.1rem',
+                          fontWeight: '500',
+                          lineHeight: '1.4'
                         }}
                       >
-                        {feature}
-                      </span>
+                        Need your apartment professionally cleaned?
+                      </h3>
+                      <p 
+                        className="text-gray-600"
+                        style={{ 
+                          fontFamily: 'Inter, system-ui, sans-serif',
+                          fontSize: '0.95rem',
+                          fontWeight: '400',
+                          lineHeight: '1.5'
+                        }}
+                      >
+                        Get a custom quote — no obligations, fast response.
+                      </p>
                     </div>
-                  ))}
-                </div>
-
-                {/* Get Quote Section */}
-                <div className="bg-gradient-to-br from-purple-50 to-lavender-100 rounded-2xl p-8 border border-[#4B0082]/10 shadow-lg">
-                  <h3 
-                    className="text-2xl font-bold text-[#4B0082] mb-4"
-                    style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
-                  >
-                    Ready to Book?
-                  </h3>
-                  <p 
-                    className="text-gray-600 mb-6"
-                    style={{ 
-                      fontFamily: 'Inter, system-ui, sans-serif',
-                      lineHeight: '1.6'
-                    }}
-                  >
-                    Get a personalized quote for your apartment cleaning service. Free estimates with no obligations.
-                  </p>
-                  <Link href="/quote">
-                    <Button className="w-full bg-[#4B0082] hover:bg-purple-600 text-white py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
-                      Get Your Free Quote
-                    </Button>
-                  </Link>
+                    
+                    <Link href="/quote">
+                      <Button 
+                        className="bg-[#4B0082] hover:bg-[#4B0082]/90 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-[1.03] hover:shadow-lg"
+                        style={{
+                          height: '48px',
+                          width: '200px',
+                          fontSize: '0.95rem'
+                        }}
+                      >
+                        Get My Quote
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
 
