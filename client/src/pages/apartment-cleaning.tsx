@@ -120,53 +120,64 @@ export default function ApartmentCleaning() {
           </div>
         </section>
 
+        {/* Service Coverage Section */}
+        <section className="py-12 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="font-medium text-[#2B2B2B] mb-6" style={{ 
+              fontFamily: 'Inter, system-ui, sans-serif',
+              fontSize: '1.5rem',
+              letterSpacing: '0.2px'
+            }}>
+              We Clean Apartments Across Reykjavík
+            </h2>
+            <p className="text-gray-600 mb-8" style={{ 
+              fontFamily: 'Inter, system-ui, sans-serif',
+              fontSize: '1rem'
+            }}>
+              From Hlíðar to Vesturbær, we cover every corner of the city with our professional apartment cleaning services.
+            </p>
+            
+            {/* Compact Postal Code Checker */}
+            <div className="max-w-sm mx-auto">
+              <p className="text-sm text-gray-600 mb-3">Check if we serve your area:</p>
+              <div className="flex gap-2">
+                <Input
+                  type="text"
+                  placeholder="101, 107, 200"
+                  value={postalCode}
+                  onChange={(e) => {
+                    setPostalCode(e.target.value);
+                    setCoverageResult("");
+                  }}
+                  className="flex-1 h-10 text-sm border-gray-300 focus:border-[#4B0082] focus:ring-[#4B0082]"
+                  maxLength={3}
+                />
+                <Button 
+                  onClick={checkCoverage}
+                  className="bg-[#4B0082] hover:bg-[#4B0082]/90 px-4 h-10 text-sm"
+                >
+                  Check
+                </Button>
+              </div>
+              
+              {coverageResult && (
+                <div className={`mt-3 p-2 rounded-md text-sm transition-all duration-300 ${
+                  coverageResult.includes('✓') 
+                    ? 'bg-green-50 text-green-700 border border-green-200' 
+                    : 'bg-red-50 text-red-700 border border-red-200'
+                }`}>
+                  {coverageResult.includes('✓') ? '✅ You\'re covered! Book now.' : '❌ We don\'t currently serve that area.'}
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+
         {/* Split-View Section */}
         <section className="py-20 bg-white min-h-screen flex items-center relative">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             
-            {/* Floating Service Coverage Checker - Desktop */}
-            <div className="hidden lg:block absolute top-8 right-8 z-10" style={{ boxShadow: '0 4px 10px rgba(0, 0, 0, 0.05)' }}>
-              <Card className="bg-[#F4F1FA] border border-[#E0D5F9] max-w-xs" style={{ borderRadius: '10px' }}>
-                <CardContent className="p-5">
-                  <h3 className="font-medium text-lg text-[#4B0082] mb-2">
-                    We Clean Apartments Across Reykjavík
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                    Not sure if we serve your neighborhood? Enter your zip code below to check.
-                  </p>
-                  
-                  <div className="flex gap-2">
-                    <Input
-                      type="text"
-                      placeholder="101, 107, 200"
-                      value={postalCode}
-                      onChange={(e) => {
-                        setPostalCode(e.target.value);
-                        setCoverageResult("");
-                      }}
-                      className="flex-1 h-9 text-sm border-gray-300 focus:border-[#4B0082] focus:ring-[#4B0082] rounded-md"
-                      maxLength={3}
-                    />
-                    <Button 
-                      onClick={checkCoverage}
-                      className="bg-[#4B0082] hover:bg-[#4B0082]/90 px-4 h-9 text-sm text-white rounded-full"
-                    >
-                      Check
-                    </Button>
-                  </div>
-                  
-                  {coverageResult && (
-                    <div className={`mt-3 p-2 rounded-md text-sm transition-all duration-300 ease-in-out ${
-                      coverageResult.includes('✓') 
-                        ? 'bg-green-50 text-green-700 border border-green-200' 
-                        : 'bg-red-50 text-red-700 border border-red-200'
-                    }`}>
-                      {coverageResult.includes('✓') ? '✅ You\'re covered! Book now.' : '❌ We don\'t currently serve that area.'}
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            </div>
+
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[80vh]">
               
               {/* Left Side - Service Details (40-45% width) */}
@@ -323,49 +334,7 @@ export default function ApartmentCleaning() {
                 </p>
               </div>
             </div>
-            {/* Mobile Service Coverage Checker */}
-            <div className="lg:hidden mb-8">
-              <Card className="bg-[#F4F1FA] border border-[#E0D5F9] shadow-sm">
-                <CardContent className="p-5 text-center">
-                  <h3 className="font-medium text-base text-[#4B0082] mb-2">
-                    We Clean Apartments Across Reykjavík
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                    Not sure if we serve your neighborhood? Enter your zip code below to check.
-                  </p>
-                  
-                  <div className="flex gap-2 max-w-xs mx-auto">
-                    <Input
-                      type="text"
-                      placeholder="101, 107, 200"
-                      value={postalCode}
-                      onChange={(e) => {
-                        setPostalCode(e.target.value);
-                        setCoverageResult("");
-                      }}
-                      className="flex-1 h-9 text-sm border-gray-300 focus:border-[#4B0082] focus:ring-[#4B0082] rounded-md"
-                      maxLength={3}
-                    />
-                    <Button 
-                      onClick={checkCoverage}
-                      className="bg-[#4B0082] hover:bg-[#4B0082]/90 px-4 h-9 text-sm rounded-full"
-                    >
-                      Check
-                    </Button>
-                  </div>
-                  
-                  {coverageResult && (
-                    <div className={`mt-3 p-2 rounded-md text-sm transition-all duration-300 ${
-                      coverageResult.includes('✓') 
-                        ? 'bg-green-50 text-green-700 border border-green-200' 
-                        : 'bg-red-50 text-red-700 border border-red-200'
-                    }`}>
-                      {coverageResult.includes('✓') ? '✅ You\'re covered! Book now.' : '❌ We don\'t currently serve that area.'}
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            </div>
+
           </div>
         </section>
 
