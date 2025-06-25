@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, CheckCircle, Star, Quote, Users, Shield, Clock, MapPin, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,47 @@ export default function ApartmentCleaning() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [postalCode, setPostalCode] = useState("");
   const [coverageResult, setCoverageResult] = useState("");
+  const magneticButtons = useRef<HTMLButtonElement[]>([]);
+
+  // Magnetic button effect
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      magneticButtons.current.forEach(button => {
+        if (!button) return;
+        
+        const rect = button.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        const distance = Math.sqrt(x * x + y * y);
+        
+        if (distance < 100) {
+          const strength = Math.max(0, 1 - distance / 100);
+          const translateX = x * strength * 0.15;
+          const translateY = y * strength * 0.15;
+          
+          button.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`;
+        } else {
+          button.style.transform = 'translateX(0px) translateY(0px)';
+        }
+      });
+    };
+
+    const handleMouseLeave = () => {
+      magneticButtons.current.forEach(button => {
+        if (button) {
+          button.style.transform = 'translateX(0px) translateY(0px)';
+        }
+      });
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
   
   const apartmentImages = [
     {
@@ -139,8 +180,9 @@ export default function ApartmentCleaning() {
                   maxLength={3}
                 />
                 <Button 
+                  ref={(el) => el && magneticButtons.current.push(el)}
                   onClick={checkCoverage}
-                  className="bg-[#4B0082] hover:bg-[#4B0082]/90 px-4 h-10 text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+                  className="btn-magnetic px-4 h-10 text-sm text-white font-medium relative z-10"
                 >
                   Check
                 </Button>
@@ -215,7 +257,8 @@ export default function ApartmentCleaning() {
                 <div className="pt-8 border-t border-gray-100">
                   <Link href="/quote">
                     <Button 
-                      className="bg-[#4B0082] hover:bg-[#4B0082]/90 text-white font-semibold rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+                      ref={(el) => el && magneticButtons.current.push(el)}
+                      className="btn-magnetic text-white font-semibold rounded-lg relative z-10"
                       style={{
                         height: '48px',
                         width: '200px',
