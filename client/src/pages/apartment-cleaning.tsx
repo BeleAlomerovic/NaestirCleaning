@@ -283,11 +283,16 @@ export default function ApartmentCleaning() {
                 
 
               </div>
+            </div>
 
-              {/* Trust & Safety Commitment Section - Below Images */}
-              <div className="mt-12 max-w-[700px] mx-auto">
-                <div className="space-y-4">
-                  <div className="trust-item opacity-0 animate-trust-fade-1 flex items-center space-x-3">
+          </div>
+        </section>
+
+        {/* Trust & Safety Commitment Section */}
+        <section className="py-12 bg-[#F9F8FC] border-t border-[#E6E1F3]">
+          <div className="max-w-[700px] mx-auto px-6">
+            <div className="space-y-4">
+              <div className="trust-item opacity-0 animate-trust-fade-1 flex items-center space-x-3">
                 <div className="w-4 h-4 flex-shrink-0">
                   <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
@@ -306,7 +311,7 @@ export default function ApartmentCleaning() {
                 </span>
               </div>
 
-                  <div className="trust-item opacity-0 animate-trust-fade-2 flex items-center space-x-3">
+              <div className="trust-item opacity-0 animate-trust-fade-2 flex items-center space-x-3">
                 <div className="w-4 h-4 flex-shrink-0">
                   <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
@@ -325,7 +330,7 @@ export default function ApartmentCleaning() {
                 </span>
               </div>
 
-                  <div className="trust-item opacity-0 animate-trust-fade-3 flex items-center space-x-3">
+              <div className="trust-item opacity-0 animate-trust-fade-3 flex items-center space-x-3">
                 <div className="w-4 h-4 flex-shrink-0">
                   <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
@@ -344,7 +349,7 @@ export default function ApartmentCleaning() {
                 </span>
               </div>
 
-                  <div className="trust-item opacity-0 animate-trust-fade-4 flex items-center space-x-3">
+              <div className="trust-item opacity-0 animate-trust-fade-4 flex items-center space-x-3">
                 <div className="w-4 h-4 flex-shrink-0">
                   <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
@@ -363,9 +368,9 @@ export default function ApartmentCleaning() {
                 </span>
               </div>
 
-                  <div className="trust-item opacity-0 animate-trust-fade-5 flex items-center space-x-3">
+              <div className="trust-item opacity-0 animate-trust-fade-5 flex items-center space-x-3">
                 <div className="w-4 h-4 flex-shrink-0">
-                  <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-gray-400 animate-trust-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
@@ -381,48 +386,7 @@ export default function ApartmentCleaning() {
                   Transparent pricing — no surprise fees
                 </span>
               </div>
-
-                  <div className="trust-item opacity-0 animate-trust-fade-6 flex items-center space-x-3">
-                <div className="w-4 h-4 flex-shrink-0">
-                  <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span 
-                  className="text-[#2B2B2B]"
-                  style={{ 
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    fontSize: '15px',
-                    fontWeight: '400',
-                    lineHeight: '1.5'
-                  }}
-                >
-                  Eco-friendly cleaning products safe for families
-                </span>
-              </div>
-
-                  <div className="trust-item opacity-0 animate-trust-fade-7 flex items-center space-x-3">
-                <div className="w-4 h-4 flex-shrink-0">
-                  <svg className="w-4 h-4 text-gray-400 animate-trust-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span 
-                  className="text-[#2B2B2B]"
-                  style={{ 
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    fontSize: '15px',
-                    fontWeight: '400',
-                    lineHeight: '1.5'
-                  }}
-                >
-                  Flexible scheduling to fit your lifestyle
-                </span>
-                  </div>
-                </div>
-              </div>
             </div>
-
           </div>
         </section>
 

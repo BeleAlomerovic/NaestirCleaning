@@ -138,62 +138,8 @@
   }
 }
 
-@keyframes trustFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(5px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes trustPulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.05);
-  }
-}
-
 .animate-fade-pulse {
   animation: fadePulse 5s ease-in-out infinite;
-}
-
-.animate-trust-fade-1 {
-  animation: trustFadeIn 0.8s ease-out 0.5s forwards;
-}
-
-.animate-trust-fade-2 {
-  animation: trustFadeIn 0.8s ease-out 1.3s forwards;
-}
-
-.animate-trust-fade-3 {
-  animation: trustFadeIn 0.8s ease-out 2.1s forwards;
-}
-
-.animate-trust-fade-4 {
-  animation: trustFadeIn 0.8s ease-out 2.9s forwards;
-}
-
-.animate-trust-fade-5 {
-  animation: trustFadeIn 0.8s ease-out 3.7s forwards;
-}
-
-.animate-trust-fade-6 {
-  animation: trustFadeIn 0.8s ease-out 4.5s forwards;
-}
-
-.animate-trust-fade-7 {
-  animation: trustFadeIn 0.8s ease-out 5.3s forwards;
-}
-
-.animate-trust-pulse {
-  animation: trustPulse 2s ease-in-out 6.5s infinite;
 }
 
 @keyframes bounce {
