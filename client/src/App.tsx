@@ -33,7 +33,7 @@ function Router() {
       <Route path="/services/car-cleaning" component={CarCleaning} />
       <Route path="/services/company-cleaning" component={CompanyCleaning} />
       <Route path="/services/garbage-cleaning" component={GarbageCleaning} />
-      <Route component={NotFound} />
+      <Route path="*" component={NotFound} />
     </Switch>
   );
 }
