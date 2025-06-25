@@ -140,7 +140,7 @@ export default function ApartmentCleaning() {
                 />
                 <Button 
                   onClick={checkCoverage}
-                  className="bg-[#4B0082] hover:bg-[#4B0082]/90 px-4 h-10 text-sm btn-micro-lift"
+                  className="bg-[#4B0082] hover:bg-[#4B0082]/90 px-4 h-10 text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
                 >
                   Check
                 </Button>
@@ -215,7 +215,7 @@ export default function ApartmentCleaning() {
                 <div className="pt-8 border-t border-gray-100">
                   <Link href="/quote">
                     <Button 
-                      className="bg-[#4B0082] hover:bg-[#4B0082]/90 text-white font-semibold rounded-lg btn-micro-lift"
+                      className="bg-[#4B0082] hover:bg-[#4B0082]/90 text-white font-semibold rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
                       style={{
                         height: '48px',
                         width: '200px',
