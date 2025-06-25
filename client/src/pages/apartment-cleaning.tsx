@@ -121,22 +121,8 @@ export default function ApartmentCleaning() {
         </section>
 
         {/* Service Coverage Section */}
-        <section className="py-12 bg-gray-50">
+        <section className="py-8 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="font-medium text-[#2B2B2B] mb-6" style={{ 
-              fontFamily: 'Inter, system-ui, sans-serif',
-              fontSize: '1.5rem',
-              letterSpacing: '0.2px'
-            }}>
-              We Clean Apartments Across Reykjavík
-            </h2>
-            <p className="text-gray-600 mb-8" style={{ 
-              fontFamily: 'Inter, system-ui, sans-serif',
-              fontSize: '1rem'
-            }}>
-              From Hlíðar to Vesturbær, we cover every corner of the city with our professional apartment cleaning services.
-            </p>
-            
             {/* Compact Postal Code Checker */}
             <div className="max-w-sm mx-auto">
               <p className="text-sm text-gray-600 mb-3">Check if we serve your area:</p>
