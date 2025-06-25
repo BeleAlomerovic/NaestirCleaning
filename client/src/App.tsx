@@ -12,11 +12,6 @@ import Reviews from "@/pages/reviews";
 import About from "@/pages/about";
 import ServiceDetail from "@/pages/service-detail";
 import ApartmentCleaning from "@/pages/apartment-cleaning";
-import BlocksCleaning from "@/pages/blocks-cleaning";
-import CarpetCleaning from "@/pages/carpet-cleaning";
-import CarCleaning from "@/pages/car-cleaning";
-import CompanyCleaning from "@/pages/company-cleaning";
-import GarbageCleaning from "@/pages/garbage-cleaning";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -28,12 +23,8 @@ function Router() {
       <Route path="/reviews" component={Reviews} />
       <Route path="/about" component={About} />
       <Route path="/services/apartment-cleaning" component={ApartmentCleaning} />
-      <Route path="/services/blocks-cleaning" component={BlocksCleaning} />
-      <Route path="/services/carpet-cleaning" component={CarpetCleaning} />
-      <Route path="/services/car-cleaning" component={CarCleaning} />
-      <Route path="/services/company-cleaning" component={CompanyCleaning} />
-      <Route path="/services/garbage-cleaning" component={GarbageCleaning} />
-      <Route path="*" component={NotFound} />
+      <Route path="/services/:serviceId" component={ServiceDetail} />
+      <Route component={NotFound} />
     </Switch>
   );
 }

@@ -1,6 +1,6 @@
 export const services = [
   {
-    id: "apartment-cleaning",
+    id: "apartment",
     name: "Apartment Cleaning",
     description: "Complete residential cleaning services including kitchens, bathrooms, bedrooms, and living areas.",
     image: "/assets/Apartment_1750366989119.jpg",
@@ -15,7 +15,7 @@ export const services = [
     ]
   },
   {
-    id: "blocks-cleaning",
+    id: "blocks",
     name: "Blocks Cleaning",
     description: "Comprehensive cleaning services for apartment blocks, common areas, and residential complexes.",
     image: "/assets/Apartment block_1750366983432.jpg",
@@ -30,8 +30,8 @@ export const services = [
     ]
   },
   {
-    id: "company-cleaning",
-    name: "Company Cleaning",
+    id: "corporate",
+    name: "Corporate Cleaning",
     description: "Professional office and commercial space cleaning with flexible scheduling and maintenance.",
     image: "/assets/Company_1750366999455.jpg",
     icon: "🏢",
@@ -45,8 +45,8 @@ export const services = [
     ]
   },
   {
-    id: "car-cleaning",
-    name: "Car Cleaning",
+    id: "carwash",
+    name: "Car Wash",
     description: "Premium vehicle cleaning services including exterior wash, interior detailing, and protective treatments.",
     image: "/assets/car_1750366993866.jpg",
     icon: "🚗",
@@ -60,7 +60,7 @@ export const services = [
     ]
   },
   {
-    id: "carpet-cleaning",
+    id: "carpet",
     name: "Carpet Cleaning",
     description: "Deep carpet cleaning using advanced steam cleaning and stain removal techniques.",
     image: "/assets/Carpet_1750367005291.jpg",
@@ -75,7 +75,7 @@ export const services = [
     ]
   },
   {
-    id: "garbage-cleaning",
+    id: "garbage",
     name: "Garbage Can Cleaning",
     description: "Hygienic cleaning and sanitization of waste containers to eliminate odors and bacteria.",
     image: "/assets/Garbage_1750367027204.jpeg",
