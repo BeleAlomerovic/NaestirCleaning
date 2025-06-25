@@ -23,14 +23,6 @@ export default function ApartmentCleaning() {
     {
       src: apartmentChecklist1, 
       alt: "Clean apartment interior"
-    },
-    {
-      src: cleanApartment2,
-      alt: "Spotless apartment after cleaning"
-    },
-    {
-      src: apartmentChecklist2,
-      alt: "Professional cleaning service result"
     }
   ];
 
@@ -52,6 +44,11 @@ export default function ApartmentCleaning() {
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + apartmentImages.length) % apartmentImages.length);
   };
+
+  // Reset image index if it's out of bounds
+  if (currentImageIndex >= apartmentImages.length) {
+    setCurrentImageIndex(0);
+  }
 
   // Service areas in Reykjavík
   const serviceAreas = [
@@ -232,14 +229,14 @@ export default function ApartmentCleaning() {
               <div className="lg:col-span-7">
                 {/* Image Carousel */}
                 <div 
-                  className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-[#E6E6FA]/50"
+                  className="relative rounded-2xl overflow-hidden shadow-lg border-2 border-[#E6E6FA]/40"
                   style={{ 
                     background: 'linear-gradient(135deg, #E6E6FA 0%, #F0E6FF 100%)',
-                    padding: '8px'
+                    padding: '6px'
                   }}
                 >
-                  <div className="relative bg-white rounded-2xl overflow-hidden">
-                    <div className="aspect-[5/4] relative cursor-zoom-in group">
+                  <div className="relative bg-white rounded-xl overflow-hidden">
+                    <div className="aspect-[4/3] relative cursor-zoom-in group">
                       <img
                         src={apartmentImages[currentImageIndex].src}
                         alt={apartmentImages[currentImageIndex].alt}
