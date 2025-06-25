@@ -288,6 +288,26 @@ export default function ApartmentCleaning() {
           </div>
         </section>
 
+        {/* Trust & Safety Commitment Section */}
+        <section className="py-8 bg-[#F8F6FB] border-t border-[#E4E0F0]">
+          <div className="max-w-4xl mx-auto px-5">
+            <div className="text-center">
+              <p 
+                className="text-[#4B0082]/80 animate-fade-pulse"
+                style={{ 
+                  fontFamily: 'Inter, system-ui, sans-serif',
+                  fontSize: '15px',
+                  lineHeight: '1.6',
+                  fontWeight: '400'
+                }}
+              >
+                🛡️ Your Peace of Mind Is Our Priority.<br />
+                All Næstir cleaners are background-checked, insured, and trained to respect your space. Every visit is backed by our satisfaction guarantee — no exceptions, no shortcuts.
+              </p>
+            </div>
+          </div>
+        </section>
+
       </div>
     </PageTransition>
   );
