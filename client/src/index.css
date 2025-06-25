@@ -165,27 +165,35 @@
 }
 
 .animate-trust-fade-1 {
-  animation: trustFadeIn 0.6s ease-out 0.3s forwards;
+  animation: trustFadeIn 0.8s ease-out 0.5s forwards;
 }
 
 .animate-trust-fade-2 {
-  animation: trustFadeIn 0.6s ease-out 1.0s forwards;
+  animation: trustFadeIn 0.8s ease-out 1.3s forwards;
 }
 
 .animate-trust-fade-3 {
-  animation: trustFadeIn 0.6s ease-out 1.7s forwards;
+  animation: trustFadeIn 0.8s ease-out 2.1s forwards;
 }
 
 .animate-trust-fade-4 {
-  animation: trustFadeIn 0.6s ease-out 2.4s forwards;
+  animation: trustFadeIn 0.8s ease-out 2.9s forwards;
 }
 
 .animate-trust-fade-5 {
-  animation: trustFadeIn 0.6s ease-out 3.1s forwards;
+  animation: trustFadeIn 0.8s ease-out 3.7s forwards;
+}
+
+.animate-trust-fade-6 {
+  animation: trustFadeIn 0.8s ease-out 4.5s forwards;
+}
+
+.animate-trust-fade-7 {
+  animation: trustFadeIn 0.8s ease-out 5.3s forwards;
 }
 
 .animate-trust-pulse {
-  animation: trustPulse 2s ease-in-out 4.0s infinite;
+  animation: trustPulse 2s ease-in-out 6.5s infinite;
 }
 
 @keyframes bounce {
