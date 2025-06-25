@@ -18,19 +18,19 @@ export default function ApartmentCleaning() {
   const apartmentImages = [
     {
       src: cleanApartment1,
-      alt: "Clean modern apartment living room with neutral colors and open kitchen"
+      alt: "Professional apartment cleaning result"
     },
     {
       src: apartmentChecklist1, 
-      alt: "Spotless apartment with blue sofa, organized kitchen and large windows"
+      alt: "Clean apartment interior"
     },
     {
       src: cleanApartment2,
-      alt: "Pristine apartment with wooden accents and modern furnishing"
+      alt: "Spotless apartment after cleaning"
     },
     {
       src: apartmentChecklist2,
-      alt: "Immaculate apartment featuring contemporary design and natural light"
+      alt: "Professional cleaning service result"
     }
   ];
 
@@ -213,45 +213,18 @@ export default function ApartmentCleaning() {
 
                 {/* Sleek Call-to-Action Block */}
                 <div className="pt-8 border-t border-gray-100">
-                  <div className="space-y-4">
-                    <div>
-                      <h3 
-                        className="text-[#2B2B2B] mb-2"
-                        style={{ 
-                          fontFamily: 'Inter, system-ui, sans-serif',
-                          fontSize: '1.1rem',
-                          fontWeight: '500',
-                          lineHeight: '1.4'
-                        }}
-                      >
-                        Need your apartment professionally cleaned?
-                      </h3>
-                      <p 
-                        className="text-gray-600"
-                        style={{ 
-                          fontFamily: 'Inter, system-ui, sans-serif',
-                          fontSize: '0.95rem',
-                          fontWeight: '400',
-                          lineHeight: '1.5'
-                        }}
-                      >
-                        Get a custom quote — no obligations, fast response.
-                      </p>
-                    </div>
-                    
-                    <Link href="/quote">
-                      <Button 
-                        className="bg-[#4B0082] hover:bg-[#4B0082]/90 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-[1.03] hover:shadow-lg"
-                        style={{
-                          height: '48px',
-                          width: '200px',
-                          fontSize: '0.95rem'
-                        }}
-                      >
-                        Get My Quote
-                      </Button>
-                    </Link>
-                  </div>
+                  <Link href="/quote">
+                    <Button 
+                      className="bg-[#4B0082] hover:bg-[#4B0082]/90 text-white font-semibold rounded-lg transition-all duration-200 hover:scale-[1.03] hover:shadow-lg"
+                      style={{
+                        height: '48px',
+                        width: '200px',
+                        fontSize: '0.95rem'
+                      }}
+                    >
+                      Get My Quote
+                    </Button>
+                  </Link>
                 </div>
               </div>
 
@@ -308,16 +281,7 @@ export default function ApartmentCleaning() {
                   </div>
                 </div>
                 
-                {/* Image Caption */}
-                <p 
-                  className="text-center text-gray-600 mt-6 italic text-lg"
-                  style={{ 
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    lineHeight: '1.5'
-                  }}
-                >
-                  {apartmentImages[currentImageIndex].alt}
-                </p>
+
               </div>
             </div>
 
