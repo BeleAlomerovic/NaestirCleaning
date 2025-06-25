@@ -282,111 +282,108 @@ export default function ApartmentCleaning() {
                 </div>
                 
 
+                {/* Trust & Safety Commitment Section */}
+                <div className="mt-8 pt-6 border-t border-gray-100">
+                  <div className="space-y-3">
+                    <div className="trust-item opacity-0 animate-trust-fade-1 flex items-center space-x-3">
+                      <div className="w-4 h-4 flex-shrink-0">
+                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span 
+                        className="text-[#2B2B2B]"
+                        style={{ 
+                          fontFamily: 'Inter, system-ui, sans-serif',
+                          fontSize: '14px',
+                          fontWeight: '400',
+                          lineHeight: '1.5'
+                        }}
+                      >
+                        All cleaners are background-checked and trained
+                      </span>
+                    </div>
+
+                    <div className="trust-item opacity-0 animate-trust-fade-2 flex items-center space-x-3">
+                      <div className="w-4 h-4 flex-shrink-0">
+                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span 
+                        className="text-[#2B2B2B]"
+                        style={{ 
+                          fontFamily: 'Inter, system-ui, sans-serif',
+                          fontSize: '14px',
+                          fontWeight: '400',
+                          lineHeight: '1.5'
+                        }}
+                      >
+                        Fully insured and bonded for your protection
+                      </span>
+                    </div>
+
+                    <div className="trust-item opacity-0 animate-trust-fade-3 flex items-center space-x-3">
+                      <div className="w-4 h-4 flex-shrink-0">
+                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span 
+                        className="text-[#2B2B2B]"
+                        style={{ 
+                          fontFamily: 'Inter, system-ui, sans-serif',
+                          fontSize: '14px',
+                          fontWeight: '400',
+                          lineHeight: '1.5'
+                        }}
+                      >
+                        100% satisfaction guarantee — no exceptions
+                      </span>
+                    </div>
+
+                    <div className="trust-item opacity-0 animate-trust-fade-4 flex items-center space-x-3">
+                      <div className="w-4 h-4 flex-shrink-0">
+                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span 
+                        className="text-[#2B2B2B]"
+                        style={{ 
+                          fontFamily: 'Inter, system-ui, sans-serif',
+                          fontSize: '14px',
+                          fontWeight: '400',
+                          lineHeight: '1.5'
+                        }}
+                      >
+                        Respectful, punctual, and detail-focused staff
+                      </span>
+                    </div>
+
+                    <div className="trust-item opacity-0 animate-trust-fade-5 flex items-center space-x-3">
+                      <div className="w-4 h-4 flex-shrink-0">
+                        <svg className="w-4 h-4 text-gray-400 animate-trust-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span 
+                        className="text-[#2B2B2B]"
+                        style={{ 
+                          fontFamily: 'Inter, system-ui, sans-serif',
+                          fontSize: '14px',
+                          fontWeight: '400',
+                          lineHeight: '1.5'
+                        }}
+                      >
+                        Transparent pricing — no surprise fees
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-          </div>
-        </section>
-
-        {/* Trust & Safety Commitment Section */}
-        <section className="py-12 bg-[#F9F8FC] border-t border-[#E6E1F3]">
-          <div className="max-w-[700px] mx-auto px-6">
-            <div className="space-y-4">
-              <div className="trust-item opacity-0 animate-trust-fade-1 flex items-center space-x-3">
-                <div className="w-4 h-4 flex-shrink-0">
-                  <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span 
-                  className="text-[#2B2B2B]"
-                  style={{ 
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    fontSize: '15px',
-                    fontWeight: '400',
-                    lineHeight: '1.5'
-                  }}
-                >
-                  All cleaners are background-checked and trained
-                </span>
-              </div>
-
-              <div className="trust-item opacity-0 animate-trust-fade-2 flex items-center space-x-3">
-                <div className="w-4 h-4 flex-shrink-0">
-                  <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span 
-                  className="text-[#2B2B2B]"
-                  style={{ 
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    fontSize: '15px',
-                    fontWeight: '400',
-                    lineHeight: '1.5'
-                  }}
-                >
-                  Fully insured and bonded for your protection
-                </span>
-              </div>
-
-              <div className="trust-item opacity-0 animate-trust-fade-3 flex items-center space-x-3">
-                <div className="w-4 h-4 flex-shrink-0">
-                  <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span 
-                  className="text-[#2B2B2B]"
-                  style={{ 
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    fontSize: '15px',
-                    fontWeight: '400',
-                    lineHeight: '1.5'
-                  }}
-                >
-                  100% satisfaction guarantee — no exceptions
-                </span>
-              </div>
-
-              <div className="trust-item opacity-0 animate-trust-fade-4 flex items-center space-x-3">
-                <div className="w-4 h-4 flex-shrink-0">
-                  <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span 
-                  className="text-[#2B2B2B]"
-                  style={{ 
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    fontSize: '15px',
-                    fontWeight: '400',
-                    lineHeight: '1.5'
-                  }}
-                >
-                  Respectful, punctual, and detail-focused staff
-                </span>
-              </div>
-
-              <div className="trust-item opacity-0 animate-trust-fade-5 flex items-center space-x-3">
-                <div className="w-4 h-4 flex-shrink-0">
-                  <svg className="w-4 h-4 text-gray-400 animate-trust-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span 
-                  className="text-[#2B2B2B]"
-                  style={{ 
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    fontSize: '15px',
-                    fontWeight: '400',
-                    lineHeight: '1.5'
-                  }}
-                >
-                  Transparent pricing — no surprise fees
-                </span>
-              </div>
-            </div>
           </div>
         </section>
 
