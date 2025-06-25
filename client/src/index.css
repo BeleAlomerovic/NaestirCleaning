@@ -188,50 +188,40 @@
   animation: trustPulse 2s ease-in-out 4.0s infinite;
 }
 
-/* Magnetic Hover + Shine Effects */
-.btn-magnetic {
+/* Background Expand with Text Color Shift */
+.btn-expand {
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-  background: linear-gradient(135deg, #4B0082 0%, #5B1C96 100%);
+  background: #E6E6FA;
+  color: #4B0082;
+  border: 2px solid #4B0082;
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), color 0.3s ease;
 }
 
-.btn-magnetic::before {
+.btn-expand::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -150%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%);
-  transform: translateX(-100%) translateY(-100%) rotate(45deg);
-  transition: transform 0.6s ease-out;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #4B0082;
+  transition: width 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 0;
+}
+
+.btn-expand:hover::before {
+  width: 100%;
+}
+
+.btn-expand:hover {
+  color: white;
+  transform: scale(1.03);
+}
+
+.btn-expand span {
+  position: relative;
   z-index: 1;
-}
-
-.btn-magnetic:hover::before {
-  transform: translateX(100%) translateY(100%) rotate(45deg);
-}
-
-.btn-magnetic:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(75, 0, 130, 0.4);
-}
-
-.btn-magnetic:active {
-  animation: btnPulse 0.3s ease-out;
-}
-
-@keyframes btnPulse {
-  0% {
-    transform: translateY(-1px) scale(1);
-  }
-  50% {
-    transform: translateY(-1px) scale(0.98);
-  }
-  100% {
-    transform: translateY(-1px) scale(1);
-  }
 }
 
 @keyframes bounce {
