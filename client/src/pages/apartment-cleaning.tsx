@@ -163,8 +163,8 @@ export default function ApartmentCleaning() {
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[80vh]">
               
-              {/* Left Side - Service Details (40-45% width) */}
-              <div className="lg:col-span-5 space-y-12 pr-8 border-r border-gray-100">
+              {/* Left Side - Service Details (increased width) */}
+              <div className="lg:col-span-6 space-y-12 pr-8 border-r border-gray-100">
                 {/* Professional Section Heading */}
                 <div>
                   <h2 
@@ -225,8 +225,8 @@ export default function ApartmentCleaning() {
                 </div>
               </div>
 
-              {/* Right Side - Image Gallery (55-60% width) */}
-              <div className="lg:col-span-7">
+              {/* Right Side - Image Gallery (reduced width) */}
+              <div className="lg:col-span-6">
                 {/* Image Carousel */}
                 <div 
                   className="relative rounded-2xl overflow-hidden shadow-lg border-2 border-[#E6E6FA]/40"
@@ -236,7 +236,7 @@ export default function ApartmentCleaning() {
                   }}
                 >
                   <div className="relative bg-white rounded-xl overflow-hidden">
-                    <div className="aspect-[4/3] relative cursor-zoom-in group">
+                    <div className="aspect-[3/2] relative cursor-zoom-in group">
                       <img
                         src={apartmentImages[currentImageIndex].src}
                         alt={apartmentImages[currentImageIndex].alt}
