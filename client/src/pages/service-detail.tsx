@@ -9,6 +9,17 @@ const logoPath = "/assets/Logo_1750368000651.jpeg";
 export default function ServiceDetail() {
   const { serviceId } = useParams();
   
+  // Redirect specific services to their dedicated pages
+  if (serviceId === "corporate") {
+    window.location.href = "/services/corporate-cleaning";
+    return null;
+  }
+  
+  if (serviceId === "apartment") {
+    window.location.href = "/services/apartment-cleaning";
+    return null;
+  }
+  
   const service = services.find(s => s.id === serviceId);
   
   if (!service) {
