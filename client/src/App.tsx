@@ -12,6 +12,7 @@ import Reviews from "@/pages/reviews";
 import About from "@/pages/about";
 import ServiceDetail from "@/pages/service-detail";
 import ApartmentCleaning from "@/pages/apartment-cleaning";
+import CorporateCleaning from "@/pages/corporate-cleaning";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -23,6 +24,7 @@ function Router() {
       <Route path="/reviews" component={Reviews} />
       <Route path="/about" component={About} />
       <Route path="/services/apartment-cleaning" component={ApartmentCleaning} />
+      <Route path="/services/corporate-cleaning" component={CorporateCleaning} />
       <Route path="/services/:serviceId" component={ServiceDetail} />
       <Route component={NotFound} />
     </Switch>

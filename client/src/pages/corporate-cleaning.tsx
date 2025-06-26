@@ -1,0 +1,319 @@
+import { useState } from "react";
+import { Link } from "wouter";
+import { ArrowLeft, CheckCircle, Star, Quote, Users, Shield, Clock, MapPin, Search } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { PageTransition } from "@/components/page-transition";
+import cleanApartment1 from "@assets/Clean-apartment_1750613206530.jpg";
+import apartmentChecklist1 from "@assets/The-Ultimate-Apartment-Cleaning-Checklist-1024x683_1750613219827.jpg";
+
+export default function CorporateCleaning() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [postalCode, setPostalCode] = useState("");
+  const [coverageResult, setCoverageResult] = useState("");
+  
+  const corporateImages = [
+    {
+      src: cleanApartment1,
+      alt: "Professional corporate office cleaning"
+    },
+    {
+      src: apartmentChecklist1, 
+      alt: "Clean corporate workspace"
+    }
+  ];
+
+  const serviceFeatures = [
+    "Reception and lobby areas",
+    "Conference rooms and meeting spaces",
+    "Individual offices and workstations",
+    "Kitchen and break room facilities",
+    "Restroom sanitization",
+    "Floor cleaning and maintenance",
+    "Window cleaning (interior)",
+    "Trash removal and recycling",
+    "Dusting of all surfaces",
+    "Vacuum carpets and mop floors",
+    "Disinfection of high-touch areas",
+    "Elevator cleaning and maintenance"
+  ];
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % corporateImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + corporateImages.length) % corporateImages.length);
+  };
+
+  // Reset image index if it's out of bounds
+  if (currentImageIndex >= corporateImages.length) {
+    setCurrentImageIndex(0);
+  }
+
+  const reykjavikCodes: { [key: string]: string } = {
+    "101": "Reykjavík - Downtown",
+    "102": "Reykjavík - Thingholt",
+    "103": "Reykjavík - Hlemmur/Laugavegur",
+    "104": "Reykjavík - Laugardalur",
+    "105": "Reykjavík - Hlíðar",
+    "107": "Reykjavík - Vesturbær",
+    "108": "Reykjavík - Háaleiti",
+    "109": "Reykjavík - Breiðholt",
+    "110": "Reykjavík - Árbær",
+    "111": "Reykjavík - Mjódd",
+    "112": "Reykjavík - Grafarvogur",
+    "113": "Reykjavík - Grafarholt",
+    "116": "Reykjavík - Kjalarnes",
+    "200": "Kópavogur - Center",
+    "201": "Kópavogur - East",
+    "202": "Kópavogur - West",
+    "203": "Kópavogur - North",
+    "210": "Garðabær",
+    "220": "Hafnarfjörður - Center",
+    "221": "Hafnarfjörður - South"
+  };
+
+  const checkCoverage = () => {
+    const area = reykjavikCodes[postalCode as keyof typeof reykjavikCodes];
+    if (area) {
+      setCoverageResult(`✓ We service ${area}! Book your corporate cleaning today.`);
+    } else {
+      setCoverageResult("We currently serve the Greater Reykjavík area. Contact us for special arrangements.");
+    }
+  };
+
+  return (
+    <PageTransition>
+      <div className="min-h-screen bg-gray-50">
+        {/* Breadcrumb */}
+        <div className="bg-gray-50 py-4">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center space-x-2 text-sm">
+              <Link href="/" className="text-gray-500 hover:text-[#4B0082] transition-colors">
+                Home
+              </Link>
+              <span className="text-gray-400">/</span>
+              <Link href="/services" className="text-gray-500 hover:text-[#4B0082] transition-colors">
+                Services
+              </Link>
+              <span className="text-gray-400">/</span>
+              <span className="text-[#4B0082] font-medium">Corporate Cleaning</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Hero Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <Link href="/services" className="inline-flex items-center text-[#4B0082] hover:text-purple-600 mb-6 transition-colors">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Services
+              </Link>
+              <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-[#333] mb-6">
+                Professional Corporate Cleaning
+              </h1>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Maintain a pristine professional environment with our comprehensive corporate cleaning services. 
+                From small offices to large corporate facilities, we ensure your workspace reflects your business standards.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Service Coverage Section */}
+        <section className="py-12 bg-gradient-to-r from-[#E6E6FA] to-[#F0E6FF]">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="flex items-center justify-center mb-6">
+              <MapPin className="w-6 h-6 text-[#4B0082] mr-3" />
+              <h3 className="text-2xl font-bold text-[#333]">Service Coverage Check</h3>
+            </div>
+            
+            <p className="text-gray-600 mb-8 text-lg">
+              Enter your postal code to confirm we service your corporate location
+            </p>
+            
+            <div className="flex items-center justify-center space-x-4 max-w-md mx-auto">
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                <Input
+                  type="text"
+                  placeholder="Postal code"
+                  value={postalCode}
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/\D/g, '');
+                    setPostalCode(value);
+                    if (value.length === 0) setCoverageResult("");
+                  }}
+                  className="flex-1 h-10 text-sm border-gray-300 focus:border-[#4B0082] focus:ring-[#4B0082]"
+                  maxLength={3}
+                />
+                <Button 
+                  onClick={checkCoverage}
+                  className="btn-expand px-4 h-10 text-sm font-medium"
+                >
+                  <span>Check</span>
+                </Button>
+              </div>
+            </div>
+            
+            {coverageResult && (
+              <div className="mt-6 p-4 bg-white rounded-lg shadow-sm border border-[#E6E6FA]">
+                <p className="text-sm font-medium text-[#4B0082]">
+                  {coverageResult}
+                </p>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* Split-View Section */}
+        <section className="py-20 bg-white min-h-screen flex items-center relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[80vh]">
+              
+              {/* Left Side - Service Details (increased width) */}
+              <div className="lg:col-span-6 space-y-12 pr-8 border-r border-gray-100">
+                {/* Professional Section Heading */}
+                <div>
+                  <h2 
+                    className="font-medium text-[#2B2B2B] mb-8"
+                    style={{ 
+                      fontFamily: 'Inter, system-ui, sans-serif',
+                      fontSize: '1.75rem',
+                      lineHeight: '1.3',
+                      letterSpacing: '0.2px'
+                    }}
+                  >
+                    What's Included in Your Corporate Clean
+                  </h2>
+                  
+                  {/* Minimal Feature Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-3">
+                    {serviceFeatures.map((feature, index) => (
+                      <div key={index} className="flex items-center group">
+                        <CheckCircle 
+                          className="w-4 h-4 text-[#4B0082] mr-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-200"
+                        />
+                        <span 
+                          className="text-gray-700 text-sm"
+                          style={{ 
+                            fontFamily: 'Inter, system-ui, sans-serif',
+                            lineHeight: '1.4'
+                          }}
+                        >
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Trust & Safety Commitment */}
+                <div className="space-y-6 animate-fadeInSequential">
+                  <div className="flex items-start space-x-4 animate-trust-fade">
+                    <Shield className="w-5 h-5 text-[#4B0082] mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-1 text-sm">Bonded & Insured</h4>
+                      <p className="text-gray-600 text-xs leading-relaxed">Full coverage for complete peace of mind</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4 animate-trust-fade-2">
+                    <Users className="w-5 h-5 text-[#4B0082] mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-1 text-sm">Trained Professionals</h4>
+                      <p className="text-gray-600 text-xs leading-relaxed">Background-checked cleaning experts</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4 animate-trust-fade-3">
+                    <Clock className="w-5 h-5 text-[#4B0082] mt-0.5 flex-shrink-0 animate-trust-pulse" />
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-1 text-sm">Flexible Scheduling</h4>
+                      <p className="text-gray-600 text-xs leading-relaxed">Work around your business hours</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Sleek Call-to-Action Block */}
+                <div className="pt-8 border-t border-gray-100">
+                  <Link href="/quote">
+                    <Button 
+                      className="btn-expand font-semibold rounded-lg"
+                      style={{
+                        height: '48px',
+                        width: '200px',
+                        fontSize: '0.95rem'
+                      }}
+                    >
+                      <span>Get My Quote</span>
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right Side - Image Gallery (reduced width) */}
+              <div className="lg:col-span-6">
+                {/* Image Carousel */}
+                <div 
+                  className="relative rounded-2xl overflow-hidden shadow-lg border-2 border-[#E6E6FA]/40"
+                  style={{ 
+                    background: 'linear-gradient(135deg, #E6E6FA 0%, #F0E6FF 100%)',
+                    padding: '6px'
+                  }}
+                >
+                  <div className="relative bg-white rounded-xl overflow-hidden">
+                    <div className="aspect-[3/2] relative cursor-zoom-in group">
+                      <img
+                        src={corporateImages[currentImageIndex].src}
+                        alt={corporateImages[currentImageIndex].alt}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      
+                      {/* Overlay Navigation */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
+                        {/* Previous Button */}
+                        <button
+                          onClick={prevImage}
+                          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-[#4B0082] rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 shadow-lg"
+                        >
+                          <ArrowLeft className="w-4 h-4" />
+                        </button>
+                        
+                        {/* Next Button */}
+                        <button
+                          onClick={nextImage}
+                          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-[#4B0082] rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 shadow-lg"
+                        >
+                          <ArrowLeft className="w-4 h-4 rotate-180" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Image Indicators */}
+                  <div className="flex justify-center space-x-2 mt-4">
+                    {corporateImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                          index === currentImageIndex 
+                            ? 'bg-[#4B0082] scale-110' 
+                            : 'bg-gray-300 hover:bg-gray-400'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </PageTransition>
+  );
+}
