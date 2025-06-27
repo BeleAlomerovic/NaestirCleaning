@@ -265,22 +265,22 @@ export default function CorporateCleaning() {
                           <ArrowLeft className="w-4 h-4 rotate-180" />
                         </button>
                       </div>
+                      
+                      {/* Image Indicators */}
+                      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+                        {corporateImages.map((_, index) => (
+                          <button
+                            key={index}
+                            onClick={() => setCurrentImageIndex(index)}
+                            className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                              index === currentImageIndex 
+                                ? 'bg-[#4B0082] shadow-lg shadow-[#4B0082]/50' 
+                                : 'bg-white/70 hover:bg-white/90 hover:shadow-lg hover:shadow-white/50'
+                            }`}
+                          />
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                  
-                  {/* Image Indicators */}
-                  <div className="flex justify-center space-x-2 mt-4">
-                    {corporateImages.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentImageIndex(index)}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                          index === currentImageIndex 
-                            ? 'bg-[#4B0082] scale-110' 
-                            : 'bg-gray-300 hover:bg-gray-400'
-                        }`}
-                      />
-                    ))}
                   </div>
                 </div>
                 
