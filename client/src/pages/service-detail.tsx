@@ -20,6 +20,11 @@ export default function ServiceDetail() {
     return null;
   }
   
+  if (serviceId === "blocks") {
+    window.location.href = "/services/blocks-cleaning";
+    return null;
+  }
+  
   const service = services.find(s => s.id === serviceId);
   
   if (!service) {
