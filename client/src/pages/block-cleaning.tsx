@@ -109,7 +109,7 @@ export default function BlockCleaning() {
                 Back to Services
               </Link>
               <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-[#333] mb-6">
-                Professional Block Cleaning
+                Professional Blocks Cleaning
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Maintain pristine common areas and create a welcoming environment with our comprehensive apartment block cleaning services. 
