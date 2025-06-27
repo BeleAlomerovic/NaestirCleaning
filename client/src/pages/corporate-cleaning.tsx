@@ -25,18 +25,14 @@ export default function CorporateCleaning() {
   ];
 
   const serviceFeatures = [
-    "Reception and lobby areas",
-    "Conference rooms and meeting spaces",
-    "Individual offices and workstations",
-    "Kitchen and break room facilities",
-    "Restroom sanitization",
-    "Floor cleaning and maintenance",
-    "Window cleaning (interior)",
-    "Trash removal and recycling",
-    "Dusting of all surfaces",
-    "Vacuum carpets and mop floors",
-    "Disinfection of high-touch areas",
-    "Elevator cleaning and maintenance"
+    "Reception and lobby areas sanitized",
+    "Conference rooms deep cleaned",
+    "Individual workstations disinfected",
+    "Kitchen and break rooms maintained",
+    "Restroom deep cleaning & restocking",
+    "Floor care and maintenance",
+    "Optional: Interior window cleaning",
+    "High-touch surfaces sanitized"
   ];
 
   const nextImage = () => {
@@ -124,28 +120,19 @@ export default function CorporateCleaning() {
         </section>
 
         {/* Service Coverage Section */}
-        <section className="py-12 bg-gradient-to-r from-[#E6E6FA] to-[#F0E6FF]">
+        <section className="py-8 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="flex items-center justify-center mb-6">
-              <MapPin className="w-6 h-6 text-[#4B0082] mr-3" />
-              <h3 className="text-2xl font-bold text-[#333]">Service Coverage Check</h3>
-            </div>
-            
-            <p className="text-gray-600 mb-8 text-lg">
-              Enter your postal code to confirm we service your corporate location
-            </p>
-            
-            <div className="flex items-center justify-center space-x-4 max-w-md mx-auto">
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+            {/* Compact Postal Code Checker */}
+            <div className="max-w-sm mx-auto">
+              <p className="text-sm text-gray-600 mb-3">Check if we serve your area:</p>
+              <div className="flex gap-2">
                 <Input
                   type="text"
-                  placeholder="Postal code"
+                  placeholder="101, 107, 200"
                   value={postalCode}
                   onChange={(e) => {
-                    const value = e.target.value.replace(/\D/g, '');
-                    setPostalCode(value);
-                    if (value.length === 0) setCoverageResult("");
+                    setPostalCode(e.target.value);
+                    setCoverageResult("");
                   }}
                   className="flex-1 h-10 text-sm border-gray-300 focus:border-[#4B0082] focus:ring-[#4B0082]"
                   maxLength={3}
@@ -157,15 +144,17 @@ export default function CorporateCleaning() {
                   <span>Check</span>
                 </Button>
               </div>
+              
+              {coverageResult && (
+                <div className={`mt-3 p-2 rounded-md text-sm transition-all duration-300 ${
+                  coverageResult.includes('✓') 
+                    ? 'bg-green-50 text-green-700 border border-green-200' 
+                    : 'bg-red-50 text-red-700 border border-red-200'
+                }`}>
+                  {coverageResult.includes('✓') ? '✅ You\'re covered! Book now.' : '❌ We don\'t currently serve that area.'}
+                </div>
+              )}
             </div>
-            
-            {coverageResult && (
-              <div className="mt-6 p-4 bg-white rounded-lg shadow-sm border border-[#E6E6FA]">
-                <p className="text-sm font-medium text-[#4B0082]">
-                  {coverageResult}
-                </p>
-              </div>
-            )}
           </div>
         </section>
 

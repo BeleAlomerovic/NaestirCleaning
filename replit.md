@@ -112,7 +112,8 @@ The application uses four main database tables:
 - **Database**: Requires `DATABASE_URL` environment variable
 
 ## Changelog
-- June 25, 2025. Initial setup
+- June 26, 2025: Created corporate cleaning page matching apartment cleaning design exactly
+- June 25, 2025: Initial setup
 
 ## User Preferences
 
