@@ -185,14 +185,22 @@ export default function CorporateCleaning() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-3">
                     {serviceFeatures.map((feature, index) => (
                       <div key={index} className="flex items-center group">
-                        <CheckCircle 
-                          className="w-4 h-4 text-[#4B0082] mr-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-200"
-                        />
+                        <div className="w-4 h-4 mr-3 flex-shrink-0">
+                          <svg 
+                            className="w-4 h-4 text-gray-400 group-hover:text-gray-600 transition-colors" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
                         <span 
-                          className="text-gray-700 text-sm"
+                          className="text-gray-700 leading-relaxed"
                           style={{ 
                             fontFamily: 'Inter, system-ui, sans-serif',
-                            lineHeight: '1.4'
+                            fontSize: '0.95rem',
+                            lineHeight: '1.5'
                           }}
                         >
                           {feature}
