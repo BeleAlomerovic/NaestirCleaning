@@ -25,14 +25,14 @@ export default function CorporateCleaning() {
   ];
 
   const serviceFeatures = [
-    "Reception and lobby areas sanitized",
-    "Conference rooms deep cleaned",
-    "Individual workstations disinfected",
+    "All surfaces dusted & disinfected",
+    "Reception: lobby, desks, and seating cleaned",
+    "Conference rooms: tables, chairs, and screens sanitized",
+    "Workstations vacuumed and organized",
     "Kitchen and break rooms maintained",
     "Restroom deep cleaning & restocking",
-    "Floor care and maintenance",
     "Optional: Interior window cleaning",
-    "High-touch surfaces sanitized"
+    "Light switches and door handles sanitized"
   ];
 
   const nextImage = () => {
@@ -202,30 +202,7 @@ export default function CorporateCleaning() {
                   </div>
                 </div>
 
-                {/* Trust & Safety Commitment */}
-                <div className="space-y-6 animate-fadeInSequential">
-                  <div className="flex items-start space-x-4 animate-trust-fade">
-                    <Shield className="w-5 h-5 text-[#4B0082] mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-medium text-gray-900 mb-1 text-sm">Bonded & Insured</h4>
-                      <p className="text-gray-600 text-xs leading-relaxed">Full coverage for complete peace of mind</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4 animate-trust-fade-2">
-                    <Users className="w-5 h-5 text-[#4B0082] mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-medium text-gray-900 mb-1 text-sm">Trained Professionals</h4>
-                      <p className="text-gray-600 text-xs leading-relaxed">Background-checked cleaning experts</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4 animate-trust-fade-3">
-                    <Clock className="w-5 h-5 text-[#4B0082] mt-0.5 flex-shrink-0 animate-trust-pulse" />
-                    <div>
-                      <h4 className="font-medium text-gray-900 mb-1 text-sm">Flexible Scheduling</h4>
-                      <p className="text-gray-600 text-xs leading-relaxed">Work around your business hours</p>
-                    </div>
-                  </div>
-                </div>
+
 
                 {/* Sleek Call-to-Action Block */}
                 <div className="pt-8 border-t border-gray-100">
