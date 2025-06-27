@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { PageTransition } from "@/components/page-transition";
-import cleanApartment1 from "@assets/Clean-apartment_1750613206530.jpg";
-import apartmentChecklist1 from "@assets/The-Ultimate-Apartment-Cleaning-Checklist-1024x683_1750613219827.jpg";
+import corporateImage1 from "@assets/comm-clean.2102030812301_1751047448997.jpg";
+import corporateImage2 from "@assets/9d2f5e310c4f327b70cf8ac9bc2da47d_1674016763_1751047461071.webp";
 
 export default function CorporateCleaning() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -15,12 +15,12 @@ export default function CorporateCleaning() {
   
   const corporateImages = [
     {
-      src: cleanApartment1,
-      alt: "Professional corporate office cleaning"
+      src: corporateImage1,
+      alt: "Professional corporate office cleaning service"
     },
     {
-      src: apartmentChecklist1, 
-      alt: "Clean corporate workspace"
+      src: corporateImage2, 
+      alt: "Corporate office cleaning team at work"
     }
   ];
 
