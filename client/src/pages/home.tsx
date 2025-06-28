@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageTransition } from "@/components/page-transition";
 import { services } from "@/lib/constants";
-import heroImage from "@assets/ken burns effect_1751107127047.webp";
+import heroImage from "@assets/Depositphotos_764505660_XL_1751107860312.jpg";
 
 export default function Home() {
   return (
