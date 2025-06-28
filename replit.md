@@ -112,8 +112,18 @@ The application uses four main database tables:
 - **Database**: Requires `DATABASE_URL` environment variable
 
 ## Changelog
+- June 27, 2025: Fixed block cleaning page navigation issues - header navigation and service constants had mismatched URLs
 - June 26, 2025: Created corporate cleaning page matching apartment cleaning design exactly
 - June 25, 2025: Initial setup
+
+## Development Lessons Learned
+- When creating new service pages, ensure URL consistency across:
+  1. Service constants (client/src/lib/constants.tsx) - service.id property
+  2. Header navigation (client/src/components/layout/header.tsx) - services array
+  3. App routing (client/src/App.tsx) - Route path definitions
+  4. Component file names and exports
+- Route order matters: specific routes must come before wildcard routes (/services/:serviceId)
+- Always verify all navigation entry points when adding new pages
 
 ## User Preferences
 
