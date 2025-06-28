@@ -21,31 +21,38 @@ export default function Home() {
             />
           </div>
           
-          {/* Soft Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-200/50 via-transparent to-transparent opacity-60"></div>
+          {/* Text Readability Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
           
           {/* Sparkle Effect */}
           <div className="absolute top-1/2 left-2/3 transform -translate-x-1/2 -translate-y-1/2 sparkle-effect">
             <div className="w-2 h-2 bg-white rounded-full opacity-0 animate-sparkle"></div>
           </div>
           
-          {/* Hero Content */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto hero-content">
-              <h1 className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight hero-headline">
-                Experience the Ultimate<br />
-                <span className="text-purple-200">Clean Living</span>
+          {/* Hero Content - Left Aligned */}
+          <div className="absolute inset-0 flex items-center">
+            <div className="px-6 sm:px-8 lg:px-12 xl:px-16 max-w-3xl hero-content">
+              {/* Main Headline */}
+              <h1 className="font-inter text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-4 leading-tight tracking-wide hero-headline">
+                Experience the Ultimate
               </h1>
-              <p className="font-playfair text-lg md:text-xl text-white/90 mb-8 italic hero-subtitle">
+              
+              {/* Subheadline */}
+              <h2 className="font-inter text-2xl md:text-3xl lg:text-4xl font-light text-white mb-6 hero-subheadline">
+                Clean Living
+              </h2>
+              
+              {/* Tagline */}
+              <p className="font-inter text-base md:text-lg text-white/80 mb-10 italic leading-relaxed hero-tagline">
                 Where pristine meets perfection
               </p>
               
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center hero-cta">
+              <div className="flex flex-col md:flex-row gap-6 hero-cta">
                 <Link href="/quote">
                   <Button 
-                    className="bg-[#4B0082] hover:bg-[#6A0DAD] text-white px-10 py-4 text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-                    style={{ borderRadius: '8px' }}
+                    className="bg-gradient-to-r from-[#B57EDC] to-[#D8BFD8] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                    style={{ borderRadius: '10px', height: '50px', width: '220px' }}
                   >
                     Get Your Free Quote
                   </Button>
@@ -53,8 +60,8 @@ export default function Home() {
                 <Link href="/#services">
                   <Button 
                     variant="outline" 
-                    className="bg-white/20 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-[#4B0082] px-10 py-4 text-lg font-semibold transition-all duration-300 hover:shadow-lg"
-                    style={{ borderRadius: '8px' }}
+                    className="bg-transparent border-2 border-white text-white hover:border-white hover:bg-white/10 px-8 py-4 text-lg font-normal transition-all duration-300 hover:shadow-lg"
+                    style={{ borderRadius: '10px', height: '50px', width: '220px' }}
                   >
                     See Our Services
                   </Button>
