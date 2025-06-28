@@ -8,6 +8,7 @@ const logoPath = "/assets/Logo_1750368000651.jpeg";
 
 export default function ServiceDetail() {
   const { serviceId } = useParams();
+  console.log("❌ ServiceDetail component rendering with serviceId:", serviceId);
   
   // Redirect specific services to their dedicated pages
   if (serviceId === "corporate") {
@@ -24,6 +25,8 @@ export default function ServiceDetail() {
     window.location.href = "/services/blocks-cleaning";
     return null;
   }
+  
+
   
   const service = services.find(s => s.id === serviceId);
   
