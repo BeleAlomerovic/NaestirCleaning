@@ -11,14 +11,56 @@ export default function Home() {
     <PageTransition>
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative h-screen min-h-[700px]">
-          {/* Hero Image */}
+        <section className="relative h-screen min-h-[700px] overflow-hidden">
+          {/* Hero Image with Ken Burns Effect */}
           <div className="w-full h-full">
             <img
               src={heroImage}
               alt="Clean and modern living room with professional cleaning results"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover ken-burns-zoom"
             />
+          </div>
+          
+          {/* Soft Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-200/50 via-transparent to-transparent opacity-60"></div>
+          
+          {/* Sparkle Effect */}
+          <div className="absolute top-1/2 left-2/3 transform -translate-x-1/2 -translate-y-1/2 sparkle-effect">
+            <div className="w-2 h-2 bg-white rounded-full opacity-0 animate-sparkle"></div>
+          </div>
+          
+          {/* Hero Content */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto hero-content">
+              <h1 className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight hero-headline">
+                Experience the Ultimate<br />
+                <span className="text-purple-200">Clean Living</span>
+              </h1>
+              <p className="font-playfair text-lg md:text-xl text-white/90 mb-8 italic hero-subtitle">
+                Where pristine meets perfection
+              </p>
+              
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center hero-cta">
+                <Link href="/quote">
+                  <Button 
+                    className="bg-[#4B0082] hover:bg-[#6A0DAD] text-white px-10 py-4 text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                    style={{ borderRadius: '8px' }}
+                  >
+                    Get Your Free Quote
+                  </Button>
+                </Link>
+                <Link href="/#services">
+                  <Button 
+                    variant="outline" 
+                    className="bg-white/20 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-[#4B0082] px-10 py-4 text-lg font-semibold transition-all duration-300 hover:shadow-lg"
+                    style={{ borderRadius: '8px' }}
+                  >
+                    See Our Services
+                  </Button>
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
 
