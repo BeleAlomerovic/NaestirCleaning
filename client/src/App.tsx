@@ -27,6 +27,12 @@ function Router() {
       <Route path="/services/apartment-cleaning" component={ApartmentCleaning} />
       <Route path="/services/corporate-cleaning" component={CorporateCleaning} />
       <Route path="/services/blocks-cleaning" component={BlockCleaning} />
+      <Route path="/services/blocks">
+        {() => {
+          window.location.href = '/services/blocks-cleaning';
+          return null;
+        }}
+      </Route>
       <Route path="/services/:serviceId" component={ServiceDetail} />
       <Route component={NotFound} />
     </Switch>

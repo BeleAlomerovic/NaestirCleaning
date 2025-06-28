@@ -15,7 +15,7 @@ export const services = [
     ]
   },
   {
-    id: "blocks",
+    id: "blocks-cleaning",
     name: "Blocks Cleaning",
     description: "Comprehensive cleaning services for apartment blocks, common areas, and residential complexes.",
     image: "/assets/Apartment block_1750366983432.jpg",
