@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { PageTransition } from "@/components/page-transition";
-import cleanApartment1 from "@assets/Clean-apartment_1750613206530.jpg";
-import apartmentChecklist1 from "@assets/The-Ultimate-Apartment-Cleaning-Checklist-1024x683_1750613219827.jpg";
+import elevatorImage from "@assets/elevator_1751103467643.webp";
+import stairwayImage from "@assets/stairway_1751103472278.webp";
 
 export default function BlockCleaning() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -15,12 +15,12 @@ export default function BlockCleaning() {
   
   const blockImages = [
     {
-      src: cleanApartment1,
-      alt: "Professional apartment block cleaning service"
+      src: elevatorImage,
+      alt: "Professional elevator cleaning and maintenance service"
     },
     {
-      src: apartmentChecklist1, 
-      alt: "Clean apartment block common areas"
+      src: stairwayImage, 
+      alt: "Clean apartment block stairway maintenance"
     }
   ];
 
