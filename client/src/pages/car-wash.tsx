@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { PageTransition } from "@/components/page-transition";
-import carImage from "@assets/car_1750366993866.jpg";
-import logoImage from "@assets/Logo_1750368000651.jpeg";
+import carWashImage1 from "@assets/car wash_1751105096596.avif";
+import carWashImage2 from "@assets/car wash_1751105103650.webp";
 
 export default function CarWash() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -15,12 +15,12 @@ export default function CarWash() {
   
   const carImages = [
     {
-      src: carImage,
-      alt: "Professional car wash and detailing service"
+      src: carWashImage1,
+      alt: "Professional car interior detailing and cleaning"
     },
     {
-      src: logoImage, 
-      alt: "Premium vehicle cleaning and maintenance"
+      src: carWashImage2, 
+      alt: "Car interior cleaning with microfiber cloth"
     }
   ];
 

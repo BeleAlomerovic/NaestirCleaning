@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { PageTransition } from "@/components/page-transition";
-import carpetImage from "@assets/Carpet_1750367005291.jpg";
-import logoImage from "@assets/Logo_1750368000651.jpeg";
+import carpetCleaningImage1 from "@assets/carpet cleaning_1751105111344.jpg";
+import carpetCleaningImage2 from "@assets/carpet cleaning 2_1751105116135.webp";
 
 export default function CarpetCleaning() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -15,12 +15,12 @@ export default function CarpetCleaning() {
   
   const carpetImages = [
     {
-      src: carpetImage,
-      alt: "Professional carpet cleaning result"
+      src: carpetCleaningImage1,
+      alt: "Professional carpet steam cleaning in living room"
     },
     {
-      src: logoImage, 
-      alt: "Clean carpet interior"
+      src: carpetCleaningImage2, 
+      alt: "Steam cleaning sofa and upholstery with professional equipment"
     }
   ];
 

@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { PageTransition } from "@/components/page-transition";
-import garbageImage from "@assets/Garbage_1750367027204.jpeg";
-import logoImage from "@assets/Logo_1750368000651.jpeg";
+import garbageCanImage1 from "@assets/garbage can_1751105125340.jpg";
+import garbageCanImage2 from "@assets/garbage clean 2_1751105132147.webp";
 
 export default function GarbageCanCleaning() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -15,12 +15,12 @@ export default function GarbageCanCleaning() {
   
   const garbageCanImages = [
     {
-      src: garbageImage,
-      alt: "Professional garbage can cleaning and sanitization service"
+      src: garbageCanImage1,
+      alt: "Professional garbage can cleaning truck and service"
     },
     {
-      src: logoImage, 
-      alt: "Hygienic waste container cleaning and odor elimination"
+      src: garbageCanImage2, 
+      alt: "Sanitizing garbage can interior with eco-friendly cleaning"
     }
   ];
 
