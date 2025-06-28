@@ -9,7 +9,6 @@ import cleanApartment1 from "@assets/Clean-apartment_1750613206530.jpg";
 import apartmentChecklist1 from "@assets/The-Ultimate-Apartment-Cleaning-Checklist-1024x683_1750613219827.jpg";
 
 export default function BlockCleaning() {
-  console.log("✅ BlockCleaning component is rendering!");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [postalCode, setPostalCode] = useState("");
   const [coverageResult, setCoverageResult] = useState("");

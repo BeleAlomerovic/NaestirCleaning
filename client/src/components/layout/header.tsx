@@ -18,7 +18,7 @@ export function Header() {
   const services = [
     { name: "Apartment Cleaning", href: "/services/apartment-cleaning" },
     { name: "Corporate Cleaning", href: "/services/corporate" },
-    { name: "Apartment Block Cleaning", href: "/services/apartment-block" },
+    { name: "Apartment Block Cleaning", href: "/services/blocks-cleaning" },
     { name: "Car Wash", href: "/services/car-wash" },
     { name: "Carpet Cleaning", href: "/services/carpet" },
     { name: "Garbage Can Cleaning", href: "/services/garbage-can" }

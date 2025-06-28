@@ -33,9 +33,7 @@ function Router() {
           return null;
         }}
       </Route>
-      <Route path="/test-blocks">
-        {() => <div style={{fontSize: '48px', color: 'red', textAlign: 'center', marginTop: '100px'}}>🔥 TEST ROUTE WORKING! 🔥</div>}
-      </Route>
+
       <Route path="/services/:serviceId" component={ServiceDetail} />
       <Route component={NotFound} />
     </Switch>

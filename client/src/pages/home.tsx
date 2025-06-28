@@ -81,10 +81,8 @@ export default function Home() {
             <div className="overflow-x-auto pb-6">
               <div className="flex space-x-6 min-w-max px-4">
                 {services.map((service, index) => {
-                  const linkUrl = `/services/${service.id}`;
-                  console.log(`Service ${service.name} links to: ${linkUrl}`);
                   return (
-                    <Link key={service.id} href={linkUrl}>
+                    <Link key={service.id} href={`/services/${service.id}`}>
                       <Card 
                         className="service-card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer w-80 flex-shrink-0 fade-in-up hover:shadow-xl hover:transform hover:scale-105"
                         style={{
