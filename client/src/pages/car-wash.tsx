@@ -68,7 +68,7 @@ export default function CarWash() {
       return;
     }
     
-    const area = postalCodes[postalCode];
+    const area = postalCodes[postalCode as keyof typeof postalCodes];
     if (area) {
       setCoverageResult(`✓ Great news! We serve ${area}. Book your cleaning today!`);
     } else {

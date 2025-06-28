@@ -13,7 +13,7 @@ export default function GarbageCanCleaning() {
   const [postalCode, setPostalCode] = useState("");
   const [coverageResult, setCoverageResult] = useState("");
   
-  const garbageImages = [
+  const garbageCanImages = [
     {
       src: garbageImage,
       alt: "Professional garbage can cleaning and sanitization service"
@@ -36,29 +36,70 @@ export default function GarbageCanCleaning() {
   ];
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % garbageImages.length);
+    setCurrentImageIndex((prev) => (prev + 1) % garbageCanImages.length);
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + garbageImages.length) % garbageImages.length);
+    setCurrentImageIndex((prev) => (prev - 1 + garbageCanImages.length) % garbageCanImages.length);
+  };
+
+  // Reset image index if it's out of bounds
+  if (currentImageIndex >= garbageCanImages.length) {
+    setCurrentImageIndex(0);
+  }
+
+  // Service areas in Reykjavík
+  const serviceAreas = [
+    "Hlíðar", "Vesturbær", "Miðborg", "Laugardalur", "Breiðholt", 
+    "Árbær", "Grafarvogur", "Kópavogur", "Hafnarfjörður", "Garðabær"
+  ];
+
+  const postalCodes = {
+    "101": "Miðborg", "102": "Miðborg", "103": "Miðborg", "104": "Miðborg", "105": "Miðborg",
+    "107": "Vesturbær", "108": "Hlíðar", "109": "Hlíðar", "110": "Árbær", "111": "Breiðholt",
+    "112": "Grafarvogur", "113": "Laugardalur", "116": "Kjalarnes", "200": "Kópavogur",
+    "201": "Kópavogur", "202": "Kópavogur", "203": "Kópavogur", "210": "Garðabær",
+    "220": "Hafnarfjörður", "221": "Hafnarfjörður"
   };
 
   const checkCoverage = () => {
-    if (postalCode.trim() === "") {
+    if (!postalCode) {
       setCoverageResult("Please enter a postal code");
       return;
     }
-    setCoverageResult("✓ We service this area! Contact us for scheduling.");
+    
+    const area = postalCodes[postalCode as keyof typeof postalCodes];
+    if (area) {
+      setCoverageResult(`✓ Great news! We serve ${area}. Book your cleaning today!`);
+    } else {
+      setCoverageResult("Sorry, we don't currently serve this area. Contact us for future availability.");
+    }
   };
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white">
-        {/* Header Section */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-purple-100 via-lavender-50 to-white py-20 lg:py-32">
-          <div className="absolute inset-0 bg-gradient-to-br from-transparent to-purple-50/30 opacity-50"></div>
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="max-w-4xl mx-auto">
+      <div className="min-h-screen">
+        {/* Breadcrumb Navigation */}
+        <div className="bg-gray-50 py-4">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center space-x-2 text-sm">
+              <Link href="/" className="text-gray-500 hover:text-[#4B0082] transition-colors">
+                Home
+              </Link>
+              <span className="text-gray-400">/</span>
+              <Link href="/services" className="text-gray-500 hover:text-[#4B0082] transition-colors">
+                Services
+              </Link>
+              <span className="text-gray-400">/</span>
+              <span className="text-[#4B0082] font-medium">Garbage Can Cleaning</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Hero Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
               <Link href="/services" className="inline-flex items-center text-[#4B0082] hover:text-purple-600 mb-6 transition-colors">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Services
@@ -67,114 +108,160 @@ export default function GarbageCanCleaning() {
                 Professional Garbage Can Cleaning
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Hygienic cleaning and sanitization of waste containers to eliminate odors and bacteria. Keep your bins 
-                clean and fresh with our professional garbage can cleaning service.
+                Transform your garbage can into a spotless sanctuary with our comprehensive cleaning service. 
+                From studios to multi-bedroom units, we deliver exceptional results every time.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                <Link href="/booking">
-                  <Button 
-                    size="lg" 
-                    className="bg-[#4B0082] hover:bg-purple-600 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group overflow-hidden relative"
-                  >
-                    <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-[#4B0082] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                    <span className="relative group-hover:text-white transition-colors duration-300">
-                      Book Bin Cleaning
-                    </span>
-                  </Button>
-                </Link>
-                <Link href="/quote">
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
-                    className="border-2 border-[#4B0082] text-[#4B0082] hover:bg-[#4B0082] hover:text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group overflow-hidden relative"
-                  >
-                    <span className="absolute inset-0 bg-[#4B0082] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                    <span className="relative transition-colors duration-300">
-                      Get Free Quote
-                    </span>
-                  </Button>
-                </Link>
-              </div>
             </div>
           </div>
         </section>
 
-        {/* Service Features Grid */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#333] mb-4">
-                What's Included in Our Garbage Can Cleaning Service
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Complete sanitization and cleaning service to keep your waste containers hygienic and odor-free.
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {serviceFeatures.map((feature, index) => (
-                <Card 
-                  key={index}
-                  className="p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 border-l-4 border-l-[#4B0082] fade-in-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+        {/* Service Coverage Section */}
+        <section className="py-8 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            {/* Compact Postal Code Checker */}
+            <div className="max-w-sm mx-auto">
+              <p className="text-sm text-gray-600 mb-3">Check if we serve your area:</p>
+              <div className="flex gap-2">
+                <Input
+                  type="text"
+                  placeholder="101, 107, 200"
+                  value={postalCode}
+                  onChange={(e) => {
+                    setPostalCode(e.target.value);
+                    setCoverageResult("");
+                  }}
+                  className="flex-1 h-10 text-sm border-gray-300 focus:border-[#4B0082] focus:ring-[#4B0082]"
+                  maxLength={3}
+                />
+                <Button 
+                  onClick={checkCoverage}
+                  className="btn-expand px-4 h-10 text-sm font-medium"
                 >
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-[#4B0082] flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 font-medium">{feature}</span>
-                  </div>
-                </Card>
-              ))}
+                  <span>Check</span>
+                </Button>
+              </div>
+              
+              {coverageResult && (
+                <div className={`mt-3 p-2 rounded-md text-sm transition-all duration-300 ${
+                  coverageResult.includes('✓') 
+                    ? 'bg-green-50 text-green-700 border border-green-200' 
+                    : 'bg-red-50 text-red-700 border border-red-200'
+                }`}>
+                  {coverageResult.includes('✓') ? '✅ You\'re covered! Book now.' : '❌ We don\'t currently serve that area.'}
+                </div>
+              )}
             </div>
           </div>
         </section>
 
-        {/* Image Gallery Section */}
-        <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#333] mb-4">
-                Professional Garbage Can Cleaning Gallery
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                See how our cleaning service transforms dirty bins into clean, sanitized containers.
-              </p>
-            </div>
+        {/* Split-View Section */}
+        <section className="py-20 bg-white min-h-screen flex items-center relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             
-            <div className="max-w-4xl mx-auto">
-              <div 
-                className="fade-in-up"
-                style={{ animationDelay: '0.2s' }}
-              >
-                <div className="relative bg-white rounded-xl overflow-hidden">
-                  <div className="aspect-[3/2] relative cursor-zoom-in group">
-                    <img
-                      src={garbageImages[currentImageIndex].src}
-                      alt={garbageImages[currentImageIndex].alt}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    
-                    {/* Overlay Navigation */}
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300">
-                      {/* Previous Button */}
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[80vh]">
+              
+              {/* Left Side - Service Details (increased width) */}
+              <div className="lg:col-span-6 space-y-12 pr-8 border-r border-gray-100">
+                {/* Professional Section Heading */}
+                <div>
+                  <h2 
+                    className="font-medium text-[#2B2B2B] mb-8"
+                    style={{ 
+                      fontFamily: 'Inter, system-ui, sans-serif',
+                      fontSize: '1.75rem',
+                      lineHeight: '1.3',
+                      letterSpacing: '0.2px'
+                    }}
+                  >
+                    What's Included in Your Garbage Can Clean
+                  </h2>
+                  
+                  {/* Minimal Feature Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-3">
+                    {serviceFeatures.map((feature, index) => (
+                      <div key={index} className="flex items-center group">
+                        <div className="w-4 h-4 mr-3 flex-shrink-0">
+                          <svg 
+                            className="w-4 h-4 text-gray-400 group-hover:text-gray-600 transition-colors" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <span 
+                          className="text-gray-700 leading-relaxed"
+                          style={{ 
+                            fontFamily: 'Inter, system-ui, sans-serif',
+                            fontSize: '0.95rem',
+                            fontWeight: '400'
+                          }}
+                        >
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Sleek Call-to-Action Block */}
+                <div className="pt-8 border-t border-gray-100">
+                  <Link href="/quote">
+                    <Button 
+                      className="btn-expand font-semibold rounded-lg"
+                      style={{
+                        height: '48px',
+                        width: '200px',
+                        fontSize: '0.95rem'
+                      }}
+                    >
+                      <span>Get My Quote</span>
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right Side - Image Gallery (reduced width) */}
+              <div className="lg:col-span-6">
+                {/* Image Carousel */}
+                <div 
+                  className="relative rounded-2xl overflow-hidden shadow-lg border-2 border-[#E6E6FA]/40"
+                  style={{ 
+                    background: 'linear-gradient(135deg, #E6E6FA 0%, #F0E6FF 100%)',
+                    padding: '6px'
+                  }}
+                >
+                  <div className="relative bg-white rounded-xl overflow-hidden">
+                    <div className="aspect-[3/2] relative cursor-zoom-in group">
+                      <img
+                        src={garbageCanImages[currentImageIndex].src}
+                        alt={garbageCanImages[currentImageIndex].alt}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      
+                      {/* Hover Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      
+                      {/* Navigation Arrows */}
                       <button
                         onClick={prevImage}
-                        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-[#4B0082] rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 shadow-lg"
+                        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-xl hover:bg-white hover:scale-110 transition-all duration-200 opacity-80 hover:opacity-100"
                       >
-                        <ArrowLeft className="w-4 h-4" />
+                        <ArrowLeft className="w-6 h-6 text-[#4B0082]" />
                       </button>
-                      
-                      {/* Next Button */}
                       <button
                         onClick={nextImage}
-                        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-[#4B0082] rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 shadow-lg"
+                        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-xl hover:bg-white hover:scale-110 transition-all duration-200 opacity-80 hover:opacity-100 rotate-180"
                       >
-                        <ArrowLeft className="w-4 h-4 rotate-180" />
+                        <ArrowLeft className="w-6 h-6 text-[#4B0082]" />
                       </button>
                     </div>
                     
-                    {/* Image Indicators */}
+                    {/* Swipe Dots */}
                     <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
-                      {garbageImages.map((_, index) => (
+                      {garbageCanImages.map((_, index: number) => (
                         <button
                           key={index}
                           onClick={() => setCurrentImageIndex(index)}
@@ -188,187 +275,113 @@ export default function GarbageCanCleaning() {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
+                
 
-        {/* Trust & Safety Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-3 gap-12 items-center">
-              <div className="lg:col-span-1 space-y-8">
-                <div 
-                  className="flex items-start space-x-4 fade-in-up"
-                  style={{ animationDelay: '0.1s' }}
-                >
-                  <Shield className="w-8 h-8 text-[#4B0082] flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-lg text-[#333] mb-2">Eco-Friendly Products</h3>
-                    <p className="text-gray-600">
-                      We use environmentally safe disinfectants that are effective yet gentle on the environment.
-                    </p>
-                  </div>
-                </div>
-                
-                <div 
-                  className="flex items-start space-x-4 fade-in-up"
-                  style={{ animationDelay: '0.2s' }}
-                >
-                  <Users className="w-8 h-8 text-[#4B0082] flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-lg text-[#333] mb-2">Health & Safety Focus</h3>
-                    <p className="text-gray-600">
-                      Our cleaning eliminates harmful bacteria and odors, promoting a healthier environment.
-                    </p>
-                  </div>
-                </div>
-                
-                <div 
-                  className="flex items-start space-x-4 fade-in-up"
-                  style={{ animationDelay: '0.3s' }}
-                >
-                  <Clock className="w-8 h-8 text-[#4B0082] flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-lg text-[#333] mb-2">Regular Service Plans</h3>
-                    <p className="text-gray-600">
-                      Weekly, bi-weekly, or monthly cleaning schedules to keep your bins consistently clean.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="lg:col-span-2">
-                <div className="text-center">
-                  <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#333] mb-6">
-                    Why Choose Næstir Garbage Can Cleaning?
-                  </h2>
-                  <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-                    Professional bin cleaning service that eliminates odors, bacteria, and unsanitary conditions. 
-                    Keep your property clean and healthy with regular garbage can maintenance.
-                  </p>
-                  
-                  {/* Coverage Checker */}
-                  <div className="max-w-md mx-auto">
-                    <Card className="p-6 bg-gradient-to-r from-purple-50 to-lavender-50">
-                      <h3 className="font-semibold text-lg text-[#333] mb-4 flex items-center justify-center">
-                        <MapPin className="w-5 h-5 mr-2 text-[#4B0082]" />
-                        Check Service Coverage
-                      </h3>
-                      <div className="flex gap-2">
-                        <Input
-                          placeholder="Enter postal code"
-                          value={postalCode}
-                          onChange={(e) => setPostalCode(e.target.value)}
-                          className="flex-1"
-                        />
-                        <Button
-                          onClick={checkCoverage}
-                          size="sm"
-                          className="bg-[#4B0082] hover:bg-purple-600 text-white"
-                        >
-                          <Search className="w-4 h-4" />
-                        </Button>
+                {/* Trust & Safety Commitment Section */}
+                <div className="mt-8 pt-6 border-t border-gray-100">
+                  <div className="space-y-3">
+                    <div className="trust-item opacity-0 animate-trust-fade-1 flex items-center space-x-3">
+                      <div className="w-4 h-4 flex-shrink-0">
+                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                        </svg>
                       </div>
-                      {coverageResult && (
-                        <p className="mt-3 text-sm text-center text-gray-600">
-                          {coverageResult}
-                        </p>
-                      )}
-                    </Card>
+                      <span 
+                        className="text-[#2B2B2B]"
+                        style={{ 
+                          fontFamily: 'Inter, system-ui, sans-serif',
+                          fontSize: '14px',
+                          fontWeight: '400',
+                          lineHeight: '1.5'
+                        }}
+                      >
+                        All cleaners are background-checked and trained
+                      </span>
+                    </div>
+
+                    <div className="trust-item opacity-0 animate-trust-fade-2 flex items-center space-x-3">
+                      <div className="w-4 h-4 flex-shrink-0">
+                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span 
+                        className="text-[#2B2B2B]"
+                        style={{ 
+                          fontFamily: 'Inter, system-ui, sans-serif',
+                          fontSize: '14px',
+                          fontWeight: '400',
+                          lineHeight: '1.5'
+                        }}
+                      >
+                        Fully insured and bonded for your protection
+                      </span>
+                    </div>
+
+                    <div className="trust-item opacity-0 animate-trust-fade-3 flex items-center space-x-3">
+                      <div className="w-4 h-4 flex-shrink-0">
+                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span 
+                        className="text-[#2B2B2B]"
+                        style={{ 
+                          fontFamily: 'Inter, system-ui, sans-serif',
+                          fontSize: '14px',
+                          fontWeight: '400',
+                          lineHeight: '1.5'
+                        }}
+                      >
+                        100% satisfaction guarantee — no exceptions
+                      </span>
+                    </div>
+
+                    <div className="trust-item opacity-0 animate-trust-fade-4 flex items-center space-x-3">
+                      <div className="w-4 h-4 flex-shrink-0">
+                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span 
+                        className="text-[#2B2B2B]"
+                        style={{ 
+                          fontFamily: 'Inter, system-ui, sans-serif',
+                          fontSize: '14px',
+                          fontWeight: '400',
+                          lineHeight: '1.5'
+                        }}
+                      >
+                        Respectful, punctual, and detail-focused staff
+                      </span>
+                    </div>
+
+                    <div className="trust-item opacity-0 animate-trust-fade-5 flex items-center space-x-3">
+                      <div className="w-4 h-4 flex-shrink-0">
+                        <svg className="w-4 h-4 text-gray-400 animate-trust-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span 
+                        className="text-[#2B2B2B]"
+                        style={{ 
+                          fontFamily: 'Inter, system-ui, sans-serif',
+                          fontSize: '14px',
+                          fontWeight: '400',
+                          lineHeight: '1.5'
+                        }}
+                      >
+                        Transparent pricing — no surprise fees
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
         </section>
 
-        {/* Customer Reviews Section */}
-        <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#333] mb-4">
-                What Our Customers Say
-              </h2>
-              <p className="text-xl text-gray-600">
-                Read reviews from satisfied customers who choose our garbage can cleaning service.
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  name: "Maria Santos",
-                  rating: 5,
-                  review: "Finally no more smelly garbage cans! The team does a thorough job and the bins stay fresh for weeks.",
-                  service: "Weekly Cleaning Plan"
-                },
-                {
-                  name: "Tom Wilson",
-                  rating: 5,
-                  review: "Professional service that makes a real difference. My property looks and smells so much better now.",
-                  service: "Residential Bin Cleaning"
-                },
-                {
-                  name: "Restaurant Owner",
-                  rating: 5,
-                  review: "Essential service for our business. They keep our commercial bins clean and odor-free, which is crucial for health standards.",
-                  service: "Commercial Service"
-                }
-              ].map((review, index) => (
-                <Card 
-                  key={index}
-                  className="p-6 hover:shadow-lg transition-all duration-300 fade-in-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="flex items-center mb-4">
-                    <div className="flex space-x-1">
-                      {[...Array(review.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-current text-yellow-400" />
-                      ))}
-                    </div>
-                    <span className="ml-2 text-sm text-gray-600">{review.service}</span>
-                  </div>
-                  <Quote className="w-8 h-8 text-[#4B0082] mb-4 opacity-50" />
-                  <p className="text-gray-700 mb-4 italic">"{review.review}"</p>
-                  <div className="font-semibold text-[#333]">— {review.name}</div>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-[#4B0082] to-purple-600 text-white">
-          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h2 className="font-playfair text-3xl md:text-4xl font-bold mb-6">
-              Ready for Clean, Odor-Free Bins?
-            </h2>
-            <p className="text-xl mb-8 opacity-90">
-              Book your garbage can cleaning service today and eliminate odors and bacteria for good.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/booking">
-                <Button 
-                  size="lg" 
-                  variant="secondary"
-                  className="bg-white text-[#4B0082] hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-                >
-                  Book Now
-                </Button>
-              </Link>
-              <Link href="/quote">
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="border-2 border-white text-white hover:bg-white hover:text-[#4B0082] px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-                >
-                  Get Quote
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
       </div>
     </PageTransition>
   );
