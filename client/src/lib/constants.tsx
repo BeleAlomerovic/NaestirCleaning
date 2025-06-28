@@ -1,10 +1,12 @@
+import { Home, Building, Car, Shirt, Trash2 } from "lucide-react";
+
 export const services = [
   {
     id: "apartment",
     name: "Apartment Cleaning",
     description: "Complete residential cleaning services including kitchens, bathrooms, bedrooms, and living areas.",
     image: "/assets/Apartment_1750366989119.jpg",
-    icon: "🏠",
+    icon: Home,
     details: [
       "Deep cleaning of all rooms including kitchen, bathroom, and living areas",
       "Dusting and polishing of all surfaces and furniture",
@@ -19,7 +21,7 @@ export const services = [
     name: "Blocks Cleaning",
     description: "Comprehensive cleaning services for apartment blocks, common areas, and residential complexes.",
     image: "/assets/Apartment block_1750366983432.jpg",
-    icon: "🏢",
+    icon: Building,
     details: [
       "Common area cleaning including lobbies and hallways",
       "Stairwell and elevator cleaning and maintenance",
@@ -34,7 +36,7 @@ export const services = [
     name: "Corporate Cleaning",
     description: "Professional office and commercial space cleaning with flexible scheduling and maintenance.",
     image: "/assets/Company_1750366999455.jpg",
-    icon: "🏢",
+    icon: Building,
     details: [
       "Daily office cleaning and maintenance",
       "Workstation and desk area sanitization",
@@ -49,7 +51,7 @@ export const services = [
     name: "Car Wash",
     description: "Premium vehicle cleaning services including exterior wash, interior detailing, and protective treatments.",
     image: "/assets/car_1750366993866.jpg",
-    icon: "🚗",
+    icon: Car,
     details: [
       "Exterior washing and pressure cleaning",
       "Interior vacuuming and upholstery cleaning",
@@ -64,7 +66,7 @@ export const services = [
     name: "Carpet Cleaning",
     description: "Deep carpet cleaning using advanced steam cleaning and stain removal techniques.",
     image: "/assets/Carpet_1750367005291.jpg",
-    icon: "🧽",
+    icon: Shirt,
     details: [
       "Deep steam cleaning for thorough dirt removal",
       "Stain removal and spot treatment",
@@ -79,7 +81,7 @@ export const services = [
     name: "Garbage Can Cleaning",
     description: "Hygienic cleaning and sanitization of waste containers to eliminate odors and bacteria.",
     image: "/assets/Garbage_1750367027204.jpeg",
-    icon: "🗑️",
+    icon: Trash2,
     details: [
       "High-pressure washing of bins and containers",
       "Sanitization with eco-friendly disinfectants",
