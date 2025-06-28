@@ -45,7 +45,7 @@ export const services = [
     ]
   },
   {
-    id: "carwash",
+    id: "car-wash",
     name: "Car Wash",
     description: "Premium vehicle cleaning services including exterior wash, interior detailing, and protective treatments.",
     image: "/assets/car_1750366993866.jpg",
@@ -60,7 +60,7 @@ export const services = [
     ]
   },
   {
-    id: "carpet",
+    id: "carpet-cleaning",
     name: "Carpet Cleaning",
     description: "Deep carpet cleaning using advanced steam cleaning and stain removal techniques.",
     image: "/assets/Carpet_1750367005291.jpg",
@@ -75,7 +75,7 @@ export const services = [
     ]
   },
   {
-    id: "garbage",
+    id: "garbage-can-cleaning",
     name: "Garbage Can Cleaning",
     description: "Hygienic cleaning and sanitization of waste containers to eliminate odors and bacteria.",
     image: "/assets/Garbage_1750367027204.jpeg",

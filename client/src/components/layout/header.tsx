@@ -20,8 +20,8 @@ export function Header() {
     { name: "Corporate Cleaning", href: "/services/corporate" },
     { name: "Apartment Block Cleaning", href: "/services/blocks-cleaning" },
     { name: "Car Wash", href: "/services/car-wash" },
-    { name: "Carpet Cleaning", href: "/services/carpet" },
-    { name: "Garbage Can Cleaning", href: "/services/garbage-can" }
+    { name: "Carpet Cleaning", href: "/services/carpet-cleaning" },
+    { name: "Garbage Can Cleaning", href: "/services/garbage-can-cleaning" }
   ];
 
   const handleServiceMouseEnter = () => {

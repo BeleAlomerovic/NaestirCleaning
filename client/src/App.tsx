@@ -14,6 +14,9 @@ import ServiceDetail from "@/pages/service-detail";
 import ApartmentCleaning from "@/pages/apartment-cleaning";
 import CorporateCleaning from "@/pages/corporate-cleaning";
 import BlockCleaning from "@/pages/block-cleaning";
+import CarWash from "@/pages/car-wash";
+import CarpetCleaning from "@/pages/carpet-cleaning";
+import GarbageCanCleaning from "@/pages/garbage-can-cleaning";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -27,6 +30,9 @@ function Router() {
       <Route path="/services/apartment-cleaning" component={ApartmentCleaning} />
       <Route path="/services/corporate-cleaning" component={CorporateCleaning} />
       <Route path="/services/blocks-cleaning" component={BlockCleaning} />
+      <Route path="/services/car-wash" component={CarWash} />
+      <Route path="/services/carpet-cleaning" component={CarpetCleaning} />
+      <Route path="/services/garbage-can-cleaning" component={GarbageCanCleaning} />
       <Route path="/services/blocks">
         {() => {
           window.location.href = '/services/blocks-cleaning';
