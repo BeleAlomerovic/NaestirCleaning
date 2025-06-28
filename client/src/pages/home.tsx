@@ -4,66 +4,21 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageTransition } from "@/components/page-transition";
 import { services } from "@/lib/constants";
-import apartmentImage from "@assets/AdobeStock_334592268_1750505728985.jpeg";
+import heroImage from "@assets/ken burns effect_1751107127047.webp";
 
 export default function Home() {
   return (
     <PageTransition>
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative h-screen min-h-[700px] flex items-center justify-center">
-          {/* Background Video/Animation */}
-          <div className="absolute inset-0">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
+        <section className="relative h-screen min-h-[700px]">
+          {/* Hero Image */}
+          <div className="w-full h-full">
+            <img
+              src={heroImage}
+              alt="Clean and modern living room with professional cleaning results"
               className="w-full h-full object-cover"
-              poster="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080"
-            >
-              <source src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27eecc69a27dbc4ff2b87d38afc35f1c5a3e8c7&profile_id=139&oauth2_token_id=57447761" type="video/mp4" />
-            </video>
-          </div>
-          
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 hero-gradient"></div>
-          
-          {/* Hero Content */}
-          <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-            <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl font-bold text-naestir-dark mb-4 leading-tight">
-              A Cleaner Home,<br />
-              <span className="text-naestir-primary">A Brighter You.</span>
-            </h1>
-            <p className="font-playfair text-xl md:text-2xl text-naestir-secondary mb-12 italic">
-              (We clean. You breathe.)
-            </p>
-            
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
-              <Link href="/quote">
-                <Button 
-                  className="bg-[#4B0082] hover:bg-[#6A0DAD] text-white px-10 py-4 text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-                  style={{ borderRadius: '8px' }}
-                >
-                  Get Your Free Quote
-                </Button>
-              </Link>
-              <Link href="/#services">
-                <Button 
-                  variant="outline" 
-                  className="bg-transparent border-2 border-[#4B0082] text-[#4B0082] hover:bg-[#4B0082] hover:text-white px-10 py-4 text-lg font-semibold transition-all duration-300 hover:shadow-lg"
-                  style={{ borderRadius: '8px' }}
-                >
-                  See Our Services
-                </Button>
-              </Link>
-            </div>
-            
-            {/* Microcopy */}
-            <p className="text-naestir-secondary text-sm md:text-base">
-              Trusted by 2,000+ happy clients • Eco-friendly • Insured & Vetted Staff
-            </p>
+            />
           </div>
         </section>
 
