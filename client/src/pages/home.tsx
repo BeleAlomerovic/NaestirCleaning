@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Users, Heart, Award, ArrowRight } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageTransition } from "@/components/page-transition";
@@ -7,6 +8,12 @@ import { services } from "@/lib/constants";
 import heroImage from "@assets/Depositphotos_764505660_XL_1751107860312.jpg";
 
 export default function Home() {
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
   return (
     <PageTransition>
       <div className="min-h-screen">
@@ -155,11 +162,11 @@ export default function Home() {
                     <img
                       src="/assets/AdobeStock_334592268 2 copy_1750506666192.jpg"
                       alt="Clean car interior after cleaning"
-                      className="absolute inset-0 w-full h-80 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100 transform translate-x-full group-hover:translate-x-0"
+                      className="absolute inset-0 w-full h-80 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
                     />
                     
-                    {/* Wipe Progress Bar */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 transform -translate-x-full group-hover:translate-x-full"></div>
+                    {/* Circular Wipe Effect */}
+                    <div className="absolute inset-0 bg-gradient-radial from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform scale-0 group-hover:scale-150"></div>
                     
                     {/* Before/After Labels */}
                     <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
@@ -202,15 +209,11 @@ export default function Home() {
                     <img
                       src="/assets/AdobeStock_523168323 copy_1750506673796.jpg"
                       alt="Clean bathroom tiles after cleaning"
-                      className="absolute inset-0 w-full h-80 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100 transform translate-y-full group-hover:translate-y-0"
+                      className="absolute inset-0 w-full h-80 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
                     />
                     
-                    {/* Sparkle Animation */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-ping"></div>
-                      <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-white rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
-                      <div className="absolute bottom-1/3 left-1/2 w-1.5 h-1.5 bg-white rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
-                    </div>
+                    {/* Circular Wipe Effect */}
+                    <div className="absolute inset-0 bg-gradient-radial from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform scale-0 group-hover:scale-150"></div>
                     
                     {/* Before/After Labels */}
                     <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
@@ -253,11 +256,11 @@ export default function Home() {
                     <img
                       src="/assets/AdobeStock_554450129 copy_1750506684147.jpg"
                       alt="Spotless clean window after cleaning"
-                      className="absolute inset-0 w-full h-80 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100 transform scale-110 group-hover:scale-100"
+                      className="absolute inset-0 w-full h-80 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
                     />
                     
-                    {/* Diagonal Wipe Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-blue-200/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform rotate-45 -translate-x-full group-hover:translate-x-full"></div>
+                    {/* Circular Wipe Effect */}
+                    <div className="absolute inset-0 bg-gradient-radial from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform scale-0 group-hover:scale-150"></div>
                     
                     {/* Before/After Labels */}
                     <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
@@ -347,14 +350,11 @@ export default function Home() {
                     <img
                       src="/assets/AdobeStock_689599448 copy_1750506697803.jpg"
                       alt="Pristine upholstery after cleaning"
-                      className="absolute inset-0 w-full h-80 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100 transform translate-x-full group-hover:translate-x-0"
+                      className="absolute inset-0 w-full h-80 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
                     />
                     
-                    {/* Steam Effect */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                      <div className="absolute bottom-1/4 left-1/3 w-8 h-8 bg-white/30 rounded-full blur-md animate-pulse"></div>
-                      <div className="absolute bottom-1/3 right-1/4 w-6 h-6 bg-white/20 rounded-full blur-md animate-pulse" style={{animationDelay: '0.5s'}}></div>
-                    </div>
+                    {/* Circular Wipe Effect */}
+                    <div className="absolute inset-0 bg-gradient-radial from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform scale-0 group-hover:scale-150"></div>
                     
                     {/* Before/After Labels */}
                     <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
@@ -387,135 +387,212 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Social Proof Section */}
-        <section className="py-20 bg-purple-50">
+        {/* Client Testimonials Section */}
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="font-playfair text-4xl md:text-5xl font-bold text-naestir-dark mb-8">
-                What Our Customers Say
+              <h2 className="font-inter text-4xl md:text-5xl font-bold text-[#333] mb-4">
+                What Our Clients Say
               </h2>
-              
-              {/* Floating Star Animation */}
-              <div className="relative mb-12">
-                <div className="floating-stars">
-                  <span className="star-emoji">⭐</span>
-                  <span className="star-emoji">⭐</span>
-                  <span className="star-emoji">⭐</span>
-                  <span className="star-emoji">⭐</span>
-                  <span className="star-emoji">⭐</span>
+              <p className="font-inter text-lg text-gray-600 max-w-2xl mx-auto">
+                Here's what homeowners and businesses are saying about Næstir.
+              </p>
+            </div>
+
+            {/* Testimonial Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              {/* Testimonial 1 */}
+              <div className="testimonial-card bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style={{animationDelay: '0s'}}>
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-semibold text-lg mr-4">
+                    AR
+                  </div>
+                  <div>
+                    <h4 className="font-inter font-bold text-[#333] text-lg">Amanda R.</h4>
+                    <div className="flex text-yellow-400 text-sm">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                  </div>
                 </div>
+                <p className="font-inter text-base text-gray-600 leading-relaxed">
+                  "Showed up on time, cleaned like magic, and even left a thank-you note. Professional service from start to finish."
+                </p>
               </div>
 
-              {/* Customer Reviews */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <div className="fade-in-up bg-white p-8 rounded-2xl shadow-lg">
-                  <div className="text-6xl mb-4">💬</div>
-                  <blockquote className="text-lg text-naestir-dark mb-4 italic">
-                    "Showed up on time, cleaned like magic, and even left a thank-you note."
-                  </blockquote>
-                  <div className="flex justify-center mb-2">
-                    <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
+              {/* Testimonial 2 */}
+              <div className="testimonial-card bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style={{animationDelay: '0.1s'}}>
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-semibold text-lg mr-4">
+                    MK
                   </div>
-                  <div className="text-naestir-secondary font-medium">
-                    — Amanda R., Brooklyn
-                  </div>
-                </div>
-
-                <div className="fade-in-up bg-white p-8 rounded-2xl shadow-lg" style={{animationDelay: '0.2s'}}>
-                  <div className="text-6xl mb-4">💬</div>
-                  <blockquote className="text-lg text-naestir-dark mb-4 italic">
-                    "Professional service, eco-friendly products, and spotless results every time."
-                  </blockquote>
-                  <div className="flex justify-center mb-2">
-                    <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                  </div>
-                  <div className="text-naestir-secondary font-medium">
-                    — Michael K., Manhattan
+                  <div>
+                    <h4 className="font-inter font-bold text-[#333] text-lg">Michael K.</h4>
+                    <div className="flex text-yellow-400 text-sm">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
                   </div>
                 </div>
-
-                <div className="fade-in-up bg-white p-8 rounded-2xl shadow-lg" style={{animationDelay: '0.4s'}}>
-                  <div className="text-6xl mb-4">💬</div>
-                  <blockquote className="text-lg text-naestir-dark mb-4 italic">
-                    "Best cleaning service in the city. They treat your home like their own."
-                  </blockquote>
-                  <div className="flex justify-center mb-2">
-                    <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                  </div>
-                  <div className="text-naestir-secondary font-medium">
-                    — Sarah L., Queens
-                  </div>
-                </div>
+                <p className="font-inter text-base text-gray-600 leading-relaxed">
+                  "Professional service, eco-friendly products, and spotless results every time. Highly recommend for any business."
+                </p>
               </div>
 
-              {/* As Seen On Section */}
-              <div className="text-center">
-                <p className="text-naestir-secondary text-lg mb-8">As seen on:</p>
-                <div className="flex justify-center items-center space-x-12">
-                  <div className="logo-container yelp-logo">
-                    <span className="text-2xl font-bold text-gray-400 hover:text-red-500 transition-all duration-300">Yelp</span>
+              {/* Testimonial 3 */}
+              <div className="testimonial-card bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300" style={{animationDelay: '0.2s'}}>
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-semibold text-lg mr-4">
+                    SL
                   </div>
-                  <div className="logo-container google-logo">
-                    <span className="text-2xl font-bold text-gray-400 hover:text-blue-500 transition-all duration-300">Google</span>
-                  </div>
-                  <div className="logo-container thumbtack-logo">
-                    <span className="text-2xl font-bold text-gray-400 hover:text-green-500 transition-all duration-300">Thumbtack</span>
+                  <div>
+                    <h4 className="font-inter font-bold text-[#333] text-lg">Sarah L.</h4>
+                    <div className="flex text-yellow-400 text-sm">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
                   </div>
                 </div>
+                <p className="font-inter text-base text-gray-600 leading-relaxed">
+                  "Best cleaning service in the city. They treat your home like their own and the attention to detail is remarkable."
+                </p>
               </div>
+            </div>
+
+            {/* Survey Collection Note */}
+            <div className="text-center">
+              <p className="font-inter text-sm text-gray-500">
+                Collected via our quote form and follow-up surveys
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Who We Are Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* FAQ Section */}
+        <section className="py-20 bg-[#F9F8FC]">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="font-playfair text-4xl md:text-5xl font-bold text-naestir-dark mb-4">
-                We're More Than Cleaners - We're Caretakers
+              <h2 className="font-inter text-4xl md:text-5xl font-bold text-[#2A2A2A] mb-4">
+                Frequently Asked Questions
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Left - Image */}
-              <div className="order-2 lg:order-1 fade-in-up">
-                <img
-                  src="/assets/founder.jpeg"
-                  alt="Bele Alomerovic - Founder"
-                  className="w-full h-96 md:h-[500px] object-cover rounded-2xl shadow-xl"
-                />
+            <div className="space-y-4">
+              {/* FAQ Item 1 */}
+              <div className={`faq-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden ${openFAQ === 0 ? 'active' : ''}`}>
+                <button 
+                  className="faq-trigger w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
+                  onClick={() => toggleFAQ(0)}
+                >
+                  <span className="font-inter text-lg font-bold text-[#2A2A2A]">
+                    Do I need to be home during the cleaning?
+                  </span>
+                  <span className="faq-icon text-2xl text-purple-400 transition-transform duration-300">
+                    {openFAQ === 0 ? '−' : '+'}
+                  </span>
+                </button>
+                <div className="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                  <div className="px-6 pb-6">
+                    <p className="font-inter text-base text-[#555] leading-relaxed">
+                      No — as long as we have access, you don't need to be there. Many clients prefer returning to a spotless home.
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              {/* Right - Narrative */}
-              <div className="order-1 lg:order-2 fade-in-up" style={{animationDelay: '0.2s'}}>
-                <div className="space-y-6">
-                  <p className="text-lg md:text-xl text-naestir-secondary leading-relaxed">
-                    We started this company with a mop, a mission, and a belief: that a clean space creates a clear mind. Every surface we touch matters — because your peace of mind is in the details.
-                  </p>
-
-                  {/* Founder Quote */}
-                  <div className="bg-naestir-neutral p-8 rounded-2xl border-l-4 border-naestir-primary">
-                    <blockquote className="font-handwritten text-2xl md:text-3xl text-naestir-dark text-center italic mb-4">
-                      "Clean isn't just our job — it's our signature."
-                    </blockquote>
-                    <div className="text-center">
-                      <span className="font-handwritten text-lg text-naestir-secondary">
-                        — Bele Alomerovic, Founder
-                      </span>
-                    </div>
+              {/* FAQ Item 2 */}
+              <div className={`faq-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden ${openFAQ === 1 ? 'active' : ''}`}>
+                <button 
+                  className="faq-trigger w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
+                  onClick={() => toggleFAQ(1)}
+                >
+                  <span className="font-inter text-lg font-bold text-[#2A2A2A]">
+                    Are your cleaners background-checked and insured?
+                  </span>
+                  <span className="faq-icon text-2xl text-purple-400 transition-transform duration-300">
+                    {openFAQ === 1 ? '−' : '+'}
+                  </span>
+                </button>
+                <div className="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                  <div className="px-6 pb-6">
+                    <p className="font-inter text-base text-[#555] leading-relaxed">
+                      Absolutely. Every Næstir team member is vetted, insured, and trained to meet our high standards.
+                    </p>
                   </div>
+                </div>
+              </div>
 
-                  <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                    <Link href="/about">
-                      <Button className="bg-naestir-primary hover:bg-purple-600 text-white px-6 py-3 font-semibold">
-                        Learn Our Story
-                      </Button>
-                    </Link>
-                    <Link href="/quote">
-                      <Button variant="outline" className="border-naestir-primary text-naestir-primary hover:bg-naestir-primary hover:text-white px-6 py-3 font-semibold">
-                        Get Your Quote
-                      </Button>
-                    </Link>
+              {/* FAQ Item 3 */}
+              <div className={`faq-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden ${openFAQ === 2 ? 'active' : ''}`}>
+                <button 
+                  className="faq-trigger w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
+                  onClick={() => toggleFAQ(2)}
+                >
+                  <span className="font-inter text-lg font-bold text-[#2A2A2A]">
+                    Do you bring your own supplies and equipment?
+                  </span>
+                  <span className="faq-icon text-2xl text-purple-400 transition-transform duration-300">
+                    {openFAQ === 2 ? '−' : '+'}
+                  </span>
+                </button>
+                <div className="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                  <div className="px-6 pb-6">
+                    <p className="font-inter text-base text-[#555] leading-relaxed">
+                      Yes. We bring all eco-friendly cleaning products and tools — unless you prefer we use your own.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* FAQ Item 4 */}
+              <div className={`faq-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden ${openFAQ === 3 ? 'active' : ''}`}>
+                <button 
+                  className="faq-trigger w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
+                  onClick={() => toggleFAQ(3)}
+                >
+                  <span className="font-inter text-lg font-bold text-[#2A2A2A]">
+                    How do I get a quote?
+                  </span>
+                  <span className="faq-icon text-2xl text-purple-400 transition-transform duration-300">
+                    {openFAQ === 3 ? '−' : '+'}
+                  </span>
+                </button>
+                <div className="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                  <div className="px-6 pb-6">
+                    <p className="font-inter text-base text-[#555] leading-relaxed">
+                      Just click "Get My Quote" at the top or bottom of this page — it takes under a minute.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* FAQ Item 5 */}
+              <div className={`faq-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden ${openFAQ === 4 ? 'active' : ''}`}>
+                <button 
+                  className="faq-trigger w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
+                  onClick={() => toggleFAQ(4)}
+                >
+                  <span className="font-inter text-lg font-bold text-[#2A2A2A]">
+                    Do you clean outside Reykjavík?
+                  </span>
+                  <span className="faq-icon text-2xl text-purple-400 transition-transform duration-300">
+                    {openFAQ === 4 ? '−' : '+'}
+                  </span>
+                </button>
+                <div className="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                  <div className="px-6 pb-6">
+                    <p className="font-inter text-base text-[#555] leading-relaxed">
+                      Mostly yes! Enter your zip code above to check if you're in our service area.
+                    </p>
                   </div>
                 </div>
               </div>
