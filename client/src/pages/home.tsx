@@ -5,11 +5,18 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageTransition } from "@/components/page-transition";
 import { TestimonialsCarousel } from "@/components/testimonials-carousel";
+import { useParallax, useIntersectionObserver } from "@/hooks/use-parallax";
 import { services } from "@/lib/constants";
 import heroImage from "@assets/Depositphotos_764505660_XL_1751107860312.jpg";
 
 export default function Home() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+  const servicesRef = useParallax();
+  const galleryRef = useParallax();
+  const faqRef = useParallax();
+  const servicesObserverRef = useIntersectionObserver();
+  const galleryObserverRef = useIntersectionObserver();
+  const faqObserverRef = useIntersectionObserver();
 
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
@@ -80,8 +87,15 @@ export default function Home() {
         </section>
 
         {/* What We Clean Section */}
-        <section id="services" className="py-20 bg-[#F9F7FC]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section 
+          id="services" 
+          ref={servicesRef}
+          className="py-20 parallax-section"
+        >
+          {/* Parallax Background */}
+          <div className="parallax-bg bg-[#F9F7FC]"></div>
+          
+          <div className="parallax-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header - Elegant "Þjónustan Okkar" Design */}
             <div className="text-center mb-16 pt-16 pb-12 relative">
               {/* Background Quote Mark */}
@@ -146,8 +160,14 @@ export default function Home() {
         </section>
 
         {/* Gallery Preview Section */}
-        <section className="py-20 bg-[#FFFFFF]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section 
+          ref={galleryRef}
+          className="py-20 parallax-section"
+        >
+          {/* Parallax Background */}
+          <div className="parallax-bg bg-[#FFFFFF]"></div>
+          
+          <div className="parallax-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header - Elegant "Verkin okkar" Design */}
             <div className="text-center mb-16 pt-16 pb-12 relative">
               {/* Background Quote Mark */}
@@ -413,8 +433,14 @@ export default function Home() {
         <TestimonialsCarousel />
 
         {/* FAQ Section */}
-        <section className="py-20 bg-[#FFFFFF]">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section 
+          ref={faqRef}
+          className="py-20 parallax-section"
+        >
+          {/* Parallax Background */}
+          <div className="parallax-bg bg-[#FFFFFF]"></div>
+          
+          <div className="parallax-content max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header - Elegant "Algengar Spurningar" Design */}
             <div className="text-center mb-16 pt-16 pb-12 relative">
               {/* Background Quote Mark */}
