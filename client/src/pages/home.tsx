@@ -80,13 +80,26 @@ export default function Home() {
         </section>
 
         {/* What We Clean Section */}
-        <section id="services" className="py-20 bg-naestir-neutral">
+        <section id="services" className="py-20 bg-[#FAF9FC]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="font-playfair text-4xl md:text-5xl font-bold text-naestir-dark mb-4">What We Clean</h2>
-              <p className="text-xl text-naestir-secondary max-w-3xl mx-auto">
-                Professional cleaning solutions tailored to meet your specific needs with the highest standards of quality.
-              </p>
+            {/* Section Header - Elegant "Þjónustan Okkar" Design */}
+            <div className="text-center mb-16 pt-16 pb-12 relative">
+              {/* Background Quote Mark */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
+                  "
+                </div>
+              </div>
+              
+              {/* Main Title */}
+              <h2 className="font-playfair text-[32px] md:text-[44px] font-bold text-[#1F1F1F] mb-6 tracking-[-0.5px] leading-[1.1] animate-fade-up">
+                Þjónustan Okkar
+              </h2>
+              
+              {/* Lavender Divider */}
+              <div className="flex justify-center">
+                <div className="w-[60px] h-[2px] bg-[#B7A9D3] rounded-[1px] animate-expand-width"></div>
+              </div>
             </div>
 
             {/* Horizontal Scrollable Cards */}
@@ -135,16 +148,24 @@ export default function Home() {
         {/* Gallery Preview Section */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Section Title + Intro */}
-            <div className="text-center mb-16">
-              <h2 className="font-playfair text-5xl md:text-6xl font-bold text-naestir-dark mb-6">
-                Transformations You Can See — and Feel.
-                <span className="inline-block ml-2 text-4xl">✨</span>
+            {/* Section Header - Elegant "Verkin okkar" Design */}
+            <div className="text-center mb-16 pt-16 pb-12 relative">
+              {/* Background Quote Mark */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
+                  "
+                </div>
+              </div>
+              
+              {/* Main Title */}
+              <h2 className="font-playfair text-[32px] md:text-[44px] font-bold text-[#1F1F1F] mb-6 tracking-[-0.5px] leading-[1.1] animate-fade-up">
+                Verkin okkar
               </h2>
-              <p className="text-xl text-naestir-secondary max-w-4xl mx-auto leading-relaxed">
-                From grimy to gleaming, here's how we breathe life back into everyday spaces.
-              </p>
-              <div className="mt-6 w-24 h-0.5 bg-gradient-to-r from-naestir-primary to-naestir-accent mx-auto"></div>
+              
+              {/* Lavender Divider */}
+              <div className="flex justify-center">
+                <div className="w-[60px] h-[2px] bg-[#B7A9D3] rounded-[1px] animate-expand-width"></div>
+              </div>
             </div>
 
             {/* Before & After Grid */}
@@ -392,12 +413,26 @@ export default function Home() {
         <TestimonialsCarousel />
 
         {/* FAQ Section */}
-        <section className="py-20 bg-[#F9F8FC]">
+        <section className="py-20 bg-[#FAF9FC]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="font-inter text-4xl md:text-5xl font-bold text-[#2A2A2A] mb-4">
-                Frequently Asked Questions
+            {/* Section Header - Elegant "Algengar Spurningar" Design */}
+            <div className="text-center mb-16 pt-16 pb-12 relative">
+              {/* Background Quote Mark */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
+                  "
+                </div>
+              </div>
+              
+              {/* Main Title */}
+              <h2 className="font-playfair text-[32px] md:text-[44px] font-bold text-[#1F1F1F] mb-6 tracking-[-0.5px] leading-[1.1] animate-fade-up">
+                Algengar Spurningar
               </h2>
+              
+              {/* Lavender Divider */}
+              <div className="flex justify-center">
+                <div className="w-[60px] h-[2px] bg-[#B7A9D3] rounded-[1px] animate-expand-width"></div>
+              </div>
             </div>
 
             <div className="space-y-4">
