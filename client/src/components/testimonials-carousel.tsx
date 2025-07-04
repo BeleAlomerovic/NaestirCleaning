@@ -86,7 +86,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
   const currentReview = reviews[currentIndex];
 
   return (
-    <section className={`w-full py-16 bg-[#FAF9FC] ${className}`}>
+    <section className={`w-full py-20 bg-[#F9F7FC] ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - Elegant "Meðmæli" Design */}
         <div className="text-center mb-12 pt-16 pb-12 relative">

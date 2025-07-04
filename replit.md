@@ -112,6 +112,8 @@ The application uses four main database tables:
 - **Database**: Requires `DATABASE_URL` environment variable
 
 ## Changelog
+- July 4, 2025: Implemented elegant testimonials carousel with "Meðmæli" heading design and applied consistent Icelandic section titles throughout home page
+- July 4, 2025: Added alternating professional background pattern with custom lavender shades (#F9F7FC and #FFFFFF)
 - June 27, 2025: Fixed block cleaning page navigation issues - header navigation and service constants had mismatched URLs
 - June 26, 2025: Created corporate cleaning page matching apartment cleaning design exactly
 - June 25, 2025: Initial setup

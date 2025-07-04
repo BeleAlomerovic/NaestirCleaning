@@ -80,7 +80,7 @@ export default function Home() {
         </section>
 
         {/* What We Clean Section */}
-        <section id="services" className="py-20 bg-[#FAF9FC]">
+        <section id="services" className="py-20 bg-[#F9F7FC]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header - Elegant "Þjónustan Okkar" Design */}
             <div className="text-center mb-16 pt-16 pb-12 relative">
@@ -146,7 +146,7 @@ export default function Home() {
         </section>
 
         {/* Gallery Preview Section */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-[#FFFFFF]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header - Elegant "Verkin okkar" Design */}
             <div className="text-center mb-16 pt-16 pb-12 relative">
@@ -413,7 +413,7 @@ export default function Home() {
         <TestimonialsCarousel />
 
         {/* FAQ Section */}
-        <section className="py-20 bg-[#FAF9FC]">
+        <section className="py-20 bg-[#FFFFFF]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header - Elegant "Algengar Spurningar" Design */}
             <div className="text-center mb-16 pt-16 pb-12 relative">

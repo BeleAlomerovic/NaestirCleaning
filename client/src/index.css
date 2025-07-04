@@ -531,6 +531,24 @@
   transform-origin: center;
 }
 
+/* Professional Section Styling */
+.section-white {
+  background-color: #FFFFFF;
+  padding: 80px 24px;
+}
+
+.section-purple {
+  background-color: #F9F7FC;
+  padding: 80px 24px;
+}
+
+@media (max-width: 768px) {
+  .section-white,
+  .section-purple {
+    padding: 64px 16px;
+  }
+}
+
 /* Footer animations */
 @keyframes fadeInUp {
   from {
