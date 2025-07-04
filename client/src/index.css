@@ -500,6 +500,37 @@
   transition-duration: 400ms;
 }
 
+/* Testimonials Section Animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expand-width {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 600ms ease-out forwards;
+}
+
+.animate-expand-width {
+  animation: expand-width 800ms ease-out 300ms forwards;
+  transform: scaleX(0);
+  transform-origin: center;
+}
+
 /* Footer animations */
 @keyframes fadeInUp {
   from {

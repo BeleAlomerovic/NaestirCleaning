@@ -68,11 +68,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
     }
   };
 
-  // Auto-advance every 5 seconds (optional)
-  useEffect(() => {
-    const interval = setInterval(goToNext, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  // Removed auto-advance - only manual navigation now
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }).map((_, i) => (
@@ -90,16 +86,26 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
   const currentReview = reviews[currentIndex];
 
   return (
-    <section className={`w-full py-16 bg-gradient-to-b from-white to-gray-50 ${className}`}>
+    <section className={`w-full py-16 bg-[#FAF9FC] ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            What Our Clients Say
+        {/* Section Header - Elegant "Meðmæli" Design */}
+        <div className="text-center mb-12 pt-16 pb-12 relative">
+          {/* Background Quote Mark */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
+              "
+            </div>
+          </div>
+          
+          {/* Main Title */}
+          <h2 className="font-playfair text-[32px] md:text-[44px] font-bold text-[#1F1F1F] mb-6 tracking-[-0.5px] leading-[1.1] animate-fade-up">
+            Meðmæli
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Real experiences from satisfied customers who trust Næstir for their cleaning needs
-          </p>
+          
+          {/* Lavender Divider */}
+          <div className="flex justify-center">
+            <div className="w-[60px] h-[2px] bg-[#B7A9D3] rounded-[1px] animate-expand-width"></div>
+          </div>
         </div>
 
         {/* Testimonial Carousel */}
