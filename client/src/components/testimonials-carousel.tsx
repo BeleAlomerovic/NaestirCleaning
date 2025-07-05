@@ -89,7 +89,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
     <section className={`w-full section-purple ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - Elegant "Meðmæli" Design */}
-        <div className="text-center mb-12 pt-16 pb-12 relative">
+        <div className="text-center mb-12 relative">
           {/* Background Quote Mark */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">

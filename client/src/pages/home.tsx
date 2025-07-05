@@ -92,12 +92,9 @@ export default function Home() {
           ref={servicesRef}
           className="section-purple parallax-section"
         >
-          {/* Parallax Background */}
-          <div className="parallax-bg bg-[#F9F7FC]"></div>
-          
-          <div className="parallax-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header - Elegant "Þjónustan Okkar" Design */}
-            <div className="text-center mb-16 pt-16 pb-12 relative">
+            <div className="text-center mb-16 relative">
               {/* Background Quote Mark */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
@@ -164,12 +161,9 @@ export default function Home() {
           ref={galleryRef}
           className="section-white parallax-section"
         >
-          {/* Parallax Background */}
-          <div className="parallax-bg bg-[#FFFFFF]"></div>
-          
-          <div className="parallax-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header - Elegant "Verkin okkar" Design */}
-            <div className="text-center mb-16 pt-16 pb-12 relative">
+            <div className="text-center mb-16 relative">
               {/* Background Quote Mark */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
@@ -437,12 +431,9 @@ export default function Home() {
           ref={faqRef}
           className="section-white parallax-section"
         >
-          {/* Parallax Background */}
-          <div className="parallax-bg bg-[#FFFFFF]"></div>
-          
-          <div className="parallax-content max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header - Elegant "Algengar Spurningar" Design */}
-            <div className="text-center mb-16 pt-16 pb-12 relative">
+            <div className="text-center mb-16 relative">
               {/* Background Quote Mark */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
