@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { reviewsData } from '@/lib/constants';
 import { WaveSeparator } from './wave-separator';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 interface TestimonialCarouselProps {
   className?: string;
@@ -13,6 +14,9 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
   const [direction, setDirection] = useState<'left' | 'right'>('right');
   const touchStartX = useRef<number>(0);
   const touchEndX = useRef<number>(0);
+  
+  // Scroll animation for testimonials section
+  const testimonialsAnimation = useScrollAnimation();
 
   const reviews = reviewsData;
 
@@ -87,10 +91,10 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
   const currentReview = reviews[currentIndex];
 
   return (
-    <section className={`w-full section-purple ${className}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={testimonialsAnimation.elementRef as any} className={`w-full section-purple ${className}`}>
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-content ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
         {/* Section Header - Elegant "Meðmæli" Design */}
-        <div className="text-center mb-12 relative">
+        <div className={`text-center mb-12 relative scroll-animate ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
           {/* Background Quote Mark */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">

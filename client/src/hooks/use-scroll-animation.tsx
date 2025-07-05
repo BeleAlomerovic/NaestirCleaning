@@ -16,11 +16,7 @@ export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          // Once visible, stop observing this element
-          observer.unobserve(currentElement);
-        }
+        setIsVisible(entry.isIntersecting);
       },
       {
         threshold,
@@ -44,6 +40,7 @@ export function useStaggeredScrollAnimation(itemsCount: number, options: UseScro
   const { threshold = 0.1, rootMargin = '0px 0px -100px 0px' } = options;
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
   const elementRef = useRef<HTMLElement>(null);
+  const timeoutsRef = useRef<NodeJS.Timeout[]>([]);
 
   useEffect(() => {
     const currentElement = elementRef.current;
@@ -52,13 +49,22 @@ export function useStaggeredScrollAnimation(itemsCount: number, options: UseScro
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          // Clear any existing timeouts
+          timeoutsRef.current.forEach(timeout => clearTimeout(timeout));
+          timeoutsRef.current = [];
+          
           // Stagger the animations with 100ms delays
           for (let i = 0; i < itemsCount; i++) {
-            setTimeout(() => {
+            const timeout = setTimeout(() => {
               setVisibleItems(prev => prev.includes(i) ? prev : [...prev, i]);
             }, i * 100);
+            timeoutsRef.current.push(timeout);
           }
-          observer.unobserve(currentElement);
+        } else {
+          // Clear timeouts and reset visibility when out of view
+          timeoutsRef.current.forEach(timeout => clearTimeout(timeout));
+          timeoutsRef.current = [];
+          setVisibleItems([]);
         }
       },
       {
@@ -70,6 +76,8 @@ export function useStaggeredScrollAnimation(itemsCount: number, options: UseScro
     observer.observe(currentElement);
 
     return () => {
+      // Cleanup timeouts
+      timeoutsRef.current.forEach(timeout => clearTimeout(timeout));
       if (currentElement) {
         observer.unobserve(currentElement);
       }
