@@ -967,13 +967,15 @@ html {
 .section-white {
   background-color: #FFFFFF;
   padding: 80px 0;
-  box-shadow: inset 0 8px 24px rgba(0,0,0,0.03);
+  position: relative;
+  overflow: hidden;
 }
 
 .section-purple {
   background-color: #F9F7FC;
   padding: 80px 0;
-  box-shadow: inset 0 8px 24px rgba(0,0,0,0.03);
+  position: relative;
+  overflow: hidden;
 }
 
 /* Responsive section padding */
@@ -1019,4 +1021,60 @@ html {
   right: 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(183, 169, 211, 0.3), transparent);
+}
+
+/* Wave Separator Styles */
+.wave-separator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 10;
+}
+
+.wave-separator svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Scroll Animation Styles */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease-out;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-animate-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.scroll-animate-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.scroll-animate-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.scroll-animate-delay-4 {
+  transition-delay: 0.4s;
+}
+
+/* Section Content Animation */
+.section-content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease-out;
+}
+
+.section-content.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

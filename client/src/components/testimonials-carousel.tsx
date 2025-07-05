@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { reviewsData } from '@/lib/constants';
+import { WaveSeparator } from './wave-separator';
 
 interface TestimonialCarouselProps {
   className?: string;
@@ -194,6 +195,9 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
           </div>
         </div>
       </div>
+      
+      {/* Wave separator to next section */}
+      <WaveSeparator nextSectionColor="white" />
     </section>
   );
 }

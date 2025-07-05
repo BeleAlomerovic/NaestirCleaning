@@ -5,7 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageTransition } from "@/components/page-transition";
 import { TestimonialsCarousel } from "@/components/testimonials-carousel";
+import { WaveSeparator } from "@/components/wave-separator";
 import { useParallax, useIntersectionObserver } from "@/hooks/use-parallax";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { services } from "@/lib/constants";
 import heroImage from "@assets/Depositphotos_764505660_XL_1751107860312.jpg";
 
@@ -17,6 +19,11 @@ export default function Home() {
   const servicesObserverRef = useIntersectionObserver();
   const galleryObserverRef = useIntersectionObserver();
   const faqObserverRef = useIntersectionObserver();
+  
+  // Scroll animations for each section
+  const servicesAnimation = useScrollAnimation();
+  const galleryAnimation = useScrollAnimation();
+  const faqAnimation = useScrollAnimation();
 
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
@@ -84,17 +91,20 @@ export default function Home() {
               </div>
             </div>
           </div>
+          
+          {/* Wave separator to next section */}
+          <WaveSeparator nextSectionColor="purple" />
         </section>
 
         {/* What We Clean Section */}
         <section 
           id="services" 
-          ref={servicesRef}
+          ref={servicesAnimation.elementRef as any}
           className="section-purple parallax-section"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-content ${servicesAnimation.isVisible ? 'visible' : ''}`}>
             {/* Section Header - Elegant "Þjónustan Okkar" Design */}
-            <div className="text-center mb-16 relative">
+            <div className={`text-center mb-16 relative scroll-animate ${servicesAnimation.isVisible ? 'visible' : ''}`}>
               {/* Background Quote Mark */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
@@ -154,16 +164,19 @@ export default function Home() {
               </p>
             </div>
           </div>
+          
+          {/* Wave separator to next section */}
+          <WaveSeparator nextSectionColor="white" />
         </section>
 
         {/* Gallery Preview Section */}
         <section 
-          ref={galleryRef}
+          ref={galleryAnimation.elementRef as any}
           className="section-white parallax-section"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-content ${galleryAnimation.isVisible ? 'visible' : ''}`}>
             {/* Section Header - Elegant "Verkin okkar" Design */}
-            <div className="text-center mb-16 relative">
+            <div className={`text-center mb-16 relative scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
               {/* Background Quote Mark */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
@@ -421,6 +434,9 @@ export default function Home() {
               </div>
             </div>
           </div>
+          
+          {/* Wave separator to next section */}
+          <WaveSeparator nextSectionColor="purple" />
         </section>
 
         {/* Client Testimonials Section */}
@@ -428,12 +444,12 @@ export default function Home() {
 
         {/* FAQ Section */}
         <section 
-          ref={faqRef}
+          ref={faqAnimation.elementRef as any}
           className="section-white parallax-section"
         >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 section-content ${faqAnimation.isVisible ? 'visible' : ''}`}>
             {/* Section Header - Elegant "Algengar Spurningar" Design */}
-            <div className="text-center mb-16 relative">
+            <div className={`text-center mb-16 relative scroll-animate ${faqAnimation.isVisible ? 'visible' : ''}`}>
               {/* Background Quote Mark */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
@@ -454,7 +470,7 @@ export default function Home() {
 
             <div className="space-y-4">
               {/* FAQ Item 1 */}
-              <div className={`faq-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden ${openFAQ === 0 ? 'active' : ''}`}>
+              <div className={`faq-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden scroll-animate scroll-animate-delay-1 ${openFAQ === 0 ? 'active' : ''} ${faqAnimation.isVisible ? 'visible' : ''}`}>
                 <button 
                   className="faq-trigger w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
                   onClick={() => toggleFAQ(0)}
@@ -476,7 +492,7 @@ export default function Home() {
               </div>
 
               {/* FAQ Item 2 */}
-              <div className={`faq-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden ${openFAQ === 1 ? 'active' : ''}`}>
+              <div className={`faq-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden scroll-animate scroll-animate-delay-2 ${openFAQ === 1 ? 'active' : ''} ${faqAnimation.isVisible ? 'visible' : ''}`}>
                 <button 
                   className="faq-trigger w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
                   onClick={() => toggleFAQ(1)}
@@ -498,7 +514,7 @@ export default function Home() {
               </div>
 
               {/* FAQ Item 3 */}
-              <div className={`faq-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden ${openFAQ === 2 ? 'active' : ''}`}>
+              <div className={`faq-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden scroll-animate scroll-animate-delay-3 ${openFAQ === 2 ? 'active' : ''} ${faqAnimation.isVisible ? 'visible' : ''}`}>
                 <button 
                   className="faq-trigger w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
                   onClick={() => toggleFAQ(2)}
