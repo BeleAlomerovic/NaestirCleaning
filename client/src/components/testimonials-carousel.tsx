@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { reviewsData } from '@/lib/constants';
 import { WaveSeparator } from './wave-separator';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import towelBackgroundImage from '@assets/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg_1751680650160.webp';
 
 interface TestimonialCarouselProps {
   className?: string;
@@ -17,6 +18,20 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
   
   // Scroll animation for testimonials section
   const testimonialsAnimation = useScrollAnimation();
+  
+  // Keyboard navigation support
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        goToPrev();
+      } else if (e.key === 'ArrowRight') {
+        goToNext();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, []);
 
   const reviews = reviewsData;
 
@@ -91,8 +106,20 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
   const currentReview = reviews[currentIndex];
 
   return (
-    <section ref={testimonialsAnimation.elementRef as any} className={`w-full section-purple ${className}`}>
-      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-content ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
+    <section 
+      ref={testimonialsAnimation.elementRef as any} 
+      className={`w-full section-purple relative overflow-hidden ${className}`}
+      style={{
+        backgroundImage: `url(${towelBackgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      {/* Background overlay */}
+      <div className="absolute inset-0 bg-white/85 backdrop-blur-sm"></div>
+      
+      <div className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-content ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
         {/* Section Header - Elegant "Meðmæli" Design */}
         <div className={`text-center mb-12 relative scroll-animate ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
           {/* Background Quote Mark */}
@@ -102,34 +129,34 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
             </div>
           </div>
           
-          {/* Main Title */}
-          <h2 className="font-playfair text-[32px] md:text-[44px] font-bold text-[#1F1F1F] mb-6 tracking-[-0.5px] leading-[1.1] animate-fade-up">
+          {/* Main Title - Enhanced Elegant Styling */}
+          <h2 className="font-serif text-[36px] md:text-[48px] lg:text-[52px] font-medium text-purple-900 mb-4 tracking-wide leading-[1.1] relative z-10">
             Meðmæli
           </h2>
           
-          {/* Lavender Divider */}
-          <div className="flex justify-center">
-            <div className="w-[60px] h-[2px] bg-[#B7A9D3] rounded-[1px] animate-expand-width"></div>
+          {/* Elegant Decorative Underline in Light Lavender */}
+          <div className="flex justify-center mb-8">
+            <div className="w-32 h-1.5 bg-gradient-to-r from-purple-300 via-purple-400 to-purple-300 rounded-full shadow-sm opacity-80"></div>
           </div>
         </div>
 
         {/* Testimonial Carousel */}
-        <div className="relative max-w-md mx-auto">
-          {/* Navigation Arrows - Hidden on mobile until hover */}
+        <div className="relative max-w-2xl mx-auto">
+          {/* Navigation Arrows - Enhanced with subtle glow on hover */}
           <button
             onClick={goToPrev}
-            className="absolute left-[-60px] top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-200 opacity-60 hover:opacity-100"
+            className="absolute left-[-60px] top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 opacity-70 hover:opacity-100 hover:shadow-purple-200/50"
             aria-label="Previous testimonial"
           >
-            <ChevronLeft className="w-5 h-5 text-gray-600" />
+            <ChevronLeft className="w-6 h-6 text-gray-600 hover:text-purple-600 transition-colors" />
           </button>
           
           <button
             onClick={goToNext}
-            className="absolute right-[-60px] top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-200 opacity-60 hover:opacity-100"
+            className="absolute right-[-60px] top-1/2 -translate-y-1/2 z-10 hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-lg hover:shadow-xl transition-all duration-300 opacity-70 hover:opacity-100 hover:shadow-purple-200/50"
             aria-label="Next testimonial"
           >
-            <ChevronRight className="w-5 h-5 text-gray-600" />
+            <ChevronRight className="w-6 h-6 text-gray-600 hover:text-purple-600 transition-colors" />
           </button>
 
           {/* Testimonial Card */}
@@ -148,7 +175,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
                   : 'opacity-100 transform translate-x-0'
               }`}
             >
-              <div className="bg-gradient-to-br from-white to-[#f9f7fc] rounded-xl p-8 shadow-[0_8px_24px_rgba(0,0,0,0.04)] max-w-sm mx-auto relative">
+              <div className="bg-white rounded-[16px] p-8 shadow-[0_10px_30px_rgba(0,0,0,0.06)] max-w-lg mx-auto relative transform transition-all duration-600 hover:scale-105 ease-in-out">
                 {/* Quote Icon */}
                 <div className="absolute top-6 right-6">
                   <Quote className="w-6 h-6 text-[#D5C7F3]" />
@@ -182,16 +209,16 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
             </div>
           </div>
 
-          {/* Pagination Dots */}
-          <div className="flex justify-center items-center mt-8 space-x-2">
+          {/* Elegant Pagination Dots */}
+          <div className="flex justify-center items-center mt-8 space-x-3">
             {reviews.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                className={`rounded-full transition-all duration-300 ease-in-out transform hover:scale-110 ${
                   index === currentIndex
-                    ? 'bg-[#B7A9D3] w-6'
-                    : 'bg-[#E5E1F0] hover:bg-[#D5C7F3]'
+                    ? 'w-8 h-2.5 bg-gradient-to-r from-purple-400 to-purple-500 shadow-lg shadow-purple-200/50'
+                    : 'w-2.5 h-2.5 bg-gray-300 hover:bg-purple-300'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

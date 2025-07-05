@@ -1078,3 +1078,23 @@ html {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Testimonials Background Styling */
+.section-purple {
+  background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+  .section-purple {
+    background-attachment: scroll;
+  }
+}
+
+/* Enhanced testimonial card styling */
+.testimonial-card-shadow {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 1px 8px rgba(0, 0, 0, 0.04);
+}
+
+.testimonial-card-shadow:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0, 0, 0, 0.06);
+}
