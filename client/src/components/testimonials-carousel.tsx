@@ -117,7 +117,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
       }}
     >
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-white/85 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-white/65 backdrop-blur-[1px]"></div>
       
       <div className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-content ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
         {/* Section Header - Elegant "Meðmæli" Design */}
