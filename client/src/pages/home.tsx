@@ -90,7 +90,7 @@ export default function Home() {
         <section 
           id="services" 
           ref={servicesRef}
-          className="py-20 parallax-section"
+          className="section-purple parallax-section"
         >
           {/* Parallax Background */}
           <div className="parallax-bg bg-[#F9F7FC]"></div>
@@ -162,7 +162,7 @@ export default function Home() {
         {/* Gallery Preview Section */}
         <section 
           ref={galleryRef}
-          className="py-20 parallax-section"
+          className="section-white parallax-section"
         >
           {/* Parallax Background */}
           <div className="parallax-bg bg-[#FFFFFF]"></div>
@@ -435,7 +435,7 @@ export default function Home() {
         {/* FAQ Section */}
         <section 
           ref={faqRef}
-          className="py-20 parallax-section"
+          className="section-white parallax-section"
         >
           {/* Parallax Background */}
           <div className="parallax-bg bg-[#FFFFFF]"></div>
