@@ -6,7 +6,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { PageTransition } from "@/components/page-transition";
 import { TestimonialsCarousel } from "@/components/testimonials-carousel";
 import { WaveSeparator } from "@/components/wave-separator";
-import { BeforeAfterDisplay } from "@/components/before-after-display";
 import { useParallax, useIntersectionObserver } from "@/hooks/use-parallax";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { services } from "@/lib/constants";
@@ -173,24 +172,229 @@ export default function Home() {
         {/* Before & After Transformations Section */}
         <section 
           ref={galleryAnimation.elementRef as any}
-          className="section-lavender parallax-section py-20"
+          className="relative overflow-hidden"
+          style={{
+            background: 'linear-gradient(to bottom, #f7f5fa, #ffffff)',
+          }}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className={`section-content ${galleryAnimation.isVisible ? 'visible' : ''}`}>
-              {/* Section Header */}
-              <div className={`text-center mb-16 scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
-                <h2 className="text-4xl md:text-5xl font-serif font-medium text-[#2D2D2D] mb-6 leading-tight">
-                  Umbreytingar sem<br />
-                  <span className="text-purple-600 italic">heildsala</span>
-                </h2>
-                <p className="text-lg text-[#7A7A7A] max-w-2xl mx-auto leading-relaxed">
-                  Sjáðu raunverulegar niðurstöður úr verkefnum okkar – frá vanræktu ástandi í fullkomna hreinleika
-                </p>
+          {/* Elegant top divider */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
+          
+          <div className={`max-w-6xl mx-auto px-[10%] py-20 section-content ${galleryAnimation.isVisible ? 'visible' : ''}`}>
+            {/* Sophisticated Section Header */}
+            <div className={`text-center mb-16 scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
+              {/* Main Title */}
+              <h2 className="font-serif text-[36px] md:text-[40px] font-medium text-[#2D2D2D] mb-4 tracking-[0.5px] leading-tight">
+                Before & After Transformations
+              </h2>
+              
+              {/* Elegant brand-colored underline */}
+              <div className="flex justify-center mb-6">
+                <div className="w-20 h-[2px] bg-gradient-to-r from-purple-400 to-purple-500 rounded-full"></div>
               </div>
+              
+              {/* Subtitle */}
+              <p className="font-sans text-[#7A7A7A] text-lg max-w-[600px] mx-auto leading-relaxed">
+                Real Proof. Real Results. Real Clients.
+              </p>
+            </div>
 
-              {/* Single Card Display with Navigation */}
-              <div className={`relative scroll-animate scroll-animate-delay-1 ${galleryAnimation.isVisible ? 'visible' : ''}`}>
-                <BeforeAfterDisplay />
+            {/* Sophisticated Transformations Carousel */}
+            <div className={`relative scroll-animate scroll-animate-delay-1 ${galleryAnimation.isVisible ? 'visible' : ''}`}>
+              {/* Carousel Container with Elegant Shadow */}
+              <div className="relative bg-white/40 backdrop-blur-sm rounded-3xl shadow-[0_12px_32px_rgba(0,0,0,0.04)] overflow-hidden">
+                
+                {/* Horizontal Scrollable Transformations */}
+                <div className="overflow-x-auto scrollbar-hide">
+                  <div className="flex space-x-8 p-8 min-w-max">
+              
+                    {/* Transformation 1 - Car Interior */}
+                    <div className="flex-none w-80 group transformation-card">
+                      {/* Elegant Image Container */}
+                      <div className="relative overflow-hidden rounded-[16px] mb-6 group-hover:scale-[1.02] transition-all duration-500">
+                        <img
+                          src="/assets/AdobeStock_334592268 2_1750506662307.jpg"
+                          alt="Car interior before cleaning"
+                          className="w-full h-64 object-cover transition-all duration-700 group-hover:opacity-0"
+                        />
+                        <img
+                          src="/assets/AdobeStock_334592268 2 copy_1750506666192.jpg"
+                          alt="Car interior after cleaning"
+                          className="absolute inset-0 w-full h-64 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
+                        />
+                        
+                        {/* Refined Before/After Labels */}
+                        <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-medium">
+                          Before
+                        </div>
+                        <div className="absolute top-3 right-3 bg-purple-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                          After
+                        </div>
+                      </div>
+                      
+                      {/* Transformation Description */}
+                      <div className="text-left">
+                        <h3 className="font-serif text-xl font-medium text-[#2D2D2D] mb-2 leading-tight">
+                          Car Interior Revival
+                        </h3>
+                        <p className="text-[#7A7A7A] text-sm leading-relaxed">
+                          Complete restoration of pet hair, mud, and years of wear using specialized automotive detailing.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Transformation 2 - Bathroom Tile */}
+                    <div className="flex-none w-80 group transformation-card">
+                      {/* Elegant Image Container */}
+                      <div className="relative overflow-hidden rounded-[16px] mb-6 group-hover:scale-[1.02] transition-all duration-500">
+                        <img
+                          src="/assets/AdobeStock_523168323_1750506670649.jpg"
+                          alt="Bathroom tiles before cleaning"
+                          className="w-full h-64 object-cover transition-all duration-700 group-hover:opacity-0"
+                        />
+                        <img
+                          src="/assets/AdobeStock_523168323 copy_1750506673796.jpg"
+                          alt="Bathroom tiles after cleaning"
+                          className="absolute inset-0 w-full h-64 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
+                        />
+                        
+                        {/* Refined Before/After Labels */}
+                        <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-medium">
+                          Before
+                        </div>
+                        <div className="absolute top-3 right-3 bg-purple-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                          After
+                        </div>
+                      </div>
+                      
+                      {/* Transformation Description */}
+                      <div className="text-left">
+                        <h3 className="font-serif text-xl font-medium text-[#2D2D2D] mb-2 leading-tight">
+                          Grout Line Restoration
+                        </h3>
+                        <p className="text-[#7A7A7A] text-sm leading-relaxed">
+                          Complete elimination of soap scum and mildew using professional-grade steam cleaning systems.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Transformation 3 - Window Cleaning */}
+                    <div className="flex-none w-80 group transformation-card">
+                      {/* Elegant Image Container */}
+                      <div className="relative overflow-hidden rounded-[16px] mb-6 group-hover:scale-[1.02] transition-all duration-500">
+                        <img
+                          src="/assets/AdobeStock_554450129_1750506681118.jpg"
+                          alt="Window before cleaning"
+                          className="w-full h-64 object-cover transition-all duration-700 group-hover:opacity-0"
+                        />
+                        <img
+                          src="/assets/AdobeStock_554450129 copy_1750506684147.jpg"
+                          alt="Window after cleaning"
+                          className="absolute inset-0 w-full h-64 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
+                        />
+                        
+                        {/* Refined Before/After Labels */}
+                        <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-medium">
+                          Before
+                        </div>
+                        <div className="absolute top-3 right-3 bg-purple-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                          After
+                        </div>
+                      </div>
+                      
+                      {/* Transformation Description */}
+                      <div className="text-left">
+                        <h3 className="font-serif text-xl font-medium text-[#2D2D2D] mb-2 leading-tight">
+                          Mold Remediation & Restoration
+                        </h3>
+                        <p className="text-[#7A7A7A] text-sm leading-relaxed">
+                          Safe removal of dangerous mold and restoration to pristine condition using specialized treatments.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Transformation 4 - Kitchen Deep Clean */}
+                    <div className="flex-none w-80 group transformation-card">
+                      {/* Elegant Image Container */}
+                      <div className="relative overflow-hidden rounded-[16px] mb-6 group-hover:scale-[1.02] transition-all duration-500">
+                        <img
+                          src="/assets/AdobeStock_560781364_1750506688928.jpg"
+                          alt="Kitchen before cleaning"
+                          className="w-full h-64 object-cover transition-all duration-700 group-hover:opacity-0"
+                        />
+                        <img
+                          src="/assets/AdobeStock_560781364 copy_1750506691420.jpg"
+                          alt="Kitchen after cleaning"
+                          className="absolute inset-0 w-full h-64 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
+                        />
+                        
+                        {/* Refined Before/After Labels */}
+                        <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-medium">
+                          Before
+                        </div>
+                        <div className="absolute top-3 right-3 bg-purple-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                          After
+                        </div>
+                      </div>
+                      
+                      {/* Transformation Description */}
+                      <div className="text-left">
+                        <h3 className="font-serif text-xl font-medium text-[#2D2D2D] mb-2 leading-tight">
+                          Kitchen Deep Clean
+                        </h3>
+                        <p className="text-[#7A7A7A] text-sm leading-relaxed">
+                          Complete elimination of grease buildup and food stains using specialized degreasing agents.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Transformation 5 - Upholstery Revival */}
+                    <div className="flex-none w-80 group transformation-card">
+                      {/* Elegant Image Container */}
+                      <div className="relative overflow-hidden rounded-[16px] mb-6 group-hover:scale-[1.02] transition-all duration-500">
+                        <img
+                          src="/assets/AdobeStock_689599448_1750506694689.jpg"
+                          alt="Upholstery before cleaning"
+                          className="w-full h-64 object-cover transition-all duration-700 group-hover:opacity-0"
+                        />
+                        <img
+                          src="/assets/AdobeStock_689599448 copy_1750506697803.jpg"
+                          alt="Upholstery after cleaning"
+                          className="absolute inset-0 w-full h-64 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
+                        />
+                        
+                        {/* Refined Before/After Labels */}
+                        <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-medium">
+                          Before
+                        </div>
+                        <div className="absolute top-3 right-3 bg-purple-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                          After
+                        </div>
+                      </div>
+                      
+                      {/* Transformation Description */}
+                      <div className="text-left">
+                        <h3 className="font-serif text-xl font-medium text-[#2D2D2D] mb-2 leading-tight">
+                          Upholstery Revival
+                        </h3>
+                        <p className="text-[#7A7A7A] text-sm leading-relaxed">
+                          Gentle steam cleaning and fabric protection treatment to lift deep stains and spills.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Progress Bar */}
+                <div className="flex justify-center mt-6 pb-2">
+                  <div className="flex space-x-2">
+                    {[...Array(5)].map((_, i) => (
+                      <div key={i} className="w-8 h-1 bg-purple-200 rounded-full">
+                        <div className="w-full h-full bg-gradient-to-r from-purple-400 to-purple-500 rounded-full opacity-30"></div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
