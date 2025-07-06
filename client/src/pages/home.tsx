@@ -169,266 +169,230 @@ export default function Home() {
           <WaveSeparator nextSectionColor="white" />
         </section>
 
-        {/* Gallery Preview Section */}
+        {/* Before & After Transformations Section */}
         <section 
           ref={galleryAnimation.elementRef as any}
-          className="section-white parallax-section"
+          className="relative overflow-hidden"
+          style={{
+            background: 'linear-gradient(to bottom, #f7f5fa, #ffffff)',
+          }}
         >
-          <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-content ${galleryAnimation.isVisible ? 'visible' : ''}`}>
-            {/* Section Header - Elegant "Verkin okkar" Design */}
-            <div className={`text-center mb-16 relative scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
-              {/* Background Quote Mark */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
-                  "
-                </div>
-              </div>
-              
+          {/* Elegant top divider */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
+          
+          <div className={`max-w-6xl mx-auto px-[10%] py-20 section-content ${galleryAnimation.isVisible ? 'visible' : ''}`}>
+            {/* Sophisticated Section Header */}
+            <div className={`text-center mb-16 scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
               {/* Main Title */}
-              <h2 className="font-playfair text-[32px] md:text-[44px] font-bold text-[#1F1F1F] mb-6 tracking-[-0.5px] leading-[1.1] animate-fade-up">
-                Verkin okkar
+              <h2 className="font-serif text-[36px] md:text-[40px] font-medium text-[#2D2D2D] mb-4 tracking-[0.5px] leading-tight">
+                Before & After Transformations
               </h2>
               
-              {/* Lavender Divider */}
-              <div className="flex justify-center">
-                <div className="w-[60px] h-[2px] bg-[#B7A9D3] rounded-[1px] animate-expand-width"></div>
+              {/* Elegant brand-colored underline */}
+              <div className="flex justify-center mb-6">
+                <div className="w-20 h-[2px] bg-gradient-to-r from-purple-400 to-purple-500 rounded-full"></div>
               </div>
+              
+              {/* Subtitle */}
+              <p className="font-sans text-[#7A7A7A] text-lg max-w-[600px] mx-auto leading-relaxed">
+                Real Proof. Real Results. Real Clients.
+              </p>
             </div>
 
-            {/* Before & After Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
+            {/* Sophisticated Transformations Carousel */}
+            <div className={`relative scroll-animate scroll-animate-delay-1 ${galleryAnimation.isVisible ? 'visible' : ''}`}>
+              {/* Carousel Container with Elegant Shadow */}
+              <div className="relative bg-white/40 backdrop-blur-sm rounded-3xl shadow-[0_12px_32px_rgba(0,0,0,0.04)] overflow-hidden">
+                
+                {/* Horizontal Scrollable Transformations */}
+                <div className="overflow-x-auto scrollbar-hide">
+                  <div className="flex space-x-8 p-8 min-w-max">
               
-              {/* Gallery Item 1 - Car Interior */}
-              <div className="gallery-card group">
-                {/* Image Frame */}
-                <div className="relative bg-white p-4 rounded-3xl shadow-2xl group-hover:shadow-3xl transition-shadow duration-500">
-                  <div className="relative overflow-hidden rounded-2xl">
-                    <img
-                      src="/assets/AdobeStock_334592268 2_1750506662307.jpg"
-                      alt="Dirty car interior before cleaning"
-                      className="w-full h-80 object-cover transition-all duration-700 group-hover:opacity-0"
-                    />
-                    <img
-                      src="/assets/AdobeStock_334592268 2 copy_1750506666192.jpg"
-                      alt="Clean car interior after cleaning"
-                      className="absolute inset-0 w-full h-80 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
-                    />
-                    
-                    {/* Circular Wipe Effect */}
-                    <div className="absolute inset-0 bg-gradient-radial from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform scale-0 group-hover:scale-150"></div>
-                    
-                    {/* Before/After Labels */}
-                    <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
-                      Before
+                    {/* Transformation 1 - Car Interior */}
+                    <div className="flex-none w-80 group transformation-card">
+                      {/* Elegant Image Container */}
+                      <div className="relative overflow-hidden rounded-[16px] mb-6 group-hover:scale-[1.02] transition-all duration-500">
+                        <img
+                          src="/assets/AdobeStock_334592268 2_1750506662307.jpg"
+                          alt="Car interior before cleaning"
+                          className="w-full h-64 object-cover transition-all duration-700 group-hover:opacity-0"
+                        />
+                        <img
+                          src="/assets/AdobeStock_334592268 2 copy_1750506666192.jpg"
+                          alt="Car interior after cleaning"
+                          className="absolute inset-0 w-full h-64 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
+                        />
+                        
+                        {/* Refined Before/After Labels */}
+                        <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-medium">
+                          Before
+                        </div>
+                        <div className="absolute top-3 right-3 bg-purple-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                          After
+                        </div>
+                      </div>
+                      
+                      {/* Transformation Description */}
+                      <div className="text-left">
+                        <h3 className="font-serif text-xl font-medium text-[#2D2D2D] mb-2 leading-tight">
+                          Car Interior Revival
+                        </h3>
+                        <p className="text-[#7A7A7A] text-sm leading-relaxed">
+                          Complete restoration of pet hair, mud, and years of wear using specialized automotive detailing.
+                        </p>
+                      </div>
                     </div>
-                    <div className="absolute top-4 right-4 bg-naestir-primary text-white px-4 py-2 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300">
-                      After
+
+                    {/* Transformation 2 - Bathroom Tile */}
+                    <div className="flex-none w-80 group transformation-card">
+                      {/* Elegant Image Container */}
+                      <div className="relative overflow-hidden rounded-[16px] mb-6 group-hover:scale-[1.02] transition-all duration-500">
+                        <img
+                          src="/assets/AdobeStock_523168323_1750506670649.jpg"
+                          alt="Bathroom tiles before cleaning"
+                          className="w-full h-64 object-cover transition-all duration-700 group-hover:opacity-0"
+                        />
+                        <img
+                          src="/assets/AdobeStock_523168323 copy_1750506673796.jpg"
+                          alt="Bathroom tiles after cleaning"
+                          className="absolute inset-0 w-full h-64 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
+                        />
+                        
+                        {/* Refined Before/After Labels */}
+                        <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-medium">
+                          Before
+                        </div>
+                        <div className="absolute top-3 right-3 bg-purple-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                          After
+                        </div>
+                      </div>
+                      
+                      {/* Transformation Description */}
+                      <div className="text-left">
+                        <h3 className="font-serif text-xl font-medium text-[#2D2D2D] mb-2 leading-tight">
+                          Grout Line Restoration
+                        </h3>
+                        <p className="text-[#7A7A7A] text-sm leading-relaxed">
+                          Complete elimination of soap scum and mildew using professional-grade steam cleaning systems.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Transformation 3 - Window Cleaning */}
+                    <div className="flex-none w-80 group transformation-card">
+                      {/* Elegant Image Container */}
+                      <div className="relative overflow-hidden rounded-[16px] mb-6 group-hover:scale-[1.02] transition-all duration-500">
+                        <img
+                          src="/assets/AdobeStock_554450129_1750506681118.jpg"
+                          alt="Window before cleaning"
+                          className="w-full h-64 object-cover transition-all duration-700 group-hover:opacity-0"
+                        />
+                        <img
+                          src="/assets/AdobeStock_554450129 copy_1750506684147.jpg"
+                          alt="Window after cleaning"
+                          className="absolute inset-0 w-full h-64 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
+                        />
+                        
+                        {/* Refined Before/After Labels */}
+                        <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-medium">
+                          Before
+                        </div>
+                        <div className="absolute top-3 right-3 bg-purple-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                          After
+                        </div>
+                      </div>
+                      
+                      {/* Transformation Description */}
+                      <div className="text-left">
+                        <h3 className="font-serif text-xl font-medium text-[#2D2D2D] mb-2 leading-tight">
+                          Mold Remediation & Restoration
+                        </h3>
+                        <p className="text-[#7A7A7A] text-sm leading-relaxed">
+                          Safe removal of dangerous mold and restoration to pristine condition using specialized treatments.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Transformation 4 - Kitchen Deep Clean */}
+                    <div className="flex-none w-80 group transformation-card">
+                      {/* Elegant Image Container */}
+                      <div className="relative overflow-hidden rounded-[16px] mb-6 group-hover:scale-[1.02] transition-all duration-500">
+                        <img
+                          src="/assets/AdobeStock_560781364_1750506688928.jpg"
+                          alt="Kitchen before cleaning"
+                          className="w-full h-64 object-cover transition-all duration-700 group-hover:opacity-0"
+                        />
+                        <img
+                          src="/assets/AdobeStock_560781364 copy_1750506691420.jpg"
+                          alt="Kitchen after cleaning"
+                          className="absolute inset-0 w-full h-64 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
+                        />
+                        
+                        {/* Refined Before/After Labels */}
+                        <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-medium">
+                          Before
+                        </div>
+                        <div className="absolute top-3 right-3 bg-purple-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                          After
+                        </div>
+                      </div>
+                      
+                      {/* Transformation Description */}
+                      <div className="text-left">
+                        <h3 className="font-serif text-xl font-medium text-[#2D2D2D] mb-2 leading-tight">
+                          Kitchen Deep Clean
+                        </h3>
+                        <p className="text-[#7A7A7A] text-sm leading-relaxed">
+                          Complete elimination of grease buildup and food stains using specialized degreasing agents.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Transformation 5 - Upholstery Revival */}
+                    <div className="flex-none w-80 group transformation-card">
+                      {/* Elegant Image Container */}
+                      <div className="relative overflow-hidden rounded-[16px] mb-6 group-hover:scale-[1.02] transition-all duration-500">
+                        <img
+                          src="/assets/AdobeStock_689599448_1750506694689.jpg"
+                          alt="Upholstery before cleaning"
+                          className="w-full h-64 object-cover transition-all duration-700 group-hover:opacity-0"
+                        />
+                        <img
+                          src="/assets/AdobeStock_689599448 copy_1750506697803.jpg"
+                          alt="Upholstery after cleaning"
+                          className="absolute inset-0 w-full h-64 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
+                        />
+                        
+                        {/* Refined Before/After Labels */}
+                        <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-medium">
+                          Before
+                        </div>
+                        <div className="absolute top-3 right-3 bg-purple-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                          After
+                        </div>
+                      </div>
+                      
+                      {/* Transformation Description */}
+                      <div className="text-left">
+                        <h3 className="font-serif text-xl font-medium text-[#2D2D2D] mb-2 leading-tight">
+                          Upholstery Revival
+                        </h3>
+                        <p className="text-[#7A7A7A] text-sm leading-relaxed">
+                          Gentle steam cleaning and fabric protection treatment to lift deep stains and spills.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-
-                {/* Caption Block */}
-                <div className="mt-6 text-center bg-gradient-to-b from-gray-50 to-white p-8 rounded-2xl shadow-lg">
-                  <div className="border-b border-gray-200 pb-4 mb-4">
-                    <h3 className="font-playfair text-2xl font-bold text-naestir-dark mb-2">
-                      Car Interior Revival
-                    </h3>
-                    <p className="text-naestir-secondary leading-relaxed">
-                      Pet hair, mud, and years of wear completely restored with our specialized automotive detailing process and eco-safe products.
-                    </p>
-                  </div>
-                  <div className="brand-signature opacity-0 group-hover:opacity-100 transition-all duration-1000 delay-700">
-                    <div className="font-playfair text-2xl text-naestir-primary italic tracking-wider">
-                      <span className="text-3xl">N</span>æstir
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Gallery Item 2 - Bathroom Tile */}
-              <div className="gallery-card group">
-                {/* Image Frame */}
-                <div className="relative bg-white p-4 rounded-3xl shadow-2xl group-hover:shadow-3xl transition-shadow duration-500">
-                  <div className="relative overflow-hidden rounded-2xl">
-                    <img
-                      src="/assets/AdobeStock_523168323_1750506670649.jpg"
-                      alt="Dirty bathroom tiles before cleaning"
-                      className="w-full h-80 object-cover transition-all duration-700 group-hover:opacity-0"
-                    />
-                    <img
-                      src="/assets/AdobeStock_523168323 copy_1750506673796.jpg"
-                      alt="Clean bathroom tiles after cleaning"
-                      className="absolute inset-0 w-full h-80 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
-                    />
-                    
-                    {/* Circular Wipe Effect */}
-                    <div className="absolute inset-0 bg-gradient-radial from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform scale-0 group-hover:scale-150"></div>
-                    
-                    {/* Before/After Labels */}
-                    <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
-                      Before
-                    </div>
-                    <div className="absolute top-4 right-4 bg-naestir-primary text-white px-4 py-2 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300">
-                      After
-                    </div>
-                  </div>
-                </div>
-
-                {/* Caption Block */}
-                <div className="mt-6 text-center bg-gradient-to-b from-gray-50 to-white p-8 rounded-2xl shadow-lg">
-                  <div className="border-b border-gray-200 pb-4 mb-4">
-                    <h3 className="font-playfair text-2xl font-bold text-naestir-dark mb-2">
-                      Grout Line Restoration
-                    </h3>
-                    <p className="text-naestir-secondary leading-relaxed">
-                      Years of soap scum and mildew completely eliminated using our professional-grade steam cleaning and tile restoration system.
-                    </p>
-                  </div>
-                  <div className="brand-signature opacity-0 group-hover:opacity-100 transition-all duration-1000 delay-700">
-                    <div className="font-playfair text-2xl text-naestir-primary italic tracking-wider">
-                      <span className="text-3xl">N</span>æstir
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Gallery Item 3 - Window Cleaning */}
-              <div className="gallery-card group">
-                {/* Image Frame */}
-                <div className="relative bg-white p-4 rounded-3xl shadow-2xl group-hover:shadow-3xl transition-shadow duration-500">
-                  <div className="relative overflow-hidden rounded-2xl">
-                    <img
-                      src="/assets/AdobeStock_554450129_1750506681118.jpg"
-                      alt="Dirty moldy window before cleaning"
-                      className="w-full h-80 object-cover transition-all duration-700 group-hover:opacity-0"
-                    />
-                    <img
-                      src="/assets/AdobeStock_554450129 copy_1750506684147.jpg"
-                      alt="Spotless clean window after cleaning"
-                      className="absolute inset-0 w-full h-80 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
-                    />
-                    
-                    {/* Circular Wipe Effect */}
-                    <div className="absolute inset-0 bg-gradient-radial from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform scale-0 group-hover:scale-150"></div>
-                    
-                    {/* Before/After Labels */}
-                    <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
-                      Before
-                    </div>
-                    <div className="absolute top-4 right-4 bg-naestir-primary text-white px-4 py-2 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300">
-                      After
-                    </div>
-                  </div>
-                </div>
-
-                {/* Caption Block */}
-                <div className="mt-6 text-center bg-gradient-to-b from-gray-50 to-white p-8 rounded-2xl shadow-lg">
-                  <div className="border-b border-gray-200 pb-4 mb-4">
-                    <h3 className="font-playfair text-2xl font-bold text-naestir-dark mb-2">
-                      Mold Remediation & Restoration
-                    </h3>
-                    <p className="text-naestir-secondary leading-relaxed">
-                      Dangerous black mold safely removed and surfaces restored to pristine condition using specialized anti-microbial treatments.
-                    </p>
-                  </div>
-                  <div className="brand-signature opacity-0 group-hover:opacity-100 transition-all duration-1000 delay-700">
-                    <div className="font-playfair text-2xl text-naestir-primary italic tracking-wider">
-                      <span className="text-3xl">N</span>æstir
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Gallery Item 4 - Kitchen Sink */}
-              <div className="gallery-card group">
-                {/* Image Frame */}
-                <div className="relative bg-white p-4 rounded-3xl shadow-2xl group-hover:shadow-3xl transition-shadow duration-500">
-                  <div className="relative overflow-hidden rounded-2xl">
-                    <img
-                      src="/assets/AdobeStock_560781364_1750506688928.jpg"
-                      alt="Dirty kitchen sink before cleaning"
-                      className="w-full h-80 object-cover transition-all duration-700 group-hover:opacity-0"
-                    />
-                    <img
-                      src="/assets/AdobeStock_560781364 copy_1750506691420.jpg"
-                      alt="Spotless kitchen sink after cleaning"
-                      className="absolute inset-0 w-full h-80 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
-                    />
-                    
-                    {/* Circular Wipe Effect */}
-                    <div className="absolute inset-0 bg-gradient-radial from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform scale-0 group-hover:scale-150"></div>
-                    
-                    {/* Before/After Labels */}
-                    <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
-                      Before
-                    </div>
-                    <div className="absolute top-4 right-4 bg-naestir-primary text-white px-4 py-2 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300">
-                      After
-                    </div>
-                  </div>
-                </div>
-
-                {/* Caption Block */}
-                <div className="mt-6 text-center bg-gradient-to-b from-gray-50 to-white p-8 rounded-2xl shadow-lg">
-                  <div className="border-b border-gray-200 pb-4 mb-4">
-                    <h3 className="font-playfair text-2xl font-bold text-naestir-dark mb-2">
-                      Kitchen Deep Clean
-                    </h3>
-                    <p className="text-naestir-secondary leading-relaxed">
-                      Grease buildup and food stains completely eliminated with our specialized degreasing agents and detailed scrubbing process.
-                    </p>
-                  </div>
-                  <div className="brand-signature opacity-0 group-hover:opacity-100 transition-all duration-1000 delay-700">
-                    <div className="font-playfair text-2xl text-naestir-primary italic tracking-wider">
-                      <span className="text-3xl">N</span>æstir
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Gallery Item 5 - Upholstery */}
-              <div className="gallery-card group">
-                {/* Image Frame */}
-                <div className="relative bg-white p-4 rounded-3xl shadow-2xl group-hover:shadow-3xl transition-shadow duration-500">
-                  <div className="relative overflow-hidden rounded-2xl">
-                    <img
-                      src="/assets/AdobeStock_689599448_1750506694689.jpg"
-                      alt="Stained upholstery before cleaning"
-                      className="w-full h-80 object-cover transition-all duration-700 group-hover:opacity-0"
-                    />
-                    <img
-                      src="/assets/AdobeStock_689599448 copy_1750506697803.jpg"
-                      alt="Pristine upholstery after cleaning"
-                      className="absolute inset-0 w-full h-80 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
-                    />
-                    
-                    {/* Circular Wipe Effect */}
-                    <div className="absolute inset-0 bg-gradient-radial from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform scale-0 group-hover:scale-150"></div>
-                    
-                    {/* Before/After Labels */}
-                    <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
-                      Before
-                    </div>
-                    <div className="absolute top-4 right-4 bg-naestir-primary text-white px-4 py-2 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300">
-                      After
-                    </div>
-                  </div>
-                </div>
-
-                {/* Caption Block */}
-                <div className="mt-6 text-center bg-gradient-to-b from-gray-50 to-white p-8 rounded-2xl shadow-lg">
-                  <div className="border-b border-gray-200 pb-4 mb-4">
-                    <h3 className="font-playfair text-2xl font-bold text-naestir-dark mb-2">
-                      Upholstery Revival
-                    </h3>
-                    <p className="text-naestir-secondary leading-relaxed">
-                      Food spills and deep stains carefully lifted with our gentle steam cleaning and fabric protection treatment process.
-                    </p>
-                  </div>
-                  <div className="brand-signature opacity-0 group-hover:opacity-100 transition-all duration-1000 delay-700">
-                    <div className="font-playfair text-2xl text-naestir-primary italic tracking-wider">
-                      <span className="text-3xl">N</span>æstir
-                    </div>
+                
+                {/* Progress Bar */}
+                <div className="flex justify-center mt-6 pb-2">
+                  <div className="flex space-x-2">
+                    {[...Array(5)].map((_, i) => (
+                      <div key={i} className="w-8 h-1 bg-purple-200 rounded-full">
+                        <div className="w-full h-full bg-gradient-to-r from-purple-400 to-purple-500 rounded-full opacity-30"></div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

@@ -1098,3 +1098,23 @@ html {
 .testimonial-card-shadow:hover {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0, 0, 0, 0.06);
 }
+
+/* Hide scrollbars for transformation carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+/* Transformation card hover effects */
+.transformation-card:hover {
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.transformation-card:hover .transformation-card-shadow {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
