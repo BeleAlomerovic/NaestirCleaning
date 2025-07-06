@@ -38,6 +38,32 @@ export default function Home() {
     setCurrentIndex((prev) => (prev - 1 + totalTransformations) % totalTransformations);
   };
 
+  // Touch gesture support
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      goToNext();
+    } else if (isRightSwipe) {
+      goToPrev();
+    }
+  };
+
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
   };
@@ -49,35 +75,35 @@ export default function Home() {
       beforeImage: "/assets/AdobeStock_334592268 2_1750506662307.jpg",
       afterImage: "/assets/AdobeStock_334592268 2 copy_1750506666192.jpg",
       title: "Car Interior Revival",
-      description: "Complete restoration of pet hair, mud, and years of wear using specialized automotive detailing."
+      description: "Eliminated 3 years of pet hair, mud, and wear with specialized automotive detailing."
     },
     {
       id: 2,
       beforeImage: "/assets/AdobeStock_523168323_1750506670649.jpg",
       afterImage: "/assets/AdobeStock_523168323 copy_1750506673796.jpg",
       title: "Grout Line Restoration",
-      description: "Complete elimination of soap scum and mildew using professional-grade steam cleaning systems."
+      description: "Removed years of soap scum and mildew with non-toxic deep steam extraction."
     },
     {
       id: 3,
       beforeImage: "/assets/AdobeStock_554450129_1750506681118.jpg",
       afterImage: "/assets/AdobeStock_554450129 copy_1750506684147.jpg",
       title: "Mold Remediation & Restoration",
-      description: "Safe removal of dangerous mold and restoration to pristine condition using specialized treatments."
+      description: "Safely eliminated dangerous black mold and restored surfaces to pristine condition."
     },
     {
       id: 4,
       beforeImage: "/assets/AdobeStock_560781364_1750506688928.jpg",
       afterImage: "/assets/AdobeStock_560781364 copy_1750506691420.jpg",
       title: "Kitchen Deep Clean",
-      description: "Complete elimination of grease buildup and food stains using specialized degreasing agents."
+      description: "Dissolved stubborn grease buildup and food stains with professional degreasing agents."
     },
     {
       id: 5,
       beforeImage: "/assets/AdobeStock_689599448_1750506694689.jpg",
       afterImage: "/assets/AdobeStock_689599448 copy_1750506697803.jpg",
       title: "Upholstery Revival",
-      description: "Gentle steam cleaning and fabric protection treatment to lift deep stains and spills."
+      description: "Lifted deep-set stains and odors with gentle steam cleaning and fabric protection."
     }
   ];
 
@@ -224,110 +250,125 @@ export default function Home() {
         {/* Before & After Transformations Section */}
         <section 
           ref={galleryAnimation.elementRef as any}
-          className="relative overflow-hidden"
+          className="relative overflow-hidden bg-[#f9fafb]"
           style={{
-            background: 'linear-gradient(to bottom, #f7f5fa, #ffffff)',
+            background: 'linear-gradient(135deg, #f9fafb 0%, #f3f4f6 50%, #f9f7fc 100%)',
           }}
         >
-          {/* Elegant top divider */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
+          {/* Subtle Abstract Background Elements */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-gradient-to-br from-purple-100/10 to-blue-100/10 blur-3xl"></div>
+            <div className="absolute bottom-20 right-20 w-48 h-48 rounded-full bg-gradient-to-br from-lavender-100/8 to-purple-100/8 blur-3xl"></div>
+            <div className="absolute top-1/2 left-1/3 w-24 h-24 rounded-full bg-gradient-to-br from-blue-50/15 to-purple-50/15 blur-2xl"></div>
+            {/* Sparkle elements */}
+            <div className="absolute top-20 right-1/4 text-purple-200/5 text-4xl select-none">✨</div>
+            <div className="absolute bottom-32 left-1/4 text-blue-200/5 text-3xl select-none">✨</div>
+          </div>
           
-          <div className={`max-w-6xl mx-auto px-[10%] py-20 section-content ${galleryAnimation.isVisible ? 'visible' : ''}`}>
-            {/* Sophisticated Section Header */}
+          <div className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 section-content ${galleryAnimation.isVisible ? 'visible' : ''}`}>
+            {/* Enhanced Section Header */}
             <div className={`text-center mb-16 scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
+              {/* Background Quote Mark */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="text-[120px] text-purple-200/10 font-serif leading-none select-none">
+                  "
+                </div>
+              </div>
+              
               {/* Main Title */}
-              <h2 className="font-serif text-[36px] md:text-[40px] font-medium text-[#2D2D2D] mb-4 tracking-[0.5px] leading-tight">
+              <h2 className="relative z-10 font-serif text-3xl md:text-4xl font-semibold text-[#2D2D2D] mb-4 tracking-tight leading-tight">
                 Before & After Transformations
               </h2>
               
-              {/* Elegant brand-colored underline */}
+              {/* Elegant brand-colored accent bar */}
               <div className="flex justify-center mb-6">
-                <div className="w-20 h-[2px] bg-gradient-to-r from-purple-400 to-purple-500 rounded-full"></div>
+                <div className="w-16 h-1 bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 rounded-full shadow-sm"></div>
               </div>
               
-              {/* Subtitle */}
-              <p className="font-sans text-[#7A7A7A] text-lg max-w-[600px] mx-auto leading-relaxed">
+              {/* Enhanced Subtitle */}
+              <p className="font-sans text-gray-500 text-base max-w-[500px] mx-auto leading-relaxed tracking-wide italic">
                 Real Proof. Real Results. Real Clients.
               </p>
             </div>
 
-            {/* Single Card Transformation Display */}
-            <div className={`relative scroll-animate scroll-animate-delay-1 ${galleryAnimation.isVisible ? 'visible' : ''}`}>
-              {/* Single Card Container with Navigation */}
-              <div className="relative flex items-center justify-center">
+            {/* Premium Carousel Container with Entry Animation */}
+            <div className={`relative carousel-container scroll-animate scroll-animate-delay-1 ${galleryAnimation.isVisible ? 'visible animate-fade-slide-up' : ''}`}>
+              {/* Centerpiece Design with Professional Navigation */}
+              <div className="relative flex items-center justify-center max-w-[600px] mx-auto">
                 
-                {/* Left Navigation Arrow */}
+                {/* Professional Left Arrow - Responsive */}
                 <button
                   onClick={goToPrev}
-                  className="absolute left-4 z-10 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg hover:shadow-xl rounded-full p-4 transition-all duration-300 hover:scale-110 group"
+                  className="carousel-nav-button absolute left-[-80px] z-20 w-12 h-12 bg-white hover:bg-gray-50 shadow-md hover:shadow-lg rounded-full flex items-center justify-center transition-all duration-150 ease-in-out group border border-gray-100 touch-manipulation"
                   aria-label="Previous transformation"
                 >
-                  <ChevronLeft className="w-6 h-6 text-gray-700 group-hover:text-purple-600" />
+                  <ChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-purple-600 transition-colors" />
                 </button>
                 
-                {/* Right Navigation Arrow */}
+                {/* Professional Right Arrow - Responsive */}
                 <button
                   onClick={goToNext}
-                  className="absolute right-4 z-10 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg hover:shadow-xl rounded-full p-4 transition-all duration-300 hover:scale-110 group"
+                  className="carousel-nav-button right absolute right-[-80px] z-20 w-12 h-12 bg-white hover:bg-gray-50 shadow-md hover:shadow-lg rounded-full flex items-center justify-center transition-all duration-150 ease-in-out group border border-gray-100 touch-manipulation"
                   aria-label="Next transformation"
                 >
-                  <ChevronRight className="w-6 h-6 text-gray-700 group-hover:text-purple-600" />
+                  <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-purple-600 transition-colors" />
                 </button>
                 
-                {/* Single Card Display */}
-                <div className="bg-white/40 backdrop-blur-sm rounded-3xl shadow-[0_12px_32px_rgba(0,0,0,0.04)] p-8 max-w-sm mx-auto">
-                  <div className="w-80 group transformation-card">
-                    {/* Elegant Image Container */}
-                    <div className="relative overflow-hidden rounded-[16px] mb-6 group-hover:scale-[1.02] transition-all duration-500">
-                      <img
-                        src={transformations[currentIndex].beforeImage}
-                        alt={`${transformations[currentIndex].title} before cleaning`}
-                        className="w-full h-64 object-cover transition-all duration-700 group-hover:opacity-0"
-                      />
-                      <img
-                        src={transformations[currentIndex].afterImage}
-                        alt={`${transformations[currentIndex].title} after cleaning`}
-                        className="absolute inset-0 w-full h-64 object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
-                      />
-                      
-                      {/* Refined Before/After Labels */}
-                      <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-medium">
-                        Before
-                      </div>
-                      <div className="absolute top-3 right-3 bg-purple-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
-                        After
-                      </div>
-                    </div>
+                {/* Hero Card Design with Touch Support */}
+                <div 
+                  className="relative w-full max-w-[520px] bg-white rounded-2xl shadow-lg border border-gray-100 p-8 transition-all duration-300 hover:shadow-xl touch-manipulation"
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
+                >
+                  {/* Hero Image - 75% of card height */}
+                  <div className="relative overflow-hidden rounded-lg mb-6 shadow-md group">
+                    <img
+                      src={transformations[currentIndex].beforeImage}
+                      alt={`${transformations[currentIndex].title} before cleaning`}
+                      className="w-full h-[350px] object-cover transition-all duration-700 group-hover:opacity-0"
+                    />
+                    <img
+                      src={transformations[currentIndex].afterImage}
+                      alt={`${transformations[currentIndex].title} after cleaning`}
+                      className="absolute inset-0 w-full h-[350px] object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
+                    />
                     
-                    {/* Transformation Description */}
-                    <div className="text-left">
-                      <h3 className="font-serif text-xl font-medium text-[#2D2D2D] mb-2 leading-tight">
-                        {transformations[currentIndex].title}
-                      </h3>
-                      <p className="text-[#7A7A7A] text-sm leading-relaxed">
-                        {transformations[currentIndex].description}
-                      </p>
+                    {/* Premium Badge Labels */}
+                    <div className="absolute top-4 left-4 bg-black text-white px-4 py-2 rounded-full text-xs font-bold tracking-wide">
+                      BEFORE
+                    </div>
+                    <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-full text-xs font-bold tracking-wide opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                      AFTER
                     </div>
                   </div>
-                </div>
-                
-                {/* Progress Indicators */}
-                <div className="absolute bottom-[-20px] left-1/2 transform -translate-x-1/2">
-                  <div className="flex space-x-2">
-                    {transformations.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentIndex(index)}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                          index === currentIndex 
-                            ? 'bg-purple-500 w-6' 
-                            : 'bg-purple-200 hover:bg-purple-300'
-                        }`}
-                        aria-label={`Go to transformation ${index + 1}`}
-                      />
-                    ))}
+                  
+                  {/* Typography & Copy Design */}
+                  <div className="text-center space-y-3">
+                    <h3 className="text-xl font-bold text-gray-900 tracking-tight">
+                      {transformations[currentIndex].title}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed max-w-md mx-auto">
+                      {transformations[currentIndex].description}
+                    </p>
                   </div>
                 </div>
+              </div>
+              
+              {/* Minimal Progress Indicators */}
+              <div className="flex justify-center mt-8 space-x-2">
+                {transformations.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentIndex 
+                        ? 'bg-purple-500 scale-125' 
+                        : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
+                    aria-label={`Go to transformation ${index + 1}`}
+                  />
+                ))}
               </div>
             </div>
           </div>

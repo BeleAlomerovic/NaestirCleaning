@@ -1118,3 +1118,31 @@ html {
 .transformation-card:hover .transformation-card-shadow {
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
 }
+
+/* Premium carousel enhancements */
+.carousel-container {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile navigation adjustments */
+@media (max-width: 768px) {
+  .carousel-nav-button {
+    transform: scale(0.9);
+    left: -50px !important;
+    right: -50px !important;
+  }
+  
+  .carousel-nav-button.right {
+    right: -50px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel-nav-button {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    margin: 1rem 0.5rem;
+  }
+}
