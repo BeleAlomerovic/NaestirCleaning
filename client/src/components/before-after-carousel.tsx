@@ -62,8 +62,9 @@ const transformations: Transformation[] = [
 export default function BeforeAfterCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const startX = useRef(0);
+  const currentX = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const currentTransformation = transformations[currentIndex];
@@ -80,51 +81,93 @@ export default function BeforeAfterCarousel() {
     setCurrentIndex(index);
   };
 
-  // Touch/swipe handling
+  // Unified swipe handling
+  const handleStart = (clientX: number) => {
+    setIsDragging(true);
+    startX.current = clientX;
+    currentX.current = clientX;
+  };
+
+  const handleMove = (clientX: number) => {
+    if (!isDragging) return;
+    currentX.current = clientX;
+  };
+
+  const handleEnd = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    
+    const swipeThreshold = 50;
+    const swipeDistance = startX.current - currentX.current;
+
+    if (Math.abs(swipeDistance) > swipeThreshold) {
+      if (swipeDistance > 0) {
+        nextSlide(); // Swipe left = next
+      } else {
+        prevSlide(); // Swipe right = previous
+      }
+    }
+  };
+
+  // Touch events
   const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
+    handleStart(e.touches[0].clientX);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.touches[0].clientX;
+    handleMove(e.touches[0].clientX);
   };
 
   const handleTouchEnd = () => {
-    const swipeThreshold = 50;
-    const swipeDistance = touchStartX.current - touchEndX.current;
-
-    if (Math.abs(swipeDistance) > swipeThreshold) {
-      if (swipeDistance > 0) {
-        nextSlide();
-      } else {
-        prevSlide();
-      }
-    }
+    handleEnd();
   };
 
-  // Mouse/trackpad handling
+  // Mouse events  
   const handleMouseDown = (e: React.MouseEvent) => {
-    touchStartX.current = e.clientX;
+    e.preventDefault();
+    handleStart(e.clientX);
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (e.buttons === 1) { // Only if mouse is pressed
-      touchEndX.current = e.clientX;
-    }
+    handleMove(e.clientX);
   };
 
   const handleMouseUp = () => {
-    const swipeThreshold = 50;
-    const swipeDistance = touchStartX.current - touchEndX.current;
-
-    if (Math.abs(swipeDistance) > swipeThreshold) {
-      if (swipeDistance > 0) {
-        nextSlide();
-      } else {
-        prevSlide();
-      }
-    }
+    handleEnd();
   };
+
+  // Add mouse leave to handle edge cases
+  const handleMouseLeave = () => {
+    if (isDragging) {
+      handleEnd();
+    }
+    setIsHovered(false);
+  };
+
+  // Global mouse events for better drag handling
+  useEffect(() => {
+    const handleGlobalMouseMove = (e: MouseEvent) => {
+      if (isDragging) {
+        handleMove(e.clientX);
+      }
+    };
+
+    const handleGlobalMouseUp = () => {
+      if (isDragging) {
+        handleEnd();
+      }
+    };
+
+    if (isDragging) {
+      document.addEventListener('mousemove', handleGlobalMouseMove);
+      document.addEventListener('mouseup', handleGlobalMouseUp);
+    }
+
+    return () => {
+      document.removeEventListener('mousemove', handleGlobalMouseMove);
+      document.removeEventListener('mouseup', handleGlobalMouseUp);
+    };
+  }, [isDragging]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -150,10 +193,8 @@ export default function BeforeAfterCarousel() {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
         onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
         onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseLeave={handleMouseLeave}
         style={{ cursor: 'grab' }}
       >
         {/* Transformation Card */}
