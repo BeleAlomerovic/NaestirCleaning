@@ -245,6 +245,21 @@
   }
 }
 
+/* Ken Burns Effect for Services Slideshow */
+@keyframes kenBurns {
+  0% { transform: scale(1.0); }
+  100% { transform: scale(1.05); }
+}
+
+/* Enhanced Smooth Transitions for Luxury Feel */
+.transition-opacity-slow {
+  transition: opacity 2s ease-in-out;
+}
+
+.duration-2000 {
+  transition-duration: 2000ms;
+}
+
 .pulse-animation {
   animation: pulse 2s infinite;
 }

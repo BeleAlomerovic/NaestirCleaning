@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Users, Heart, Award, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageTransition } from "@/components/page-transition";
@@ -10,6 +10,14 @@ import { useParallax, useIntersectionObserver } from "@/hooks/use-parallax";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { services } from "@/lib/constants";
 import heroImage from "@assets/Depositphotos_764505660_XL_1751107860312.jpg";
+
+// Import slideshow background images for services section
+import cleanApartmentImage from "@assets/Clean-apartment_1750613206530.jpg";
+import corporateCleaningImage from "@assets/comm-clean.2102030812301_1751047448997.jpg";
+import carpetCleaningImage from "@assets/carpet cleaning_1751105111344.jpg";
+import carWashImage from "@assets/car wash_1751105103650.webp";
+import elevatorCleaningImage from "@assets/elevator_1751103467643.webp";
+import stairwayCleaningImage from "@assets/stairway_1751103472278.webp";
 
 export default function Home() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -28,6 +36,19 @@ export default function Home() {
   // State for transformation carousel
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalTransformations = 5;
+  
+  // State for services slideshow
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  
+  // Background slideshow images for services section
+  const slideshowImages = [
+    cleanApartmentImage,
+    corporateCleaningImage,
+    carpetCleaningImage,
+    carWashImage,
+    elevatorCleaningImage,
+    stairwayCleaningImage
+  ];
   
   // Navigation functions for carousel
   const goToNext = () => {
@@ -67,6 +88,15 @@ export default function Home() {
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
   };
+  
+  // Auto-advance slideshow for services section
+  useEffect(() => {
+    const slideshowInterval = setInterval(() => {
+      setCurrentSlideIndex((prev) => (prev + 1) % slideshowImages.length);
+    }, 7000); // Change slide every 7 seconds
+    
+    return () => clearInterval(slideshowInterval);
+  }, [slideshowImages.length]);
 
   // Transformation data
   const transformations = [
@@ -174,72 +204,81 @@ export default function Home() {
           <WaveSeparator nextSectionColor="purple" />
         </section>
 
-        {/* What We Clean Section */}
+        {/* Þjónustan Okkar - Luxury Services Slideshow Section */}
         <section 
           id="services" 
           ref={servicesAnimation.elementRef as any}
-          className="section-purple parallax-section"
+          className="relative min-h-screen overflow-hidden"
         >
-          <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-content ${servicesAnimation.isVisible ? 'visible' : ''}`}>
-            {/* Section Header - Elegant "Þjónustan Okkar" Design */}
-            <div className={`text-center mb-16 relative scroll-animate ${servicesAnimation.isVisible ? 'visible' : ''}`}>
-              {/* Background Quote Mark */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
-                  "
+          {/* Full-Width Background Slideshow */}
+          <div className="absolute inset-0">
+            {slideshowImages.map((image, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-opacity duration-2000 ease-in-out ${
+                  index === currentSlideIndex ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{
+                  backgroundImage: `url(${image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                  filter: 'blur(15px) saturate(0.5) brightness(0.8)',
+                  transform: index === currentSlideIndex ? 'scale(1.05)' : 'scale(1.0)',
+                  transition: 'all 7s ease-in-out'
+                }}
+              />
+            ))}
+            
+            {/* Lavender Overlay for Luxury Tone */}
+            <div className="absolute inset-0 bg-purple-100/20 backdrop-blur-sm"></div>
+          </div>
+          
+          {/* Fixed Centered Service Options */}
+          <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+            <div className={`text-center max-w-4xl mx-auto section-content ${servicesAnimation.isVisible ? 'visible' : ''}`}>
+              
+              {/* Elegant Section Title */}
+              <div className={`mb-16 scroll-animate ${servicesAnimation.isVisible ? 'visible' : ''}`}>
+                <h2 className="font-serif text-[40px] md:text-[56px] lg:text-[64px] font-medium text-white mb-8 tracking-[2px] leading-[1.1] drop-shadow-2xl">
+                  Þjónustan Okkar
+                </h2>
+                
+                {/* Elegant Decorative Underline */}
+                <div className="flex justify-center mb-12">
+                  <div className="w-32 h-1.5 bg-gradient-to-r from-white/60 via-white to-white/60 rounded-full shadow-lg"></div>
                 </div>
               </div>
               
-              {/* Main Title */}
-              <h2 className="font-playfair text-[32px] md:text-[44px] font-bold text-[#1F1F1F] mb-6 tracking-[-0.5px] leading-[1.1] animate-fade-up">
-                Þjónustan Okkar
-              </h2>
+              {/* Service Menu - Vertically Centered */}
+              <div className={`space-y-8 md:space-y-12 scroll-animate scroll-animate-delay-1 ${servicesAnimation.isVisible ? 'visible' : ''}`}>
+                {services.map((service, index) => (
+                  <Link key={service.id} href={`/services/${service.id}`}>
+                    <div className="group cursor-pointer transition-all duration-500 ease-out hover:scale-105">
+                      <h3 className="text-[28px] md:text-[40px] lg:text-[48px] font-medium text-white tracking-[1.5px] 
+                                   group-hover:text-purple-200 transition-all duration-500 
+                                   drop-shadow-xl group-hover:drop-shadow-2xl
+                                   group-hover:tracking-[2px] leading-[1.2]"
+                          style={{ 
+                            textShadow: '0 4px 20px rgba(0,0,0,0.6), 0 8px 40px rgba(0,0,0,0.3)'
+                          }}>
+                        {service.name}
+                      </h3>
+                      
+                      {/* Subtle Hover Underline */}
+                      <div className="w-0 group-hover:w-32 h-0.5 bg-white/80 mx-auto mt-4 
+                                    transition-all duration-700 ease-out rounded-full"></div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
               
-              {/* Lavender Divider */}
-              <div className="flex justify-center">
-                <div className="w-[60px] h-[2px] bg-[#B7A9D3] rounded-[1px] animate-expand-width"></div>
+              {/* Subtle Navigation Hint */}
+              <div className={`mt-20 scroll-animate scroll-animate-delay-2 ${servicesAnimation.isVisible ? 'visible' : ''}`}>
+                <p className="text-white/60 text-sm md:text-base font-light tracking-wide">
+                  Click any service to learn more
+                </p>
               </div>
-            </div>
-
-            {/* Horizontal Scrollable Cards */}
-            <div className="overflow-x-auto pb-6">
-              <div className="flex space-x-6 min-w-max px-4">
-                {services.map((service, index) => {
-                  return (
-                    <Link key={service.id} href={`/services/${service.id}`}>
-                      <Card 
-                        className="service-card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer w-80 flex-shrink-0 fade-in-up hover:shadow-xl hover:transform hover:scale-105"
-                        style={{
-                          animationDelay: `${index * 0.2}s`,
-                          transition: 'all 0.3s ease'
-                        }}
-                      >
-                        <div className="relative">
-                          <img
-                            src={service.image}
-                            alt={service.name}
-                            className="w-full h-48 object-cover transition-all duration-300"
-                          />
-                        </div>
-                        <CardContent className="p-6">
-                          <h3 className="text-xl font-semibold text-naestir-dark mb-3">{service.name}</h3>
-                          <p className="text-naestir-secondary mb-4 line-clamp-2">{service.description}</p>
-                          <Button variant="link" className="text-naestir-primary hover:text-purple-600 font-medium p-0">
-                            Learn More →
-                          </Button>
-                        </CardContent>
-                      </Card>
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Scroll Indicator */}
-            <div className="text-center mt-8">
-              <p className="text-naestir-secondary text-sm">
-                ← Scroll to explore all our services →
-              </p>
             </div>
           </div>
           
