@@ -288,42 +288,36 @@ export default function Home() {
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              {/* Center-aligned Content with Large Vertical Spacing */}
-              <div className="flex flex-col items-center space-y-16">
+              {/* Center-aligned Content with Single Hover Image */}
+              <div className="flex flex-col items-center space-y-12">
                 
-                {/* Before Image - Commanding Hero Content */}
+                {/* Single Hover-to-Reveal Image - Commanding Hero Content */}
                 <div className="w-full" style={{ maxWidth: 'min(90vw, 800px)' }}>
                   <div className="relative group">
+                    {/* Before Image (Default) */}
                     <img
                       src={transformations[currentIndex].beforeImage}
                       alt={`${transformations[currentIndex].title} before cleaning`}
-                      className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)]"
+                      className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] transition-all duration-700 group-hover:opacity-0"
                     />
-                    {/* Editorial Caption */}
-                    <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
-                      {transformations[currentIndex].title} Before Deep Cleaning
-                    </p>
-                  </div>
-                </div>
-
-                {/* Elegant Transition Indicator */}
-                <div className="flex items-center space-x-4 py-4">
-                  <div className="w-12 h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
-                  <div className="text-purple-400 text-2xl">↓</div>
-                  <div className="w-12 h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
-                </div>
-
-                {/* After Image - Commanding Hero Content */}
-                <div className="w-full" style={{ maxWidth: 'min(90vw, 800px)' }}>
-                  <div className="relative group">
+                    {/* After Image (Hover Reveal) */}
                     <img
                       src={transformations[currentIndex].afterImage}
                       alt={`${transformations[currentIndex].title} after cleaning`}
-                      className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)]"
+                      className="absolute inset-0 w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] opacity-0 transition-all duration-700 group-hover:opacity-100"
                     />
+                    
+                    {/* Premium Badge Labels */}
+                    <div className="absolute top-4 left-4 bg-black/80 text-white px-4 py-2 rounded-full text-xs font-bold tracking-wide">
+                      BEFORE
+                    </div>
+                    <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-full text-xs font-bold tracking-wide opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                      AFTER
+                    </div>
+                    
                     {/* Editorial Caption */}
                     <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
-                      Post-Cleaning: Sparkling, Sanitized, Ready for Use
+                      Hover to reveal transformation: {transformations[currentIndex].title}
                     </p>
                   </div>
                 </div>
