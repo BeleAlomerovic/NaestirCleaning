@@ -404,6 +404,11 @@ export default function Home() {
             </div>
           </div>
           
+          {/* DEBUG - Test visibility */}
+          <div className="w-full bg-red-500 text-white text-center p-4 text-2xl font-bold">
+            DEBUG: If you see this, the section is loading
+          </div>
+
           {/* Section Header - Elegant "Verkin Okkar" Design */}
           <div className={`text-center py-16 relative scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
             {/* Background Quote Mark */}
