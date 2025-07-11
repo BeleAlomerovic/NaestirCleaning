@@ -18,7 +18,6 @@ import carpetCleaningImage from "@assets/carpet cleaning_1751105111344.jpg";
 import carWashImage from "@assets/car wash_1751105103650.webp";
 import elevatorCleaningImage from "@assets/elevator_1751103467643.webp";
 import stairwayCleaningImage from "@assets/stairway_1751103472278.webp";
-import cleaningVideo from "@assets/6694034-uhd_4096_2160_30fps.mp4";
 
 export default function Home() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -37,10 +36,6 @@ export default function Home() {
   // State for transformation carousel
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalTransformations = 5;
-  
-  // State for luxury reveal card
-  const [isRevealing, setIsRevealing] = useState(false);
-  const [revealProgress, setRevealProgress] = useState(0);
   
   // State for services split-screen slideshow
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -388,13 +383,14 @@ export default function Home() {
           <WaveSeparator nextSectionColor="white" />
         </section>
 
-        {/* Luxury Before & After Reveal Card */}
+        {/* Before & After Transformations Section - Editorial Magazine Layout */}
         <section 
           ref={galleryAnimation.elementRef as any}
-          className="relative py-32 overflow-hidden bg-gradient-to-br from-[#f6f0ff] to-[#ffffff]"
+          className="relative py-32 overflow-hidden"
         >
           {/* Elite Background Design: Sculpted Depth */}
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#f6f0ff] to-[#ffffff]">
+            {/* Sculpted SVG Abstract Shape */}
             <div className="absolute top-0 right-0 w-96 h-96 opacity-[0.06]">
               <svg viewBox="0 0 400 400" className="w-full h-full text-[#dcc9f9]">
                 <path d="M300,50 Q350,100 320,200 Q290,300 200,320 Q100,350 80,250 Q50,150 150,80 Q250,20 300,50 Z" fill="currentColor"/>
@@ -407,144 +403,112 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="max-w-6xl mx-auto px-6 lg:px-16">
-            {/* Editorial Header */}
-            <div className={`text-center mb-20 ${galleryAnimation.isVisible ? 'visible' : ''}`}>
-              <h2 className="font-serif text-[42px] lg:text-[52px] font-medium text-purple-900 mb-4 tracking-wide leading-[1.1]">
-                Dramatic <span className="text-purple-900">Transformations</span>
+          <div className={`max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-20 section-content ${galleryAnimation.isVisible ? 'visible' : ''}`}>
+            {/* Headline & Typography: Matching Meðmæli Style */}
+            <div className={`text-center mb-16 scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
+              {/* Background Quote Mark - Matching Meðmæli */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
+                  "
+                </div>
+              </div>
+              
+              {/* Main Title - Exact Meðmæli Typography */}
+              <h2 className="font-serif text-[36px] md:text-[48px] lg:text-[52px] font-medium text-purple-900 mb-4 tracking-wide leading-[1.1] relative z-10">
+                Before & After <span className="text-purple-900">Transformations</span>
               </h2>
               
+              {/* Elegant Decorative Underline - Matching Meðmæli */}
               <div className="flex justify-center mb-8">
                 <div className="w-32 h-1.5 bg-gradient-to-r from-purple-300 via-purple-400 to-purple-300 rounded-full shadow-sm opacity-80"></div>
               </div>
-              
-              <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto"
-                 style={{ fontFamily: '"DM Sans", sans-serif' }}>
-                Experience the profound impact of professional cleaning through our luxury reveal showcase.
-              </p>
             </div>
 
-            {/* Luxury Reveal Card */}
-            <div className={`transition-all duration-1000 ${galleryAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <div className="max-w-5xl mx-auto">
-                <div 
-                  className="luxury-reveal-card relative overflow-hidden cursor-crosshair aspect-[16/9] rounded-[20px] shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
-                  onMouseEnter={() => setIsRevealing(true)}
-                  onMouseLeave={() => {
-                    setIsRevealing(false);
-                    setRevealProgress(0);
-                  }}
-                  onMouseMove={(e) => {
-                    if (!isRevealing) return;
-                    const rect = e.currentTarget.getBoundingClientRect();
-                    const progress = (e.clientX - rect.left) / rect.width;
-                    setRevealProgress(Math.max(0, Math.min(1, progress)));
-                  }}
-                >
-                  {/* Video Background Layer */}
-                  <div className="absolute inset-0 z-0">
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover video-texture"
-                      style={{
-                        filter: 'brightness(0.75) contrast(1.1)',
-                        transform: 'scale(1.05)'
-                      }}
-                    >
-                      <source src={cleaningVideo} type="video/mp4" />
-                    </video>
-                    
-                    {/* Video Overlay Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-black/30"></div>
-                  </div>
-
-                  {/* Before Image Layer */}
-                  <div 
-                    className="absolute inset-0 z-10 transition-all duration-300"
-                    style={{
-                      clipPath: `polygon(0 0, ${100 - (revealProgress * 100)}% 0, ${100 - (revealProgress * 100)}% 100%, 0 100%)`
-                    }}
-                  >
+            {/* Editorial Magazine Spread Layout */}
+            <div 
+              className={`relative scroll-animate scroll-animate-delay-1 ${galleryAnimation.isVisible ? 'visible' : ''}`}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              {/* Center-aligned Content with Single Hover Image */}
+              <div className="flex flex-col items-center space-y-12">
+                
+                {/* Single Hover-to-Reveal Image - Commanding Hero Content */}
+                <div className="w-full" style={{ maxWidth: 'min(90vw, 800px)' }}>
+                  <div className="relative group">
+                    {/* Before Image (Default) */}
                     <img
-                      src={transformations[0].beforeImage}
-                      alt="Before cleaning"
-                      className="w-full h-full object-cover"
+                      src={transformations[currentIndex].beforeImage}
+                      alt={`${transformations[currentIndex].title} before cleaning`}
+                      className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] transition-all duration-700 group-hover:opacity-0"
+                    />
+                    {/* After Image (Hover Reveal) */}
+                    <img
+                      src={transformations[currentIndex].afterImage}
+                      alt={`${transformations[currentIndex].title} after cleaning`}
+                      className="absolute inset-0 w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] opacity-0 transition-all duration-700 group-hover:opacity-100"
                     />
                     
-                    {/* Before Label */}
-                    <div className="absolute top-6 left-6 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-medium tracking-wide">
+                    {/* Premium Badge Labels */}
+                    <div className="absolute top-4 left-4 bg-black/80 text-white px-4 py-2 rounded-full text-xs font-bold tracking-wide">
                       BEFORE
                     </div>
-                  </div>
-
-                  {/* After Image Layer */}
-                  <div 
-                    className="absolute inset-0 z-20 transition-all duration-300"
-                    style={{
-                      clipPath: `polygon(${100 - (revealProgress * 100)}% 0, 100% 0, 100% 100%, ${100 - (revealProgress * 100)}% 100%)`,
-                      opacity: revealProgress > 0.1 ? 1 : 0
-                    }}
-                  >
-                    <img
-                      src={transformations[0].afterImage}
-                      alt="After cleaning"
-                      className="w-full h-full object-cover"
-                    />
-                    
-                    {/* After Label */}
-                    <div className="absolute top-6 right-6 bg-green-600/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-medium tracking-wide">
+                    <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-full text-xs font-bold tracking-wide opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
                       AFTER
                     </div>
+                    
+                    {/* Editorial Caption */}
+                    <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
+                      Hover to reveal transformation: {transformations[currentIndex].title}
+                    </p>
                   </div>
-
-                  {/* Reveal Divider Line */}
-                  {revealProgress > 0 && (
-                    <div 
-                      className="absolute top-0 bottom-0 w-1 bg-white/80 backdrop-blur-sm z-30 shadow-lg transition-all duration-100"
-                      style={{
-                        left: `${revealProgress * 100}%`,
-                        transform: 'translateX(-50%)'
-                      }}
-                    >
-                      {/* Drag Handle */}
-                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center">
-                        <div className="w-4 h-4 text-gray-600 text-xs">↔</div>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Hover Instruction */}
-                  {!isRevealing && (
-                    <div className="absolute inset-0 z-40 flex items-center justify-center bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                      <div className="bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full text-gray-800 font-medium">
-                        Hover to reveal transformation
-                      </div>
-                    </div>
-                  )}
                 </div>
 
-                {/* Card Caption */}
-                <div className="mt-8 text-center max-w-2xl mx-auto">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-3"
-                      style={{ fontFamily: '"DM Sans", sans-serif' }}>
-                    {transformations[0].title}
+                {/* Description with Ample Breathing Room */}
+                <div className="text-center max-w-2xl pt-8">
+                  <h3 className="text-2xl font-medium text-gray-900 mb-4 tracking-tight">
+                    {transformations[currentIndex].title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed"
-                     style={{ fontFamily: '"DM Sans", sans-serif' }}>
-                    {transformations[0].description}
+                  <p className="text-gray-600 text-base leading-relaxed">
+                    {transformations[currentIndex].description}
                   </p>
-                  
-                  {/* CTA */}
-                  <div className="mt-6">
-                    <Link href="/reviews" className="inline-flex items-center text-purple-600 hover:text-purple-700 font-medium transition-colors duration-300 group">
-                      View more transformations
-                      <span className="ml-2 transform transition-transform duration-300 group-hover:translate-x-1">→</span>
-                    </Link>
-                  </div>
                 </div>
+              </div>
+
+              {/* Professional Navigation */}
+              <div className="absolute top-1/2 left-0 right-0 flex justify-between items-center pointer-events-none">
+                <button
+                  onClick={goToPrev}
+                  className="carousel-nav-button ml-4 lg:ml-8 z-20 w-14 h-14 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg hover:shadow-xl rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200 pointer-events-auto"
+                  aria-label="Previous transformation"
+                >
+                  <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:text-purple-600 transition-colors" />
+                </button>
+                
+                <button
+                  onClick={goToNext}
+                  className="carousel-nav-button mr-4 lg:mr-8 z-20 w-14 h-14 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg hover:shadow-xl rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200 pointer-events-auto"
+                  aria-label="Next transformation"
+                >
+                  <ChevronRight className="w-6 h-6 text-gray-600 group-hover:text-purple-600 transition-colors" />
+                </button>
+              </div>
+              
+              {/* Elegant Pagination Dots - Exact Meðmæli Style */}
+              <div className="flex justify-center items-center mt-8 space-x-3">
+                {transformations.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`rounded-full transition-all duration-300 ease-in-out transform hover:scale-110 ${
+                      index === currentIndex
+                        ? 'w-8 h-2.5 bg-gradient-to-r from-purple-400 to-purple-500 shadow-lg shadow-purple-200/50'
+                        : 'w-2.5 h-2.5 bg-gray-300 hover:bg-purple-300'
+                    }`}
+                    aria-label={`Go to transformation ${index + 1}`}
+                  />
+                ))}
               </div>
             </div>
           </div>
