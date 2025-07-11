@@ -424,20 +424,55 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Mobile Layout */}
+          <div className="block lg:hidden px-4 py-8">
+            <div className="text-center mb-8">
+              <h2 
+                className="text-[#4B0082] italic"
+                style={{ 
+                  fontSize: '40px', 
+                  lineHeight: '1.2',
+                  fontFamily: 'Playfair Display, serif' 
+                }}
+              >
+                Næstir
+              </h2>
+            </div>
+            
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff]">
+              <video
+                className="w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source src={cleaningVideo} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
           {/* Split Layout Container */}
-          <div className="flex flex-col lg:flex-row min-h-screen">
+          <div className="hidden lg:flex flex-col lg:flex-row min-h-screen">
             
             {/* LEFT SIDE - Video Section */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
               <div className="w-full max-w-2xl">
+                {/* TEST - Visible on all screens */}
+                <div className="text-center mb-6 bg-red-500 text-white p-4">
+                  <h2 style={{ fontSize: '40px', color: 'white' }}>TEST - NÆSTIR LOGO HERE</h2>
+                </div>
+                
                 {/* Næstir Logo Above Video - Exact Footer Style */}
                 <div className="text-center mb-6">
                   <h2 
-                    className="text-[#4B0082] italic"
+                    className="text-[#4B0082] italic font-bold"
                     style={{ 
                       fontSize: '40px', 
                       lineHeight: '1.2',
-                      fontFamily: 'Playfair Display, serif' 
+                      fontFamily: 'Playfair Display, serif',
+                      color: '#4B0082'
                     }}
                   >
                     Næstir
