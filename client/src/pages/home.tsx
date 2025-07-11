@@ -404,20 +404,41 @@ export default function Home() {
             </div>
           </div>
           
+          {/* Section Header - Elegant "Verkin Okkar" Design */}
+          <div className={`text-center py-16 relative scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
+            {/* Background Quote Mark */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
+                "
+              </div>
+            </div>
+            
+            {/* Main Title - Enhanced Elegant Styling */}
+            <h2 className="font-serif text-[36px] md:text-[48px] lg:text-[52px] font-medium text-purple-900 mb-4 tracking-wide leading-[1.1] relative z-10">
+              Verkin Okkar
+            </h2>
+            
+            {/* Elegant Decorative Underline in Light Lavender */}
+            <div className="flex justify-center mb-8">
+              <div className="w-32 h-1.5 bg-gradient-to-r from-purple-300 via-purple-400 to-purple-300 rounded-full shadow-sm opacity-80"></div>
+            </div>
+          </div>
+
           {/* Split Layout Container */}
           <div className="flex flex-col lg:flex-row min-h-screen">
             
             {/* LEFT SIDE - Video Section */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
               <div className="w-full max-w-2xl">
-                {/* Section Title */}
+                {/* Næstir Logo */}
                 <div className="text-center mb-8">
-                  <h2 className="font-serif text-[36px] md:text-[48px] lg:text-[52px] font-medium text-purple-900 mb-4 tracking-wide leading-[1.1]">
-                    Before & After <span className="text-purple-900">Transformations</span>
-                  </h2>
-                  <div className="flex justify-center mb-8">
-                    <div className="w-32 h-1.5 bg-gradient-to-r from-purple-300 via-purple-400 to-purple-300 rounded-full shadow-sm opacity-80"></div>
-                  </div>
+                  <h3 
+                    className="text-[#4B0082] font-playfair italic mb-4"
+                    style={{ fontSize: '32px', lineHeight: '1.2' }}
+                  >
+                    Næstir
+                  </h3>
+                  <div className="w-16 h-px bg-[#B7A9D3] mx-auto"></div>
                 </div>
                 
                 {/* Video Container */}
