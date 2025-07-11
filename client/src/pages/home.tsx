@@ -430,10 +430,10 @@ export default function Home() {
             {/* LEFT SIDE - Video Section */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
               <div className="w-full max-w-2xl">
-                {/* Næstir Logo */}
-                <div className="text-center mb-8">
+                {/* Næstir Logo - Debug */}
+                <div className="text-center mb-8 bg-yellow-200 p-4 border-2 border-red-500">
                   <h3 
-                    className="text-[#4B0082] italic"
+                    className="text-[#4B0082] italic font-bold"
                     style={{ 
                       fontSize: '40px', 
                       lineHeight: '1.2',
@@ -442,6 +442,7 @@ export default function Home() {
                   >
                     Næstir
                   </h3>
+                  <p className="text-sm text-gray-600">DEBUG: Logo should be visible here</p>
                 </div>
                 
                 {/* Video Container */}
