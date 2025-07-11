@@ -433,8 +433,12 @@ export default function Home() {
                 {/* Næstir Logo */}
                 <div className="text-center mb-8">
                   <h3 
-                    className="text-[#4B0082] font-playfair italic"
-                    style={{ fontSize: '40px', lineHeight: '1.2' }}
+                    className="text-[#4B0082] italic"
+                    style={{ 
+                      fontSize: '40px', 
+                      lineHeight: '1.2',
+                      fontFamily: 'Playfair Display, serif'
+                    }}
                   >
                     Næstir
                   </h3>
