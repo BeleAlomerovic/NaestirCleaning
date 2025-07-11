@@ -305,22 +305,53 @@
   transform: translateY(100%);
 }
 
-/* Premium Gallery Styling */
-.gallery-image-frame {
+/* Professional Frame Container */
+.professional-frame-container {
   position: relative;
-}
-
-.premium-image-shadow {
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.premium-image-shadow:hover {
-  transform: translateY(-2px);
+.professional-frame-container:hover {
+  transform: translateY(-3px);
+}
+
+/* Gallery Frame Shadows */
+.shadow-gallery-frame {
   box-shadow: 
-    inset 0 0 0 3px white,
-    0 6px 12px rgba(0, 0, 0, 0.06),
-    0 16px 32px rgba(0, 0, 0, 0.08),
-    0 32px 64px rgba(0, 0, 0, 0.06) !important;
+    0 12px 28px rgba(0, 0, 0, 0.08),
+    0 4px 8px rgba(0, 0, 0, 0.04),
+    0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.shadow-gallery-frame-mobile {
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.06),
+    0 3px 6px rgba(0, 0, 0, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.professional-frame-container:hover .shadow-gallery-frame {
+  box-shadow: 
+    0 16px 36px rgba(0, 0, 0, 0.12),
+    0 8px 16px rgba(0, 0, 0, 0.06),
+    0 4px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Lavender Frame Border */
+.border-lavender-frame {
+  border-color: #f3e8ff;
+  border-width: 1px;
+}
+
+/* Professional Image Treatment */
+.professional-image-treatment {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.professional-frame-container:hover .professional-image-treatment {
+  filter: brightness(0.98) contrast(1.1) saturate(0.95) !important;
 }
 
 /* Gallery ambient lighting */
@@ -336,6 +367,15 @@
 /* Professional margin discipline */
 .gallery-spacing {
   margin: 48px 64px;
+}
+
+/* Overlay Grid Effect */
+.overlay-grid {
+  background-image: 
+    linear-gradient(90deg, rgba(243, 232, 255, 0.3) 1px, transparent 1px),
+    linear-gradient(rgba(243, 232, 255, 0.3) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.5;
 }
 
 /* Enhanced Smooth Transitions for Luxury Feel */

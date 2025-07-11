@@ -240,36 +240,39 @@ export default function Home() {
           <div className="hidden lg:flex h-screen">
             {/* LEFT 70% - Premium Portfolio Image Gallery */}
             <div className="w-[70%] relative overflow-hidden bg-gray-50/30 flex items-center justify-center px-16 py-24">
-              {/* Premium Gallery Container */}
-              <div className="relative w-full max-w-2xl aspect-[4/3] gallery-image-frame">
-                {/* Rotating images with premium styling */}
-                {slideshowImages.map((image, index) => (
-                  <div
-                    key={index}
-                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                      index === currentSlideIndex ? 'opacity-100' : 'opacity-0'
-                    }`}
-                  >
-                    <img
-                      src={image}
-                      alt={`Service ${index + 1}`}
-                      className="w-full h-full object-cover rounded-[14px] premium-image-shadow"
-                      style={{
-                        filter: 'brightness(0.95) contrast(1.1) saturate(0.9)',
-                        boxShadow: `
-                          inset 0 0 0 3px white,
-                          0 4px 8px rgba(0, 0, 0, 0.04),
-                          0 12px 24px rgba(0, 0, 0, 0.06),
-                          0 24px 48px rgba(0, 0, 0, 0.04)
-                        `
-                      }}
-                    />
+              {/* Premium Gallery Frame Container */}
+              <div className="relative w-full max-w-2xl aspect-[4/3] professional-frame-container">
+                {/* White Padded Frame Background */}
+                <div className="absolute inset-0 bg-white rounded-[16px] p-6 shadow-gallery-frame">
+                  {/* Inner Image Container */}
+                  <div className="relative w-full h-full overflow-hidden rounded-[12px] border border-lavender-frame">
+                    {/* Rotating images with premium styling */}
+                    {slideshowImages.map((image, index) => (
+                      <div
+                        key={index}
+                        className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                          index === currentSlideIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+                        }`}
+                      >
+                        <img
+                          src={image}
+                          alt={`Service ${index + 1}`}
+                          className="w-full h-full object-cover professional-image-treatment"
+                          style={{
+                            filter: 'brightness(0.96) contrast(1.08) saturate(0.92)'
+                          }}
+                        />
+                      </div>
+                    ))}
+                    
+                    {/* Soft Edge Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/5 pointer-events-none rounded-[12px]"></div>
                   </div>
-                ))}
+                </div>
                 
                 {/* Dynamic Reveal Mask - Left to Right */}
                 <div 
-                  className={`absolute inset-0 rounded-[14px] transition-all duration-1500 ease-out ${
+                  className={`absolute inset-0 rounded-[16px] transition-all duration-1500 ease-out ${
                     servicesAnimation.isVisible ? 'translate-x-full' : 'translate-x-0'
                   }`}
                   style={{
@@ -336,34 +339,37 @@ export default function Home() {
           <div className="lg:hidden">
             {/* Premium mobile gallery */}
             <div className="h-[60vh] relative overflow-hidden bg-gray-50/30 flex items-center justify-center px-6 py-8">
-              <div className="relative w-full max-w-sm aspect-[4/3] gallery-image-frame">
-                {slideshowImages.map((image, index) => (
-                  <div
-                    key={index}
-                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                      index === currentSlideIndex ? 'opacity-100' : 'opacity-0'
-                    }`}
-                  >
-                    <img
-                      src={image}
-                      alt={`Service ${index + 1}`}
-                      className="w-full h-full object-cover rounded-[12px] premium-image-shadow"
-                      style={{
-                        filter: 'brightness(0.95) contrast(1.1) saturate(0.9)',
-                        boxShadow: `
-                          inset 0 0 0 2px white,
-                          0 3px 6px rgba(0, 0, 0, 0.04),
-                          0 8px 16px rgba(0, 0, 0, 0.06),
-                          0 16px 32px rgba(0, 0, 0, 0.04)
-                        `
-                      }}
-                    />
+              <div className="relative w-full max-w-sm aspect-[4/3] professional-frame-container">
+                {/* White Padded Frame Background */}
+                <div className="absolute inset-0 bg-white rounded-[14px] p-4 shadow-gallery-frame-mobile">
+                  {/* Inner Image Container */}
+                  <div className="relative w-full h-full overflow-hidden rounded-[10px] border border-lavender-frame">
+                    {slideshowImages.map((image, index) => (
+                      <div
+                        key={index}
+                        className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                          index === currentSlideIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+                        }`}
+                      >
+                        <img
+                          src={image}
+                          alt={`Service ${index + 1}`}
+                          className="w-full h-full object-cover professional-image-treatment"
+                          style={{
+                            filter: 'brightness(0.96) contrast(1.08) saturate(0.92)'
+                          }}
+                        />
+                      </div>
+                    ))}
+                    
+                    {/* Soft Edge Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/5 pointer-events-none rounded-[10px]"></div>
                   </div>
-                ))}
+                </div>
                 
                 {/* Dynamic Reveal Mask - Top to Bottom for Mobile */}
                 <div 
-                  className={`absolute inset-0 rounded-[12px] transition-all duration-1500 ease-out ${
+                  className={`absolute inset-0 rounded-[14px] transition-all duration-1500 ease-out ${
                     servicesAnimation.isVisible ? 'translate-y-full' : 'translate-y-0'
                   }`}
                   style={{
