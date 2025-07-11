@@ -238,40 +238,48 @@ export default function Home() {
         >
           {/* Desktop Split-Screen Layout */}
           <div className="hidden lg:flex h-screen">
-            {/* LEFT 70% - Cinematic Image Authority with Dynamic Masking */}
-            <div className="w-[70%] relative overflow-hidden">
-              {/* Full-screen rotating images with cinematic treatment */}
-              {slideshowImages.map((image, index) => (
-                <div
-                  key={index}
-                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                    index === currentSlideIndex ? 'opacity-100' : 'opacity-0'
+            {/* LEFT 70% - Premium Portfolio Image Gallery */}
+            <div className="w-[70%] relative overflow-hidden bg-gray-50/30 flex items-center justify-center px-16 py-24">
+              {/* Premium Gallery Container */}
+              <div className="relative w-full max-w-2xl aspect-[4/3] gallery-image-frame">
+                {/* Rotating images with premium styling */}
+                {slideshowImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                      index === currentSlideIndex ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
+                    <img
+                      src={image}
+                      alt={`Service ${index + 1}`}
+                      className="w-full h-full object-cover rounded-[14px] premium-image-shadow"
+                      style={{
+                        filter: 'brightness(0.95) contrast(1.1) saturate(0.9)',
+                        boxShadow: `
+                          inset 0 0 0 3px white,
+                          0 4px 8px rgba(0, 0, 0, 0.04),
+                          0 12px 24px rgba(0, 0, 0, 0.06),
+                          0 24px 48px rgba(0, 0, 0, 0.04)
+                        `
+                      }}
+                    />
+                  </div>
+                ))}
+                
+                {/* Dynamic Reveal Mask - Left to Right */}
+                <div 
+                  className={`absolute inset-0 rounded-[14px] transition-all duration-1500 ease-out ${
+                    servicesAnimation.isVisible ? 'translate-x-full' : 'translate-x-0'
                   }`}
                   style={{
-                    backgroundImage: `url(${image})`,
-                    backgroundSize: '85%',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    filter: 'brightness(0.9) contrast(1.1) saturate(0.85)'
+                    background: 'linear-gradient(90deg, #f9fafb 0%, #f9fafb 70%, transparent 100%)'
                   }}
                 />
-              ))}
+              </div>
               
-              {/* Dynamic Reveal Mask - Left to Right */}
-              <div 
-                className={`absolute inset-0 bg-white transition-all duration-1500 ease-out ${
-                  servicesAnimation.isVisible ? 'translate-x-full' : 'translate-x-0'
-                }`}
-                style={{
-                  background: 'linear-gradient(90deg, #ffffff 0%, #ffffff 70%, transparent 100%)'
-                }}
-              />
-              
-              {/* Subtle vignette for center focus */}
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20"></div>
-              
-              {/* Elegant lavender overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-purple-50/30 via-transparent to-transparent"></div>
+              {/* Subtle ambient lighting effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-50/20 via-transparent to-transparent pointer-events-none"></div>
             </div>
             
             {/* RIGHT 30% - Refined Control Panel */}
@@ -326,36 +334,43 @@ export default function Home() {
           
           {/* Mobile Stacked Layout */}
           <div className="lg:hidden">
-            {/* Full-screen rotating image up top */}
-            <div className="h-[60vh] relative overflow-hidden">
-              {slideshowImages.map((image, index) => (
-                <div
-                  key={index}
-                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                    index === currentSlideIndex ? 'opacity-100' : 'opacity-0'
+            {/* Premium mobile gallery */}
+            <div className="h-[60vh] relative overflow-hidden bg-gray-50/30 flex items-center justify-center px-6 py-8">
+              <div className="relative w-full max-w-sm aspect-[4/3] gallery-image-frame">
+                {slideshowImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                      index === currentSlideIndex ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
+                    <img
+                      src={image}
+                      alt={`Service ${index + 1}`}
+                      className="w-full h-full object-cover rounded-[12px] premium-image-shadow"
+                      style={{
+                        filter: 'brightness(0.95) contrast(1.1) saturate(0.9)',
+                        boxShadow: `
+                          inset 0 0 0 2px white,
+                          0 3px 6px rgba(0, 0, 0, 0.04),
+                          0 8px 16px rgba(0, 0, 0, 0.06),
+                          0 16px 32px rgba(0, 0, 0, 0.04)
+                        `
+                      }}
+                    />
+                  </div>
+                ))}
+                
+                {/* Dynamic Reveal Mask - Top to Bottom for Mobile */}
+                <div 
+                  className={`absolute inset-0 rounded-[12px] transition-all duration-1500 ease-out ${
+                    servicesAnimation.isVisible ? 'translate-y-full' : 'translate-y-0'
                   }`}
                   style={{
-                    backgroundImage: `url(${image})`,
-                    backgroundSize: '85%',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    filter: 'brightness(0.9) contrast(1.1) saturate(0.85)'
+                    background: 'linear-gradient(180deg, #f9fafb 0%, #f9fafb 70%, transparent 100%)'
                   }}
                 />
-              ))}
-              
-              {/* Dynamic Reveal Mask - Top to Bottom for Mobile */}
-              <div 
-                className={`absolute inset-0 bg-white transition-all duration-1500 ease-out ${
-                  servicesAnimation.isVisible ? 'translate-y-full' : 'translate-y-0'
-                }`}
-                style={{
-                  background: 'linear-gradient(180deg, #ffffff 0%, #ffffff 70%, transparent 100%)'
-                }}
-              />
-              
-              {/* Mobile overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30"></div>
+              </div>
             </div>
             
             {/* Clean vertical stack of services below */}
