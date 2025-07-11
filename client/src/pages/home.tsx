@@ -100,16 +100,15 @@ export default function Home() {
     setOpenFAQ(openFAQ === index ? null : index);
   };
   
-  // Auto-advance slideshow for services section (only when not hovering)
+  // Handle service hover to update image (removed auto-advance)
   useEffect(() => {
-    if (hoveredService) return; // Pause auto-advance when hovering
-    
-    const slideshowInterval = setInterval(() => {
-      setCurrentSlideIndex((prev) => (prev + 1) % slideshowImages.length);
-    }, 6500); // Change slide every 6.5 seconds
-    
-    return () => clearInterval(slideshowInterval);
-  }, [slideshowImages.length, hoveredService]);
+    if (hoveredService && serviceImageMap[hoveredService]) {
+      const hoveredImageIndex = slideshowImages.indexOf(serviceImageMap[hoveredService]);
+      if (hoveredImageIndex !== -1) {
+        setCurrentSlideIndex(hoveredImageIndex);
+      }
+    }
+  }, [hoveredService, slideshowImages, serviceImageMap]);
   
   // Handle service hover to update image
   const handleServiceHover = (serviceId: string) => {
@@ -246,11 +245,11 @@ export default function Home() {
                 <div className="absolute inset-0 bg-white rounded-[16px] p-6 shadow-gallery-frame">
                   {/* Inner Image Container */}
                   <div className="relative w-full h-full overflow-hidden rounded-[12px] border border-lavender-frame">
-                    {/* Static image display */}
+                    {/* Hover-controlled image display */}
                     <img
-                      src={slideshowImages[0]}
+                      src={slideshowImages[currentSlideIndex]}
                       alt="Service showcase"
-                      className="w-full h-full object-cover professional-image-treatment"
+                      className="w-full h-full object-cover professional-image-treatment transition-opacity duration-500"
                       style={{
                         filter: 'brightness(0.96) contrast(1.08) saturate(0.92)'
                       }}
@@ -325,11 +324,11 @@ export default function Home() {
                 <div className="absolute inset-0 bg-white rounded-[14px] p-4 shadow-gallery-frame-mobile">
                   {/* Inner Image Container */}
                   <div className="relative w-full h-full overflow-hidden rounded-[10px] border border-lavender-frame">
-                    {/* Static image display */}
+                    {/* Hover-controlled image display */}
                     <img
-                      src={slideshowImages[0]}
+                      src={slideshowImages[currentSlideIndex]}
                       alt="Service showcase"
-                      className="w-full h-full object-cover professional-image-treatment"
+                      className="w-full h-full object-cover professional-image-treatment transition-opacity duration-500"
                       style={{
                         filter: 'brightness(0.96) contrast(1.08) saturate(0.92)'
                       }}
@@ -358,7 +357,11 @@ export default function Home() {
                 <div className="space-y-8">
                   {services.map((service, index) => (
                     <Link key={service.id} href={`/services/${service.id}`}>
-                      <div className="group text-center cursor-pointer py-4 transition-all duration-300 ease-out">
+                      <div 
+                        className="group text-center cursor-pointer py-4 transition-all duration-300 ease-out"
+                        onMouseEnter={() => handleServiceHover(service.id)}
+                        onMouseLeave={handleServiceLeave}
+                      >
                         <h3 className="text-[26px] md:text-[30px] font-medium text-gray-900 leading-[1.6] 
                                      tracking-tight group-hover:text-purple-400 transition-all duration-300"
                             style={{ fontFamily: '"DM Sans", system-ui, sans-serif' }}>
