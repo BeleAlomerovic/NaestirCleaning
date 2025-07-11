@@ -37,10 +37,11 @@ export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalTransformations = 5;
   
-  // State for services slideshow
+  // State for services split-screen slideshow
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [hoveredService, setHoveredService] = useState<string | null>(null);
   
-  // Background slideshow images for services section
+  // Cinematic slideshow images for split-screen layout
   const slideshowImages = [
     cleanApartmentImage,
     corporateCleaningImage,
@@ -49,6 +50,16 @@ export default function Home() {
     elevatorCleaningImage,
     stairwayCleaningImage
   ];
+  
+  // Service-to-image mapping for dynamic updates
+  const serviceImageMap: Record<string, string> = {
+    "apartment": cleanApartmentImage,
+    "corporate": corporateCleaningImage,
+    "carpet-cleaning": carpetCleaningImage,
+    "car-wash": carWashImage,
+    "blocks-cleaning": elevatorCleaningImage,
+    "garbage-can-cleaning": stairwayCleaningImage
+  };
   
   // Navigation functions for carousel
   const goToNext = () => {
@@ -89,14 +100,29 @@ export default function Home() {
     setOpenFAQ(openFAQ === index ? null : index);
   };
   
-  // Auto-advance slideshow for services section
+  // Auto-advance slideshow for services section (only when not hovering)
   useEffect(() => {
+    if (hoveredService) return; // Pause auto-advance when hovering
+    
     const slideshowInterval = setInterval(() => {
       setCurrentSlideIndex((prev) => (prev + 1) % slideshowImages.length);
-    }, 7000); // Change slide every 7 seconds
+    }, 6500); // Change slide every 6.5 seconds
     
     return () => clearInterval(slideshowInterval);
-  }, [slideshowImages.length]);
+  }, [slideshowImages.length, hoveredService]);
+  
+  // Handle service hover to update image
+  const handleServiceHover = (serviceId: string) => {
+    setHoveredService(serviceId);
+    const imageIndex = slideshowImages.indexOf(serviceImageMap[serviceId]);
+    if (imageIndex !== -1) {
+      setCurrentSlideIndex(imageIndex);
+    }
+  };
+  
+  const handleServiceLeave = () => {
+    setHoveredService(null);
+  };
 
   // Transformation data
   const transformations = [
@@ -204,80 +230,145 @@ export default function Home() {
           <WaveSeparator nextSectionColor="purple" />
         </section>
 
-        {/* Þjónustan Okkar - Luxury Services Slideshow Section */}
+        {/* Þjónustan Okkar - Commanding Split-Screen Layout */}
         <section 
           id="services" 
           ref={servicesAnimation.elementRef as any}
-          className="relative min-h-screen overflow-hidden"
+          className="relative min-h-screen overflow-hidden bg-white"
         >
-          {/* Full-Width Background Slideshow */}
-          <div className="absolute inset-0">
-            {slideshowImages.map((image, index) => (
-              <div
-                key={index}
-                className={`absolute inset-0 transition-opacity duration-2000 ease-in-out ${
-                  index === currentSlideIndex ? 'opacity-100' : 'opacity-0'
-                }`}
-                style={{
-                  backgroundImage: `url(${image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
-                  filter: 'blur(15px) saturate(0.5) brightness(0.8)',
-                  transform: index === currentSlideIndex ? 'scale(1.05)' : 'scale(1.0)',
-                  transition: 'all 7s ease-in-out'
-                }}
-              />
-            ))}
-            
-            {/* Lavender Overlay for Luxury Tone */}
-            <div className="absolute inset-0 bg-purple-100/20 backdrop-blur-sm"></div>
-          </div>
-          
-          {/* Fixed Centered Service Options */}
-          <div className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-            <div className={`text-center max-w-4xl mx-auto section-content ${servicesAnimation.isVisible ? 'visible' : ''}`}>
+          {/* Desktop Split-Screen Layout */}
+          <div className="hidden lg:flex h-screen">
+            {/* LEFT 70% - Cinematic Image Authority */}
+            <div className="w-[70%] relative overflow-hidden">
+              {/* Full-screen rotating images with cinematic treatment */}
+              {slideshowImages.map((image, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                    index === currentSlideIndex ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
+                  }`}
+                  style={{
+                    backgroundImage: `url(${image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    filter: 'brightness(0.9) contrast(1.1) saturate(0.85)',
+                    animation: index === currentSlideIndex ? 'kenBurns 6.5s ease-out' : 'none'
+                  }}
+                />
+              ))}
               
-              {/* Elegant Section Title */}
-              <div className={`mb-16 scroll-animate ${servicesAnimation.isVisible ? 'visible' : ''}`}>
-                <h2 className="font-serif text-[40px] md:text-[56px] lg:text-[64px] font-medium text-white mb-8 tracking-[2px] leading-[1.1] drop-shadow-2xl">
-                  Þjónustan Okkar
-                </h2>
+              {/* Subtle vignette for center focus */}
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20"></div>
+              
+              {/* Elegant lavender overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-purple-50/30 via-transparent to-transparent"></div>
+            </div>
+            
+            {/* RIGHT 30% - Refined Control Panel */}
+            <div className="w-[30%] bg-white relative flex flex-col justify-center px-12 py-16">
+              <div className={`space-y-8 ${servicesAnimation.isVisible ? 'visible' : ''}`}>
                 
-                {/* Elegant Decorative Underline */}
-                <div className="flex justify-center mb-12">
-                  <div className="w-32 h-1.5 bg-gradient-to-r from-white/60 via-white to-white/60 rounded-full shadow-lg"></div>
+                {/* Section Label */}
+                <div className="mb-12">
+                  <p className="text-gray-500 text-sm font-medium tracking-[2px] uppercase mb-2">
+                    Our Expertise
+                  </p>
+                  <div className="w-16 h-px bg-gray-300"></div>
+                </div>
+                
+                {/* Service Navigation Menu */}
+                <div className="space-y-6">
+                  {services.map((service, index) => (
+                    <Link key={service.id} href={`/services/${service.id}`}>
+                      <div 
+                        className="group cursor-pointer py-2 transition-all duration-300 ease-out"
+                        onMouseEnter={() => handleServiceHover(service.id)}
+                        onMouseLeave={handleServiceLeave}
+                      >
+                        <h3 className="text-[32px] xl:text-[36px] font-medium text-gray-900 leading-[1.6] 
+                                     tracking-tight group-hover:text-purple-400 transition-all duration-300
+                                     group-hover:translate-x-2"
+                            style={{ fontFamily: '"DM Sans", system-ui, sans-serif' }}>
+                          {service.name}
+                        </h3>
+                        
+                        {/* Hover underline */}
+                        <div className="w-0 group-hover:w-16 h-0.5 bg-purple-400 mt-2 
+                                      transition-all duration-500 ease-out"></div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+                
+                {/* Scroll Cue */}
+                <div className="absolute bottom-8 right-8">
+                  <div className="flex items-center space-x-2 text-purple-400 text-sm tracking-wide
+                                group cursor-pointer hover:text-purple-500 transition-colors duration-300">
+                    <span className="font-medium">Explore All Services</span>
+                    <div className="transform transition-transform duration-300 group-hover:translate-y-1">
+                      ↓
+                    </div>
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+          
+          {/* Mobile Stacked Layout */}
+          <div className="lg:hidden">
+            {/* Full-screen rotating image up top */}
+            <div className="h-[60vh] relative overflow-hidden">
+              {slideshowImages.map((image, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                    index === currentSlideIndex ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  style={{
+                    backgroundImage: `url(${image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    filter: 'brightness(0.9) contrast(1.1) saturate(0.85)'
+                  }}
+                />
+              ))}
               
-              {/* Service Menu - Vertically Centered */}
-              <div className={`space-y-8 md:space-y-12 scroll-animate scroll-animate-delay-1 ${servicesAnimation.isVisible ? 'visible' : ''}`}>
-                {services.map((service, index) => (
-                  <Link key={service.id} href={`/services/${service.id}`}>
-                    <div className="group cursor-pointer transition-all duration-500 ease-out hover:scale-105">
-                      <h3 className="text-[28px] md:text-[40px] lg:text-[48px] font-medium text-white tracking-[1.5px] 
-                                   group-hover:text-purple-200 transition-all duration-500 
-                                   drop-shadow-xl group-hover:drop-shadow-2xl
-                                   group-hover:tracking-[2px] leading-[1.2]"
-                          style={{ 
-                            textShadow: '0 4px 20px rgba(0,0,0,0.6), 0 8px 40px rgba(0,0,0,0.3)'
-                          }}>
-                        {service.name}
-                      </h3>
-                      
-                      {/* Subtle Hover Underline */}
-                      <div className="w-0 group-hover:w-32 h-0.5 bg-white/80 mx-auto mt-4 
-                                    transition-all duration-700 ease-out rounded-full"></div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-              
-              {/* Subtle Navigation Hint */}
-              <div className={`mt-20 scroll-animate scroll-animate-delay-2 ${servicesAnimation.isVisible ? 'visible' : ''}`}>
-                <p className="text-white/60 text-sm md:text-base font-light tracking-wide">
-                  Click any service to learn more
-                </p>
+              {/* Mobile overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30"></div>
+            </div>
+            
+            {/* Clean vertical stack of services below */}
+            <div className="bg-white px-6 py-12">
+              <div className={`max-w-lg mx-auto ${servicesAnimation.isVisible ? 'visible' : ''}`}>
+                
+                {/* Section Label */}
+                <div className="text-center mb-12">
+                  <p className="text-gray-500 text-sm font-medium tracking-[2px] uppercase mb-4">
+                    Our Expertise
+                  </p>
+                  <div className="w-16 h-px bg-gray-300 mx-auto"></div>
+                </div>
+                
+                {/* Service Navigation Menu */}
+                <div className="space-y-8">
+                  {services.map((service, index) => (
+                    <Link key={service.id} href={`/services/${service.id}`}>
+                      <div className="group text-center cursor-pointer py-4 transition-all duration-300 ease-out">
+                        <h3 className="text-[26px] md:text-[30px] font-medium text-gray-900 leading-[1.6] 
+                                     tracking-tight group-hover:text-purple-400 transition-all duration-300"
+                            style={{ fontFamily: '"DM Sans", system-ui, sans-serif' }}>
+                          {service.name}
+                        </h3>
+                        
+                        {/* Hover underline */}
+                        <div className="w-0 group-hover:w-16 h-0.5 bg-purple-400 mt-2 mx-auto
+                                      transition-all duration-500 ease-out"></div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
