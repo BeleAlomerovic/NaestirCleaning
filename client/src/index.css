@@ -278,6 +278,33 @@
   text-shadow: 0 4px 12px rgba(167, 139, 250, 0.2);
 }
 
+/* Dynamic Masking Reveal Effect */
+.reveal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 70%, transparent 100%);
+  transform: translateX(0);
+  transition: transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-mask.revealed {
+  transform: translateX(100%);
+}
+
+/* Alternative top-to-bottom reveal */
+.reveal-mask-vertical {
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 70%, transparent 100%);
+  transform: translateY(0);
+  transition: transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-mask-vertical.revealed {
+  transform: translateY(100%);
+}
+
 /* Enhanced Smooth Transitions for Luxury Feel */
 .transition-opacity-slow {
   transition: opacity 2s ease-in-out;

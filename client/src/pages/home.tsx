@@ -238,7 +238,7 @@ export default function Home() {
         >
           {/* Desktop Split-Screen Layout */}
           <div className="hidden lg:flex h-screen">
-            {/* LEFT 70% - Cinematic Image Authority */}
+            {/* LEFT 70% - Cinematic Image Authority with Dynamic Masking */}
             <div className="w-[70%] relative overflow-hidden">
               {/* Full-screen rotating images with cinematic treatment */}
               {slideshowImages.map((image, index) => (
@@ -256,6 +256,16 @@ export default function Home() {
                   }}
                 />
               ))}
+              
+              {/* Dynamic Reveal Mask - Left to Right */}
+              <div 
+                className={`absolute inset-0 bg-white transition-all duration-1500 ease-out ${
+                  servicesAnimation.isVisible ? 'translate-x-full' : 'translate-x-0'
+                }`}
+                style={{
+                  background: 'linear-gradient(90deg, #ffffff 0%, #ffffff 70%, transparent 100%)'
+                }}
+              />
               
               {/* Subtle vignette for center focus */}
               <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20"></div>
@@ -333,6 +343,16 @@ export default function Home() {
                   }}
                 />
               ))}
+              
+              {/* Dynamic Reveal Mask - Top to Bottom for Mobile */}
+              <div 
+                className={`absolute inset-0 bg-white transition-all duration-1500 ease-out ${
+                  servicesAnimation.isVisible ? 'translate-y-full' : 'translate-y-0'
+                }`}
+                style={{
+                  background: 'linear-gradient(180deg, #ffffff 0%, #ffffff 70%, transparent 100%)'
+                }}
+              />
               
               {/* Mobile overlay */}
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30"></div>
