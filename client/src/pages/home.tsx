@@ -234,44 +234,38 @@ export default function Home() {
         <section 
           id="services" 
           ref={servicesAnimation.elementRef as any}
-          className="relative min-h-screen overflow-hidden"
-          style={{ backgroundColor: '#f9f6ff' }}
+          className="relative min-h-screen overflow-hidden bg-white"
         >
           {/* Desktop Split-Screen Layout */}
-          <div className="hidden lg:flex h-screen max-w-[1400px] mx-auto px-12 py-16">
-            {/* LEFT 70% - Cinematic Image Authority with Framed Container */}
-            <div className="w-[70%] relative p-8">
-              {/* Framed Image Container */}
-              <div className="relative h-full rounded-xl overflow-hidden border-2 border-gray-200/50 shadow-2xl shadow-black/5">
-                {/* Rotating images with dynamic masking reveal */}
-                {slideshowImages.map((image, index) => (
-                  <div
-                    key={index}
-                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                      index === currentSlideIndex ? 'opacity-100' : 'opacity-0'
-                    }`}
-                    style={{
-                      backgroundImage: `url(${image})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      backgroundRepeat: 'no-repeat',
-                      filter: 'brightness(0.9) contrast(1.1) saturate(0.85)',
-                      maskImage: index === currentSlideIndex ? 'linear-gradient(90deg, transparent 0%, black 50%, black 100%)' : 'none',
-                      animation: index === currentSlideIndex ? 'revealMask 1s ease-out' : 'none'
-                    }}
-                  />
-                ))}
-                
-                {/* Frosted Glass Overlay */}
-                <div className="absolute inset-0 bg-white/8 backdrop-blur-sm"></div>
-                
-                {/* Subtle vignette for center focus */}
-                <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/10"></div>
-              </div>
+          <div className="hidden lg:flex h-screen">
+            {/* LEFT 70% - Cinematic Image Authority */}
+            <div className="w-[70%] relative overflow-hidden">
+              {/* Full-screen rotating images with cinematic treatment */}
+              {slideshowImages.map((image, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                    index === currentSlideIndex ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  style={{
+                    backgroundImage: `url(${image})`,
+                    backgroundSize: '85%',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    filter: 'brightness(0.9) contrast(1.1) saturate(0.85)'
+                  }}
+                />
+              ))}
+              
+              {/* Subtle vignette for center focus */}
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20"></div>
+              
+              {/* Elegant lavender overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-purple-50/30 via-transparent to-transparent"></div>
             </div>
             
             {/* RIGHT 30% - Refined Control Panel */}
-            <div className="w-[30%] bg-white/80 backdrop-blur-sm relative flex flex-col justify-center px-12 py-16 rounded-r-xl">
+            <div className="w-[30%] bg-white relative flex flex-col justify-center px-12 py-16">
               <div className={`space-y-8 ${servicesAnimation.isVisible ? 'visible' : ''}`}>
                 
                 {/* Section Label */}
@@ -291,40 +285,26 @@ export default function Home() {
                         onMouseEnter={() => handleServiceHover(service.id)}
                         onMouseLeave={handleServiceLeave}
                       >
-                        <h3 className={`text-[32px] xl:text-[36px] font-medium leading-[1.6] 
-                                     tracking-tight transition-all duration-300
-                                     group-hover:translate-x-2 ${
-                                       slideshowImages[currentSlideIndex] === serviceImageMap[service.id] 
-                                         ? 'text-purple-500' 
-                                         : 'text-gray-900 group-hover:text-purple-400'
-                                     }`}
+                        <h3 className="text-[32px] xl:text-[36px] font-medium text-gray-900 leading-[1.6] 
+                                     tracking-tight group-hover:text-purple-400 transition-all duration-300
+                                     group-hover:translate-x-2"
                             style={{ fontFamily: '"DM Sans", system-ui, sans-serif' }}>
                           {service.name}
                         </h3>
                         
-                        {/* Dynamic underline - active when image matches */}
-                        <div className={`h-0.5 mt-2 transition-all duration-500 ease-out ${
-                          slideshowImages[currentSlideIndex] === serviceImageMap[service.id]
-                            ? 'w-16 bg-purple-500'
-                            : 'w-0 group-hover:w-16 bg-purple-400'
-                        }`}></div>
+                        {/* Hover underline */}
+                        <div className="w-0 group-hover:w-16 h-0.5 bg-purple-400 mt-2 
+                                      transition-all duration-500 ease-out"></div>
                       </div>
                     </Link>
                   ))}
-                </div>
-                
-                {/* Inspirational Quote */}
-                <div className="mt-8 border-t border-gray-200/50 pt-8">
-                  <p className="text-gray-600 text-sm italic font-light leading-relaxed">
-                    "We clean for peace of mind."
-                  </p>
                 </div>
                 
                 {/* Scroll Cue */}
                 <div className="absolute bottom-8 right-8">
                   <div className="flex items-center space-x-2 text-purple-400 text-sm tracking-wide
                                 group cursor-pointer hover:text-purple-500 transition-colors duration-300">
-                    <span className="font-medium">Explore Services</span>
+                    <span className="font-medium">Explore All Services</span>
                     <div className="transform transition-transform duration-300 group-hover:translate-y-1">
                       ↓
                     </div>
@@ -335,34 +315,31 @@ export default function Home() {
           </div>
           
           {/* Mobile Stacked Layout */}
-          <div className="lg:hidden px-4 py-8">
-            {/* Framed rotating image up top */}
-            <div className="h-[60vh] relative mb-8">
-              <div className="relative h-full rounded-xl overflow-hidden border-2 border-gray-200/50 shadow-xl shadow-black/5">
-                {slideshowImages.map((image, index) => (
-                  <div
-                    key={index}
-                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                      index === currentSlideIndex ? 'opacity-100' : 'opacity-0'
-                    }`}
-                    style={{
-                      backgroundImage: `url(${image})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      backgroundRepeat: 'no-repeat',
-                      filter: 'brightness(0.9) contrast(1.1) saturate(0.85)',
-                      animation: index === currentSlideIndex ? 'revealMask 1s ease-out' : 'none'
-                    }}
-                  />
-                ))}
-                
-                {/* Frosted Glass Overlay */}
-                <div className="absolute inset-0 bg-white/8 backdrop-blur-sm"></div>
-              </div>
+          <div className="lg:hidden">
+            {/* Full-screen rotating image up top */}
+            <div className="h-[60vh] relative overflow-hidden">
+              {slideshowImages.map((image, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                    index === currentSlideIndex ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  style={{
+                    backgroundImage: `url(${image})`,
+                    backgroundSize: '85%',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    filter: 'brightness(0.9) contrast(1.1) saturate(0.85)'
+                  }}
+                />
+              ))}
+              
+              {/* Mobile overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30"></div>
             </div>
             
             {/* Clean vertical stack of services below */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl px-6 py-12 shadow-lg">
+            <div className="bg-white px-6 py-12">
               <div className={`max-w-lg mx-auto ${servicesAnimation.isVisible ? 'visible' : ''}`}>
                 
                 {/* Section Label */}
@@ -378,32 +355,18 @@ export default function Home() {
                   {services.map((service, index) => (
                     <Link key={service.id} href={`/services/${service.id}`}>
                       <div className="group text-center cursor-pointer py-4 transition-all duration-300 ease-out">
-                        <h3 className={`text-[26px] md:text-[30px] font-medium leading-[1.6] 
-                                     tracking-tight transition-all duration-300 ${
-                                       slideshowImages[currentSlideIndex] === serviceImageMap[service.id] 
-                                         ? 'text-purple-500' 
-                                         : 'text-gray-900 group-hover:text-purple-400'
-                                     }`}
+                        <h3 className="text-[26px] md:text-[30px] font-medium text-gray-900 leading-[1.6] 
+                                     tracking-tight group-hover:text-purple-400 transition-all duration-300"
                             style={{ fontFamily: '"DM Sans", system-ui, sans-serif' }}>
                           {service.name}
                         </h3>
                         
-                        {/* Dynamic underline */}
-                        <div className={`h-0.5 mt-2 mx-auto transition-all duration-500 ease-out ${
-                          slideshowImages[currentSlideIndex] === serviceImageMap[service.id]
-                            ? 'w-16 bg-purple-500'
-                            : 'w-0 group-hover:w-16 bg-purple-400'
-                        }`}></div>
+                        {/* Hover underline */}
+                        <div className="w-0 group-hover:w-16 h-0.5 bg-purple-400 mt-2 mx-auto
+                                      transition-all duration-500 ease-out"></div>
                       </div>
                     </Link>
                   ))}
-                </div>
-                
-                {/* Inspirational Quote */}
-                <div className="mt-8 border-t border-gray-200/50 pt-8 text-center">
-                  <p className="text-gray-600 text-sm italic font-light leading-relaxed">
-                    "We clean for peace of mind."
-                  </p>
                 </div>
               </div>
             </div>
