@@ -430,8 +430,8 @@ export default function Home() {
             {/* LEFT SIDE - Video Section */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
               <div className="w-full max-w-2xl">
-                {/* Næstir Logo */}
-                <div className="text-center mb-8">
+                {/* Næstir Logo Above Video - Exact Footer Style */}
+                <div className="text-center mb-6">
                   <h2 
                     className="text-[#4B0082] font-playfair italic"
                     style={{ fontSize: '40px', lineHeight: '1.2' }}
@@ -439,7 +439,7 @@ export default function Home() {
                     Næstir
                   </h2>
                 </div>
-                
+
                 {/* Video Container */}
                 <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff]">
                   <video
