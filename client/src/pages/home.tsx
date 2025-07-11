@@ -250,7 +250,7 @@ export default function Home() {
         {/* Before & After Transformations Section - Editorial Magazine Layout */}
         <section 
           ref={galleryAnimation.elementRef as any}
-          className="relative py-32 overflow-hidden"
+          className="relative py-20 overflow-hidden"
         >
           {/* Elite Background Design: Sculpted Depth */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#f6f0ff] to-[#ffffff]">
@@ -267,7 +267,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className={`max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 py-16 section-content ${galleryAnimation.isVisible ? 'visible' : ''}`}>
+          <div className={`max-w-2xl mx-auto px-6 sm:px-8 lg:px-12 py-12 section-content ${galleryAnimation.isVisible ? 'visible' : ''}`}>
             {/* Headline & Typography: Matching Meðmæli Style */}
             <div className={`text-center mb-16 scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
               {/* Background Quote Mark - Matching Meðmæli */}
