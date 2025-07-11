@@ -1,0 +1,84 @@
+let's improve the before and after section: HIGH-FIDELITY STRUCTURE OVERVIEW
+
+Layer (Top to Bottom) Description
+🖼️ After Image Slowly revealed via wipe or fade
+🖼️ Before Image Masked or fades on hover
+🎥 Live Video Soft, muted, looping — always moving behind
+💠 Card Container Rounded, shadowed, designed like a luxury case study. 1. CARD CONTAINER: FRAMING FOR LUXURY
+
+Your card should feel like a product showcase tile, not a content block.
+
+🔲 Size & Position
+Width: 720px to 900px
+Aspect ratio: 16:9 or 4:3 (no awkward cropping)
+Centered horizontally, but padded from top/bottom to breathe
+🎨 Visual Treatments
+Element Recommendation
+Border radius 16px or 20px — consistent with your brand UI
+Shadow 0 20px 60px rgba(0,0,0,0.08) — soft, atmospheric
+Overflow hidden — ensures all video/image animation stays contained
+Background Transparent OR lavender-tinted (#f6f0ff) card layer
+
+VIDEO BACKGROUND: TEXTURE + LIFE
+This video is not a feature — it's a texture of credibility. It makes the experience feel alive.
+
+Technical Setup:
+HTML <video> element
+Props: autoplay, loop, muted, playsinline
+Set object-fit: cover to ensure it fills container
+Use filter: brightness(0.75) or overlay gradient for text readability
+Overlay Gradient (recommended):
+background: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(0,0,0,0.3));
+l Advanced Additions:
+A slow zoom (scale: 1.05 → 1.1) animation on the video
+Blurring only the left or right half (to simulate dirt) with a mask-image. 3. BEFORE & AFTER IMAGE LAYERS: CONTROLLED REVEAL
+
+You want the user to feel like they're uncovering cleanliness.
+
+Option A: Wipe Reveal (Most Cinematic)
+On hover or drag:
+A horizontal or diagonal wipe slowly removes the before image
+A thin dividing line tracks the wipe, creating a "cleaning stroke" feel
+The after image and video peek through
+🎯 This mirrors the gesture of wiping a dirty window — direct sensory analogy.
+How to Implement:
+
+Use a div mask over the before image
+Animate it with CSS (hover) or JavaScript (drag)
+Use clip-path, mask-image, or transform: scaleX() tricks 4. TEXT & LABELS: DESIGNED LIKE A CASE STUDY
+
+Typography:
+Element Font Size
+Section Title Playfair Display or DM Serif 36–48px
+Card Title Inter or Neue Haas Grotesk 28–32px
+Description DM Sans, gray-600 16–18px Label Design:
+“BEFORE” (top-left):
+All-caps, small (10–12px), semi-transparent white background
+Rounded (4px), slight shadow
+“AFTER” (top-right or appears mid-reveal)
+Caption:
+Underneath card, add:
+Headline: “Car Interior Revival”
+Description: “Precision detailing removed years of embedded grime and allergens.”
+
+MICRO-INTERACTIONS & FINISHING TOUCHES
+Touch Effect
+Cursor on hover Custom icon: ↔ or branded wipe icon
+Scroll-in animation Card fades in + slides up 30px on viewport enter
+Hover sound effect (optional) Very soft water wipe or chime
+Under-card CTA “View more transformations →” with lavender arrow MOBILE EXPERIENCE
+
+Display static image (before) + tap-to-reveal after
+Use a poster frame from the video
+Fallback: fade transition on tap
+CTA appears below: “Tap to reveal results”
+DELIVERABLE DESIGN SUMMARY
+
+Element Style
+Card Shadowed, rounded, overflow-hidden
+Video Full cover, looped, muted, low brightness
+Before Image Top layer, masked or fading on hover
+After Image Middle layer, soft fade-in or revealed via mask
+Text & Labels Clean, restrained, serif + sans combo
+Caption Feels like an editorial photo description
+Animation Slow, smooth, cinematic motion only.
