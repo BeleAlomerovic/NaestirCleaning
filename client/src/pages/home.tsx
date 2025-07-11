@@ -404,11 +404,6 @@ export default function Home() {
             </div>
           </div>
           
-          {/* DEBUG - Test visibility */}
-          <div className="w-full bg-red-500 text-white text-center p-4 text-2xl font-bold">
-            DEBUG: If you see this, the section is loading
-          </div>
-
           {/* Section Header - Elegant "Verkin Okkar" Design */}
           <div className={`text-center py-16 relative scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
             {/* Background Quote Mark */}
@@ -435,19 +430,14 @@ export default function Home() {
             {/* LEFT SIDE - Video Section */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
               <div className="w-full max-w-2xl">
-                {/* Næstir Logo - Debug */}
-                <div className="text-center mb-8 bg-yellow-200 p-4 border-2 border-red-500">
-                  <h3 
-                    className="text-[#4B0082] italic font-bold"
-                    style={{ 
-                      fontSize: '40px', 
-                      lineHeight: '1.2',
-                      fontFamily: 'Playfair Display, serif'
-                    }}
+                {/* Næstir Logo */}
+                <div className="text-center mb-8">
+                  <h2 
+                    className="text-[#4B0082] font-playfair italic"
+                    style={{ fontSize: '40px', lineHeight: '1.2' }}
                   >
                     Næstir
-                  </h3>
-                  <p className="text-sm text-gray-600">DEBUG: Logo should be visible here</p>
+                  </h2>
                 </div>
                 
                 {/* Video Container */}
