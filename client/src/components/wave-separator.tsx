@@ -4,7 +4,7 @@ interface WaveSeparatorProps {
 }
 
 export function WaveSeparator({ nextSectionColor, className = '' }: WaveSeparatorProps) {
-  const fillColor = nextSectionColor === 'white' ? '#FFFFFF' : '#F9F7FC';
+  const fillColor = nextSectionColor === 'white' ? '#FFFFFF' : 'rgba(255, 255, 255, 0.65)';
   
   return (
     <div className={`wave-separator ${className}`}>
