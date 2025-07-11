@@ -247,123 +247,126 @@ export default function Home() {
           <WaveSeparator nextSectionColor="white" />
         </section>
 
-        {/* Before & After Transformations Section */}
+        {/* Before & After Transformations Section - Editorial Magazine Layout */}
         <section 
           ref={galleryAnimation.elementRef as any}
-          className="relative overflow-hidden bg-[#f9fafb]"
-          style={{
-            background: 'linear-gradient(135deg, #f9fafb 0%, #f3f4f6 50%, #f9f7fc 100%)',
-          }}
+          className="relative py-32 overflow-hidden"
         >
-          {/* Subtle Abstract Background Elements */}
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-gradient-to-br from-purple-100/10 to-blue-100/10 blur-3xl"></div>
-            <div className="absolute bottom-20 right-20 w-48 h-48 rounded-full bg-gradient-to-br from-lavender-100/8 to-purple-100/8 blur-3xl"></div>
-            <div className="absolute top-1/2 left-1/3 w-24 h-24 rounded-full bg-gradient-to-br from-blue-50/15 to-purple-50/15 blur-2xl"></div>
-            {/* Sparkle elements */}
-            <div className="absolute top-20 right-1/4 text-purple-200/5 text-4xl select-none">✨</div>
-            <div className="absolute bottom-32 left-1/4 text-blue-200/5 text-3xl select-none">✨</div>
+          {/* Elite Background Design: Sculpted Depth */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#f6f0ff] to-[#ffffff]">
+            {/* Sculpted SVG Abstract Shape */}
+            <div className="absolute top-0 right-0 w-96 h-96 opacity-[0.06]">
+              <svg viewBox="0 0 400 400" className="w-full h-full text-[#dcc9f9]">
+                <path d="M300,50 Q350,100 320,200 Q290,300 200,320 Q100,350 80,250 Q50,150 150,80 Q250,20 300,50 Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 opacity-[0.04] rotate-45">
+              <svg viewBox="0 0 200 200" className="w-full h-full text-[#dcc9f9]">
+                <circle cx="100" cy="100" r="80" fill="currentColor"/>
+              </svg>
+            </div>
           </div>
           
-          <div className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 section-content ${galleryAnimation.isVisible ? 'visible' : ''}`}>
-            {/* Enhanced Section Header */}
-            <div className={`text-center mb-16 scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
-              {/* Background Quote Mark */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="text-[120px] text-purple-200/10 font-serif leading-none select-none">
-                  "
-                </div>
-              </div>
-              
-              {/* Main Title */}
-              <h2 className="relative z-10 font-serif text-3xl md:text-4xl font-semibold text-[#2D2D2D] mb-4 tracking-tight leading-tight">
-                Before & After Transformations
+          <div className={`max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-24 section-content ${galleryAnimation.isVisible ? 'visible' : ''}`}>
+            {/* Headline & Typography: Understated Luxury */}
+            <div className={`text-center mb-20 scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
+              {/* Main Title with Purple Highlight */}
+              <h2 className="font-bold text-4xl md:text-5xl text-[#2D2D2D] mb-6 tracking-[1.2px] leading-tight">
+                Before & After <span className="text-[#9966cc]">Transformations</span>
               </h2>
               
-              {/* Elegant brand-colored accent bar */}
-              <div className="flex justify-center mb-6">
-                <div className="w-16 h-1 bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 rounded-full shadow-sm"></div>
-              </div>
-              
-              {/* Enhanced Subtitle */}
-              <p className="font-sans text-gray-500 text-base max-w-[500px] mx-auto leading-relaxed tracking-wide italic">
-                Real Proof. Real Results. Real Clients.
+              {/* Subtitle */}
+              <p className="font-light text-gray-600 text-lg max-w-[600px] mx-auto leading-relaxed tracking-wide">
+                Real results from real clients. Immaculate, verified, and visual.
               </p>
             </div>
 
-            {/* Premium Carousel Container with Entry Animation */}
-            <div className={`relative carousel-container scroll-animate scroll-animate-delay-1 ${galleryAnimation.isVisible ? 'visible animate-fade-slide-up' : ''}`}>
-              {/* Centerpiece Design with Professional Navigation */}
-              <div className="relative flex items-center justify-center max-w-[600px] mx-auto">
+            {/* Editorial Magazine Spread Layout */}
+            <div 
+              className={`relative scroll-animate scroll-animate-delay-1 ${galleryAnimation.isVisible ? 'visible' : ''}`}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              {/* Center-aligned Content with Large Vertical Spacing */}
+              <div className="flex flex-col items-center space-y-16">
                 
-                {/* Professional Left Arrow - Responsive */}
-                <button
-                  onClick={goToPrev}
-                  className="carousel-nav-button absolute left-[-80px] z-20 w-12 h-12 bg-white hover:bg-gray-50 shadow-md hover:shadow-lg rounded-full flex items-center justify-center transition-all duration-150 ease-in-out group border border-gray-100 touch-manipulation"
-                  aria-label="Previous transformation"
-                >
-                  <ChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-purple-600 transition-colors" />
-                </button>
-                
-                {/* Professional Right Arrow - Responsive */}
-                <button
-                  onClick={goToNext}
-                  className="carousel-nav-button right absolute right-[-80px] z-20 w-12 h-12 bg-white hover:bg-gray-50 shadow-md hover:shadow-lg rounded-full flex items-center justify-center transition-all duration-150 ease-in-out group border border-gray-100 touch-manipulation"
-                  aria-label="Next transformation"
-                >
-                  <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-purple-600 transition-colors" />
-                </button>
-                
-                {/* Hero Card Design with Touch Support */}
-                <div 
-                  className="relative w-full max-w-[520px] bg-white rounded-2xl shadow-lg border border-gray-100 p-8 transition-all duration-300 hover:shadow-xl touch-manipulation"
-                  onTouchStart={handleTouchStart}
-                  onTouchMove={handleTouchMove}
-                  onTouchEnd={handleTouchEnd}
-                >
-                  {/* Hero Image - 75% of card height */}
-                  <div className="relative overflow-hidden rounded-lg mb-6 shadow-md group">
+                {/* Before Image - Commanding Hero Content */}
+                <div className="w-full" style={{ maxWidth: 'min(90vw, 800px)' }}>
+                  <div className="relative group">
                     <img
                       src={transformations[currentIndex].beforeImage}
                       alt={`${transformations[currentIndex].title} before cleaning`}
-                      className="w-full h-[350px] object-cover transition-all duration-700 group-hover:opacity-0"
+                      className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)]"
                     />
-                    <img
-                      src={transformations[currentIndex].afterImage}
-                      alt={`${transformations[currentIndex].title} after cleaning`}
-                      className="absolute inset-0 w-full h-[350px] object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
-                    />
-                    
-                    {/* Premium Badge Labels */}
-                    <div className="absolute top-4 left-4 bg-black text-white px-4 py-2 rounded-full text-xs font-bold tracking-wide">
-                      BEFORE
-                    </div>
-                    <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-full text-xs font-bold tracking-wide opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
-                      AFTER
-                    </div>
-                  </div>
-                  
-                  {/* Typography & Copy Design */}
-                  <div className="text-center space-y-3">
-                    <h3 className="text-xl font-bold text-gray-900 tracking-tight">
-                      {transformations[currentIndex].title}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed max-w-md mx-auto">
-                      {transformations[currentIndex].description}
+                    {/* Editorial Caption */}
+                    <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
+                      {transformations[currentIndex].title} Before Deep Cleaning
                     </p>
                   </div>
                 </div>
+
+                {/* Elegant Transition Indicator */}
+                <div className="flex items-center space-x-4 py-4">
+                  <div className="w-12 h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
+                  <div className="text-purple-400 text-2xl">↓</div>
+                  <div className="w-12 h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
+                </div>
+
+                {/* After Image - Commanding Hero Content */}
+                <div className="w-full" style={{ maxWidth: 'min(90vw, 800px)' }}>
+                  <div className="relative group">
+                    <img
+                      src={transformations[currentIndex].afterImage}
+                      alt={`${transformations[currentIndex].title} after cleaning`}
+                      className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)]"
+                    />
+                    {/* Editorial Caption */}
+                    <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
+                      Post-Cleaning: Sparkling, Sanitized, Ready for Use
+                    </p>
+                  </div>
+                </div>
+
+                {/* Description with Ample Breathing Room */}
+                <div className="text-center max-w-2xl pt-8">
+                  <h3 className="text-2xl font-medium text-gray-900 mb-4 tracking-tight">
+                    {transformations[currentIndex].title}
+                  </h3>
+                  <p className="text-gray-600 text-base leading-relaxed">
+                    {transformations[currentIndex].description}
+                  </p>
+                </div>
+              </div>
+
+              {/* Professional Navigation */}
+              <div className="absolute top-1/2 left-0 right-0 flex justify-between items-center pointer-events-none">
+                <button
+                  onClick={goToPrev}
+                  className="carousel-nav-button ml-4 lg:ml-8 z-20 w-14 h-14 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg hover:shadow-xl rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200 pointer-events-auto"
+                  aria-label="Previous transformation"
+                >
+                  <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:text-purple-600 transition-colors" />
+                </button>
+                
+                <button
+                  onClick={goToNext}
+                  className="carousel-nav-button mr-4 lg:mr-8 z-20 w-14 h-14 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg hover:shadow-xl rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200 pointer-events-auto"
+                  aria-label="Next transformation"
+                >
+                  <ChevronRight className="w-6 h-6 text-gray-600 group-hover:text-purple-600 transition-colors" />
+                </button>
               </div>
               
-              {/* Minimal Progress Indicators */}
-              <div className="flex justify-center mt-8 space-x-2">
+              {/* Refined Progress Indicators */}
+              <div className="flex justify-center mt-12 space-x-3">
                 {transformations.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
                       index === currentIndex 
-                        ? 'bg-purple-500 scale-125' 
+                        ? 'bg-purple-500 scale-110' 
                         : 'bg-gray-300 hover:bg-gray-400'
                     }`}
                     aria-label={`Go to transformation ${index + 1}`}
