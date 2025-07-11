@@ -239,46 +239,27 @@ export default function Home() {
           {/* Desktop Split-Screen Layout */}
           <div className="hidden lg:flex h-screen">
             {/* LEFT 70% - Premium Portfolio Image Gallery */}
-            <div className="w-[70%] relative overflow-hidden bg-gray-50/30 flex items-center justify-center px-16 py-24">
-              {/* Premium Gallery Frame Container */}
-              <div className="relative w-full max-w-2xl aspect-[4/3] professional-frame-container">
+            <div className="w-[70%] relative overflow-hidden bg-gray-50/30 flex items-center justify-center px-12 py-16">
+              {/* Premium Gallery Frame Container - Larger Size */}
+              <div className="relative w-full max-w-4xl aspect-[4/3] professional-frame-container">
                 {/* White Padded Frame Background */}
                 <div className="absolute inset-0 bg-white rounded-[16px] p-6 shadow-gallery-frame">
                   {/* Inner Image Container */}
                   <div className="relative w-full h-full overflow-hidden rounded-[12px] border border-lavender-frame">
-                    {/* Rotating images with premium styling */}
-                    {slideshowImages.map((image, index) => (
-                      <div
-                        key={index}
-                        className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-                          index === currentSlideIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-                        }`}
-                      >
-                        <img
-                          src={image}
-                          alt={`Service ${index + 1}`}
-                          className="w-full h-full object-cover professional-image-treatment"
-                          style={{
-                            filter: 'brightness(0.96) contrast(1.08) saturate(0.92)'
-                          }}
-                        />
-                      </div>
-                    ))}
+                    {/* Static image display */}
+                    <img
+                      src={slideshowImages[0]}
+                      alt="Service showcase"
+                      className="w-full h-full object-cover professional-image-treatment"
+                      style={{
+                        filter: 'brightness(0.96) contrast(1.08) saturate(0.92)'
+                      }}
+                    />
                     
                     {/* Soft Edge Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/5 pointer-events-none rounded-[12px]"></div>
                   </div>
                 </div>
-                
-                {/* Dynamic Reveal Mask - Left to Right */}
-                <div 
-                  className={`absolute inset-0 rounded-[16px] transition-all duration-1500 ease-out ${
-                    servicesAnimation.isVisible ? 'translate-x-full' : 'translate-x-0'
-                  }`}
-                  style={{
-                    background: 'linear-gradient(90deg, #f9fafb 0%, #f9fafb 70%, transparent 100%)'
-                  }}
-                />
               </div>
               
               {/* Subtle ambient lighting effect */}
@@ -338,44 +319,26 @@ export default function Home() {
           {/* Mobile Stacked Layout */}
           <div className="lg:hidden">
             {/* Premium mobile gallery */}
-            <div className="h-[60vh] relative overflow-hidden bg-gray-50/30 flex items-center justify-center px-6 py-8">
-              <div className="relative w-full max-w-sm aspect-[4/3] professional-frame-container">
+            <div className="h-[60vh] relative overflow-hidden bg-gray-50/30 flex items-center justify-center px-4 py-6">
+              <div className="relative w-full max-w-md aspect-[4/3] professional-frame-container">
                 {/* White Padded Frame Background */}
                 <div className="absolute inset-0 bg-white rounded-[14px] p-4 shadow-gallery-frame-mobile">
                   {/* Inner Image Container */}
                   <div className="relative w-full h-full overflow-hidden rounded-[10px] border border-lavender-frame">
-                    {slideshowImages.map((image, index) => (
-                      <div
-                        key={index}
-                        className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-                          index === currentSlideIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-                        }`}
-                      >
-                        <img
-                          src={image}
-                          alt={`Service ${index + 1}`}
-                          className="w-full h-full object-cover professional-image-treatment"
-                          style={{
-                            filter: 'brightness(0.96) contrast(1.08) saturate(0.92)'
-                          }}
-                        />
-                      </div>
-                    ))}
+                    {/* Static image display */}
+                    <img
+                      src={slideshowImages[0]}
+                      alt="Service showcase"
+                      className="w-full h-full object-cover professional-image-treatment"
+                      style={{
+                        filter: 'brightness(0.96) contrast(1.08) saturate(0.92)'
+                      }}
+                    />
                     
                     {/* Soft Edge Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/5 pointer-events-none rounded-[10px]"></div>
                   </div>
                 </div>
-                
-                {/* Dynamic Reveal Mask - Top to Bottom for Mobile */}
-                <div 
-                  className={`absolute inset-0 rounded-[14px] transition-all duration-1500 ease-out ${
-                    servicesAnimation.isVisible ? 'translate-y-full' : 'translate-y-0'
-                  }`}
-                  style={{
-                    background: 'linear-gradient(180deg, #f9fafb 0%, #f9fafb 70%, transparent 100%)'
-                  }}
-                />
               </div>
             </div>
             
