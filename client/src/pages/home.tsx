@@ -383,10 +383,10 @@ export default function Home() {
           <WaveSeparator nextSectionColor="white" />
         </section>
 
-        {/* Before & After Transformations Section - Editorial Magazine Layout */}
+        {/* Before & After Transformations Section - Split Layout */}
         <section 
           ref={galleryAnimation.elementRef as any}
-          className="relative py-32 overflow-hidden"
+          className="relative min-h-screen overflow-hidden"
         >
           {/* Elite Background Design: Sculpted Depth */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#f6f0ff] to-[#ffffff]">
@@ -403,39 +403,57 @@ export default function Home() {
             </div>
           </div>
           
-          <div className={`max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-20 section-content ${galleryAnimation.isVisible ? 'visible' : ''}`}>
-            {/* Headline & Typography: Matching Meðmæli Style */}
-            <div className={`text-center mb-16 scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
-              {/* Background Quote Mark - Matching Meðmæli */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
-                  "
+          {/* Split Layout Container */}
+          <div className="flex flex-col lg:flex-row min-h-screen">
+            
+            {/* LEFT SIDE - Video Section */}
+            <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
+              <div className="w-full max-w-2xl">
+                {/* Section Title */}
+                <div className="text-center mb-8">
+                  <h2 className="font-serif text-[36px] md:text-[48px] lg:text-[52px] font-medium text-purple-900 mb-4 tracking-wide leading-[1.1]">
+                    Before & After <span className="text-purple-900">Transformations</span>
+                  </h2>
+                  <div className="flex justify-center mb-8">
+                    <div className="w-32 h-1.5 bg-gradient-to-r from-purple-300 via-purple-400 to-purple-300 rounded-full shadow-sm opacity-80"></div>
+                  </div>
                 </div>
-              </div>
-              
-              {/* Main Title - Exact Meðmæli Typography */}
-              <h2 className="font-serif text-[36px] md:text-[48px] lg:text-[52px] font-medium text-purple-900 mb-4 tracking-wide leading-[1.1] relative z-10">
-                Before & After <span className="text-purple-900">Transformations</span>
-              </h2>
-              
-              {/* Elegant Decorative Underline - Matching Meðmæli */}
-              <div className="flex justify-center mb-8">
-                <div className="w-32 h-1.5 bg-gradient-to-r from-purple-300 via-purple-400 to-purple-300 rounded-full shadow-sm opacity-80"></div>
+                
+                {/* Video Container */}
+                <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff]">
+                  <video
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  >
+                    <source src="/attached_assets/6694034-uhd_4096_2160_30fps.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  
+                  {/* Video Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/10 pointer-events-none"></div>
+                </div>
+                
+                {/* Video Caption */}
+                <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
+                  Professional cleaning in action
+                </p>
               </div>
             </div>
-
-            {/* Editorial Magazine Spread Layout */}
-            <div 
-              className={`relative scroll-animate scroll-animate-delay-1 ${galleryAnimation.isVisible ? 'visible' : ''}`}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
-              {/* Center-aligned Content with Single Hover Image */}
-              <div className="flex flex-col items-center space-y-12">
-                
-                {/* Single Hover-to-Reveal Image - Commanding Hero Content */}
-                <div className="w-full" style={{ maxWidth: 'min(90vw, 800px)' }}>
+            
+            {/* RIGHT SIDE - Before/After Card */}
+            <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
+              <div className="w-full max-w-2xl">
+                {/* Before/After Card */}
+                <div 
+                  className={`relative scroll-animate scroll-animate-delay-1 ${galleryAnimation.isVisible ? 'visible' : ''}`}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
+                >
+                  {/* Single Hover-to-Reveal Image */}
                   <div className="relative group">
                     {/* Before Image (Default) */}
                     <img
@@ -463,52 +481,52 @@ export default function Home() {
                       Hover to reveal transformation: {transformations[currentIndex].title}
                     </p>
                   </div>
-                </div>
 
-                {/* Description with Ample Breathing Room */}
-                <div className="text-center max-w-2xl pt-8">
-                  <h3 className="text-2xl font-medium text-gray-900 mb-4 tracking-tight">
-                    {transformations[currentIndex].title}
-                  </h3>
-                  <p className="text-gray-600 text-base leading-relaxed">
-                    {transformations[currentIndex].description}
-                  </p>
-                </div>
-              </div>
+                  {/* Description */}
+                  <div className="text-center max-w-xl mx-auto pt-8">
+                    <h3 className="text-2xl font-medium text-gray-900 mb-4 tracking-tight">
+                      {transformations[currentIndex].title}
+                    </h3>
+                    <p className="text-gray-600 text-base leading-relaxed">
+                      {transformations[currentIndex].description}
+                    </p>
+                  </div>
 
-              {/* Professional Navigation */}
-              <div className="absolute top-1/2 left-0 right-0 flex justify-between items-center pointer-events-none">
-                <button
-                  onClick={goToPrev}
-                  className="carousel-nav-button ml-4 lg:ml-8 z-20 w-14 h-14 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg hover:shadow-xl rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200 pointer-events-auto"
-                  aria-label="Previous transformation"
-                >
-                  <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:text-purple-600 transition-colors" />
-                </button>
-                
-                <button
-                  onClick={goToNext}
-                  className="carousel-nav-button mr-4 lg:mr-8 z-20 w-14 h-14 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg hover:shadow-xl rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200 pointer-events-auto"
-                  aria-label="Next transformation"
-                >
-                  <ChevronRight className="w-6 h-6 text-gray-600 group-hover:text-purple-600 transition-colors" />
-                </button>
-              </div>
-              
-              {/* Elegant Pagination Dots - Exact Meðmæli Style */}
-              <div className="flex justify-center items-center mt-8 space-x-3">
-                {transformations.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentIndex(index)}
-                    className={`rounded-full transition-all duration-300 ease-in-out transform hover:scale-110 ${
-                      index === currentIndex
-                        ? 'w-8 h-2.5 bg-gradient-to-r from-purple-400 to-purple-500 shadow-lg shadow-purple-200/50'
-                        : 'w-2.5 h-2.5 bg-gray-300 hover:bg-purple-300'
-                    }`}
-                    aria-label={`Go to transformation ${index + 1}`}
-                  />
-                ))}
+                  {/* Professional Navigation */}
+                  <div className="absolute top-1/2 left-0 right-0 flex justify-between items-center pointer-events-none">
+                    <button
+                      onClick={goToPrev}
+                      className="carousel-nav-button ml-4 z-20 w-14 h-14 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg hover:shadow-xl rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200 pointer-events-auto"
+                      aria-label="Previous transformation"
+                    >
+                      <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:text-purple-600 transition-colors" />
+                    </button>
+                    
+                    <button
+                      onClick={goToNext}
+                      className="carousel-nav-button mr-4 z-20 w-14 h-14 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg hover:shadow-xl rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200 pointer-events-auto"
+                      aria-label="Next transformation"
+                    >
+                      <ChevronRight className="w-6 h-6 text-gray-600 group-hover:text-purple-600 transition-colors" />
+                    </button>
+                  </div>
+                  
+                  {/* Elegant Pagination Dots */}
+                  <div className="flex justify-center items-center mt-8 space-x-3">
+                    {transformations.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentIndex(index)}
+                        className={`rounded-full transition-all duration-300 ease-in-out transform hover:scale-110 ${
+                          index === currentIndex
+                            ? 'w-8 h-2.5 bg-gradient-to-r from-purple-400 to-purple-500 shadow-lg shadow-purple-200/50'
+                            : 'w-2.5 h-2.5 bg-gray-300 hover:bg-purple-300'
+                        }`}
+                        aria-label={`Go to transformation ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
