@@ -244,16 +244,15 @@ export default function Home() {
               {slideshowImages.map((image, index) => (
                 <div
                   key={index}
-                  className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-                    index === currentSlideIndex ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
+                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                    index === currentSlideIndex ? 'opacity-100' : 'opacity-0'
                   }`}
                   style={{
                     backgroundImage: `url(${image})`,
-                    backgroundSize: 'cover',
+                    backgroundSize: '85%',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
-                    filter: 'brightness(0.9) contrast(1.1) saturate(0.85)',
-                    animation: index === currentSlideIndex ? 'kenBurns 6.5s ease-out' : 'none'
+                    filter: 'brightness(0.9) contrast(1.1) saturate(0.85)'
                   }}
                 />
               ))}
@@ -322,12 +321,12 @@ export default function Home() {
               {slideshowImages.map((image, index) => (
                 <div
                   key={index}
-                  className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
                     index === currentSlideIndex ? 'opacity-100' : 'opacity-0'
                   }`}
                   style={{
                     backgroundImage: `url(${image})`,
-                    backgroundSize: 'cover',
+                    backgroundSize: '85%',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
                     filter: 'brightness(0.9) contrast(1.1) saturate(0.85)'
