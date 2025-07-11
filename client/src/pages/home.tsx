@@ -430,15 +430,21 @@ export default function Home() {
             {/* LEFT SIDE - Video Section */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
               <div className="w-full max-w-2xl">
-                {/* Næstir Logo */}
-                <div className="text-center mb-8">
+                {/* Næstir Logo - Enhanced Visibility */}
+                <div className="text-center mb-8 relative z-10">
                   <h3 
-                    className="text-[#4B0082] italic mb-4 font-serif"
-                    style={{ fontSize: '40px', lineHeight: '1.2', fontFamily: 'Playfair Display, serif' }}
+                    className="text-[#4B0082] italic mb-4 font-serif font-bold"
+                    style={{ 
+                      fontSize: '40px', 
+                      lineHeight: '1.2', 
+                      fontFamily: 'Playfair Display, serif',
+                      textShadow: '0 1px 2px rgba(75, 0, 130, 0.1)'
+                    }}
                   >
                     Næstir
                   </h3>
                   <div className="w-16 h-px bg-[#B7A9D3] mx-auto"></div>
+                  <p className="text-xs text-gray-500 mt-2">Professional Cleaning Services</p>
                 </div>
                 
                 {/* Video Container */}
