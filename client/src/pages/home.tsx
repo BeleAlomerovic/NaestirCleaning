@@ -18,6 +18,7 @@ import carpetCleaningImage from "@assets/carpet cleaning_1751105111344.jpg";
 import carWashImage from "@assets/car wash_1751105103650.webp";
 import elevatorCleaningImage from "@assets/elevator_1751103467643.webp";
 import stairwayCleaningImage from "@assets/stairway_1751103472278.webp";
+import cleaningVideo from "@assets/6694034-uhd_4096_2160_30fps.mp4";
 
 export default function Home() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -428,7 +429,7 @@ export default function Home() {
                     muted
                     playsInline
                   >
-                    <source src="/attached_assets/6694034-uhd_4096_2160_30fps.mp4" type="video/mp4" />
+                    <source src={cleaningVideo} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                   
