@@ -267,7 +267,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className={`max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-20 section-content ${galleryAnimation.isVisible ? 'visible' : ''}`}>
+          <div className={`max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 py-16 section-content ${galleryAnimation.isVisible ? 'visible' : ''}`}>
             {/* Headline & Typography: Matching Meðmæli Style */}
             <div className={`text-center mb-16 scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
               {/* Background Quote Mark - Matching Meðmæli */}
