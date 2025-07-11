@@ -112,7 +112,6 @@ The application uses four main database tables:
 - **Database**: Requires `DATABASE_URL` environment variable
 
 ## Changelog
-- July 12, 2025: Implemented high-fidelity luxury Before & After section with premium card container design (900px, 16:9 aspect ratio), cinematic wipe reveal interaction controlled by mouse/touch position, live texture background with slow zoom animation, and professional case study typography with serif headings
 - July 12, 2025: Complete redesign of Before & After section with editorial magazine layout featuring commanding 800px max-width images, elite diagonal gradients (#f6f0ff → #ffffff), sculpted SVG shapes at 6% opacity, and understated luxury typography with purple highlights on "Transformations"
 - July 5, 2025: Enhanced professional alternating background pattern with gradient transitions, subtle shadows, and responsive padding
 - July 4, 2025: Implemented elegant testimonials carousel with "Meðmæli" heading design and applied consistent Icelandic section titles throughout home page
