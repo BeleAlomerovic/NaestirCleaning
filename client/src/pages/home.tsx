@@ -267,18 +267,25 @@ export default function Home() {
             </div>
           </div>
           
-          <div className={`max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-24 section-content ${galleryAnimation.isVisible ? 'visible' : ''}`}>
-            {/* Headline & Typography: Understated Luxury */}
-            <div className={`text-center mb-20 scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
-              {/* Main Title with Purple Highlight */}
-              <h2 className="font-bold text-4xl md:text-5xl text-[#2D2D2D] mb-6 tracking-[1.2px] leading-tight">
-                Before & After <span className="text-[#9966cc]">Transformations</span>
+          <div className={`max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-20 section-content ${galleryAnimation.isVisible ? 'visible' : ''}`}>
+            {/* Headline & Typography: Matching Meðmæli Style */}
+            <div className={`text-center mb-16 scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
+              {/* Background Quote Mark - Matching Meðmæli */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
+                  "
+                </div>
+              </div>
+              
+              {/* Main Title - Exact Meðmæli Typography */}
+              <h2 className="font-serif text-[36px] md:text-[48px] lg:text-[52px] font-medium text-purple-900 mb-4 tracking-wide leading-[1.1] relative z-10">
+                Before & After <span className="text-purple-900">Transformations</span>
               </h2>
               
-              {/* Subtitle */}
-              <p className="font-light text-gray-600 text-lg max-w-[600px] mx-auto leading-relaxed tracking-wide">
-                Real results from real clients. Immaculate, verified, and visual.
-              </p>
+              {/* Elegant Decorative Underline - Matching Meðmæli */}
+              <div className="flex justify-center mb-8">
+                <div className="w-32 h-1.5 bg-gradient-to-r from-purple-300 via-purple-400 to-purple-300 rounded-full shadow-sm opacity-80"></div>
+              </div>
             </div>
 
             {/* Editorial Magazine Spread Layout */}
@@ -352,16 +359,16 @@ export default function Home() {
                 </button>
               </div>
               
-              {/* Refined Progress Indicators */}
-              <div className="flex justify-center mt-12 space-x-3">
+              {/* Elegant Pagination Dots - Exact Meðmæli Style */}
+              <div className="flex justify-center items-center mt-8 space-x-3">
                 {transformations.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === currentIndex 
-                        ? 'bg-purple-500 scale-110' 
-                        : 'bg-gray-300 hover:bg-gray-400'
+                    className={`rounded-full transition-all duration-300 ease-in-out transform hover:scale-110 ${
+                      index === currentIndex
+                        ? 'w-8 h-2.5 bg-gradient-to-r from-purple-400 to-purple-500 shadow-lg shadow-purple-200/50'
+                        : 'w-2.5 h-2.5 bg-gray-300 hover:bg-purple-300'
                     }`}
                     aria-label={`Go to transformation ${index + 1}`}
                   />
