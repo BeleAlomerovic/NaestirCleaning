@@ -112,6 +112,7 @@ The application uses four main database tables:
 - **Database**: Requires `DATABASE_URL` environment variable
 
 ## Changelog
+- July 12, 2025: Optimized mobile Meðmæli section with smaller centered testimonial cards, tighter spacing, larger parallax background (140% size), and proper vertical centering using min-h-screen flex layout for immersive mobile experience
 - July 12, 2025: Added "Verkin Okkar" section title with elegant styling matching Meðmæli section, plus Næstir logo above video player in before/after section using footer styling
 - July 12, 2025: Complete redesign of Before & After section with editorial magazine layout featuring commanding 800px max-width images, elite diagonal gradients (#f6f0ff → #ffffff), sculpted SVG shapes at 6% opacity, and understated luxury typography with purple highlights on "Transformations"
 - July 5, 2025: Enhanced professional alternating background pattern with gradient transitions, subtle shadows, and responsive padding
