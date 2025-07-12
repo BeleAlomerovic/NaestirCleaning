@@ -19,6 +19,17 @@ import carWashImage from "@assets/car wash_1751105103650.webp";
 import elevatorCleaningImage from "@assets/elevator_1751103467643.webp";
 import stairwayCleaningImage from "@assets/stairway_1751103472278.webp";
 import cleaningVideo from "@assets/6694034-uhd_4096_2160_30fps.mp4";
+// Before/After Image Imports
+import beforeCar from "@assets/AdobeStock_334592268 2_1750506662307.jpg";
+import afterCar from "@assets/AdobeStock_334592268 2 copy_1750506666192.jpg";
+import beforeGrout from "@assets/AdobeStock_523168323_1750506670649.jpg";
+import afterGrout from "@assets/AdobeStock_523168323 copy_1750506673796.jpg";
+import beforeMold from "@assets/AdobeStock_554450129_1750506681118.jpg";
+import afterMold from "@assets/AdobeStock_554450129 copy_1750506684147.jpg";
+import beforeKitchen from "@assets/AdobeStock_560781364_1750506688928.jpg";
+import afterKitchen from "@assets/AdobeStock_560781364 copy_1750506691420.jpg";
+import beforeUpholstery from "@assets/AdobeStock_689599448_1750506694689.jpg";
+import afterUpholstery from "@assets/AdobeStock_689599448 copy_1750506697803.jpg";
 
 export default function Home() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -124,40 +135,40 @@ export default function Home() {
     setHoveredService(null);
   };
 
-  // Transformation data
+  // Transformation data - Using proper asset imports
   const transformations = [
     {
       id: 1,
-      beforeImage: "/assets/AdobeStock_334592268 2_1750506662307.jpg",
-      afterImage: "/assets/AdobeStock_334592268 2 copy_1750506666192.jpg",
+      beforeImage: beforeCar,
+      afterImage: afterCar,
       title: "Car Interior Revival",
       description: "Eliminated 3 years of pet hair, mud, and wear with specialized automotive detailing."
     },
     {
       id: 2,
-      beforeImage: "/assets/AdobeStock_523168323_1750506670649.jpg",
-      afterImage: "/assets/AdobeStock_523168323 copy_1750506673796.jpg",
+      beforeImage: beforeGrout,
+      afterImage: afterGrout,
       title: "Grout Line Restoration",
       description: "Removed years of soap scum and mildew with non-toxic deep steam extraction."
     },
     {
       id: 3,
-      beforeImage: "/assets/AdobeStock_554450129_1750506681118.jpg",
-      afterImage: "/assets/AdobeStock_554450129 copy_1750506684147.jpg",
+      beforeImage: beforeMold,
+      afterImage: afterMold,
       title: "Mold Remediation & Restoration",
       description: "Safely eliminated dangerous black mold and restored surfaces to pristine condition."
     },
     {
       id: 4,
-      beforeImage: "/assets/AdobeStock_560781364_1750506688928.jpg",
-      afterImage: "/assets/AdobeStock_560781364 copy_1750506691420.jpg",
+      beforeImage: beforeKitchen,
+      afterImage: afterKitchen,
       title: "Kitchen Deep Clean",
       description: "Dissolved stubborn grease buildup and food stains with professional degreasing agents."
     },
     {
       id: 5,
-      beforeImage: "/assets/AdobeStock_689599448_1750506694689.jpg",
-      afterImage: "/assets/AdobeStock_689599448 copy_1750506697803.jpg",
+      beforeImage: beforeUpholstery,
+      afterImage: afterUpholstery,
       title: "Upholstery Revival",
       description: "Lifted deep-set stains and odors with gentle steam cleaning and fabric protection."
     }
@@ -425,31 +436,119 @@ export default function Home() {
           </div>
 
           {/* Mobile Layout */}
-          <div className="block lg:hidden px-4 py-8">
-            <div className="text-center mb-8">
-              <h2 
-                className="text-[#4B0082] italic"
-                style={{ 
-                  fontSize: '40px', 
-                  lineHeight: '1.2',
-                  fontFamily: 'Playfair Display, serif' 
-                }}
-              >
-                Næstir
-              </h2>
+          <div className="block lg:hidden px-4 py-8 space-y-8">
+            {/* Video Section */}
+            <div>
+              <div className="text-center mb-8">
+                <h2 
+                  className="text-[#4B0082] italic"
+                  style={{ 
+                    fontSize: '32px', 
+                    lineHeight: '1.2',
+                    fontFamily: 'Playfair Display, serif' 
+                  }}
+                >
+                  Næstir
+                </h2>
+              </div>
+              
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff]">
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source src={cleaningVideo} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              
+              <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
+                Professional cleaning in action
+              </p>
             </div>
-            
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff]">
-              <video
-                className="w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                <source src={cleaningVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+
+            {/* Before/After Gallery - Mobile */}
+            <div 
+              className={`scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              {/* Single Hover-to-Reveal Image */}
+              <div className="relative group">
+                {/* Before Image (Default) */}
+                <img
+                  src={transformations[currentIndex].beforeImage}
+                  alt={`${transformations[currentIndex].title} before cleaning`}
+                  className="w-full h-[300px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] transition-all duration-700 group-active:opacity-0"
+                />
+                {/* After Image (Touch Reveal) */}
+                <img
+                  src={transformations[currentIndex].afterImage}
+                  alt={`${transformations[currentIndex].title} after cleaning`}
+                  className="absolute inset-0 w-full h-[300px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] opacity-0 transition-all duration-700 group-active:opacity-100"
+                />
+                
+                {/* Premium Badge Labels */}
+                <div className="absolute top-4 left-4 bg-black/80 text-white px-3 py-1.5 rounded-full text-xs font-bold tracking-wide">
+                  BEFORE
+                </div>
+                <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white px-3 py-1.5 rounded-full text-xs font-bold tracking-wide opacity-0 group-active:opacity-100 transition-all duration-500 delay-200">
+                  AFTER
+                </div>
+                
+                {/* Mobile Touch Instructions */}
+                <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
+                  Tap and hold to reveal transformation: {transformations[currentIndex].title}
+                </p>
+              </div>
+
+              {/* Description */}
+              <div className="text-center max-w-xl mx-auto pt-6">
+                <h3 className="text-xl font-medium text-gray-900 mb-3 tracking-tight">
+                  {transformations[currentIndex].title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {transformations[currentIndex].description}
+                </p>
+              </div>
+
+              {/* Navigation for Mobile */}
+              <div className="flex justify-between items-center mt-6">
+                <button
+                  onClick={goToPrev}
+                  className="w-12 h-12 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200"
+                  aria-label="Previous transformation"
+                >
+                  <ChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-purple-600 transition-colors" />
+                </button>
+                
+                <div className="flex justify-center items-center space-x-2">
+                  {transformations.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentIndex(index)}
+                      className={`rounded-full transition-all duration-300 ease-in-out transform hover:scale-110 ${
+                        index === currentIndex
+                          ? 'w-6 h-2 bg-gradient-to-r from-purple-400 to-purple-500 shadow-lg shadow-purple-200/50'
+                          : 'w-2 h-2 bg-gray-300 hover:bg-purple-300'
+                      }`}
+                      aria-label={`Go to transformation ${index + 1}`}
+                    />
+                  ))}
+                </div>
+                
+                <button
+                  onClick={goToNext}
+                  className="w-12 h-12 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200"
+                  aria-label="Next transformation"
+                >
+                  <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-purple-600 transition-colors" />
+                </button>
+              </div>
             </div>
           </div>
 
@@ -459,11 +558,6 @@ export default function Home() {
             {/* LEFT SIDE - Video Section */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
               <div className="w-full max-w-2xl">
-                {/* TEST - Visible on all screens */}
-                <div className="text-center mb-6 bg-red-500 text-white p-4">
-                  <h2 style={{ fontSize: '40px', color: 'white' }}>TEST - NÆSTIR LOGO HERE</h2>
-                </div>
-                
                 {/* Næstir Logo Above Video - Exact Footer Style */}
                 <div className="text-center mb-6">
                   <h2 
