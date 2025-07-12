@@ -395,168 +395,291 @@ export default function Home() {
           <WaveSeparator nextSectionColor="white" />
         </section>
 
-        {/* Before & After Transformations Section - Redesigned */}
+        {/* Before & After Transformations Section - Split Layout */}
         <section 
           ref={galleryAnimation.elementRef as any}
-          className="relative overflow-hidden bg-gradient-to-br from-[#f6f0ff] to-[#faf9ff] py-24"
+          className="relative min-h-screen overflow-hidden"
         >
-          {/* Section Header */}
-          <div className={`text-center mb-16 relative scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
-            {/* Main Title */}
-            <h2 className="font-playfair text-[42px] md:text-[48px] font-bold text-[#1F1F1F] mb-4 tracking-[-0.5px] leading-[1.1]">
-              Before & After Transformations
+          {/* Elite Background Design: Sculpted Depth */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#f6f0ff] to-[#ffffff]">
+            {/* Sculpted SVG Abstract Shape */}
+            <div className="absolute top-0 right-0 w-96 h-96 opacity-[0.06]">
+              <svg viewBox="0 0 400 400" className="w-full h-full text-[#dcc9f9]">
+                <path d="M300,50 Q350,100 320,200 Q290,300 200,320 Q100,350 80,250 Q50,150 150,80 Q250,20 300,50 Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 opacity-[0.04] rotate-45">
+              <svg viewBox="0 0 200 200" className="w-full h-full text-[#dcc9f9]">
+                <circle cx="100" cy="100" r="80" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          
+          {/* Section Header - Elegant "Verkin Okkar" Design */}
+          <div className={`text-center py-16 relative scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
+            {/* Background Quote Mark */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
+                "
+              </div>
+            </div>
+            
+            {/* Main Title - Enhanced Elegant Styling */}
+            <h2 className="font-serif text-[36px] md:text-[48px] lg:text-[52px] font-medium text-purple-900 mb-4 tracking-wide leading-[1.1] relative z-10">
+              Verkin Okkar
             </h2>
             
-            {/* Subtitle */}
-            <p className="text-lg text-gray-600 font-light italic tracking-wide">
-              Real Proof. Real Clients. Real Results.
-            </p>
-            
-            {/* Decorative Underline */}
-            <div className="flex justify-center mt-6">
-              <div className="w-24 h-0.5 bg-[#7b4cff] rounded-full"></div>
+            {/* Elegant Decorative Underline in Light Lavender */}
+            <div className="flex justify-center mb-8">
+              <div className="w-32 h-1.5 bg-gradient-to-r from-purple-300 via-purple-400 to-purple-300 rounded-full shadow-sm opacity-80"></div>
             </div>
           </div>
 
-          {/* Central Card Layout - Desktop & Mobile */}
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Video Card */}
-            <div className="mb-16">
-              <div className="mx-auto max-w-[800px]">
-                {/* Video Container with Improved Design */}
-                <div className="bg-[#faf9ff] rounded-[18px] shadow-[0_20px_60px_rgba(0,0,0,0.08)] border border-[#eaeaea] overflow-hidden hover:transform hover:scale-[1.01] transition-all duration-300 ease-out">
-                  {/* Næstir Logo Above Video */}
-                  <div className="text-center py-8 bg-gradient-to-b from-[#faf9ff] to-transparent">
-                    <h2 
-                      className="text-[#4B0082] italic"
-                      style={{ 
-                        fontSize: '36px', 
-                        lineHeight: '1.2',
-                        fontFamily: 'Playfair Display, serif' 
-                      }}
-                    >
-                      Næstir
-                    </h2>
-                  </div>
+          {/* Mobile Layout */}
+          <div className="block lg:hidden px-4 py-8 space-y-8">
+            {/* Video Section */}
+            <div>
+              <div className="text-center mb-8">
+                <h2 
+                  className="text-[#4B0082] italic"
+                  style={{ 
+                    fontSize: '32px', 
+                    lineHeight: '1.2',
+                    fontFamily: 'Playfair Display, serif' 
+                  }}
+                >
+                  Næstir
+                </h2>
+              </div>
+              
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff]">
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source src={cleaningVideo} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              
+              <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
+                Professional cleaning in action
+              </p>
+            </div>
+
+            {/* Before/After Gallery - Mobile */}
+            <div 
+              className={`scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              {/* Single Hover-to-Reveal Image */}
+              <div className="relative group">
+                {/* Before Image (Default) */}
+                <img
+                  src={transformations[currentIndex].beforeImage}
+                  alt={`${transformations[currentIndex].title} before cleaning`}
+                  className="w-full h-[300px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] transition-all duration-700 group-active:opacity-0"
+                />
+                {/* After Image (Touch Reveal) */}
+                <img
+                  src={transformations[currentIndex].afterImage}
+                  alt={`${transformations[currentIndex].title} after cleaning`}
+                  className="absolute inset-0 w-full h-[300px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] opacity-0 transition-all duration-700 group-active:opacity-100"
+                />
+                
+                {/* Premium Badge Labels */}
+                <div className="absolute top-4 left-4 bg-black/80 text-white px-3 py-1.5 rounded-full text-xs font-bold tracking-wide">
+                  BEFORE
+                </div>
+                <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white px-3 py-1.5 rounded-full text-xs font-bold tracking-wide opacity-0 group-active:opacity-100 transition-all duration-500 delay-200">
+                  AFTER
+                </div>
+                
+                {/* Mobile Touch Instructions */}
+                <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
+                  Tap and hold to reveal transformation: {transformations[currentIndex].title}
+                </p>
+              </div>
+
+              {/* Description */}
+              <div className="text-center max-w-xl mx-auto pt-6">
+                <h3 className="text-xl font-medium text-gray-900 mb-3 tracking-tight">
+                  {transformations[currentIndex].title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {transformations[currentIndex].description}
+                </p>
+              </div>
+
+              {/* Navigation for Mobile */}
+              <div className="flex justify-between items-center mt-6">
+                <button
+                  onClick={goToPrev}
+                  className="w-12 h-12 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200"
+                  aria-label="Previous transformation"
+                >
+                  <ChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-purple-600 transition-colors" />
+                </button>
+                
+                <div className="flex justify-center items-center space-x-2">
+                  {transformations.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentIndex(index)}
+                      className={`rounded-full transition-all duration-300 ease-in-out transform hover:scale-110 ${
+                        index === currentIndex
+                          ? 'w-6 h-2 bg-gradient-to-r from-purple-400 to-purple-500 shadow-lg shadow-purple-200/50'
+                          : 'w-2 h-2 bg-gray-300 hover:bg-purple-300'
+                      }`}
+                      aria-label={`Go to transformation ${index + 1}`}
+                    />
+                  ))}
+                </div>
+                
+                <button
+                  onClick={goToNext}
+                  className="w-12 h-12 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200"
+                  aria-label="Next transformation"
+                >
+                  <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-purple-600 transition-colors" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Split Layout Container */}
+          <div className="hidden lg:flex flex-col lg:flex-row min-h-screen">
+            
+            {/* LEFT SIDE - Video Section */}
+            <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
+              <div className="w-full max-w-2xl">
+                {/* Næstir Logo Above Video - Exact Footer Style */}
+                <div className="text-center mb-6">
+                  <h2 
+                    className="text-[#4B0082] italic font-bold"
+                    style={{ 
+                      fontSize: '40px', 
+                      lineHeight: '1.2',
+                      fontFamily: 'Playfair Display, serif',
+                      color: '#4B0082'
+                    }}
+                  >
+                    Næstir
+                  </h2>
+                </div>
+
+                {/* Video Container */}
+                <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff]">
+                  <video
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  >
+                    <source src={cleaningVideo} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                   
-                  {/* Video */}
-                  <div className="relative aspect-video">
-                    <video
-                      className="w-full h-full object-cover"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                    >
-                      <source src={cleaningVideo} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                    
-                    {/* Subtle overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/30 pointer-events-none"></div>
-                  </div>
+                  {/* Video Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/10 pointer-events-none"></div>
                 </div>
                 
                 {/* Video Caption */}
-                <div className="text-center mt-6">
-                  <h3 className="font-playfair text-[20px] md:text-[24px] font-bold text-[#1F1F1F] mb-2">
-                    Professional Cleaning in Action
-                  </h3>
-                  <p className="text-[#6b7280] italic text-sm max-w-md mx-auto">
-                    Watch our expert team transform spaces with precision and care.
-                  </p>
-                </div>
+                <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
+                  Professional cleaning in action
+                </p>
               </div>
             </div>
-
-            {/* Before/After Card */}
-            <div className="mb-16">
-              <div className="mx-auto max-w-[800px]">
-                {/* Transformation Card Container */}
+            
+            {/* RIGHT SIDE - Before/After Card */}
+            <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
+              <div className="w-full max-w-2xl">
+                {/* Before/After Card */}
                 <div 
-                  className={`bg-[#faf9ff] rounded-[18px] shadow-[0_20px_60px_rgba(0,0,0,0.08)] border border-[#eaeaea] overflow-hidden hover:transform hover:scale-[1.01] transition-all duration-300 ease-out scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}
+                  className={`relative scroll-animate scroll-animate-delay-1 ${galleryAnimation.isVisible ? 'visible' : ''}`}
                   onTouchStart={handleTouchStart}
                   onTouchMove={handleTouchMove}
                   onTouchEnd={handleTouchEnd}
                 >
-                  {/* Image Container */}
-                  <div className="relative group aspect-[16/10]">
+                  {/* Single Hover-to-Reveal Image */}
+                  <div className="relative group">
                     {/* Before Image (Default) */}
                     <img
                       src={transformations[currentIndex].beforeImage}
                       alt={`${transformations[currentIndex].title} before cleaning`}
-                      className="w-full h-full object-cover transition-opacity duration-[400ms] ease-out group-hover:opacity-0"
+                      className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] transition-all duration-700 group-hover:opacity-0"
                     />
                     {/* After Image (Hover Reveal) */}
                     <img
                       src={transformations[currentIndex].afterImage}
                       alt={`${transformations[currentIndex].title} after cleaning`}
-                      className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-[400ms] ease-out group-hover:opacity-100"
+                      className="absolute inset-0 w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] opacity-0 transition-all duration-700 group-hover:opacity-100"
                     />
                     
-                    {/* Badge Labels */}
-                    <div className="absolute top-4 left-4 bg-black/50 text-white px-2 py-1 rounded text-xs font-bold uppercase tracking-wide">
+                    {/* Premium Badge Labels */}
+                    <div className="absolute top-4 left-4 bg-black/80 text-white px-4 py-2 rounded-full text-xs font-bold tracking-wide">
                       BEFORE
                     </div>
-                    <div className="absolute top-4 left-4 bg-[#7b4cff] text-white px-2 py-1 rounded text-xs font-bold uppercase tracking-wide opacity-0 group-hover:opacity-100 transition-opacity duration-[400ms] ease-out">
+                    <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-full text-xs font-bold tracking-wide opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
                       AFTER
                     </div>
                     
-                    {/* Subtle overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/30 pointer-events-none"></div>
-                    
-                    {/* Hover Prompt */}
-                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                      <p className="text-white text-xs italic text-center px-3 py-1 bg-black/30 rounded-full backdrop-blur-sm">
-                        Hover to reveal transformation
-                      </p>
-                    </div>
+                    {/* Editorial Caption */}
+                    <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
+                      Hover to reveal transformation: {transformations[currentIndex].title}
+                    </p>
                   </div>
-                </div>
-                
-                {/* Narrative Caption (Outside the Card) */}
-                <div className="text-center mt-6">
-                  <h3 className="font-playfair text-[20px] md:text-[24px] font-bold text-[#1F1F1F] mb-2">
-                    {transformations[currentIndex].title}
-                  </h3>
-                  <p className="text-[#6b7280] italic text-sm max-w-md mx-auto">
-                    {transformations[currentIndex].description}
-                  </p>
-                </div>
 
-                {/* Navigation Controls */}
-                <div className="flex justify-center items-center mt-8 space-x-8">
-                  <button
-                    onClick={goToPrev}
-                    className="w-12 h-12 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200"
-                    aria-label="Previous transformation"
-                  >
-                    <ChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-[#7b4cff] transition-colors" />
-                  </button>
+                  {/* Description */}
+                  <div className="text-center max-w-xl mx-auto pt-8">
+                    <h3 className="text-2xl font-medium text-gray-900 mb-4 tracking-tight">
+                      {transformations[currentIndex].title}
+                    </h3>
+                    <p className="text-gray-600 text-base leading-relaxed">
+                      {transformations[currentIndex].description}
+                    </p>
+                  </div>
+
+                  {/* Professional Navigation */}
+                  <div className="absolute top-1/2 left-0 right-0 flex justify-between items-center pointer-events-none">
+                    <button
+                      onClick={goToPrev}
+                      className="carousel-nav-button ml-4 z-20 w-14 h-14 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg hover:shadow-xl rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200 pointer-events-auto"
+                      aria-label="Previous transformation"
+                    >
+                      <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:text-purple-600 transition-colors" />
+                    </button>
+                    
+                    <button
+                      onClick={goToNext}
+                      className="carousel-nav-button mr-4 z-20 w-14 h-14 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg hover:shadow-xl rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200 pointer-events-auto"
+                      aria-label="Next transformation"
+                    >
+                      <ChevronRight className="w-6 h-6 text-gray-600 group-hover:text-purple-600 transition-colors" />
+                    </button>
+                  </div>
                   
-                  {/* Swipe Indicators */}
-                  <div className="flex justify-center items-center space-x-2">
+                  {/* Elegant Pagination Dots */}
+                  <div className="flex justify-center items-center mt-8 space-x-3">
                     {transformations.map((_, index) => (
                       <button
                         key={index}
                         onClick={() => setCurrentIndex(index)}
-                        className={`h-2 rounded-full transition-all duration-300 ease-out ${
+                        className={`rounded-full transition-all duration-300 ease-in-out transform hover:scale-110 ${
                           index === currentIndex
-                            ? 'w-8 bg-[#7b4cff]'
-                            : 'w-2 bg-[#bbb] hover:bg-[#7b4cff]/50'
+                            ? 'w-8 h-2.5 bg-gradient-to-r from-purple-400 to-purple-500 shadow-lg shadow-purple-200/50'
+                            : 'w-2.5 h-2.5 bg-gray-300 hover:bg-purple-300'
                         }`}
                         aria-label={`Go to transformation ${index + 1}`}
                       />
                     ))}
                   </div>
-                  
-                  <button
-                    onClick={goToNext}
-                    className="w-12 h-12 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200"
-                    aria-label="Next transformation"
-                  >
-                    <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-[#7b4cff] transition-colors" />
-                  </button>
                 </div>
               </div>
             </div>
