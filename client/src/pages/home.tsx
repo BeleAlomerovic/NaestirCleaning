@@ -405,7 +405,7 @@ export default function Home() {
           </div>
           
           {/* Section Header - Elegant "Verkin Okkar" Design */}
-          <div className={`text-center py-16 relative scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
+          <div className={`text-center py-8 relative scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}>
             {/* Background Quote Mark */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
@@ -438,10 +438,10 @@ export default function Home() {
           </div>
 
           {/* Split Layout Container */}
-          <div className="flex flex-col lg:flex-row min-h-screen">
+          <div className="flex flex-col lg:flex-row min-h-[70vh]">
             
             {/* LEFT SIDE - Video Section */}
-            <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
+            <div className="w-full lg:w-1/2 flex items-center justify-center p-4 lg:p-8">
               <div className="w-full max-w-2xl">
 
                 
@@ -470,7 +470,7 @@ export default function Home() {
             </div>
             
             {/* RIGHT SIDE - Before/After Card */}
-            <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
+            <div className="w-full lg:w-1/2 flex items-center justify-center p-4 lg:p-8">
               <div className="w-full max-w-2xl">
                 {/* Before/After Card */}
                 <div 
