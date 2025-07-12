@@ -607,34 +607,35 @@ export default function Home() {
                   onTouchMove={handleTouchMove}
                   onTouchEnd={handleTouchEnd}
                 >
-                  {/* SVG Turbulent Dissolve Transition */}
+                  {/* SVG Turbulent Dissolve Transition - Simplified Working Version */}
                   <div className="relative group">
-                    <div className="w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff]">
+                    <div className="w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] bg-gray-100">
+                      {/* Test to show images are loading */}
+                      <div className="absolute top-2 left-2 bg-green-500 text-white px-2 py-1 text-xs z-50">
+                        Images: {transformations[currentIndex].beforeImage ? 'LOADED' : 'NOT LOADED'}
+                      </div>
+                      
                       <svg 
                         width="100%" 
                         height="100%" 
                         viewBox="0 0 800 600" 
                         className="w-full h-full"
+                        style={{ background: '#f0f0f0' }}
                       >
                         <defs>
-                          <filter id={`turbulent-dissolve-${currentIndex}`} x="0%" y="0%" width="100%" height="100%">
-                            <feTurbulence type="fractalNoise" baseFrequency="0.012" />
+                          <filter id="turbulent-dissolve" x="0%" y="0%" width="100%" height="100%">
+                            <feTurbulence type="fractalNoise" baseFrequency="0.02" />
                             <feColorMatrix type="luminanceToAlpha" />
                             <feComponentTransfer>
                               <feFuncA type="linear" slope="0">
                                 <animate 
                                   attributeName="slope" 
-                                  values="0;0;0;0;0;0.5;1;1.5;2;2;2;2;2;2;1.5;1;0.5;0" 
-                                  dur="6s" 
+                                  values="0;1;2;1;0" 
+                                  dur="4s" 
                                   repeatCount="indefinite"
-                                  begin="0s"
                                 />
                               </feFuncA>
                             </feComponentTransfer>
-                            <feComponentTransfer>
-                              <feFuncA type="discrete" tableValues="0 1" />
-                            </feComponentTransfer>
-                            <feGaussianBlur stdDeviation="1" />
                             <feComposite operator="in" in="SourceGraphic" result="overlay" />
                             <feImage 
                               href={transformations[currentIndex].afterImage} 
@@ -647,22 +648,13 @@ export default function Home() {
                           </filter>
                         </defs>
                         
+                        {/* Before image with dissolve filter */}
                         <image 
-                          filter={`url(#turbulent-dissolve-${currentIndex})`} 
+                          filter="url(#turbulent-dissolve)" 
                           width="800" 
                           height="600" 
                           href={transformations[currentIndex].beforeImage}
                           preserveAspectRatio="xMidYMid slice"
-                          className="group-hover:opacity-0 transition-opacity duration-1000"
-                        />
-                        
-                        {/* Fallback after image for hover */}
-                        <image 
-                          width="800" 
-                          height="600" 
-                          href={transformations[currentIndex].afterImage}
-                          preserveAspectRatio="xMidYMid slice"
-                          className="opacity-0 group-hover:opacity-100 transition-opacity duration-1000"
                         />
                       </svg>
                     </div>
