@@ -435,75 +435,173 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Mobile Layout */}
-          <div className="block lg:hidden px-4 py-8 space-y-8">
+          {/* Mobile Layout - Luxury Design */}
+          <div className="block lg:hidden px-4 py-8 space-y-12">
             {/* Video Section */}
             <div>
-              <div className="text-center mb-8">
-                <h2 
-                  className="text-[#4B0082] italic"
-                  style={{ 
-                    fontSize: '32px', 
-                    lineHeight: '1.2',
-                    fontFamily: 'Playfair Display, serif' 
+              {/* Næstir Logo - Mobile Luxury Styling */}
+              <div className="text-center mb-12">
+                <div className="relative">
+                  {/* Ambient glow behind logo */}
+                  <div className="absolute inset-0 blur-2xl opacity-20 bg-purple-400 rounded-full transform scale-150"></div>
+                  <h2 
+                    className="relative text-[#4B0082] italic font-bold tracking-wider"
+                    style={{ 
+                      fontSize: '36px', 
+                      lineHeight: '1.1',
+                      fontFamily: 'Playfair Display, serif',
+                      textShadow: '0 2px 8px rgba(75, 0, 130, 0.15)'
+                    }}
+                  >
+                    Næstir
+                  </h2>
+                </div>
+              </div>
+              
+              {/* Video Container - Mobile Luxury Design */}
+              <div className="relative group">
+                {/* Ambient shadow layer */}
+                <div className="absolute -inset-6 bg-gradient-to-br from-purple-100/30 to-pink-50/20 rounded-3xl blur-xl opacity-60"></div>
+                
+                {/* Main video frame */}
+                <div 
+                  className="relative w-full aspect-video rounded-2xl overflow-hidden"
+                  style={{
+                    boxShadow: `
+                      0 2px 4px rgba(0,0,0,0.03),
+                      0 12px 32px rgba(0,0,0,0.06),
+                      0 40px 80px rgba(0,0,0,0.08)
+                    `,
+                    background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.8) 100%)',
+                    padding: '6px'
                   }}
                 >
-                  Næstir
-                </h2>
+                  <div className="relative w-full h-full rounded-xl overflow-hidden">
+                    <video
+                      className="w-full h-full object-cover"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    >
+                      <source src={cleaningVideo} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                    
+                    {/* Subtle gradient overlay for contrast */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"></div>
+                    
+                    {/* Glassmorphism overlay with title */}
+                    <div 
+                      className="absolute bottom-0 left-0 right-0 p-4"
+                      style={{
+                        background: 'linear-gradient(to top, rgba(0,0,0,0.3), rgba(0,0,0,0))',
+                        backdropFilter: 'blur(8px)'
+                      }}
+                    >
+                      <p className="text-white font-light tracking-wide text-sm drop-shadow-lg">
+                        Professional cleaning transformation
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff]">
-                <video
-                  className="w-full h-full object-cover"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                >
-                  <source src={cleaningVideo} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              
-              <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
-                Professional cleaning in action
-              </p>
             </div>
 
-            {/* Before/After Gallery - Mobile */}
+            {/* Before/After Gallery - Mobile Luxury Design */}
             <div 
               className={`scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              {/* Single Hover-to-Reveal Image */}
+              {/* Elevated Container with 3D Layering */}
               <div className="relative group">
-                {/* Before Image (Default) */}
-                <img
-                  src={transformations[currentIndex].beforeImage}
-                  alt={`${transformations[currentIndex].title} before cleaning`}
-                  className="w-full h-[300px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] transition-all duration-700 group-active:opacity-0"
-                />
-                {/* After Image (Touch Reveal) */}
-                <img
-                  src={transformations[currentIndex].afterImage}
-                  alt={`${transformations[currentIndex].title} after cleaning`}
-                  className="absolute inset-0 w-full h-[300px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] opacity-0 transition-all duration-700 group-active:opacity-100"
-                />
+                {/* Ambient shadow and glow layers */}
+                <div className="absolute -inset-6 bg-gradient-to-br from-purple-100/40 to-pink-50/30 rounded-3xl blur-2xl opacity-50"></div>
+                <div className="absolute -inset-3 bg-gradient-to-br from-white/60 to-purple-50/40 rounded-2xl blur-lg opacity-80"></div>
                 
-                {/* Premium Badge Labels */}
-                <div className="absolute top-4 left-4 bg-black/80 text-white px-3 py-1.5 rounded-full text-xs font-bold tracking-wide">
-                  BEFORE
+                {/* Main image frame with contextual framing */}
+                <div 
+                  className="relative rounded-2xl overflow-hidden"
+                  style={{
+                    boxShadow: `
+                      0 2px 4px rgba(0,0,0,0.03),
+                      0 12px 32px rgba(0,0,0,0.06),
+                      0 40px 80px rgba(0,0,0,0.08)
+                    `,
+                    background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.9) 100%)',
+                    padding: '6px'
+                  }}
+                >
+                  {/* Image container */}
+                  <div className="relative w-full h-[300px] rounded-xl overflow-hidden">
+                    {/* Before Image (Default) */}
+                    <img
+                      src={transformations[currentIndex].beforeImage}
+                      alt={`${transformations[currentIndex].title} before cleaning`}
+                      className="w-full h-full object-cover transition-all duration-700 group-active:opacity-0"
+                      style={{ filter: 'brightness(0.95) contrast(1.05)' }}
+                    />
+                    {/* After Image (Touch Reveal) */}
+                    <img
+                      src={transformations[currentIndex].afterImage}
+                      alt={`${transformations[currentIndex].title} after cleaning`}
+                      className="absolute inset-0 w-full h-full object-cover opacity-0 transition-all duration-700 group-active:opacity-100"
+                      style={{ filter: 'brightness(1.05) contrast(1.1) saturate(1.1)' }}
+                    />
+                    
+                    {/* Subtle gradient overlay for better text contrast */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none"></div>
+                    
+                    {/* Glassmorphism Badge Labels */}
+                    <div 
+                      className="absolute top-4 left-4 px-3 py-1.5 rounded-full text-xs font-bold tracking-wider"
+                      style={{
+                        background: 'rgba(0,0,0,0.6)',
+                        backdropFilter: 'blur(8px)',
+                        color: 'white',
+                        textShadow: '0 1px 2px rgba(0,0,0,0.5)'
+                      }}
+                    >
+                      BEFORE
+                    </div>
+                    <div 
+                      className="absolute top-4 right-4 px-3 py-1.5 rounded-full text-xs font-bold tracking-wider opacity-0 group-active:opacity-100 transition-all duration-500 delay-200"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(139,92,246,0.9) 0%, rgba(168,85,247,0.9) 100%)',
+                        backdropFilter: 'blur(8px)',
+                        color: 'white',
+                        textShadow: '0 1px 2px rgba(0,0,0,0.3)'
+                      }}
+                    >
+                      AFTER
+                    </div>
+                    
+                    {/* Bottom overlay with transformation title */}
+                    <div 
+                      className="absolute bottom-0 left-0 right-0 p-4"
+                      style={{
+                        background: 'linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0))',
+                        backdropFilter: 'blur(8px)'
+                      }}
+                    >
+                      <h3 
+                        className="text-white font-medium tracking-wide drop-shadow-lg mb-1"
+                        style={{ 
+                          fontFamily: 'DM Sans, sans-serif',
+                          fontSize: '16px',
+                          textShadow: '0 2px 4px rgba(0,0,0,0.5)'
+                        }}
+                      >
+                        {transformations[currentIndex].title}
+                      </h3>
+                      <p className="text-white/90 text-sm font-light tracking-wide drop-shadow">
+                        Touch and hold to reveal transformation
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white px-3 py-1.5 rounded-full text-xs font-bold tracking-wide opacity-0 group-active:opacity-100 transition-all duration-500 delay-200">
-                  AFTER
-                </div>
-                
-                {/* Mobile Touch Instructions */}
-                <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
-                  Tap and hold to reveal transformation: {transformations[currentIndex].title}
-                </p>
               </div>
 
               {/* Description */}
