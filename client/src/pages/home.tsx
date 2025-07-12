@@ -389,25 +389,25 @@ export default function Home() {
                   <div className="w-16 h-px bg-gray-300 mx-auto"></div>
                 </div>
                 
-                {/* Service Navigation Menu - Mobile 2 Columns */}
-                <div className="grid grid-cols-2 gap-4">
+                {/* Service Navigation Menu - Mobile 3 Columns */}
+                <div className="grid grid-cols-3 gap-3">
                   {services.map((service, index) => (
                     <Link key={service.id} href={`/services/${service.id}`}>
                       <div 
-                        className="group text-center cursor-pointer py-4 px-2 transition-all duration-300 ease-out"
+                        className="group text-center cursor-pointer py-3 px-1 transition-all duration-300 ease-out"
                         onMouseEnter={() => handleServiceHover(service.id)}
                         onMouseLeave={handleServiceLeave}
                         onTouchStart={() => handleServiceHover(service.id)}
                         onTouchEnd={handleServiceLeave}
                       >
-                        <h3 className="text-[20px] font-medium text-gray-900 leading-[1.4] 
+                        <h3 className="text-[16px] font-medium text-gray-900 leading-[1.3] 
                                      tracking-tight group-hover:text-purple-400 transition-all duration-300"
                             style={{ fontFamily: '"DM Sans", system-ui, sans-serif' }}>
                           {service.name}
                         </h3>
                         
                         {/* Hover underline */}
-                        <div className="w-0 group-hover:w-12 h-0.5 bg-purple-400 mt-2 mx-auto
+                        <div className="w-0 group-hover:w-8 h-0.5 bg-purple-400 mt-2 mx-auto
                                       transition-all duration-500 ease-out"></div>
                       </div>
                     </Link>
