@@ -607,20 +607,65 @@ export default function Home() {
                   onTouchMove={handleTouchMove}
                   onTouchEnd={handleTouchEnd}
                 >
-                  {/* Single Hover-to-Reveal Image */}
+                  {/* SVG Turbulent Dissolve Transition */}
                   <div className="relative group">
-                    {/* Before Image (Default) */}
-                    <img
-                      src={transformations[currentIndex].beforeImage}
-                      alt={`${transformations[currentIndex].title} before cleaning`}
-                      className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] transition-all duration-700 group-hover:opacity-0"
-                    />
-                    {/* After Image (Hover Reveal) */}
-                    <img
-                      src={transformations[currentIndex].afterImage}
-                      alt={`${transformations[currentIndex].title} after cleaning`}
-                      className="absolute inset-0 w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] opacity-0 transition-all duration-700 group-hover:opacity-100"
-                    />
+                    <div className="w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff]">
+                      <svg 
+                        width="100%" 
+                        height="100%" 
+                        viewBox="0 0 800 600" 
+                        className="w-full h-full"
+                      >
+                        <defs>
+                          <filter id={`turbulent-dissolve-${currentIndex}`} x="0%" y="0%" width="100%" height="100%">
+                            <feTurbulence type="fractalNoise" baseFrequency="0.012" />
+                            <feColorMatrix type="luminanceToAlpha" />
+                            <feComponentTransfer>
+                              <feFuncA type="linear" slope="0">
+                                <animate 
+                                  attributeName="slope" 
+                                  values="0;0;0;0;0;0.5;1;1.5;2;2;2;2;2;2;1.5;1;0.5;0" 
+                                  dur="6s" 
+                                  repeatCount="indefinite"
+                                  begin="0s"
+                                />
+                              </feFuncA>
+                            </feComponentTransfer>
+                            <feComponentTransfer>
+                              <feFuncA type="discrete" tableValues="0 1" />
+                            </feComponentTransfer>
+                            <feGaussianBlur stdDeviation="1" />
+                            <feComposite operator="in" in="SourceGraphic" result="overlay" />
+                            <feImage 
+                              href={transformations[currentIndex].afterImage} 
+                              width="800" 
+                              height="600" 
+                              result="underlay"
+                              preserveAspectRatio="xMidYMid slice"
+                            />
+                            <feComposite operator="over" in="overlay" in2="underlay" />
+                          </filter>
+                        </defs>
+                        
+                        <image 
+                          filter={`url(#turbulent-dissolve-${currentIndex})`} 
+                          width="800" 
+                          height="600" 
+                          href={transformations[currentIndex].beforeImage}
+                          preserveAspectRatio="xMidYMid slice"
+                          className="group-hover:opacity-0 transition-opacity duration-1000"
+                        />
+                        
+                        {/* Fallback after image for hover */}
+                        <image 
+                          width="800" 
+                          height="600" 
+                          href={transformations[currentIndex].afterImage}
+                          preserveAspectRatio="xMidYMid slice"
+                          className="opacity-0 group-hover:opacity-100 transition-opacity duration-1000"
+                        />
+                      </svg>
+                    </div>
                     
                     {/* Premium Badge Labels */}
                     <div className="absolute top-4 left-4 bg-black/80 text-white px-4 py-2 rounded-full text-xs font-bold tracking-wide">
@@ -632,7 +677,7 @@ export default function Home() {
                     
                     {/* Editorial Caption */}
                     <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
-                      Hover to reveal transformation: {transformations[currentIndex].title}
+                      Watch the turbulent dissolve transformation: {transformations[currentIndex].title}
                     </p>
                   </div>
 
