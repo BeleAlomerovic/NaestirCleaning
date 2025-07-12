@@ -424,7 +424,7 @@ export default function Home() {
             </div>
             
             {/* Næstir Logo and Description */}
-            <div className="text-left mb-2 max-w-4xl">
+            <div className="text-left max-w-4xl">
               <h2 
                 className="text-[#4B0082] font-playfair italic mb-6"
                 style={{ fontSize: '48px', lineHeight: '1.2' }}
