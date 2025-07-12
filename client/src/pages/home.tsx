@@ -397,6 +397,8 @@ export default function Home() {
                         className="group text-center cursor-pointer py-4 transition-all duration-300 ease-out"
                         onMouseEnter={() => handleServiceHover(service.id)}
                         onMouseLeave={handleServiceLeave}
+                        onTouchStart={() => handleServiceHover(service.id)}
+                        onTouchEnd={handleServiceLeave}
                       >
                         <h3 className="text-[26px] md:text-[30px] font-medium text-gray-900 leading-[1.6] 
                                      tracking-tight group-hover:text-purple-400 transition-all duration-300"
@@ -570,7 +572,7 @@ export default function Home() {
                     {/* Left Arrow - Outside Photo */}
                     <button
                       onClick={goToPrev}
-                      className="absolute top-1/2 -left-20 z-20 w-16 h-16 bg-white/20 backdrop-blur-md hover:bg-white/30 shadow-2xl hover:shadow-purple-500/20 rounded-2xl flex items-center justify-center transition-all duration-300 group border border-white/30 hover:border-purple-300/50 transform -translate-y-1/2 -translate-y-4"
+                      className="absolute top-1/2 -left-20 z-20 w-16 h-16 bg-white/20 backdrop-blur-md hover:bg-white/30 shadow-2xl hover:shadow-purple-500/20 rounded-2xl flex items-center justify-center transition-all duration-300 group border border-white/30 hover:border-purple-300/50 transform -translate-y-1/2"
                       aria-label="Previous transformation"
                     >
                       <ChevronLeft className="w-7 h-7 text-gray-700 drop-shadow-lg group-hover:text-purple-600 transition-colors duration-300" />
@@ -579,7 +581,7 @@ export default function Home() {
                     {/* Right Arrow - Outside Photo */}
                     <button
                       onClick={goToNext}
-                      className="absolute top-1/2 -right-20 z-20 w-16 h-16 bg-white/20 backdrop-blur-md hover:bg-white/30 shadow-2xl hover:shadow-purple-500/20 rounded-2xl flex items-center justify-center transition-all duration-300 group border border-white/30 hover:border-purple-300/50 transform -translate-y-1/2 -translate-y-4"
+                      className="absolute top-1/2 -right-20 z-20 w-16 h-16 bg-white/20 backdrop-blur-md hover:bg-white/30 shadow-2xl hover:shadow-purple-500/20 rounded-2xl flex items-center justify-center transition-all duration-300 group border border-white/30 hover:border-purple-300/50 transform -translate-y-1/2"
                       aria-label="Next transformation"
                     >
                       <ChevronRight className="w-7 h-7 text-gray-700 drop-shadow-lg group-hover:text-purple-600 transition-colors duration-300" />
@@ -613,142 +615,103 @@ export default function Home() {
         {/* Client Testimonials Section */}
         <TestimonialsCarousel />
 
-        {/* FAQ Section */}
+        {/* FAQ Section - Premium Redesign */}
         <section 
           ref={faqAnimation.elementRef as any}
-          className="section-white parallax-section"
+          className="py-20 lg:py-32 bg-gradient-to-br from-[#fafafa] to-[#f9f7ff] relative overflow-hidden"
         >
-          <div className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 section-content ${faqAnimation.isVisible ? 'visible' : ''}`}>
-            {/* Section Header - Elegant "Algengar Spurningar" Design */}
-            <div className={`text-center mb-16 relative scroll-animate ${faqAnimation.isVisible ? 'visible' : ''}`}>
-              {/* Background Quote Mark */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="text-[100px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
-                  "
+          <div className={`max-w-4xl mx-auto px-6 lg:px-8 scroll-animate ${faqAnimation.isVisible ? 'visible' : ''}`}>
+            
+            {/* Search Bar - Apple Style */}
+            <div className="text-center mb-12">
+              <div className="max-w-md mx-auto relative">
+                <input 
+                  type="text" 
+                  placeholder="Have a question?" 
+                  className="w-full px-6 py-4 text-lg bg-white/80 backdrop-blur-sm border border-gray-200/60 rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-400/30 focus:border-purple-300 transition-all duration-300"
+                />
+                <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
                 </div>
-              </div>
-              
-              {/* Main Title */}
-              <h2 className="font-playfair text-[32px] md:text-[44px] font-bold text-[#1F1F1F] mb-6 tracking-[-0.5px] leading-[1.1] animate-fade-up">
-                Algengar Spurningar
-              </h2>
-              
-              {/* Lavender Divider */}
-              <div className="flex justify-center">
-                <div className="w-[60px] h-[2px] bg-[#B7A9D3] rounded-[1px] animate-expand-width"></div>
               </div>
             </div>
 
-            <div className="space-y-4">
-              {/* FAQ Item 1 */}
-              <div className={`faq-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden scroll-animate scroll-animate-delay-1 ${openFAQ === 0 ? 'active' : ''} ${faqAnimation.isVisible ? 'visible' : ''}`}>
-                <button 
-                  className="faq-trigger w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
-                  onClick={() => toggleFAQ(0)}
-                >
-                  <span className="font-inter text-lg font-bold text-[#2A2A2A]">
-                    Do I need to be home during the cleaning?
-                  </span>
-                  <span className="faq-icon text-2xl text-purple-400 transition-transform duration-300">
-                    {openFAQ === 0 ? '−' : '+'}
-                  </span>
-                </button>
-                <div className="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                  <div className="px-6 pb-6">
-                    <p className="font-inter text-base text-[#555] leading-relaxed">
-                      No — as long as we have access, you don't need to be there. Many clients prefer returning to a spotless home.
-                    </p>
-                  </div>
-                </div>
+            {/* Enhanced Header Design */}
+            <div className="text-center mb-16 relative">
+              {/* Main Title */}
+              <h2 className="font-playfair text-[36px] md:text-[44px] font-bold text-[#1F1F1F] mb-6 tracking-[-0.5px] leading-[1.1]">
+                Algengar Spurningar
+              </h2>
+              
+              {/* Subtext */}
+              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+                Find answers to the most common questions about our cleaning services
+              </p>
+              
+              {/* Lavender Divider */}
+              <div className="flex justify-center">
+                <div className="w-[60px] h-[2px] bg-[#B7A9D3] rounded-[1px]"></div>
               </div>
+            </div>
 
-              {/* FAQ Item 2 */}
-              <div className={`faq-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden scroll-animate scroll-animate-delay-2 ${openFAQ === 1 ? 'active' : ''} ${faqAnimation.isVisible ? 'visible' : ''}`}>
-                <button 
-                  className="faq-trigger w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
-                  onClick={() => toggleFAQ(1)}
+            {/* Premium FAQ Cards */}
+            <div className="space-y-6">
+              {[
+                {
+                  question: "Do I need to be home during the cleaning?",
+                  answer: "No — as long as we have access, you don't need to be there. Many clients prefer returning to a spotless home."
+                },
+                {
+                  question: "Are your cleaners background-checked and insured?",
+                  answer: "Absolutely. Every Næstir team member is vetted, insured, and trained to meet our high standards."
+                },
+                {
+                  question: "Do you bring your own supplies and equipment?",
+                  answer: "Yes. We bring all eco-friendly cleaning products and tools — unless you prefer we use your own."
+                },
+                {
+                  question: "How do I get a quote?",
+                  answer: "Just click \"Get My Quote\" at the top or bottom of this page — it takes under a minute."
+                },
+                {
+                  question: "Do you clean outside Reykjavík?",
+                  answer: "Mostly yes! Enter your zip code above to check if you're in our service area."
+                }
+              ].map((faq, index) => (
+                <div 
+                  key={index}
+                  className={`bg-white rounded-2xl shadow-sm border-0 overflow-hidden transition-all duration-300 hover:shadow-lg hover:bg-[#f3efff]/30 ${openFAQ === index ? 'shadow-lg bg-[#f3efff]/30' : ''}`}
                 >
-                  <span className="font-inter text-lg font-bold text-[#2A2A2A]">
-                    Are your cleaners background-checked and insured?
-                  </span>
-                  <span className="faq-icon text-2xl text-purple-400 transition-transform duration-300">
-                    {openFAQ === 1 ? '−' : '+'}
-                  </span>
-                </button>
-                <div className="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                  <div className="px-6 pb-6">
-                    <p className="font-inter text-base text-[#555] leading-relaxed">
-                      Absolutely. Every Næstir team member is vetted, insured, and trained to meet our high standards.
-                    </p>
+                  <button 
+                    className="w-full px-8 py-6 lg:py-8 text-left flex justify-between items-center transition-all duration-200"
+                    onClick={() => toggleFAQ(index)}
+                  >
+                    <span className="text-lg lg:text-xl font-semibold text-[#2A2A2A] pr-4 leading-relaxed">
+                      {faq.question}
+                    </span>
+                    <div className={`w-8 h-8 flex items-center justify-center rounded-full bg-purple-100 text-purple-600 transition-all duration-300 flex-shrink-0 ${openFAQ === index ? 'rotate-45 bg-purple-600 text-white' : ''}`}>
+                      <span className="text-xl font-light">+</span>
+                    </div>
+                  </button>
+                  <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openFAQ === index ? 'max-h-96 pb-8' : 'max-h-0'}`}>
+                    <div className="px-8">
+                      <div className="h-px bg-gray-200/60 mb-6"></div>
+                      <p className="text-base lg:text-lg text-[#6B7280] leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ))}
+            </div>
 
-              {/* FAQ Item 3 */}
-              <div className={`faq-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden scroll-animate scroll-animate-delay-3 ${openFAQ === 2 ? 'active' : ''} ${faqAnimation.isVisible ? 'visible' : ''}`}>
-                <button 
-                  className="faq-trigger w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
-                  onClick={() => toggleFAQ(2)}
-                >
-                  <span className="font-inter text-lg font-bold text-[#2A2A2A]">
-                    Do you bring your own supplies and equipment?
-                  </span>
-                  <span className="faq-icon text-2xl text-purple-400 transition-transform duration-300">
-                    {openFAQ === 2 ? '−' : '+'}
-                  </span>
-                </button>
-                <div className="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                  <div className="px-6 pb-6">
-                    <p className="font-inter text-base text-[#555] leading-relaxed">
-                      Yes. We bring all eco-friendly cleaning products and tools — unless you prefer we use your own.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* FAQ Item 4 */}
-              <div className={`faq-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden ${openFAQ === 3 ? 'active' : ''}`}>
-                <button 
-                  className="faq-trigger w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
-                  onClick={() => toggleFAQ(3)}
-                >
-                  <span className="font-inter text-lg font-bold text-[#2A2A2A]">
-                    How do I get a quote?
-                  </span>
-                  <span className="faq-icon text-2xl text-purple-400 transition-transform duration-300">
-                    {openFAQ === 3 ? '−' : '+'}
-                  </span>
-                </button>
-                <div className="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                  <div className="px-6 pb-6">
-                    <p className="font-inter text-base text-[#555] leading-relaxed">
-                      Just click "Get My Quote" at the top or bottom of this page — it takes under a minute.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* FAQ Item 5 */}
-              <div className={`faq-item bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden ${openFAQ === 4 ? 'active' : ''}`}>
-                <button 
-                  className="faq-trigger w-full px-6 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
-                  onClick={() => toggleFAQ(4)}
-                >
-                  <span className="font-inter text-lg font-bold text-[#2A2A2A]">
-                    Do you clean outside Reykjavík?
-                  </span>
-                  <span className="faq-icon text-2xl text-purple-400 transition-transform duration-300">
-                    {openFAQ === 4 ? '−' : '+'}
-                  </span>
-                </button>
-                <div className="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                  <div className="px-6 pb-6">
-                    <p className="font-inter text-base text-[#555] leading-relaxed">
-                      Mostly yes! Enter your zip code above to check if you're in our service area.
-                    </p>
-                  </div>
-                </div>
-              </div>
+            {/* Footer Link */}
+            <div className="text-center mt-12">
+              <p className="text-gray-600">
+                Still have questions? <a href="/contact" className="text-purple-600 hover:text-purple-700 font-medium underline decoration-2 underline-offset-2">Contact our team</a>
+              </p>
             </div>
           </div>
         </section>
