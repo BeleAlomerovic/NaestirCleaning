@@ -525,22 +525,22 @@ export default function Home() {
                     </p>
                   </div>
 
-                  {/* Professional Navigation */}
+                  {/* Glassmorphism Navigation */}
                   <div className="absolute top-1/2 left-0 right-0 flex justify-between items-center pointer-events-none">
                     <button
                       onClick={goToPrev}
-                      className="carousel-nav-button ml-4 z-20 w-14 h-14 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg hover:shadow-xl rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200 pointer-events-auto"
+                      className="carousel-nav-button ml-4 z-20 w-16 h-16 bg-white/20 backdrop-blur-md hover:bg-white/30 shadow-2xl hover:shadow-purple-500/20 rounded-2xl flex items-center justify-center transition-all duration-300 group border border-white/30 hover:border-purple-300/50 pointer-events-auto"
                       aria-label="Previous transformation"
                     >
-                      <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:text-purple-600 transition-colors" />
+                      <ChevronLeft className="w-7 h-7 text-white drop-shadow-lg group-hover:text-purple-100 transition-colors duration-300" />
                     </button>
                     
                     <button
                       onClick={goToNext}
-                      className="carousel-nav-button mr-4 z-20 w-14 h-14 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg hover:shadow-xl rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200 pointer-events-auto"
+                      className="carousel-nav-button mr-4 z-20 w-16 h-16 bg-white/20 backdrop-blur-md hover:bg-white/30 shadow-2xl hover:shadow-purple-500/20 rounded-2xl flex items-center justify-center transition-all duration-300 group border border-white/30 hover:border-purple-300/50 pointer-events-auto"
                       aria-label="Next transformation"
                     >
-                      <ChevronRight className="w-6 h-6 text-gray-600 group-hover:text-purple-600 transition-colors" />
+                      <ChevronRight className="w-7 h-7 text-white drop-shadow-lg group-hover:text-purple-100 transition-colors duration-300" />
                     </button>
                   </div>
                   
