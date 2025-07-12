@@ -19,17 +19,6 @@ import carWashImage from "@assets/car wash_1751105103650.webp";
 import elevatorCleaningImage from "@assets/elevator_1751103467643.webp";
 import stairwayCleaningImage from "@assets/stairway_1751103472278.webp";
 import cleaningVideo from "@assets/6694034-uhd_4096_2160_30fps.mp4";
-// Before/After Image Imports
-import beforeCar from "@assets/AdobeStock_334592268 2_1750506662307.jpg";
-import afterCar from "@assets/AdobeStock_334592268 2 copy_1750506666192.jpg";
-import beforeGrout from "@assets/AdobeStock_523168323_1750506670649.jpg";
-import afterGrout from "@assets/AdobeStock_523168323 copy_1750506673796.jpg";
-import beforeMold from "@assets/AdobeStock_554450129_1750506681118.jpg";
-import afterMold from "@assets/AdobeStock_554450129 copy_1750506684147.jpg";
-import beforeKitchen from "@assets/AdobeStock_560781364_1750506688928.jpg";
-import afterKitchen from "@assets/AdobeStock_560781364 copy_1750506691420.jpg";
-import beforeUpholstery from "@assets/AdobeStock_689599448_1750506694689.jpg";
-import afterUpholstery from "@assets/AdobeStock_689599448 copy_1750506697803.jpg";
 
 export default function Home() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -135,40 +124,40 @@ export default function Home() {
     setHoveredService(null);
   };
 
-  // Transformation data - Using proper asset imports
+  // Transformation data
   const transformations = [
     {
       id: 1,
-      beforeImage: beforeCar,
-      afterImage: afterCar,
+      beforeImage: "/assets/AdobeStock_334592268 2_1750506662307.jpg",
+      afterImage: "/assets/AdobeStock_334592268 2 copy_1750506666192.jpg",
       title: "Car Interior Revival",
       description: "Eliminated 3 years of pet hair, mud, and wear with specialized automotive detailing."
     },
     {
       id: 2,
-      beforeImage: beforeGrout,
-      afterImage: afterGrout,
+      beforeImage: "/assets/AdobeStock_523168323_1750506670649.jpg",
+      afterImage: "/assets/AdobeStock_523168323 copy_1750506673796.jpg",
       title: "Grout Line Restoration",
       description: "Removed years of soap scum and mildew with non-toxic deep steam extraction."
     },
     {
       id: 3,
-      beforeImage: beforeMold,
-      afterImage: afterMold,
+      beforeImage: "/assets/AdobeStock_554450129_1750506681118.jpg",
+      afterImage: "/assets/AdobeStock_554450129 copy_1750506684147.jpg",
       title: "Mold Remediation & Restoration",
       description: "Safely eliminated dangerous black mold and restored surfaces to pristine condition."
     },
     {
       id: 4,
-      beforeImage: beforeKitchen,
-      afterImage: afterKitchen,
+      beforeImage: "/assets/AdobeStock_560781364_1750506688928.jpg",
+      afterImage: "/assets/AdobeStock_560781364 copy_1750506691420.jpg",
       title: "Kitchen Deep Clean",
       description: "Dissolved stubborn grease buildup and food stains with professional degreasing agents."
     },
     {
       id: 5,
-      beforeImage: beforeUpholstery,
-      afterImage: afterUpholstery,
+      beforeImage: "/assets/AdobeStock_689599448_1750506694689.jpg",
+      afterImage: "/assets/AdobeStock_689599448 copy_1750506697803.jpg",
       title: "Upholstery Revival",
       description: "Lifted deep-set stains and odors with gentle steam cleaning and fabric protection."
     }
@@ -435,144 +424,22 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Mobile Layout */}
-          <div className="block lg:hidden px-4 py-8 space-y-8">
-            {/* Video Section */}
-            <div>
-              <div className="text-center mb-8">
-                <h2 
-                  className="text-[#4B0082] italic"
-                  style={{ 
-                    fontSize: '32px', 
-                    lineHeight: '1.2',
-                    fontFamily: 'Playfair Display, serif' 
-                  }}
-                >
-                  Næstir
-                </h2>
-              </div>
-              
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff]">
-                <video
-                  className="w-full h-full object-cover"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                >
-                  <source src={cleaningVideo} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              
-              <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
-                Professional cleaning in action
-              </p>
-            </div>
-
-            {/* Before/After Gallery - Mobile */}
-            <div 
-              className={`scroll-animate ${galleryAnimation.isVisible ? 'visible' : ''}`}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
-              {/* Single Hover-to-Reveal Image */}
-              <div className="relative group">
-                {/* Before Image (Default) */}
-                <img
-                  src={transformations[currentIndex].beforeImage}
-                  alt={`${transformations[currentIndex].title} before cleaning`}
-                  className="w-full h-[300px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] transition-all duration-700 group-active:opacity-0"
-                />
-                {/* After Image (Touch Reveal) */}
-                <img
-                  src={transformations[currentIndex].afterImage}
-                  alt={`${transformations[currentIndex].title} after cleaning`}
-                  className="absolute inset-0 w-full h-[300px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] opacity-0 transition-all duration-700 group-active:opacity-100"
-                />
-                
-                {/* Premium Badge Labels */}
-                <div className="absolute top-4 left-4 bg-black/80 text-white px-3 py-1.5 rounded-full text-xs font-bold tracking-wide">
-                  BEFORE
-                </div>
-                <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white px-3 py-1.5 rounded-full text-xs font-bold tracking-wide opacity-0 group-active:opacity-100 transition-all duration-500 delay-200">
-                  AFTER
-                </div>
-                
-                {/* Mobile Touch Instructions */}
-                <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
-                  Tap and hold to reveal transformation: {transformations[currentIndex].title}
-                </p>
-              </div>
-
-              {/* Description */}
-              <div className="text-center max-w-xl mx-auto pt-6">
-                <h3 className="text-xl font-medium text-gray-900 mb-3 tracking-tight">
-                  {transformations[currentIndex].title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {transformations[currentIndex].description}
-                </p>
-              </div>
-
-              {/* Navigation for Mobile */}
-              <div className="flex justify-between items-center mt-6">
-                <button
-                  onClick={goToPrev}
-                  className="w-12 h-12 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200"
-                  aria-label="Previous transformation"
-                >
-                  <ChevronLeft className="w-5 h-5 text-gray-600 group-hover:text-purple-600 transition-colors" />
-                </button>
-                
-                <div className="flex justify-center items-center space-x-2">
-                  {transformations.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentIndex(index)}
-                      className={`rounded-full transition-all duration-300 ease-in-out transform hover:scale-110 ${
-                        index === currentIndex
-                          ? 'w-6 h-2 bg-gradient-to-r from-purple-400 to-purple-500 shadow-lg shadow-purple-200/50'
-                          : 'w-2 h-2 bg-gray-300 hover:bg-purple-300'
-                      }`}
-                      aria-label={`Go to transformation ${index + 1}`}
-                    />
-                  ))}
-                </div>
-                
-                <button
-                  onClick={goToNext}
-                  className="w-12 h-12 bg-white/90 backdrop-blur-sm hover:bg-white shadow-lg rounded-full flex items-center justify-center transition-all duration-200 group border border-gray-200"
-                  aria-label="Next transformation"
-                >
-                  <ChevronRight className="w-5 h-5 text-gray-600 group-hover:text-purple-600 transition-colors" />
-                </button>
-              </div>
-            </div>
-          </div>
-
           {/* Split Layout Container */}
-          <div className="hidden lg:flex flex-col lg:flex-row min-h-screen">
+          <div className="flex flex-col lg:flex-row min-h-screen">
             
             {/* LEFT SIDE - Video Section */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
               <div className="w-full max-w-2xl">
-                {/* Næstir Logo Above Video - Exact Footer Style */}
-                <div className="text-center mb-6">
+                {/* Næstir Logo */}
+                <div className="text-center mb-8">
                   <h2 
-                    className="text-[#4B0082] italic font-bold"
-                    style={{ 
-                      fontSize: '40px', 
-                      lineHeight: '1.2',
-                      fontFamily: 'Playfair Display, serif',
-                      color: '#4B0082'
-                    }}
+                    className="text-[#4B0082] font-playfair italic"
+                    style={{ fontSize: '40px', lineHeight: '1.2' }}
                   >
                     Næstir
                   </h2>
                 </div>
-
+                
                 {/* Video Container */}
                 <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff]">
                   <video
@@ -607,57 +474,20 @@ export default function Home() {
                   onTouchMove={handleTouchMove}
                   onTouchEnd={handleTouchEnd}
                 >
-                  {/* SVG Turbulent Dissolve Transition - Simplified Working Version */}
+                  {/* Single Hover-to-Reveal Image */}
                   <div className="relative group">
-                    <div className="w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] bg-gray-100">
-                      {/* Test to show images are loading */}
-                      <div className="absolute top-2 left-2 bg-green-500 text-white px-2 py-1 text-xs z-50">
-                        Images: {transformations[currentIndex].beforeImage ? 'LOADED' : 'NOT LOADED'}
-                      </div>
-                      
-                      <svg 
-                        width="100%" 
-                        height="100%" 
-                        viewBox="0 0 800 600" 
-                        className="w-full h-full"
-                        style={{ background: '#f0f0f0' }}
-                      >
-                        <defs>
-                          <filter id="turbulent-dissolve" x="0%" y="0%" width="100%" height="100%">
-                            <feTurbulence type="fractalNoise" baseFrequency="0.02" />
-                            <feColorMatrix type="luminanceToAlpha" />
-                            <feComponentTransfer>
-                              <feFuncA type="linear" slope="0">
-                                <animate 
-                                  attributeName="slope" 
-                                  values="0;1;2;1;0" 
-                                  dur="4s" 
-                                  repeatCount="indefinite"
-                                />
-                              </feFuncA>
-                            </feComponentTransfer>
-                            <feComposite operator="in" in="SourceGraphic" result="overlay" />
-                            <feImage 
-                              href={transformations[currentIndex].afterImage} 
-                              width="800" 
-                              height="600" 
-                              result="underlay"
-                              preserveAspectRatio="xMidYMid slice"
-                            />
-                            <feComposite operator="over" in="overlay" in2="underlay" />
-                          </filter>
-                        </defs>
-                        
-                        {/* Before image with dissolve filter */}
-                        <image 
-                          filter="url(#turbulent-dissolve)" 
-                          width="800" 
-                          height="600" 
-                          href={transformations[currentIndex].beforeImage}
-                          preserveAspectRatio="xMidYMid slice"
-                        />
-                      </svg>
-                    </div>
+                    {/* Before Image (Default) */}
+                    <img
+                      src={transformations[currentIndex].beforeImage}
+                      alt={`${transformations[currentIndex].title} before cleaning`}
+                      className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] transition-all duration-700 group-hover:opacity-0"
+                    />
+                    {/* After Image (Hover Reveal) */}
+                    <img
+                      src={transformations[currentIndex].afterImage}
+                      alt={`${transformations[currentIndex].title} after cleaning`}
+                      className="absolute inset-0 w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-[#e8d9ff] opacity-0 transition-all duration-700 group-hover:opacity-100"
+                    />
                     
                     {/* Premium Badge Labels */}
                     <div className="absolute top-4 left-4 bg-black/80 text-white px-4 py-2 rounded-full text-xs font-bold tracking-wide">
@@ -669,7 +499,7 @@ export default function Home() {
                     
                     {/* Editorial Caption */}
                     <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
-                      Watch the turbulent dissolve transformation: {transformations[currentIndex].title}
+                      Hover to reveal transformation: {transformations[currentIndex].title}
                     </p>
                   </div>
 
