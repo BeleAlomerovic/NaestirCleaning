@@ -422,6 +422,13 @@ export default function Home() {
             <div className="flex justify-center mb-8">
               <div className="w-32 h-1.5 bg-gradient-to-r from-purple-300 via-purple-400 to-purple-300 rounded-full shadow-sm opacity-80"></div>
             </div>
+            
+            {/* Description Text */}
+            <div className="text-center mb-12 max-w-3xl mx-auto">
+              <p className="text-gray-700 text-lg leading-relaxed font-light">
+                Sérverkefnadeild Sólar býr yfir áralangri reynslu og þekkingu á sérþrifum. Þjónustan okkar einkennist af hágæða vinnubrögðum og fagmennsku í hverju verkefni. Öllum verkefnum stýrir verkstjóri sem tryggir vandaða framkvæmd frá upphafi til enda. Fyrir okkur er ekkert verkefni of stórt eða smátt!
+              </p>
+            </div>
           </div>
 
           {/* Split Layout Container */}
@@ -430,12 +437,7 @@ export default function Home() {
             {/* LEFT SIDE - Video Section */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
               <div className="w-full max-w-2xl">
-                {/* Description Text */}
-                <div className="text-center mb-8 max-w-lg mx-auto">
-                  <p className="text-gray-700 text-base leading-relaxed font-light">
-                    Sérverkefnadeild Sólar býr yfir áralangri reynslu og þekkingu á sérþrifum. Þjónustan okkar einkennist af hágæða vinnubrögðum og fagmennsku í hverju verkefni. Öllum verkefnum stýrir verkstjóri sem tryggir vandaða framkvæmd frá upphafi til enda. Fyrir okkur er ekkert verkefni of stórt eða smátt!
-                  </p>
-                </div>
+
                 
                 {/* Video Container */}
                 <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_24px_80px_rgba(139,69,190,0.25),0_8px_32px_rgba(139,69,190,0.15),0_2px_8px_rgba(139,69,190,0.1)] border border-[#e8d9ff]">
