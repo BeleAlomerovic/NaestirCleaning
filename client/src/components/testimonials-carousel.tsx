@@ -141,7 +141,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
       
       <div className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-content ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
         {/* Mobile: Centered content with more vertical space */}
-        <div className="lg:hidden min-h-screen flex flex-col justify-center py-16 transform -translate-y-[60px]">
+        <div className="lg:hidden min-h-screen flex flex-col justify-center py-16 transform -translate-y-[80px]">
           {/* Section Header - Elegant "Meðmæli" Design */}
           <div className={`text-center mb-8 relative scroll-animate ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
             {/* Background Quote Mark */}
@@ -184,10 +184,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
                   <Quote className="w-5 h-5 text-[#D5C7F3]" />
                 </div>
 
-                {/* Star Rating */}
-                <div className="flex items-center mb-3">
-                  {renderStars(currentReview.rating)}
-                </div>
+
 
                 {/* Review Text */}
                 <blockquote className="text-[#444444] text-sm leading-relaxed mb-4 italic">
