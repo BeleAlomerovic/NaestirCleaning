@@ -269,7 +269,7 @@ export default function Home() {
         <section 
           id="services" 
           ref={servicesAnimation.elementRef as any}
-          className="relative min-h-screen overflow-hidden bg-white"
+          className={`relative min-h-screen overflow-hidden bg-white scroll-animate ${servicesAnimation.isVisible ? 'visible' : ''}`}
         >
           {/* Desktop Split-Screen Layout */}
           <div className="hidden lg:flex h-screen">
@@ -389,25 +389,25 @@ export default function Home() {
                   <div className="w-16 h-px bg-gray-300 mx-auto"></div>
                 </div>
                 
-                {/* Service Navigation Menu */}
-                <div className="space-y-8">
+                {/* Service Navigation Menu - Mobile 2 Columns */}
+                <div className="grid grid-cols-2 gap-4">
                   {services.map((service, index) => (
                     <Link key={service.id} href={`/services/${service.id}`}>
                       <div 
-                        className="group text-center cursor-pointer py-4 transition-all duration-300 ease-out"
+                        className="group text-center cursor-pointer py-4 px-2 transition-all duration-300 ease-out"
                         onMouseEnter={() => handleServiceHover(service.id)}
                         onMouseLeave={handleServiceLeave}
                         onTouchStart={() => handleServiceHover(service.id)}
                         onTouchEnd={handleServiceLeave}
                       >
-                        <h3 className="text-[26px] md:text-[30px] font-medium text-gray-900 leading-[1.6] 
+                        <h3 className="text-[20px] font-medium text-gray-900 leading-[1.4] 
                                      tracking-tight group-hover:text-purple-400 transition-all duration-300"
                             style={{ fontFamily: '"DM Sans", system-ui, sans-serif' }}>
                           {service.name}
                         </h3>
                         
                         {/* Hover underline */}
-                        <div className="w-0 group-hover:w-16 h-0.5 bg-purple-400 mt-2 mx-auto
+                        <div className="w-0 group-hover:w-12 h-0.5 bg-purple-400 mt-2 mx-auto
                                       transition-all duration-500 ease-out"></div>
                       </div>
                     </Link>
@@ -618,7 +618,7 @@ export default function Home() {
         {/* FAQ Section - Premium Redesign */}
         <section 
           ref={faqAnimation.elementRef as any}
-          className="py-20 lg:py-32 bg-gradient-to-br from-[#fafafa] to-[#f9f7ff] relative overflow-hidden"
+          className={`py-20 lg:py-32 bg-gradient-to-br from-[#fafafa] to-[#f9f7ff] relative overflow-hidden scroll-animate ${faqAnimation.isVisible ? 'visible' : ''}`}
         >
           <div className={`max-w-4xl mx-auto px-6 lg:px-8 scroll-animate ${faqAnimation.isVisible ? 'visible' : ''}`}>
             

@@ -114,6 +114,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
       }}
     >
       {/* Background overlay */}
