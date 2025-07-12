@@ -430,14 +430,11 @@ export default function Home() {
             {/* LEFT SIDE - Video Section */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
               <div className="w-full max-w-2xl">
-                {/* Næstir Logo */}
-                <div className="text-center mb-8">
-                  <h2 
-                    className="text-[#4B0082] font-playfair italic"
-                    style={{ fontSize: '40px', lineHeight: '1.2' }}
-                  >
-                    Næstir
-                  </h2>
+                {/* Description Text */}
+                <div className="text-center mb-8 max-w-lg mx-auto">
+                  <p className="text-gray-700 text-base leading-relaxed font-light">
+                    Sérverkefnadeild Sólar býr yfir áralangri reynslu og þekkingu á sérþrifum. Þjónustan okkar einkennist af hágæða vinnubrögðum og fagmennsku í hverju verkefni. Öllum verkefnum stýrir verkstjóri sem tryggir vandaða framkvæmd frá upphafi til enda. Fyrir okkur er ekkert verkefni of stórt eða smátt!
+                  </p>
                 </div>
                 
                 {/* Video Container */}
