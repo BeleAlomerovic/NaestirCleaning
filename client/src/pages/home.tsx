@@ -423,11 +423,14 @@ export default function Home() {
               <div className="w-32 h-1.5 bg-gradient-to-r from-purple-300 via-purple-400 to-purple-300 rounded-full shadow-sm opacity-80"></div>
             </div>
             
-            {/* Description Text */}
-            <div className="text-center mb-12 max-w-3xl mx-auto">
-              <p className="text-gray-700 text-lg leading-relaxed font-light">
-                Sérverkefnadeild Sólar býr yfir áralangri reynslu og þekkingu á sérþrifum. Þjónustan okkar einkennist af hágæða vinnubrögðum og fagmennsku í hverju verkefni. Öllum verkefnum stýrir verkstjóri sem tryggir vandaða framkvæmd frá upphafi til enda. Fyrir okkur er ekkert verkefni of stórt eða smátt!
-              </p>
+            {/* Næstir Logo */}
+            <div className="text-center mb-12">
+              <h2 
+                className="text-[#4B0082] font-playfair italic"
+                style={{ fontSize: '40px', lineHeight: '1.2' }}
+              >
+                Næstir
+              </h2>
             </div>
           </div>
 
