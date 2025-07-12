@@ -441,7 +441,7 @@ export default function Home() {
                 </div>
                 
                 {/* Video Container */}
-                <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_12px_48px_rgba(0,0,0,0.15),0_4px_16px_rgba(0,0,0,0.1)] border border-[#e8d9ff]">
+                <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.25),0_8px_32px_rgba(0,0,0,0.15),0_2px_8px_rgba(0,0,0,0.1)] border border-[#e8d9ff]">
                   <video
                     className="w-full h-full object-cover"
                     autoPlay
@@ -480,13 +480,13 @@ export default function Home() {
                     <img
                       src={transformations[currentIndex].beforeImage}
                       alt={`${transformations[currentIndex].title} before cleaning`}
-                      className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-[0_12px_48px_rgba(0,0,0,0.15),0_4px_16px_rgba(0,0,0,0.1)] border border-[#e8d9ff] transition-all duration-700 group-hover:opacity-0"
+                      className="w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-[0_24px_80px_rgba(0,0,0,0.25),0_8px_32px_rgba(0,0,0,0.15),0_2px_8px_rgba(0,0,0,0.1)] border border-[#e8d9ff] transition-all duration-700 group-hover:opacity-0"
                     />
                     {/* After Image (Hover Reveal) */}
                     <img
                       src={transformations[currentIndex].afterImage}
                       alt={`${transformations[currentIndex].title} after cleaning`}
-                      className="absolute inset-0 w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-[0_12px_48px_rgba(0,0,0,0.15),0_4px_16px_rgba(0,0,0,0.1)] border border-[#e8d9ff] opacity-0 transition-all duration-700 group-hover:opacity-100"
+                      className="absolute inset-0 w-full h-[400px] md:h-[500px] object-cover rounded-2xl shadow-[0_24px_80px_rgba(0,0,0,0.25),0_8px_32px_rgba(0,0,0,0.15),0_2px_8px_rgba(0,0,0,0.1)] border border-[#e8d9ff] opacity-0 transition-all duration-700 group-hover:opacity-100"
                     />
                     
                     {/* Premium Badge Labels */}
