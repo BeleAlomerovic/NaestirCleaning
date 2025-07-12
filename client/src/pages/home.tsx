@@ -100,6 +100,33 @@ export default function Home() {
     }
   };
 
+  // Mobile-specific touch handlers for the image container
+  const handleImageTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleImageTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleImageTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      goToNext();
+    } else if (isRightSwipe) {
+      goToPrev();
+    }
+    
+    // Reset touch states
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
   };
@@ -486,6 +513,9 @@ export default function Home() {
                   <div 
                     className="relative group w-full aspect-video rounded-2xl overflow-hidden shadow-[0_24px_80px_rgba(139,69,190,0.25),0_8px_32px_rgba(139,69,190,0.15),0_2px_8px_rgba(139,69,190,0.1)] border border-[#e8d9ff]"
                     onClick={() => setShowAfterOnMobile(!showAfterOnMobile)}
+                    onTouchStart={handleImageTouchStart}
+                    onTouchMove={handleImageTouchMove}
+                    onTouchEnd={handleImageTouchEnd}
                   >
                     {/* Before Image (Default) */}
                     <img
@@ -525,22 +555,24 @@ export default function Home() {
                     </p>
                   </div>
 
-                  {/* Glassmorphism Navigation */}
-                  <div className="absolute top-1/2 left-0 right-0 flex justify-between items-center pointer-events-none">
+                  {/* Glassmorphism Navigation - Desktop Only */}
+                  <div className="hidden lg:block">
+                    {/* Left Arrow - Outside Photo */}
                     <button
                       onClick={goToPrev}
-                      className="carousel-nav-button ml-4 z-20 w-16 h-16 bg-white/20 backdrop-blur-md hover:bg-white/30 shadow-2xl hover:shadow-purple-500/20 rounded-2xl flex items-center justify-center transition-all duration-300 group border border-white/30 hover:border-purple-300/50 pointer-events-auto"
+                      className="absolute top-1/2 -left-20 z-20 w-16 h-16 bg-white/20 backdrop-blur-md hover:bg-white/30 shadow-2xl hover:shadow-purple-500/20 rounded-2xl flex items-center justify-center transition-all duration-300 group border border-white/30 hover:border-purple-300/50 -translate-y-1/2"
                       aria-label="Previous transformation"
                     >
-                      <ChevronLeft className="w-7 h-7 text-white drop-shadow-lg group-hover:text-purple-100 transition-colors duration-300" />
+                      <ChevronLeft className="w-7 h-7 text-gray-700 drop-shadow-lg group-hover:text-purple-600 transition-colors duration-300" />
                     </button>
                     
+                    {/* Right Arrow - Outside Photo */}
                     <button
                       onClick={goToNext}
-                      className="carousel-nav-button mr-4 z-20 w-16 h-16 bg-white/20 backdrop-blur-md hover:bg-white/30 shadow-2xl hover:shadow-purple-500/20 rounded-2xl flex items-center justify-center transition-all duration-300 group border border-white/30 hover:border-purple-300/50 pointer-events-auto"
+                      className="absolute top-1/2 -right-20 z-20 w-16 h-16 bg-white/20 backdrop-blur-md hover:bg-white/30 shadow-2xl hover:shadow-purple-500/20 rounded-2xl flex items-center justify-center transition-all duration-300 group border border-white/30 hover:border-purple-300/50 -translate-y-1/2"
                       aria-label="Next transformation"
                     >
-                      <ChevronRight className="w-7 h-7 text-white drop-shadow-lg group-hover:text-purple-100 transition-colors duration-300" />
+                      <ChevronRight className="w-7 h-7 text-gray-700 drop-shadow-lg group-hover:text-purple-600 transition-colors duration-300" />
                     </button>
                   </div>
                   
