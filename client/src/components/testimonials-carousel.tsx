@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { reviewsData } from '@/lib/constants';
 import { WaveSeparator } from './wave-separator';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import { useParallax } from '@/hooks/use-parallax';
 import towelBackgroundImage from '@assets/Marriott-towel-set-MAR-320-01-SET-BT-WH_xlrg_1751680650160.webp';
 
 interface TestimonialCarouselProps {
@@ -18,6 +19,9 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
   
   // Scroll animation for testimonials section
   const testimonialsAnimation = useScrollAnimation();
+  
+  // Parallax effect for background
+  const parallaxRef = useParallax();
   
   // Keyboard navigation support
   useEffect(() => {
@@ -109,13 +113,19 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
     <section 
       ref={testimonialsAnimation.elementRef as any} 
       className={`w-full section-purple relative overflow-hidden ${className}`}
-      style={{
-        backgroundImage: `url(${towelBackgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
     >
+      {/* Parallax Background Container */}
+      <div 
+        ref={parallaxRef}
+        className="absolute inset-0 w-full h-full"
+        style={{
+          backgroundImage: `url(${towelBackgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          willChange: 'transform',
+        }}
+      ></div>
       {/* Background overlay */}
       <div className="absolute inset-0 bg-white/65 backdrop-blur-[1px]"></div>
       

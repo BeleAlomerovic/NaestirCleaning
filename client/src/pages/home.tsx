@@ -378,11 +378,11 @@ export default function Home() {
             </div>
             
             {/* Clean vertical stack of services below */}
-            <div className="bg-white px-6 py-12">
+            <div className="bg-white px-6 py-8">
               <div className={`max-w-lg mx-auto ${servicesAnimation.isVisible ? 'visible' : ''}`}>
                 
                 {/* Section Label */}
-                <div className="text-center mb-12">
+                <div className="text-center mb-8">
                   <p className="text-gray-500 text-sm font-medium tracking-[2px] uppercase mb-4">
                     Our Expertise
                   </p>
