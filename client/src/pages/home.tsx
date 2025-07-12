@@ -36,6 +36,7 @@ export default function Home() {
   
   // State for transformation carousel
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showAfterOnMobile, setShowAfterOnMobile] = useState(false);
   const totalTransformations = 5;
   
   // State for services split-screen slideshow
@@ -65,10 +66,12 @@ export default function Home() {
   // Navigation functions for carousel
   const goToNext = () => {
     setCurrentIndex((prev) => (prev + 1) % totalTransformations);
+    setShowAfterOnMobile(false); // Reset mobile state on navigation
   };
   
   const goToPrev = () => {
     setCurrentIndex((prev) => (prev - 1 + totalTransformations) % totalTransformations);
+    setShowAfterOnMobile(false); // Reset mobile state on navigation
   };
 
   // Touch gesture support
@@ -480,31 +483,35 @@ export default function Home() {
                   onTouchEnd={handleTouchEnd}
                 >
                   {/* Single Hover-to-Reveal Image */}
-                  <div className="relative group w-full aspect-video rounded-2xl overflow-hidden shadow-[0_24px_80px_rgba(139,69,190,0.25),0_8px_32px_rgba(139,69,190,0.15),0_2px_8px_rgba(139,69,190,0.1)] border border-[#e8d9ff]">
+                  <div 
+                    className="relative group w-full aspect-video rounded-2xl overflow-hidden shadow-[0_24px_80px_rgba(139,69,190,0.25),0_8px_32px_rgba(139,69,190,0.15),0_2px_8px_rgba(139,69,190,0.1)] border border-[#e8d9ff]"
+                    onClick={() => setShowAfterOnMobile(!showAfterOnMobile)}
+                  >
                     {/* Before Image (Default) */}
                     <img
                       src={transformations[currentIndex].beforeImage}
                       alt={`${transformations[currentIndex].title} before cleaning`}
-                      className="w-full h-full object-cover transition-all duration-700 group-hover:opacity-0"
+                      className={`w-full h-full object-cover transition-all duration-700 ${showAfterOnMobile ? 'opacity-0 lg:opacity-100' : ''} lg:group-hover:opacity-0`}
                     />
-                    {/* After Image (Hover Reveal) */}
+                    {/* After Image (Hover Reveal / Tap Reveal) */}
                     <img
                       src={transformations[currentIndex].afterImage}
                       alt={`${transformations[currentIndex].title} after cleaning`}
-                      className="absolute inset-0 w-full h-full object-cover opacity-0 transition-all duration-700 group-hover:opacity-100"
+                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${showAfterOnMobile ? 'opacity-100 lg:opacity-0' : 'opacity-0'} lg:group-hover:opacity-100`}
                     />
                     
                     {/* Premium Badge Labels */}
                     <div className="absolute top-4 left-4 bg-black/80 text-white px-4 py-2 rounded-full text-xs font-bold tracking-wide">
                       BEFORE
                     </div>
-                    <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-full text-xs font-bold tracking-wide opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                    <div className={`absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-all duration-500 delay-200 ${showAfterOnMobile ? 'opacity-100 lg:opacity-0' : 'opacity-0'} lg:group-hover:opacity-100`}>
                       AFTER
                     </div>
                     
                     {/* Editorial Caption */}
                     <p className="mt-4 text-center font-light text-gray-700 text-sm tracking-wide">
-                      Hover to reveal transformation: {transformations[currentIndex].title}
+                      <span className="lg:hidden">Tap to reveal transformation</span>
+                      <span className="hidden lg:inline">Hover to reveal transformation</span>: {transformations[currentIndex].title}
                     </p>
                   </div>
 
