@@ -113,22 +113,27 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
     <section 
       ref={testimonialsAnimation.elementRef as any} 
       className={`w-full section-purple relative overflow-hidden ${className}`}
-      style={{
-        backgroundImage: `url(${towelBackgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed',
-      }}
     >
-      {/* Mobile Parallax Background Container */}
+      {/* Desktop Background with Fixed Attachment */}
+      <div 
+        className="absolute inset-0 w-full h-full hidden lg:block"
+        style={{
+          backgroundImage: `url(${towelBackgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed',
+        }}
+      ></div>
+      
+      {/* Mobile Parallax Background - Shows Partial Image */}
       <div 
         ref={parallaxRef}
         className="absolute inset-0 w-full h-full lg:hidden"
         style={{
           backgroundImage: `url(${towelBackgroundImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: '120%', // Larger than container for parallax movement
+          backgroundPosition: '50% 30%', // Start showing upper portion
           backgroundRepeat: 'no-repeat',
           willChange: 'transform',
         }}
