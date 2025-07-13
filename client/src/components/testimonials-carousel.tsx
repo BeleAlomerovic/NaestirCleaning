@@ -111,7 +111,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
     <section 
       ref={testimonialsAnimation.elementRef as any} 
       className={`w-full section-purple relative overflow-hidden ${className}`}
-      style={{ minHeight: '80vh' }}
+      style={{ minHeight: '60vh' }}
     >
       {/* Desktop Background with Fixed Attachment */}
       <div 
@@ -142,7 +142,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
       
       <div className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-content ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
         {/* Mobile: Centered content with more vertical space */}
-        <div className="lg:hidden min-h-[80vh] flex flex-col justify-center py-12 transform -translate-y-[100px]">
+        <div className="lg:hidden min-h-[60vh] flex flex-col justify-center py-8 transform -translate-y-[100px]">
           {/* Section Header - Elegant "Meðmæli" Design */}
           <div className={`text-center mb-8 relative scroll-animate ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
             {/* Background Quote Mark */}
