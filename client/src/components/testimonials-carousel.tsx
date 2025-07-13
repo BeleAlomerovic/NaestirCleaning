@@ -141,40 +141,38 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
     <section 
       ref={testimonialsAnimation.elementRef as any} 
       className={`w-full section-purple relative overflow-hidden ${className}`}
-      style={{ minHeight: '120vh', paddingTop: '85px' }}
+      style={{ minHeight: '60vh', paddingTop: '85px' }}
     >
-      {/* Desktop Background with Fixed Attachment - Reduced Height */}
+      {/* Desktop Background with Fixed Attachment */}
       <div 
-        className="absolute top-0 left-0 w-full hidden lg:block"
+        className="absolute inset-0 w-full h-full hidden lg:block"
         style={{
-          height: '80vh',
           backgroundImage: `url(${towelBackgroundImage})`,
-          backgroundSize: '100% 80vh',
-          backgroundPosition: 'center top',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'fixed',
         }}
       ></div>
       
-      {/* Mobile Parallax Background - Reduced Height */}
+      {/* Mobile Parallax Background - Smooth movement like desktop */}
       <div 
         ref={parallaxRef}
-        className="absolute top-0 left-0 w-full lg:hidden"
+        className="absolute inset-0 w-full h-full lg:hidden"
         style={{
-          height: '80vh',
           backgroundImage: `url(${towelBackgroundImage})`,
-          backgroundSize: '100% 80vh',
-          backgroundPosition: 'center top',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           willChange: 'transform',
         }}
       ></div>
-      {/* Background overlay - Reduced Height */}
-      <div className="absolute top-0 left-0 w-full bg-white/65 backdrop-blur-[1px]" style={{ height: '80vh' }}></div>
+      {/* Background overlay */}
+      <div className="absolute inset-0 bg-white/65 backdrop-blur-[1px]"></div>
       
       <div className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-content ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
         {/* Mobile: Centered content with more vertical space */}
-        <div className="lg:hidden h-[120vh] flex flex-col items-center px-4">
+        <div className="lg:hidden h-[60vh] flex flex-col items-center px-4">
           {/* Section Header - Elegant "Meðmæli" Design */}
           <div className={`text-center mb-8 relative scroll-animate ${testimonialsAnimation.isVisible ? 'visible' : ''}`} style={{ marginTop: '15px' }}>
             {/* Background Quote Mark */}
@@ -198,7 +196,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
           {/* Mobile Testimonial Card - Smaller and Centered */}
           <div
             className="relative overflow-hidden max-w-xs mx-auto"
-            style={{ marginTop: 'auto', marginBottom: '40px' }}
+            style={{ marginTop: '120px' }}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
