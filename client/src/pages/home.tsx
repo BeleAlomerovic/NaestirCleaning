@@ -611,7 +611,7 @@ export default function Home() {
         {/* FAQ Section - Premium Redesign */}
         <section 
           ref={faqAnimation.elementRef as any}
-          className={`py-20 lg:py-32 bg-gradient-to-br from-[#fafafa] to-[#f9f7ff] relative overflow-hidden scroll-animate ${faqAnimation.isVisible ? 'visible' : ''}`}
+          className={`py-20 lg:py-32 bg-gradient-to-br from-[#f6f0ff] to-[#ffffff] relative overflow-hidden scroll-animate ${faqAnimation.isVisible ? 'visible' : ''}`}
           style={{ paddingTop: '8rem' }}
         >
           <div className={`max-w-4xl mx-auto px-6 lg:px-8 scroll-animate ${faqAnimation.isVisible ? 'visible' : ''}`}>

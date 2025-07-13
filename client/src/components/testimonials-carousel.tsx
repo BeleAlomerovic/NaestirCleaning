@@ -336,9 +336,6 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
           </div>
         </div>
       </div>
-      
-      {/* Wave separator to next section */}
-      <WaveSeparator nextSectionColor="white" />
     </section>
   );
 }
