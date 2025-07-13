@@ -21,8 +21,38 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
   // Scroll animation for testimonials section
   const testimonialsAnimation = useScrollAnimation();
   
-  // Parallax effect for background
-  const parallaxRef = useParallax();
+  // Custom parallax effect for mobile background
+  const parallaxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = parallaxRef.current;
+    if (!element) return;
+
+    const handleScroll = () => {
+      const scrolled = window.pageYOffset;
+      // Slower movement rate to mimic desktop fixed attachment
+      const rate = scrolled * 0.1; 
+      element.style.transform = `translateY(${rate}px)`;
+    };
+
+    // Throttle scroll events for performance
+    let ticking = false;
+    const throttledScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', throttledScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', throttledScroll);
+    };
+  }, []);
   
   // Keyboard navigation support
   const handleKeyPress = (e: KeyboardEvent) => {
@@ -125,15 +155,16 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
         }}
       ></div>
       
-      {/* Mobile Background with Fixed Attachment - Same as Desktop */}
+      {/* Mobile Parallax Background - Smooth movement like desktop */}
       <div 
+        ref={parallaxRef}
         className="absolute inset-0 w-full h-full lg:hidden"
         style={{
           backgroundImage: `url(${towelBackgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed',
+          willChange: 'transform',
         }}
       ></div>
       {/* Background overlay */}
