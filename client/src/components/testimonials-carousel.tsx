@@ -158,13 +158,14 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
       {/* Mobile Parallax Background - Smooth movement like desktop */}
       <div 
         ref={parallaxRef}
-        className="absolute inset-0 w-full h-full lg:hidden"
+        className="absolute top-0 left-0 w-full lg:hidden"
         style={{
           backgroundImage: `url(${towelBackgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           willChange: 'transform',
+          height: '80vh', // Keep original background size
         }}
       ></div>
       {/* Background overlay */}
