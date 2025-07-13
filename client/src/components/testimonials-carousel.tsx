@@ -172,7 +172,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
       
       <div className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-content ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
         {/* Mobile: Centered content with more vertical space */}
-        <div className="lg:hidden h-[60vh] flex flex-col justify-center items-center px-4 pt-16">
+        <div className="lg:hidden h-[60vh] flex flex-col justify-center items-center px-4 pt-24">
           {/* Section Header - Elegant "Meðmæli" Design */}
           <div className={`text-center mb-8 relative scroll-animate ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
             {/* Background Quote Mark */}
