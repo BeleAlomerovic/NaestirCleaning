@@ -148,8 +148,8 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
         className="absolute inset-0 w-full h-full hidden lg:block"
         style={{
           backgroundImage: `url(${towelBackgroundImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: 'auto 60vh',
+          backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'fixed',
         }}
@@ -161,8 +161,8 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
         className="absolute inset-0 w-full h-full lg:hidden"
         style={{
           backgroundImage: `url(${towelBackgroundImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: 'auto 60vh',
+          backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           willChange: 'transform',
         }}
