@@ -172,9 +172,9 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
       
       <div className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-content ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
         {/* Mobile: Centered content with more vertical space */}
-        <div className="lg:hidden h-[60vh] flex flex-col justify-center items-center px-4 pt-24">
+        <div className="lg:hidden h-[60vh] flex flex-col items-center px-4">
           {/* Section Header - Elegant "Meðmæli" Design */}
-          <div className={`text-center mb-8 relative scroll-animate ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
+          <div className={`text-center mb-8 relative scroll-animate ${testimonialsAnimation.isVisible ? 'visible' : ''}`} style={{ marginTop: '50px' }}>
             {/* Background Quote Mark */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="text-[80px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
@@ -196,6 +196,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
           {/* Mobile Testimonial Card - Smaller and Centered */}
           <div
             className="relative overflow-hidden max-w-xs mx-auto"
+            style={{ marginTop: '120px' }}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
