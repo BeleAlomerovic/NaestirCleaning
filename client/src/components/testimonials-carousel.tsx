@@ -143,10 +143,11 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
       className={`w-full section-purple relative overflow-hidden ${className}`}
       style={{ minHeight: '120vh', paddingTop: '85px' }}
     >
-      {/* Desktop Background with Fixed Attachment */}
+      {/* Desktop Background with Fixed Attachment - Reduced Height */}
       <div 
-        className="absolute inset-0 w-full h-full hidden lg:block"
+        className="absolute top-0 left-0 w-full hidden lg:block"
         style={{
+          height: '80vh',
           backgroundImage: `url(${towelBackgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -155,11 +156,12 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
         }}
       ></div>
       
-      {/* Mobile Parallax Background - Smooth movement like desktop */}
+      {/* Mobile Parallax Background - Reduced Height */}
       <div 
         ref={parallaxRef}
-        className="absolute inset-0 w-full h-full lg:hidden"
+        className="absolute top-0 left-0 w-full lg:hidden"
         style={{
+          height: '80vh',
           backgroundImage: `url(${towelBackgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -167,8 +169,8 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
           willChange: 'transform',
         }}
       ></div>
-      {/* Background overlay */}
-      <div className="absolute inset-0 bg-white/65 backdrop-blur-[1px]"></div>
+      {/* Background overlay - Reduced Height */}
+      <div className="absolute top-0 left-0 w-full bg-white/65 backdrop-blur-[1px]" style={{ height: '80vh' }}></div>
       
       <div className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-content ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
         {/* Mobile: Centered content with more vertical space */}
