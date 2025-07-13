@@ -149,8 +149,8 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
         style={{
           height: '80vh',
           backgroundImage: `url(${towelBackgroundImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: '100% 80vh',
+          backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'fixed',
         }}
@@ -163,8 +163,8 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
         style={{
           height: '80vh',
           backgroundImage: `url(${towelBackgroundImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: '100% 80vh',
+          backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           willChange: 'transform',
         }}
