@@ -125,16 +125,15 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
         }}
       ></div>
       
-      {/* Mobile Parallax Background - Shows Partial Image */}
+      {/* Mobile Background with Fixed Attachment - Same as Desktop */}
       <div 
-        ref={parallaxRef}
         className="absolute inset-0 w-full h-full lg:hidden"
         style={{
           backgroundImage: `url(${towelBackgroundImage})`,
-          backgroundSize: '140%', // Even larger for more parallax movement
-          backgroundPosition: '50% 30%', // Start showing upper portion
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          willChange: 'transform',
+          backgroundAttachment: 'fixed',
         }}
       ></div>
       {/* Background overlay */}
