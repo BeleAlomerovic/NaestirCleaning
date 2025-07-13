@@ -270,6 +270,7 @@ export default function Home() {
           id="services" 
           ref={servicesAnimation.elementRef as any}
           className={`relative min-h-screen overflow-hidden bg-white scroll-animate ${servicesAnimation.isVisible ? 'visible' : ''}`}
+          style={{ paddingTop: '8rem' }}
         >
           {/* Desktop Split-Screen Layout */}
           <div className="hidden lg:flex h-screen">
@@ -425,6 +426,7 @@ export default function Home() {
         <section 
           ref={galleryAnimation.elementRef as any}
           className="relative min-h-screen overflow-hidden"
+          style={{ paddingTop: '8rem' }}
         >
           {/* Elite Background Design: Sculpted Depth */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#f6f0ff] to-[#ffffff]">
@@ -619,6 +621,7 @@ export default function Home() {
         <section 
           ref={faqAnimation.elementRef as any}
           className={`py-20 lg:py-32 bg-gradient-to-br from-[#fafafa] to-[#f9f7ff] relative overflow-hidden scroll-animate ${faqAnimation.isVisible ? 'visible' : ''}`}
+          style={{ paddingTop: '8rem' }}
         >
           <div className={`max-w-4xl mx-auto px-6 lg:px-8 scroll-animate ${faqAnimation.isVisible ? 'visible' : ''}`}>
             
