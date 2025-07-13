@@ -260,9 +260,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-          
-          {/* Wave separator to next section */}
-          <WaveSeparator nextSectionColor="purple" />
         </section>
 
         {/* Þjónustan Okkar - Commanding Split-Screen Layout */}
@@ -417,9 +414,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-          
-          {/* Wave separator to next section */}
-          <WaveSeparator nextSectionColor="white" />
         </section>
 
         {/* Before & After Transformations Section - Split Layout */}
@@ -609,9 +603,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-          
-          {/* Wave separator to next section */}
-          <WaveSeparator nextSectionColor="purple" />
         </section>
 
         {/* Client Testimonials Section */}
