@@ -174,7 +174,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
         {/* Mobile: Centered content with more vertical space */}
         <div className="lg:hidden h-[60vh] flex flex-col items-center px-4">
           {/* Section Header - Elegant "Meðmæli" Design */}
-          <div className={`text-center mb-8 relative scroll-animate ${testimonialsAnimation.isVisible ? 'visible' : ''}`} style={{ marginTop: '50px' }}>
+          <div className={`text-center mb-8 relative scroll-animate ${testimonialsAnimation.isVisible ? 'visible' : ''}`} style={{ marginTop: '30px' }}>
             {/* Background Quote Mark */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="text-[80px] text-[#B7A9D3] opacity-[0.02] font-serif leading-none select-none">
