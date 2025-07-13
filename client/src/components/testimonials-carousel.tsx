@@ -111,7 +111,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
     <section 
       ref={testimonialsAnimation.elementRef as any} 
       className={`w-full section-purple relative overflow-hidden ${className}`}
-      style={{ minHeight: '60vh', paddingTop: '4rem' }}
+      style={{ minHeight: '60vh', paddingTop: '6rem' }}
     >
       {/* Desktop Background with Fixed Attachment */}
       <div 
