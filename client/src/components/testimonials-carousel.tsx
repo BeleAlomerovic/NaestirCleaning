@@ -196,7 +196,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
           {/* Mobile Testimonial Card - Smaller and Centered */}
           <div
             className="relative overflow-hidden max-w-xs mx-auto"
-            style={{ marginTop: '120px' }}
+            style={{ marginTop: '270px' }}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
