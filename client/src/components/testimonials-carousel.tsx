@@ -141,7 +141,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
     <section 
       ref={testimonialsAnimation.elementRef as any} 
       className={`w-full section-purple relative overflow-hidden ${className}`}
-      style={{ minHeight: '80vh', paddingTop: '85px' }}
+      style={{ minHeight: '120vh', paddingTop: '85px' }}
     >
       {/* Desktop Background with Fixed Attachment */}
       <div 
@@ -172,7 +172,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
       
       <div className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-content ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
         {/* Mobile: Centered content with more vertical space */}
-        <div className="lg:hidden h-[80vh] flex flex-col items-center px-4">
+        <div className="lg:hidden h-[120vh] flex flex-col items-center px-4 relative">
           {/* Section Header - Elegant "Meðmæli" Design */}
           <div className={`text-center mb-8 relative scroll-animate ${testimonialsAnimation.isVisible ? 'visible' : ''}`} style={{ marginTop: '15px' }}>
             {/* Background Quote Mark */}
@@ -193,10 +193,9 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
             </div>
           </div>
 
-          {/* Mobile Testimonial Card - Smaller and Centered */}
+          {/* Mobile Testimonial Card - Smaller and Centered - Positioned at bottom */}
           <div
-            className="relative overflow-hidden max-w-xs mx-auto"
-            style={{ marginTop: '270px' }}
+            className="absolute bottom-16 left-1/2 transform -translate-x-1/2 overflow-hidden max-w-xs"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
