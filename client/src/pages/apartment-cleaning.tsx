@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { PageTransition } from "@/components/page-transition";
+import { TornPaperDivider } from "@/components/torn-paper-divider";
 import cleanApartment1 from "@assets/Clean-apartment_1750613206530.jpg";
 import apartmentChecklist1 from "@assets/The-Ultimate-Apartment-Cleaning-Checklist-1024x683_1750613219827.jpg";
 import cleanApartment2 from "@assets/Clean-apartment_1750612374272.jpg";
@@ -98,21 +99,154 @@ export default function ApartmentCleaning() {
           </div>
         </div>
 
-        {/* Hero Section */}
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Split-Screen Layout */}
+        <section className="relative min-h-screen overflow-hidden">
+          {/* Left Side - Image Gallery (50% width) */}
+          <div className="absolute left-0 top-0 w-1/2 h-full bg-gray-50">
+            <div className="relative w-full h-full">
+              {/* Image Gallery */}
+              <div className="w-full h-full relative overflow-hidden">
+                <img
+                  src={apartmentImages[currentImageIndex].src}
+                  alt={apartmentImages[currentImageIndex].alt}
+                  className="w-full h-full object-cover transition-opacity duration-500"
+                />
+                
+                {/* Navigation dots */}
+                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                  {apartmentImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === currentImageIndex
+                          ? 'bg-white shadow-lg'
+                          : 'bg-white/50 hover:bg-white/75'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Torn Paper Divider */}
+          <TornPaperDivider className="z-10" />
+
+          {/* Right Side - Service Options (50% width) */}
+          <div className="absolute right-0 top-0 w-1/2 h-full bg-white">
+            <div className="h-full flex flex-col justify-center px-8 lg:px-16">
+              {/* Back Link */}
+              <Link href="/services" className="inline-flex items-center text-[#4B0082] hover:text-purple-600 mb-8 transition-colors">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Services
+              </Link>
+
+              {/* Service Title */}
+              <h1 className="font-playfair text-4xl lg:text-5xl font-bold text-[#333] mb-6 leading-tight">
+                Professional Apartment Cleaning
+              </h1>
+
+              {/* Service Description */}
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Transform your apartment into a spotless sanctuary with our comprehensive cleaning service. 
+                From studios to multi-bedroom units, we deliver exceptional results every time.
+              </p>
+
+              {/* Service Features */}
+              <div className="mb-8">
+                <h3 className="text-xl font-semibold text-[#333] mb-4">What's Included:</h3>
+                <div className="grid grid-cols-1 gap-3">
+                  {serviceFeatures.slice(0, 6).map((feature, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-[#4B0082] mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                <Link href="/booking">
+                  <Button className="w-full sm:w-auto bg-[#4B0082] hover:bg-purple-600 text-white px-8 py-3 text-lg font-semibold">
+                    Book Now
+                  </Button>
+                </Link>
+                <Link href="/quote">
+                  <Button variant="outline" className="w-full sm:w-auto border-[#4B0082] text-[#4B0082] hover:bg-[#4B0082] hover:text-white px-8 py-3 text-lg">
+                    Get Quote
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Mobile Layout - Show content below on small screens */}
+        <section className="lg:hidden py-16 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Mobile Image Gallery */}
+            <div className="mb-8">
+              <img
+                src={apartmentImages[currentImageIndex].src}
+                alt={apartmentImages[currentImageIndex].alt}
+                className="w-full h-64 object-cover rounded-lg"
+              />
+              <div className="flex justify-center mt-4 space-x-2">
+                {apartmentImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentImageIndex
+                        ? 'bg-[#4B0082] shadow-lg'
+                        : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile Content */}
             <div className="text-center">
               <Link href="/services" className="inline-flex items-center text-[#4B0082] hover:text-purple-600 mb-6 transition-colors">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Services
               </Link>
-              <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-[#333] mb-6">
+              
+              <h1 className="font-playfair text-3xl md:text-4xl font-bold text-[#333] mb-6">
                 Professional Apartment Cleaning
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Transform your apartment into a spotless sanctuary with our comprehensive cleaning service. 
-                From studios to multi-bedroom units, we deliver exceptional results every time.
+              
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Transform your apartment into a spotless sanctuary with our comprehensive cleaning service.
               </p>
+
+              <div className="text-left mb-8">
+                <h3 className="text-xl font-semibold text-[#333] mb-4 text-center">What's Included:</h3>
+                <div className="grid grid-cols-1 gap-3">
+                  {serviceFeatures.slice(0, 6).map((feature, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-[#4B0082] mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex flex-col space-y-3">
+                <Link href="/booking">
+                  <Button className="w-full bg-[#4B0082] hover:bg-purple-600 text-white px-8 py-3 text-lg font-semibold">
+                    Book Now
+                  </Button>
+                </Link>
+                <Link href="/quote">
+                  <Button variant="outline" className="w-full border-[#4B0082] text-[#4B0082] hover:bg-[#4B0082] hover:text-white px-8 py-3 text-lg">
+                    Get Quote
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
@@ -156,234 +290,29 @@ export default function ApartmentCleaning() {
           </div>
         </section>
 
-        {/* Split-View Section */}
-        <section className="py-20 bg-white min-h-screen flex items-center relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[80vh]">
-              
-              {/* Left Side - Service Details (increased width) */}
-              <div className="lg:col-span-6 space-y-12 pr-8 border-r border-gray-100">
-                {/* Professional Section Heading */}
-                <div>
-                  <h2 
-                    className="font-medium text-[#2B2B2B] mb-8"
-                    style={{ 
-                      fontFamily: 'Inter, system-ui, sans-serif',
-                      fontSize: '1.75rem',
-                      lineHeight: '1.3',
-                      letterSpacing: '0.2px'
-                    }}
-                  >
-                    What's Included in Your Apartment Clean
-                  </h2>
-                  
-                  {/* Minimal Feature Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-3">
-                    {serviceFeatures.map((feature, index) => (
-                      <div key={index} className="flex items-center group">
-                        <div className="w-4 h-4 mr-3 flex-shrink-0">
-                          <svg 
-                            className="w-4 h-4 text-gray-400 group-hover:text-gray-600 transition-colors" 
-                            fill="none" 
-                            stroke="currentColor" 
-                            viewBox="0 0 24 24"
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
-                          </svg>
-                        </div>
-                        <span 
-                          className="text-gray-700 leading-relaxed"
-                          style={{ 
-                            fontFamily: 'Inter, system-ui, sans-serif',
-                            fontSize: '0.95rem',
-                            fontWeight: '400'
-                          }}
-                        >
-                          {feature}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Sleek Call-to-Action Block */}
-                <div className="pt-8 border-t border-gray-100">
-                  <Link href="/quote">
-                    <Button 
-                      className="btn-expand font-semibold rounded-lg"
-                      style={{
-                        height: '48px',
-                        width: '200px',
-                        fontSize: '0.95rem'
-                      }}
-                    >
-                      <span>Get My Quote</span>
-                    </Button>
-                  </Link>
-                </div>
+        {/* Additional Service Information for Mobile/Desktop */}
+        <section className="py-16 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-2xl font-bold text-[#333] mb-8">Why Choose Our Apartment Cleaning?</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <Shield className="w-12 h-12 text-[#4B0082] mx-auto mb-4" />
+                <h3 className="font-semibold text-[#333] mb-2">Insured & Trusted</h3>
+                <p className="text-gray-600">All cleaners are background-checked and fully insured</p>
               </div>
-
-              {/* Right Side - Image Gallery (reduced width) */}
-              <div className="lg:col-span-6">
-                {/* Image Carousel */}
-                <div 
-                  className="relative rounded-2xl overflow-hidden shadow-lg border-2 border-[#E6E6FA]/40"
-                  style={{ 
-                    background: 'linear-gradient(135deg, #E6E6FA 0%, #F0E6FF 100%)',
-                    padding: '6px'
-                  }}
-                >
-                  <div className="relative bg-white rounded-xl overflow-hidden">
-                    <div className="aspect-[3/2] relative cursor-zoom-in group">
-                      <img
-                        src={apartmentImages[currentImageIndex].src}
-                        alt={apartmentImages[currentImageIndex].alt}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      
-                      {/* Hover Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      
-                      {/* Navigation Arrows */}
-                      <button
-                        onClick={prevImage}
-                        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-xl hover:bg-white hover:scale-110 transition-all duration-200 opacity-80 hover:opacity-100"
-                      >
-                        <ArrowLeft className="w-6 h-6 text-[#4B0082]" />
-                      </button>
-                      <button
-                        onClick={nextImage}
-                        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-xl hover:bg-white hover:scale-110 transition-all duration-200 opacity-80 hover:opacity-100 rotate-180"
-                      >
-                        <ArrowLeft className="w-6 h-6 text-[#4B0082]" />
-                      </button>
-                    </div>
-                    
-                    {/* Swipe Dots */}
-                    <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
-                      {apartmentImages.map((_, index) => (
-                        <button
-                          key={index}
-                          onClick={() => setCurrentImageIndex(index)}
-                          className={`w-4 h-4 rounded-full transition-all duration-300 ${
-                            index === currentImageIndex 
-                              ? 'bg-[#4B0082] shadow-lg shadow-[#4B0082]/50' 
-                              : 'bg-white/70 hover:bg-white/90 hover:shadow-lg hover:shadow-white/50'
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                
-
-                {/* Trust & Safety Commitment Section */}
-                <div className="mt-8 pt-6 border-t border-gray-100">
-                  <div className="space-y-3">
-                    <div className="trust-item opacity-0 animate-trust-fade-1 flex items-center space-x-3">
-                      <div className="w-4 h-4 flex-shrink-0">
-                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
-                      <span 
-                        className="text-[#2B2B2B]"
-                        style={{ 
-                          fontFamily: 'Inter, system-ui, sans-serif',
-                          fontSize: '14px',
-                          fontWeight: '400',
-                          lineHeight: '1.5'
-                        }}
-                      >
-                        All cleaners are background-checked and trained
-                      </span>
-                    </div>
-
-                    <div className="trust-item opacity-0 animate-trust-fade-2 flex items-center space-x-3">
-                      <div className="w-4 h-4 flex-shrink-0">
-                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
-                      <span 
-                        className="text-[#2B2B2B]"
-                        style={{ 
-                          fontFamily: 'Inter, system-ui, sans-serif',
-                          fontSize: '14px',
-                          fontWeight: '400',
-                          lineHeight: '1.5'
-                        }}
-                      >
-                        Fully insured and bonded for your protection
-                      </span>
-                    </div>
-
-                    <div className="trust-item opacity-0 animate-trust-fade-3 flex items-center space-x-3">
-                      <div className="w-4 h-4 flex-shrink-0">
-                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
-                      <span 
-                        className="text-[#2B2B2B]"
-                        style={{ 
-                          fontFamily: 'Inter, system-ui, sans-serif',
-                          fontSize: '14px',
-                          fontWeight: '400',
-                          lineHeight: '1.5'
-                        }}
-                      >
-                        100% satisfaction guarantee — no exceptions
-                      </span>
-                    </div>
-
-                    <div className="trust-item opacity-0 animate-trust-fade-4 flex items-center space-x-3">
-                      <div className="w-4 h-4 flex-shrink-0">
-                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
-                      <span 
-                        className="text-[#2B2B2B]"
-                        style={{ 
-                          fontFamily: 'Inter, system-ui, sans-serif',
-                          fontSize: '14px',
-                          fontWeight: '400',
-                          lineHeight: '1.5'
-                        }}
-                      >
-                        Respectful, punctual, and detail-focused staff
-                      </span>
-                    </div>
-
-                    <div className="trust-item opacity-0 animate-trust-fade-5 flex items-center space-x-3">
-                      <div className="w-4 h-4 flex-shrink-0">
-                        <svg className="w-4 h-4 text-gray-400 animate-trust-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
-                      <span 
-                        className="text-[#2B2B2B]"
-                        style={{ 
-                          fontFamily: 'Inter, system-ui, sans-serif',
-                          fontSize: '14px',
-                          fontWeight: '400',
-                          lineHeight: '1.5'
-                        }}
-                      >
-                        Transparent pricing — no surprise fees
-                      </span>
-                    </div>
-                  </div>
-                </div>
+              <div className="text-center">
+                <Clock className="w-12 h-12 text-[#4B0082] mx-auto mb-4" />
+                <h3 className="font-semibold text-[#333] mb-2">Flexible Scheduling</h3>
+                <p className="text-gray-600">Book at your convenience, including weekends</p>
+              </div>
+              <div className="text-center">
+                <Star className="w-12 h-12 text-[#4B0082] mx-auto mb-4" />
+                <h3 className="font-semibold text-[#333] mb-2">Quality Guaranteed</h3>
+                <p className="text-gray-600">100% satisfaction guarantee on every cleaning</p>
               </div>
             </div>
-
           </div>
         </section>
-
       </div>
     </PageTransition>
   );

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { PageTransition } from "@/components/page-transition";
+import { TornPaperDivider } from "@/components/torn-paper-divider";
 import corporateImage1 from "@assets/comm-clean.2102030812301_1751047448997.jpg";
 import corporateImage2 from "@assets/9d2f5e310c4f327b70cf8ac9bc2da47d_1674016763_1751047461071.webp";
 
@@ -82,8 +83,8 @@ export default function CorporateCleaning() {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-gray-50">
-        {/* Breadcrumb */}
+      <div className="min-h-screen">
+        {/* Breadcrumb Navigation */}
         <div className="bg-gray-50 py-4">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center space-x-2 text-sm">
@@ -100,21 +101,154 @@ export default function CorporateCleaning() {
           </div>
         </div>
 
-        {/* Hero Section */}
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Split-Screen Layout */}
+        <section className="relative min-h-screen overflow-hidden">
+          {/* Left Side - Image Gallery (50% width) */}
+          <div className="absolute left-0 top-0 w-1/2 h-full bg-gray-50">
+            <div className="relative w-full h-full">
+              {/* Image Gallery */}
+              <div className="w-full h-full relative overflow-hidden">
+                <img
+                  src={corporateImages[currentImageIndex].src}
+                  alt={corporateImages[currentImageIndex].alt}
+                  className="w-full h-full object-cover transition-opacity duration-500"
+                />
+                
+                {/* Navigation dots */}
+                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                  {corporateImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === currentImageIndex
+                          ? 'bg-white shadow-lg'
+                          : 'bg-white/50 hover:bg-white/75'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Torn Paper Divider */}
+          <TornPaperDivider className="z-10" />
+
+          {/* Right Side - Service Options (50% width) */}
+          <div className="absolute right-0 top-0 w-1/2 h-full bg-white">
+            <div className="h-full flex flex-col justify-center px-8 lg:px-16">
+              {/* Back Link */}
+              <Link href="/services" className="inline-flex items-center text-[#4B0082] hover:text-purple-600 mb-8 transition-colors">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Services
+              </Link>
+
+              {/* Service Title */}
+              <h1 className="font-playfair text-4xl lg:text-5xl font-bold text-[#333] mb-6 leading-tight">
+                Professional Corporate Cleaning
+              </h1>
+
+              {/* Service Description */}
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Maintain a pristine professional environment with our comprehensive corporate cleaning services. 
+                From small offices to large corporate facilities, we ensure your workspace reflects your business standards.
+              </p>
+
+              {/* Service Features */}
+              <div className="mb-8">
+                <h3 className="text-xl font-semibold text-[#333] mb-4">What's Included:</h3>
+                <div className="grid grid-cols-1 gap-3">
+                  {serviceFeatures.slice(0, 6).map((feature, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-[#4B0082] mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                <Link href="/booking">
+                  <Button className="w-full sm:w-auto bg-[#4B0082] hover:bg-purple-600 text-white px-8 py-3 text-lg font-semibold">
+                    Book Now
+                  </Button>
+                </Link>
+                <Link href="/quote">
+                  <Button variant="outline" className="w-full sm:w-auto border-[#4B0082] text-[#4B0082] hover:bg-[#4B0082] hover:text-white px-8 py-3 text-lg">
+                    Get Quote
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Mobile Layout - Show content below on small screens */}
+        <section className="lg:hidden py-16 bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Mobile Image Gallery */}
+            <div className="mb-8">
+              <img
+                src={corporateImages[currentImageIndex].src}
+                alt={corporateImages[currentImageIndex].alt}
+                className="w-full h-64 object-cover rounded-lg"
+              />
+              <div className="flex justify-center mt-4 space-x-2">
+                {corporateImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentImageIndex
+                        ? 'bg-[#4B0082] shadow-lg'
+                        : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile Content */}
             <div className="text-center">
               <Link href="/services" className="inline-flex items-center text-[#4B0082] hover:text-purple-600 mb-6 transition-colors">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Services
               </Link>
-              <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-[#333] mb-6">
+              
+              <h1 className="font-playfair text-3xl md:text-4xl font-bold text-[#333] mb-6">
                 Professional Corporate Cleaning
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Maintain a pristine professional environment with our comprehensive corporate cleaning services. 
-                From small offices to large corporate facilities, we ensure your workspace reflects your business standards.
+              
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Maintain a pristine professional environment with our comprehensive corporate cleaning services.
               </p>
+
+              <div className="text-left mb-8">
+                <h3 className="text-xl font-semibold text-[#333] mb-4 text-center">What's Included:</h3>
+                <div className="grid grid-cols-1 gap-3">
+                  {serviceFeatures.slice(0, 6).map((feature, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-[#4B0082] mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex flex-col space-y-3">
+                <Link href="/booking">
+                  <Button className="w-full bg-[#4B0082] hover:bg-purple-600 text-white px-8 py-3 text-lg font-semibold">
+                    Book Now
+                  </Button>
+                </Link>
+                <Link href="/quote">
+                  <Button variant="outline" className="w-full border-[#4B0082] text-[#4B0082] hover:bg-[#4B0082] hover:text-white px-8 py-3 text-lg">
+                    Get Quote
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
