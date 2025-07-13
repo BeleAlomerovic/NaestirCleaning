@@ -161,7 +161,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
         className="absolute inset-0 w-full h-full lg:hidden"
         style={{
           backgroundImage: `url(${towelBackgroundImage})`,
-          backgroundSize: 'cover',
+          backgroundSize: '120%',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           willChange: 'transform',
