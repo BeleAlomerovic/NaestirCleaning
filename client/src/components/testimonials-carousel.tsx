@@ -110,7 +110,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
   return (
     <section 
       ref={testimonialsAnimation.elementRef as any} 
-      className={`w-full section-purple relative overflow-hidden ${className} lg:min-h-screen`}
+      className={`w-full section-purple relative overflow-hidden ${className}`}
     >
       {/* Desktop Background with Fixed Attachment */}
       <div 
@@ -124,10 +124,10 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
         }}
       ></div>
       
-      {/* Mobile Parallax Background - Smaller Height */}
+      {/* Mobile Parallax Background - Shows Partial Image */}
       <div 
         ref={parallaxRef}
-        className="absolute inset-0 w-full h-[75vh] lg:h-full lg:hidden"
+        className="absolute inset-0 w-full h-full lg:hidden"
         style={{
           backgroundImage: `url(${towelBackgroundImage})`,
           backgroundSize: '140%', // Even larger for more parallax movement
@@ -141,7 +141,7 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
       
       <div className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-content ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
         {/* Mobile: Centered content with more vertical space */}
-        <div className="lg:hidden h-[75vh] flex flex-col justify-center py-16 transform -translate-y-[100px]">
+        <div className="lg:hidden min-h-screen flex flex-col justify-center py-16 transform -translate-y-[100px]">
           {/* Section Header - Elegant "Meðmæli" Design */}
           <div className={`text-center mb-8 relative scroll-animate ${testimonialsAnimation.isVisible ? 'visible' : ''}`}>
             {/* Background Quote Mark */}
@@ -151,14 +151,14 @@ export function TestimonialsCarousel({ className = '' }: TestimonialCarouselProp
               </div>
             </div>
             
-            {/* Main Title - Match Verkin Okkar Styling */}
-            <h2 className="font-serif text-[36px] md:text-[48px] lg:text-[52px] font-medium text-purple-900 mb-4 tracking-wide leading-[1.1] relative z-10">
+            {/* Main Title - Enhanced Elegant Styling */}
+            <h2 className="font-serif text-[28px] font-medium text-purple-900 mb-4 tracking-wide leading-[1.1] relative z-10">
               Meðmæli
             </h2>
             
-            {/* Elegant Decorative Underline in Light Lavender - Match Verkin Okkar */}
-            <div className="flex justify-center mb-8">
-              <div className="w-32 h-1.5 bg-gradient-to-r from-purple-300 via-purple-400 to-purple-300 rounded-full shadow-sm opacity-80"></div>
+            {/* Elegant Decorative Underline in Light Lavender */}
+            <div className="flex justify-center mb-6">
+              <div className="w-24 h-1 bg-gradient-to-r from-purple-300 via-purple-400 to-purple-300 rounded-full shadow-sm opacity-80"></div>
             </div>
           </div>
 
